@@ -33,15 +33,15 @@ const routes: RouteObject[] = [
     element: <Home />,
   },
   {
-    path: "/fundamentos-arquitectura",
+    path: "/fundamentos-3",
     element: <FundamentosArquitecturaPage />,
   },
   {
-    path: "/fundamentos-arquitectura/arquitectura-pt1",
+    path: "/fundamentos-arquitectura/arquitectura1",
     element: <ArquitecturaPT1Page />,
   },
   {
-    path: "/fundamentos-arquitectura/arquitectura-pt2",
+    path: "/fundamentos-arquitectura/arquitectura2",
     element: <ArquitecturaPT2 />,
   },
   {
