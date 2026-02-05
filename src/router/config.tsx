@@ -17,26 +17,26 @@ import DockerIntro from "../pages/devops/docker-intro/page";
 import DockerEjemplo from "../pages/devops/docker-ejemplo/page";
 import CloudComputing from "../pages/devops/cloud-computing/page";
 import ArquitecturaPT2 from "../pages/fundamentos-arquitectura/arquitectura-pt2/page";
-import ArquitecturaPT1Page from "../pages/fundamentos-arquitectura/arquitectura-pt1/page";
+
 import IAParte1 from "../pages/fundamentos-ia/ia-pt1/page";
 import IAParte2 from "../pages/fundamentos-ia/ia-pt2/page";
 
 const HTMLPage = lazy(() => import('../pages/frontend/html/page'));
 const CSSPage = lazy(() => import('../pages/frontend/css/page'));
 const SeguridadTestingPage = lazy(() => import('../pages/seguridad-testing/page'));
+const ArquitecturaPT1Page = lazy(() => import('../pages/fundamentos-arquitectura/arquitectura-pt1/page'));
 
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <Home />,
   },
-  
   {
-    path: "/fundamentos-arquitectura/arquitectura-pt1",
+    path: "/arquitectura-pt1",
     element: <ArquitecturaPT1Page />,
   },
   {
-    path: "/fundamentos-arquitectura/arquitectura-pt2",
+    path: "/arquitectura-pt2",
     element: <ArquitecturaPT2 />,
   },
   {

@@ -135,8 +135,8 @@ export default function Navbar({ activeSection }) {
       hasSubmenu: true,
       submenu: [
         { id: 'casos-estudio', label: 'Casos de Estudio (Gigantes Tech)', icon: 'ri-building-4-line', path: '/fundamentos-arquitectura' },
-        { id: 'fundamentos-parte1', label: 'Arquitectura PT1', icon: 'ri-building-4-line', path: '/fundamentos-arquitectura/arquitectura-pt1' },
-        { id: 'fundamentos-parte2', label: 'Arquitectura PT2', icon: 'ri-building-4-line', path: '/fundamentos-arquitectura/arquitectura-pt2' },
+        { id: 'fundamentos-parte1', label: 'Arquitectura PT1', icon: 'ri-building-4-line', path: '/arquitectura-pt1' },
+        { id: 'fundamentos-parte2', label: 'Arquitectura PT2', icon: 'ri-building-4-line', path: '/arquitectura-pt2' },
       ]
     },
     { 
@@ -382,7 +382,7 @@ export default function Navbar({ activeSection }) {
                             </span>
                           </a>
                           <a
-                            href="/fundamentos-arquitectura/arquitectura-pt1"
+                            href="/arquitectura-pt1"
                             className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
                           >
                             <span className="flex items-center gap-2">
@@ -391,7 +391,7 @@ export default function Navbar({ activeSection }) {
                             </span>
                           </a>
                           <a
-                            href="/fundamentos-arquitectura/arquitectura-pt2"
+                            href="/arquitectura-pt2"
                             className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
                           >
                             <span className="flex items-center gap-2">
@@ -610,7 +610,7 @@ export default function Navbar({ activeSection }) {
                                 </li>
                                 <li>
                                   <a
-                                    href="/fundamentos-arquitectura/arquitectura-pt1"
+                                    href="/arquitectura-pt1"
                                     className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
                                   >
                                     <span className="flex items-center gap-2">
@@ -621,7 +621,7 @@ export default function Navbar({ activeSection }) {
                                 </li>
                                 <li>
                                   <a
-                                    href="/fundamentos-arquitectura/arquitectura-pt2"
+                                    href="/arquitectura-pt2"
                                     className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
                                   >
                                     <span className="flex items-center gap-2">
