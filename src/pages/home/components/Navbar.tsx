@@ -14,11 +14,17 @@ export default function Navbar({ activeSection }) {
   const [isMobileCodeConceptsOpen, setIsMobileCodeConceptsOpen] = useState(false);
   const [isDevOpsOpen, setIsDevOpsOpen] = useState(false);
   const [isMobileDevOpsOpen, setIsMobileDevOpsOpen] = useState(false);
+  const [isFundamentosOpen, setIsFundamentosOpen] = useState(false);
+  const [isMobileFundamentosOpen, setIsMobileFundamentosOpen] = useState(false);
+  const [isIAOpen, setIsIAOpen] = useState(false);
+  const [isMobileIAOpen, setIsMobileIAOpen] = useState(false);
   const dropdownRef = useRef(null);
   const backendDropdownRef = useRef(null);
   const frontendDropdownRef = useRef(null);
   const codeConceptsDropdownRef = useRef(null);
   const devOpsDropdownRef = useRef(null);
+  const fundamentosDropdownRef = useRef(null);
+  const iaDropdownRef = useRef(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -55,6 +61,12 @@ export default function Navbar({ activeSection }) {
       }
       if (devOpsDropdownRef.current && !devOpsDropdownRef.current.contains(event.target)) {
         setIsDevOpsOpen(false);
+      }
+      if (fundamentosDropdownRef.current && !fundamentosDropdownRef.current.contains(event.target)) {
+        setIsFundamentosOpen(false);
+      }
+      if (iaDropdownRef.current && !iaDropdownRef.current.contains(event.target)) {
+        setIsIAOpen(false);
       }
     };
 
@@ -116,7 +128,25 @@ export default function Navbar({ activeSection }) {
     },
     { id: 'metodologias-agiles', label: 'Metodologías Ágiles', icon: 'ri-team-line', path: '/metodologias-agiles' },
     { id: 'control-versiones', label: 'Control de Versiones', icon: 'ri-git-branch-line', path: '/control-versiones' },
-    { id: 'fundamentos-arquitectura', label: 'Fundamentos & Arquitectura de Software', icon: 'ri-building-2-line', path: '/fundamentos-arquitectura' },
+    { 
+      id: 'fundamentos-arquitectura', 
+      label: 'Fundamentos & Arquitectura de Software', 
+      icon: 'ri-building-2-line',
+      hasSubmenu: true,
+      submenu: [
+        { id: 'casos-estudio', label: 'Casos de Estudio (Gigantes Tech)', icon: 'ri-building-4-line', path: '/fundamentos-arquitectura' },
+      ]
+    },
+    { 
+      id: 'fundamentos-ia', 
+      label: 'Fundamentos de IA', 
+      icon: 'ri-brain-line',
+      hasSubmenu: true,
+      submenu: [
+        { id: 'ia-pt1', label: 'IA Parte 1', icon: 'ri-sparkling-line', path: '/fundamentos-ia/ia-pt1' },
+        { id: 'ia-pt2', label: 'IA Parte 2', icon: 'ri-quill-pen-line', path: '/fundamentos-ia/ia-pt2' },
+      ]
+    },
     { 
       id: 'code-concepts', 
       label: 'Conceptos de Código', 
@@ -162,21 +192,43 @@ export default function Navbar({ activeSection }) {
         setIsFrontendOpen(false);
         setIsCodeConceptsOpen(false);
         setIsDevOpsOpen(false);
+        setIsFundamentosOpen(false);
+        setIsIAOpen(false);
       } else if (topic.id === 'frontend') {
         setIsFrontendOpen(!isFrontendOpen);
         setIsBackendOpen(false);
         setIsCodeConceptsOpen(false);
         setIsDevOpsOpen(false);
+        setIsFundamentosOpen(false);
+        setIsIAOpen(false);
       } else if (topic.id === 'code-concepts') {
         setIsCodeConceptsOpen(!isCodeConceptsOpen);
         setIsBackendOpen(false);
         setIsFrontendOpen(false);
         setIsDevOpsOpen(false);
+        setIsFundamentosOpen(false);
+        setIsIAOpen(false);
       } else if (topic.id === 'devops-deployment') {
         setIsDevOpsOpen(!isDevOpsOpen);
         setIsBackendOpen(false);
         setIsFrontendOpen(false);
         setIsCodeConceptsOpen(false);
+        setIsFundamentosOpen(false);
+        setIsIAOpen(false);
+      } else if (topic.id === 'fundamentos-arquitectura') {
+        setIsFundamentosOpen(!isFundamentosOpen);
+        setIsBackendOpen(false);
+        setIsFrontendOpen(false);
+        setIsCodeConceptsOpen(false);
+        setIsDevOpsOpen(false);
+        setIsIAOpen(false);
+      } else if (topic.id === 'fundamentos-ia') {
+        setIsIAOpen(!isIAOpen);
+        setIsBackendOpen(false);
+        setIsFrontendOpen(false);
+        setIsCodeConceptsOpen(false);
+        setIsDevOpsOpen(false);
+        setIsFundamentosOpen(false);
       }
       return;
     }
@@ -188,6 +240,8 @@ export default function Navbar({ activeSection }) {
     setIsFrontendOpen(false);
     setIsCodeConceptsOpen(false);
     setIsDevOpsOpen(false);
+    setIsFundamentosOpen(false);
+    setIsIAOpen(false);
     
     if (topic.path && window.REACT_APP_NAVIGATE) {
       window.REACT_APP_NAVIGATE(topic.path);
@@ -206,6 +260,10 @@ export default function Navbar({ activeSection }) {
     setIsMobileCodeConceptsOpen(false);
     setIsDevOpsOpen(false);
     setIsMobileDevOpsOpen(false);
+    setIsFundamentosOpen(false);
+    setIsMobileFundamentosOpen(false);
+    setIsIAOpen(false);
+    setIsMobileIAOpen(false);
     
     if (submenuItem.path && window.REACT_APP_NAVIGATE) {
       window.REACT_APP_NAVIGATE(submenuItem.path);
@@ -277,7 +335,7 @@ export default function Navbar({ activeSection }) {
               {isTopicsOpen && (
                 <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-100 py-2 animate-fadeIn max-h-[calc(100vh-120px)] overflow-y-auto">
                   {topicItems.map((topic) => (
-                    <div key={topic.id} className="relative" ref={topic.id === 'backend' ? backendDropdownRef : topic.id === 'frontend' ? frontendDropdownRef : topic.id === 'code-concepts' ? codeConceptsDropdownRef : topic.id === 'devops-deployment' ? devOpsDropdownRef : null}>
+                    <div key={topic.id} className="relative" ref={topic.id === 'backend' ? backendDropdownRef : topic.id === 'frontend' ? frontendDropdownRef : topic.id === 'code-concepts' ? codeConceptsDropdownRef : topic.id === 'devops-deployment' ? devOpsDropdownRef : topic.id === 'fundamentos-arquitectura' ? fundamentosDropdownRef : topic.id === 'fundamentos-ia' ? iaDropdownRef : null}>
                       <button
                         onClick={() => handleTopicClick(topic)}
                         className="w-full text-left px-4 py-3 text-sm text-[#1b3d70] hover:bg-[#1b3d70]/5 hover:text-[#bb8800] transition-all duration-200 flex items-center gap-3 cursor-pointer"
@@ -288,7 +346,7 @@ export default function Navbar({ activeSection }) {
                         <span className="font-medium flex-1">{topic.label}</span>
                         {topic.hasSubmenu && (
                           <i className={`ri-arrow-right-s-line transition-transform duration-300 ${
-                            (topic.id === 'backend' && isBackendOpen) || (topic.id === 'frontend' && isFrontendOpen) || (topic.id === 'code-concepts' && isCodeConceptsOpen) || (topic.id === 'devops-deployment' && isDevOpsOpen) ? 'rotate-90' : ''
+                            (topic.id === 'backend' && isBackendOpen) || (topic.id === 'frontend' && isFrontendOpen) || (topic.id === 'code-concepts' && isCodeConceptsOpen) || (topic.id === 'devops-deployment' && isDevOpsOpen) || (topic.id === 'fundamentos-arquitectura' && isFundamentosOpen) || (topic.id === 'fundamentos-ia' && isIAOpen) ? 'rotate-90' : ''
                           }`}></i>
                         )}
                       </button>
@@ -303,6 +361,55 @@ export default function Navbar({ activeSection }) {
                               className="w-full text-left px-4 py-2.5 text-sm text-[#1b3d70] hover:bg-[#2496ED]/10 hover:text-[#2496ED] transition-all duration-200 flex items-center gap-2 cursor-pointer"
                             >
                               <i className={`${submenuItem.icon} text-[#2496ED]`}></i>
+                              <span>{submenuItem.label}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Fundamentos Submenu */}
+                      {topic.id === 'fundamentos-arquitectura' && topic.hasSubmenu && isFundamentosOpen && (
+                        <div className="bg-[#f8f9fa] border-l-2 border-[#8B5CF6] ml-4 mr-2 rounded-r-lg overflow-hidden">
+                          <a
+                            href="/fundamentos-arquitectura"
+                            className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
+                          >
+                            <span className="flex items-center gap-2">
+                              <i className="ri-building-line text-[#8B5CF6]"></i>
+                              Casos de Estudio (Gigantes Tech)
+                            </span>
+                          </a>
+                          <a
+                            href="/fundamentos-arquitectura/arquitectura-pt1"
+                            className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
+                          >
+                            <span className="flex items-center gap-2">
+                              <i className="ri-stack-line text-[#8B5CF6]"></i>
+                              Arquitectura PT1
+                            </span>
+                          </a>
+                          <a
+                            href="/fundamentos-arquitectura/arquitectura-pt2"
+                            className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
+                          >
+                            <span className="flex items-center gap-2">
+                              <i className="ri-stack-line text-[#8B5CF6]"></i>
+                              Arquitectura PT2
+                            </span>
+                          </a>
+                        </div>
+                      )}
+
+                      {/* IA Submenu */}
+                      {topic.id === 'fundamentos-ia' && topic.hasSubmenu && isIAOpen && (
+                        <div className="bg-[#f8f9fa] border-l-2 border-[#4285f4] ml-4 mr-2 rounded-r-lg overflow-hidden">
+                          {topic.submenu.map((submenuItem) => (
+                            <button
+                              key={submenuItem.id}
+                              onClick={() => handleSubmenuClick(submenuItem)}
+                              className="w-full text-left px-4 py-2.5 text-sm text-[#1b3d70] hover:bg-[#4285f4]/10 hover:text-[#4285f4] transition-all duration-200 flex items-center gap-2 cursor-pointer"
+                            >
+                              <i className={`${submenuItem.icon} text-[#4285f4]`}></i>
                               <span>{submenuItem.label}</span>
                             </button>
                           ))}
@@ -420,21 +527,43 @@ export default function Navbar({ activeSection }) {
                                   setIsMobileFrontendOpen(false);
                                   setIsMobileCodeConceptsOpen(false);
                                   setIsMobileDevOpsOpen(false);
+                                  setIsMobileFundamentosOpen(false);
+                                  setIsMobileIAOpen(false);
                                 } else if (topic.id === 'frontend') {
                                   setIsMobileFrontendOpen(!isMobileFrontendOpen);
                                   setIsMobileBackendOpen(false);
                                   setIsMobileCodeConceptsOpen(false);
                                   setIsMobileDevOpsOpen(false);
+                                  setIsMobileFundamentosOpen(false);
+                                  setIsMobileIAOpen(false);
                                 } else if (topic.id === 'code-concepts') {
                                   setIsMobileCodeConceptsOpen(!isMobileCodeConceptsOpen);
                                   setIsMobileBackendOpen(false);
                                   setIsMobileFrontendOpen(false);
                                   setIsMobileDevOpsOpen(false);
+                                  setIsMobileFundamentosOpen(false);
+                                  setIsMobileIAOpen(false);
                                 } else if (topic.id === 'devops-deployment') {
                                   setIsMobileDevOpsOpen(!isMobileDevOpsOpen);
                                   setIsMobileBackendOpen(false);
                                   setIsMobileFrontendOpen(false);
                                   setIsMobileCodeConceptsOpen(false);
+                                  setIsMobileFundamentosOpen(false);
+                                  setIsMobileIAOpen(false);
+                                } else if (topic.id === 'fundamentos-arquitectura') {
+                                  setIsMobileFundamentosOpen(!isMobileFundamentosOpen);
+                                  setIsMobileBackendOpen(false);
+                                  setIsMobileFrontendOpen(false);
+                                  setIsMobileCodeConceptsOpen(false);
+                                  setIsMobileDevOpsOpen(false);
+                                  setIsMobileIAOpen(false);
+                                } else if (topic.id === 'fundamentos-ia') {
+                                  setIsMobileIAOpen(!isMobileIAOpen);
+                                  setIsMobileBackendOpen(false);
+                                  setIsMobileFrontendOpen(false);
+                                  setIsMobileCodeConceptsOpen(false);
+                                  setIsMobileDevOpsOpen(false);
+                                  setIsMobileFundamentosOpen(false);
                                 }
                               }}
                               className="w-full text-left py-2 px-3 text-sm text-[#1b3d70] hover:text-[#bb8800] transition-all duration-200 flex items-center justify-between cursor-pointer rounded-lg hover:bg-gray-50"
@@ -444,7 +573,7 @@ export default function Navbar({ activeSection }) {
                                 <span>{topic.label}</span>
                               </div>
                               <i className={`ri-arrow-down-s-line transition-transform duration-300 ${
-                                (topic.id === 'backend' && isMobileBackendOpen) || (topic.id === 'frontend' && isMobileFrontendOpen) || (topic.id === 'code-concepts' && isMobileCodeConceptsOpen) || (topic.id === 'devops-deployment' && isMobileDevOpsOpen) ? 'rotate-180' : ''
+                                (topic.id === 'backend' && isMobileBackendOpen) || (topic.id === 'frontend' && isMobileFrontendOpen) || (topic.id === 'code-concepts' && isMobileCodeConceptsOpen) || (topic.id === 'devops-deployment' && isMobileDevOpsOpen) || (topic.id === 'fundamentos-arquitectura' && isMobileFundamentosOpen) || (topic.id === 'fundamentos-ia' && isMobileIAOpen) ? 'rotate-180' : ''
                               }`}></i>
                             </button>
                             
@@ -457,6 +586,60 @@ export default function Navbar({ activeSection }) {
                                       className="w-full text-left py-2 px-2 text-sm text-[#1b3d70] hover:text-[#2496ED] transition-all duration-200 flex items-center gap-2 cursor-pointer rounded-lg hover:bg-[#2496ED]/5"
                                     >
                                       <i className={`${submenuItem.icon} text-[#2496ED]`}></i>
+                                      <span>{submenuItem.label}</span>
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+
+                            {topic.id === 'fundamentos-arquitectura' && isMobileFundamentosOpen && (
+                              <ul className="mt-1 ml-4 space-y-1 border-l-2 border-[#8B5CF6]/30 pl-3">
+                                <li>
+                                  <a
+                                    href="/fundamentos-arquitectura"
+                                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
+                                  >
+                                    <span className="flex items-center gap-2">
+                                      <i className="ri-building-line text-[#8B5CF6]"></i>
+                                      Casos de Estudio (Gigantes Tech)
+                                    </span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a
+                                    href="/fundamentos-arquitectura/arquitectura-pt1"
+                                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
+                                  >
+                                    <span className="flex items-center gap-2">
+                                      <i className="ri-stack-line text-[#8B5CF6]"></i>
+                                      Arquitectura PT1
+                                    </span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a
+                                    href="/fundamentos-arquitectura/arquitectura-pt2"
+                                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
+                                  >
+                                    <span className="flex items-center gap-2">
+                                      <i className="ri-stack-line text-[#8B5CF6]"></i>
+                                      Arquitectura PT2
+                                    </span>
+                                  </a>
+                                </li>
+                              </ul>
+                            )}
+
+                            {topic.id === 'fundamentos-ia' && isMobileIAOpen && (
+                              <ul className="mt-1 ml-4 space-y-1 border-l-2 border-[#4285f4]/30 pl-3">
+                                {topic.submenu.map((submenuItem) => (
+                                  <li key={submenuItem.id}>
+                                    <button
+                                      onClick={() => handleSubmenuClick(submenuItem)}
+                                      className="w-full text-left py-2 px-2 text-sm text-[#1b3d70] hover:text-[#4285f4] transition-all duration-200 flex items-center gap-2 cursor-pointer rounded-lg hover:bg-[#4285f4]/5"
+                                    >
+                                      <i className={`${submenuItem.icon} text-[#4285f4]`}></i>
                                       <span>{submenuItem.label}</span>
                                     </button>
                                   </li>
