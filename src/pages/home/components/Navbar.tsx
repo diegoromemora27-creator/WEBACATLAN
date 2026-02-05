@@ -380,7 +380,7 @@ export default function Navbar({ activeSection }) {
                             </span>
                           </a>
                           <a
-                            href="/fundamentos-arquitectura/arquitectura-pt1"
+                            href="/fundamentos-arquitectura/arquitectura1"
                             className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
                           >
                             <span className="flex items-center gap-2">
@@ -389,7 +389,7 @@ export default function Navbar({ activeSection }) {
                             </span>
                           </a>
                           <a
-                            href="/fundamentos-arquitectura/arquitectura-pt2"
+                            href="/fundamentos-arquitectura//arquitectura2"
                             className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#8B5CF6]/10 hover:text-[#8B5CF6] transition-all duration-200 cursor-pointer"
                           >
                             <span className="flex items-center gap-2">
