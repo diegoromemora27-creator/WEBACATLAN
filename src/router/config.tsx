@@ -30,6 +30,7 @@ const routes: RouteObject[] = [
     path: "/",
     element: <Home />,
   },
+  
   {
     path: "/fundamentos-arquitectura/arquitectura-pt1",
     element: <ArquitecturaPT1Page />,
