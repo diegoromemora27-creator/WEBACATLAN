@@ -1,136 +1,152 @@
 
 export default function ComponentesBasicosSection() {
   return (
-    <section className="py-12 md:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
-        {/* Encabezado */}
-        <div className="text-center mb-10 md:mb-20 space-y-4 md:space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-[#3B82F6]/10 rounded-full">
-            <i className="ri-stack-line text-[#3B82F6] text-base md:text-lg"></i>
-            <span className="text-[#1A2332] text-xs md:text-sm font-semibold">Componentes Básicos</span>
+    <section className="py-12 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* Header */}
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-4">
+            <i className="ri-puzzle-line text-blue-600 text-lg"></i>
+            <span className="text-blue-600 text-sm font-semibold">Principio 1</span>
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#1A2332]">
-            Unidades Fundamentales del Sistema
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+            Modularidad
           </h2>
-          <p className="text-base md:text-lg text-[#64748B] max-w-3xl mx-auto">
-            Los componentes, módulos y servicios son unidades con responsabilidades específicas
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+            Dividir el sistema en piezas independientes con responsabilidades claras
           </p>
         </div>
 
-        {/* Definición */}
-        <div className="bg-gradient-to-br from-[#F8FAFC] to-[#F1F5F9] rounded-xl md:rounded-2xl p-6 md:p-12 mb-10 md:mb-16 border border-[#E2E8F0]">
-          <p className="text-base md:text-lg text-[#475569] leading-relaxed">
-            Los componentes son unidades funcionales con <strong className="text-[#1A2332]">responsabilidades específicas</strong>, como UI para interfaz, lógica de negocio para reglas y acceso a datos para persistencia. En microservicios actuales, como en e-commerce de <strong className="text-[#3B82F6]">Shein</strong>, cada servicio maneja un dominio independiente (ej. pagos o inventario) para escalabilidad.
-          </p>
-        </div>
-
-        {/* Tipos de componentes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-16">
-          {/* UI */}
-          <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-[#3B82F6]/10 rounded-xl mb-4 md:mb-6">
-              <i className="ri-layout-line text-[#3B82F6] text-2xl md:text-3xl"></i>
+        {/* Concepto */}
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 mb-8 md:mb-12 border border-blue-100">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-blue-500 rounded-xl flex-shrink-0">
+              <i className="ri-stack-line text-white text-2xl md:text-3xl"></i>
             </div>
-            <h3 className="text-xl md:text-2xl font-bold text-[#1A2332] mb-3 md:mb-4">UI (Interfaz)</h3>
-            <p className="text-sm md:text-base text-[#64748B] leading-relaxed">
-              Componentes visuales que interactúan con el usuario, como formularios, botones y navegación. Responsables de la presentación y experiencia del usuario.
-            </p>
-          </div>
-
-          {/* Lógica de Negocio */}
-          <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-[#10B981]/10 rounded-xl mb-4 md:mb-6">
-              <i className="ri-settings-3-line text-[#10B981] text-2xl md:text-3xl"></i>
-            </div>
-            <h3 className="text-xl md:text-2xl font-bold text-[#1A2332] mb-3 md:mb-4">Lógica de Negocio</h3>
-            <p className="text-sm md:text-base text-[#64748B] leading-relaxed">
-              Reglas y procesos que definen el comportamiento del sistema, como validaciones, cálculos y flujos de trabajo específicos del dominio.
-            </p>
-          </div>
-
-          {/* Acceso a Datos */}
-          <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-[#3B82F6]/10 rounded-xl mb-4 md:mb-6">
-              <i className="ri-database-2-line text-[#3B82F6] text-2xl md:text-3xl"></i>
-            </div>
-            <h3 className="text-xl md:text-2xl font-bold text-[#1A2332] mb-3 md:mb-4">Acceso a Datos</h3>
-            <p className="text-sm md:text-base text-[#64748B] leading-relaxed">
-              Componentes que gestionan la persistencia y recuperación de información, abstrayendo la comunicación con bases de datos y sistemas de almacenamiento.
-            </p>
-          </div>
-        </div>
-
-        {/* Microservicios */}
-        <div className="bg-gradient-to-r from-[#3B82F6]/5 to-[#10B981]/5 rounded-xl md:rounded-2xl p-6 md:p-10 border-l-4 border-[#3B82F6] mb-10 md:mb-16">
-          <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#3B82F6] rounded-lg flex-shrink-0">
-              <i className="ri-apps-2-line text-white text-xl md:text-2xl"></i>
-            </div>
-            <div className="space-y-3 md:space-y-4 w-full">
-              <h4 className="text-xl md:text-2xl font-bold text-[#1A2332]">Microservicios en E-commerce</h4>
-              <p className="text-sm md:text-base text-[#475569] leading-relaxed">
-                En plataformas como <strong className="text-[#3B82F6]">Shein</strong>, cada servicio maneja un dominio independiente:
+            <div className="flex-1">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Idea Central</h3>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                Dividir el sistema en <strong>piezas independientes</strong> con responsabilidades claras y una interfaz definida.
               </p>
-              <div className="grid grid-cols-2 gap-3 md:gap-4 mt-4 md:mt-6">
-                <div className="flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4 border border-[#E2E8F0]">
-                  <i className="ri-bank-card-line text-[#3B82F6] text-lg md:text-xl"></i>
-                  <span className="text-[#1A2332] font-medium text-xs md:text-base">Servicio de Pagos</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4 border border-[#E2E8F0]">
-                  <i className="ri-archive-line text-[#10B981] text-lg md:text-xl"></i>
-                  <span className="text-[#1A2332] font-medium text-xs md:text-base">Servicio de Inventario</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4 border border-[#E2E8F0]">
-                  <i className="ri-user-line text-[#3B82F6] text-lg md:text-xl"></i>
-                  <span className="text-[#1A2332] font-medium text-xs md:text-base">Servicio de Usuarios</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4 border border-[#E2E8F0]">
-                  <i className="ri-shopping-cart-line text-[#10B981] text-lg md:text-xl"></i>
-                  <span className="text-[#1A2332] font-medium text-xs md:text-base">Servicio de Pedidos</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Beneficios */}
-        <div className="bg-white rounded-xl md:rounded-2xl p-6 md:p-10 border border-[#E2E8F0] shadow-md">
-          <h3 className="text-2xl md:text-3xl font-bold text-[#1A2332] mb-6 md:mb-8">Beneficios de la Modularidad</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            <div className="flex items-start gap-3 md:gap-4">
-              <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#10B981]/10 rounded-lg flex-shrink-0">
-                <i className="ri-checkbox-circle-line text-[#10B981] text-lg md:text-xl"></i>
+        {/* Ejemplos en Plataformas */}
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 md:mb-8">Cómo se ve en plataformas reales:</h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+          {/* Web - Amazon */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5 md:p-6 hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-orange-500 rounded-lg">
+                <i className="ri-global-line text-white text-xl md:text-2xl"></i>
               </div>
-              <div>
-                <h4 className="text-base md:text-lg font-bold text-[#1A2332] mb-1 md:mb-2">Actualizaciones Independientes</h4>
-                <p className="text-sm md:text-base text-[#64748B]">Cada componente puede evolucionar sin afectar al resto del sistema</p>
-              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Web (Amazon)</h4>
             </div>
-            <div className="flex items-start gap-3 md:gap-4">
-              <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#3B82F6]/10 rounded-lg flex-shrink-0">
-                <i className="ri-scales-3-line text-[#3B82F6] text-lg md:text-xl"></i>
+            <ul className="space-y-2 text-sm md:text-base text-gray-700">
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-orange-500 mt-1 flex-shrink-0"></i>
+                <span>Módulo de catálogo</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-orange-500 mt-1 flex-shrink-0"></i>
+                <span>Módulo de carrito</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-orange-500 mt-1 flex-shrink-0"></i>
+                <span>Módulo de pagos</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-orange-500 mt-1 flex-shrink-0"></i>
+                <span>Módulo de reseñas</span>
+              </li>
+            </ul>
+            <p className="mt-4 text-xs md:text-sm text-gray-600 italic">
+              Cada uno puede evolucionar casi por separado
+            </p>
+          </div>
+
+          {/* Mobile - App Bancaria */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5 md:p-6 hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-blue-600 rounded-lg">
+                <i className="ri-smartphone-line text-white text-xl md:text-2xl"></i>
               </div>
-              <div>
-                <h4 className="text-base md:text-lg font-bold text-[#1A2332] mb-1 md:mb-2">Escalabilidad Selectiva</h4>
-                <p className="text-sm md:text-base text-[#64748B]">Escala solo los servicios que necesitan más recursos</p>
-              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Mobile (Banco)</h4>
             </div>
-            <div className="flex items-start gap-3 md:gap-4">
-              <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#10B981]/10 rounded-lg flex-shrink-0">
-                <i className="ri-test-tube-line text-[#10B981] text-lg md:text-xl"></i>
+            <ul className="space-y-2 text-sm md:text-base text-gray-700">
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-blue-600 mt-1 flex-shrink-0"></i>
+                <span>Módulo de transferencias</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-blue-600 mt-1 flex-shrink-0"></i>
+                <span>Módulo de tarjetas</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-blue-600 mt-1 flex-shrink-0"></i>
+                <span>Módulo de inversiones</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-blue-600 mt-1 flex-shrink-0"></i>
+                <span>Módulo de notificaciones</span>
+              </li>
+            </ul>
+            <p className="mt-4 text-xs md:text-sm text-gray-600 italic">
+              Feature modules independientes
+            </p>
+          </div>
+
+          {/* Desktop - VS Code */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5 md:p-6 hover:shadow-xl transition-shadow md:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-blue-500 rounded-lg">
+                <i className="ri-computer-line text-white text-xl md:text-2xl"></i>
               </div>
-              <div>
-                <h4 className="text-base md:text-lg font-bold text-[#1A2332] mb-1 md:mb-2">Testing Simplificado</h4>
-                <p className="text-sm md:text-base text-[#64748B]">Pruebas unitarias más fáciles en componentes aislados</p>
-              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Desktop (VS Code)</h4>
             </div>
-            <div className="flex items-start gap-3 md:gap-4">
-              <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#3B82F6]/10 rounded-lg flex-shrink-0">
-                <i className="ri-recycle-line text-[#3B82F6] text-lg md:text-xl"></i>
-              </div>
-              <div>
-                <h4 className="text-base md:text-lg font-bold text-[#1A2332] mb-1 md:mb-2">Reutilización</h4>
-                <p className="text-sm md:text-base text-[#64748B]">Componentes pueden usarse en múltiples contextos</p>
+            <ul className="space-y-2 text-sm md:text-base text-gray-700">
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-blue-500 mt-1 flex-shrink-0"></i>
+                <span>Extensiones son módulos</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-blue-500 mt-1 flex-shrink-0"></i>
+                <span>Instalar/quitar sin romper</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="ri-checkbox-circle-fill text-blue-500 mt-1 flex-shrink-0"></i>
+                <span>Independencia total</span>
+              </li>
+            </ul>
+            <p className="mt-4 text-xs md:text-sm text-gray-600 italic">
+              Cada extensión funciona de forma aislada
+            </p>
+          </div>
+        </div>
+
+        {/* Problemas que resuelve */}
+        <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-6 md:p-8 border border-red-100">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-red-500 rounded-xl flex-shrink-0">
+              <i className="ri-alert-line text-white text-2xl md:text-3xl"></i>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Qué problema te ayuda a ver en el día a día:</h3>
+              <div className="space-y-3 md:space-y-4">
+                <div className="flex items-start gap-3">
+                  <i className="ri-close-circle-fill text-red-500 text-xl mt-1 flex-shrink-0"></i>
+                  <p className="text-base md:text-lg text-gray-700">
+                    Si <strong>"todo está junto"</strong> (un solo proyecto gigantesco) los cambios pequeños son riesgosos y lentos
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <i className="ri-checkbox-circle-fill text-green-500 text-xl mt-1 flex-shrink-0"></i>
+                  <p className="text-base md:text-lg text-gray-700">
+                    Si ves que un producto lanza features en áreas muy específicas sin tocar todo lo demás, casi seguro hay <strong>buena modularidad</strong>
+                  </p>
+                </div>
               </div>
             </div>
           </div>

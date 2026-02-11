@@ -3,10 +3,11 @@ import Navbar from '../../home/components/Navbar';
 import Footer from '../../home/components/Footer';
 import HeroSection from './components/HeroSection';
 import ConceptoGeneralSection from './components/ConceptoGeneralSection';
-import DiferenciasClaveSection from './components/DiferenciasClaveSection';
 import ComponentesBasicosSection from './components/ComponentesBasicosSection';
 import InterfacesContratosSection from './components/InterfacesContratosSection';
 import ConectoresSection from './components/ConectoresSection';
+import DiferenciasClaveSection from './components/DiferenciasClaveSection';
+import PatronesSection from './components/PatronesSection';
 
 export default function ArquitecturaPT1Page() {
   const [activeSection, setActiveSection] = useState('');
@@ -16,10 +17,11 @@ export default function ArquitecturaPT1Page() {
       <Navbar activeSection={activeSection} />
       <HeroSection />
       <ConceptoGeneralSection />
-      <DiferenciasClaveSection />
       <ComponentesBasicosSection />
       <InterfacesContratosSection />
       <ConectoresSection />
+      <DiferenciasClaveSection />
+      <PatronesSection />
     </div>
   );
 }

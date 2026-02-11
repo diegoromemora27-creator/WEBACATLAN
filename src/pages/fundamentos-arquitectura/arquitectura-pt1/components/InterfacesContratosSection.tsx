@@ -1,135 +1,184 @@
 
 export default function InterfacesContratosSection() {
   return (
-    <section className="py-12 md:py-24 bg-[#FAFAFA]">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
-        {/* Encabezado */}
-        <div className="text-center mb-10 md:mb-20 space-y-4 md:space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-[#10B981]/10 rounded-full">
-            <i className="ri-links-line text-[#10B981] text-base md:text-lg"></i>
-            <span className="text-[#1A2332] text-xs md:text-sm font-semibold">Interfaces & Contratos</span>
+    <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        {/* Header */}
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 rounded-full mb-4">
+            <i className="ri-stack-line text-purple-600 text-lg"></i>
+            <span className="text-purple-600 text-sm font-semibold">Principio 2</span>
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#1A2332]">
-            Comunicación entre Componentes
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+            Separación en Capas
           </h2>
-          <p className="text-base md:text-lg text-[#64748B] max-w-3xl mx-auto">
-            Definen cómo se comunican los componentes mediante APIs, protocolos y especificaciones
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+            Organizar la aplicación en "pisos" con responsabilidades específicas
           </p>
         </div>
 
-        {/* Definición */}
-        <div className="bg-white rounded-xl md:rounded-2xl p-6 md:p-12 mb-10 md:mb-16 border border-[#E2E8F0] shadow-md">
-          <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#3B82F6]/10 rounded-lg flex-shrink-0">
-              <i className="ri-file-list-3-line text-[#3B82F6] text-xl md:text-2xl"></i>
+        {/* Concepto */}
+        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 md:p-8 mb-8 md:mb-12 border border-purple-100">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-purple-500 rounded-xl flex-shrink-0">
+              <i className="ri-layout-line text-white text-2xl md:text-3xl"></i>
             </div>
-            <div className="space-y-3 md:space-y-4">
-              <h3 className="text-xl md:text-2xl font-bold text-[#1A2332]">¿Qué son las Interfaces y Contratos?</h3>
-              <p className="text-base md:text-lg text-[#475569] leading-relaxed">
-                Las interfaces y contratos definen <strong className="text-[#3B82F6]">cómo se comunican</strong> los componentes mediante APIs, protocolos y especificaciones como <strong className="text-[#10B981]">OpenAPI/Swagger</strong>. Un contrato API documenta endpoints, parámetros y respuestas para facilitar la colaboración y reducir la deuda técnica.
+            <div className="flex-1">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Concepto</h3>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                La arquitectura en capas separa la app en <strong>"pisos"</strong>: presentación, lógica de negocio, acceso a datos, etc.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Elementos de un contrato */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-16">
-          {/* Endpoints */}
-          <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 md:p-8 hover:shadow-xl transition-all duration-300">
-            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-[#3B82F6]/10 rounded-xl mb-4 md:mb-6">
-              <i className="ri-route-line text-[#3B82F6] text-2xl md:text-3xl"></i>
+        {/* Capas Típicas */}
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 md:mb-8 text-center">Capas Típicas</h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12">
+          {/* Presentación */}
+          <div className="bg-white rounded-xl shadow-lg border-2 border-blue-200 p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-blue-500 rounded-lg">
+                <i className="ri-layout-4-line text-white text-xl md:text-2xl"></i>
+              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Presentación (UI)</h4>
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-[#1A2332] mb-3 md:mb-4">Endpoints</h3>
-            <p className="text-sm md:text-base text-[#64748B] leading-relaxed mb-3 md:mb-4">
-              URLs específicas que exponen funcionalidades del servicio
-            </p>
-            <div className="bg-[#F8FAFC] rounded-lg p-3 font-mono text-xs md:text-sm text-[#3B82F6] overflow-x-auto">
-              GET /api/users/:id
-            </div>
+            <p className="text-sm md:text-base text-gray-700">Lo que el usuario ve e interactúa</p>
           </div>
 
-          {/* Parámetros */}
-          <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 md:p-8 hover:shadow-xl transition-all duration-300">
-            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-[#10B981]/10 rounded-xl mb-4 md:mb-6">
-              <i className="ri-input-method-line text-[#10B981] text-2xl md:text-3xl"></i>
+          {/* Aplicación */}
+          <div className="bg-white rounded-xl shadow-lg border-2 border-purple-200 p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-purple-500 rounded-lg">
+                <i className="ri-apps-line text-white text-xl md:text-2xl"></i>
+              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Aplicación / Servicios</h4>
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-[#1A2332] mb-3 md:mb-4">Parámetros</h3>
-            <p className="text-sm md:text-base text-[#64748B] leading-relaxed mb-3 md:mb-4">
-              Datos de entrada requeridos u opcionales para cada operación
-            </p>
-            <div className="bg-[#F8FAFC] rounded-lg p-3 font-mono text-xs md:text-sm text-[#10B981]">
-              &#123;id: string&#125;
-            </div>
+            <p className="text-sm md:text-base text-gray-700">Coordina casos de uso (comprar, registrar usuario)</p>
           </div>
 
-          {/* Respuestas */}
-          <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 md:p-8 hover:shadow-xl transition-all duration-300">
-            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-[#3B82F6]/10 rounded-xl mb-4 md:mb-6">
-              <i className="ri-file-code-line text-[#3B82F6] text-2xl md:text-3xl"></i>
+          {/* Dominio */}
+          <div className="bg-white rounded-xl shadow-lg border-2 border-green-200 p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-green-500 rounded-lg">
+                <i className="ri-briefcase-line text-white text-xl md:text-2xl"></i>
+              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Dominio / Negocio</h4>
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-[#1A2332] mb-3 md:mb-4">Respuestas</h3>
-            <p className="text-sm md:text-base text-[#64748B] leading-relaxed mb-3 md:mb-4">
-              Estructura de datos devuelta y códigos de estado HTTP
-            </p>
-            <div className="bg-[#F8FAFC] rounded-lg p-3 font-mono text-xs md:text-sm text-[#3B82F6]">
-              200 OK, 404 Not Found
+            <p className="text-sm md:text-base text-gray-700">Reglas de negocio y lógica central</p>
+          </div>
+
+          {/* Datos */}
+          <div className="bg-white rounded-xl shadow-lg border-2 border-orange-200 p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-orange-500 rounded-lg">
+                <i className="ri-database-2-line text-white text-xl md:text-2xl"></i>
+              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Acceso a Datos</h4>
             </div>
+            <p className="text-sm md:text-base text-gray-700">Persistencia, base de datos, APIs externas</p>
           </div>
         </div>
 
-        {/* OpenAPI/Swagger */}
-        <div className="bg-gradient-to-r from-[#10B981]/5 to-[#3B82F6]/5 rounded-xl md:rounded-2xl p-6 md:p-10 border-l-4 border-[#10B981] mb-10 md:mb-16">
-          <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#10B981] rounded-lg flex-shrink-0">
-              <i className="ri-file-text-line text-white text-xl md:text-2xl"></i>
+        {/* Ejemplos por Plataforma */}
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 md:mb-8">Cómo se ve en el día a día:</h3>
+
+        <div className="space-y-6 md:space-y-8">
+          {/* Web */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-blue-600 rounded-lg">
+                <i className="ri-global-line text-white text-xl md:text-2xl"></i>
+              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Web</h4>
             </div>
-            <div className="space-y-3 md:space-y-4 w-full">
-              <h4 className="text-xl md:text-2xl font-bold text-[#1A2332]">OpenAPI/Swagger</h4>
-              <p className="text-sm md:text-base text-[#475569] leading-relaxed">
-                Especificación estándar para documentar APIs REST. Permite generar documentación interactiva, validar contratos automáticamente y generar código cliente/servidor. Ampliamente usado en plataformas no-code como <strong className="text-[#10B981]">AppMaster</strong> para reducir deuda técnica.
-              </p>
-              <div className="grid grid-cols-2 gap-3 md:gap-4 mt-4 md:mt-6">
-                <div className="flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4 border border-[#E2E8F0]">
-                  <i className="ri-book-open-line text-[#10B981] text-lg md:text-xl"></i>
-                  <span className="text-[#1A2332] font-medium text-xs md:text-base">Documentación Automática</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4 border border-[#E2E8F0]">
-                  <i className="ri-shield-check-line text-[#3B82F6] text-lg md:text-xl"></i>
-                  <span className="text-[#1A2332] font-medium text-xs md:text-base">Validación de Contratos</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4 border border-[#E2E8F0]">
-                  <i className="ri-code-box-line text-[#10B981] text-lg md:text-xl"></i>
-                  <span className="text-[#1A2332] font-medium text-xs md:text-base">Generación de Código</span>
-                </div>
-                <div className="flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4 border border-[#E2E8F0]">
-                  <i className="ri-test-tube-line text-[#3B82F6] text-lg md:text-xl"></i>
-                  <span className="text-[#1A2332] font-medium text-xs md:text-base">Testing Integrado</span>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-blue-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-blue-900 mb-2">UI</p>
+                <p className="text-xs md:text-sm text-blue-700">HTML/CSS/JS, React, Vue</p>
+              </div>
+              <div className="bg-purple-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-purple-900 mb-2">Servicios/API</p>
+                <p className="text-xs md:text-sm text-purple-700">Node, Django, Laravel (REST/GraphQL)</p>
+              </div>
+              <div className="bg-green-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-green-900 mb-2">Datos</p>
+                <p className="text-xs md:text-sm text-green-700">PostgreSQL, MongoDB, Redis</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-green-600 rounded-lg">
+                <i className="ri-smartphone-line text-white text-xl md:text-2xl"></i>
+              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Mobile</h4>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-blue-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-blue-900 mb-2">UI Nativa</p>
+                <p className="text-xs md:text-sm text-blue-700">SwiftUI, Jetpack Compose</p>
+              </div>
+              <div className="bg-purple-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-purple-900 mb-2">Dominio</p>
+                <p className="text-xs md:text-sm text-purple-700">Use cases, entidades</p>
+              </div>
+              <div className="bg-green-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-green-900 mb-2">Repositorios</p>
+                <p className="text-xs md:text-sm text-green-700">API o base local (Room, Core Data)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-purple-600 rounded-lg">
+                <i className="ri-computer-line text-white text-xl md:text-2xl"></i>
+              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Desktop (Spotify Desktop)</h4>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-blue-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-blue-900 mb-2">UI</p>
+                <p className="text-xs md:text-sm text-blue-700">App de escritorio</p>
+              </div>
+              <div className="bg-purple-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-purple-900 mb-2">Lógica</p>
+                <p className="text-xs md:text-sm text-purple-700">Playlists, cambio de dispositivo</p>
+              </div>
+              <div className="bg-green-50 rounded-lg p-4">
+                <p className="text-sm font-semibold text-green-900 mb-2">Acceso a datos</p>
+                <p className="text-xs md:text-sm text-green-700">Servicios en la nube</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Ejemplo actual */}
-        <div className="bg-white rounded-xl md:rounded-2xl p-6 md:p-10 border border-[#E2E8F0] shadow-md">
-          <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-gradient-to-br from-[#3B82F6] to-[#10B981] rounded-lg flex-shrink-0">
-              <i className="ri-hospital-line text-white text-xl md:text-2xl"></i>
+        {/* Señales para identificar */}
+        <div className="mt-8 md:mt-12 bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-6 md:p-8 border border-green-100">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-green-500 rounded-xl flex-shrink-0">
+              <i className="ri-eye-line text-white text-2xl md:text-3xl"></i>
             </div>
-            <div className="space-y-3 md:space-y-4 w-full">
-              <h4 className="text-xl md:text-2xl font-bold text-[#1A2332]">Ejemplo Actual: APIs REST en Salud</h4>
-              <p className="text-base md:text-lg text-[#475569] leading-relaxed">
-                En sistemas de salud modernos, las APIs REST permiten la <strong className="text-[#3B82F6]">interoperabilidad</strong> entre hospitales, clínicas y dispositivos IoT. Por ejemplo, un dispositivo de monitoreo cardíaco puede enviar datos en tiempo real a través de una API REST documentada con OpenAPI, permitiendo que diferentes sistemas médicos accedan a la información del paciente de forma estandarizada y segura.
-              </p>
-              <div className="bg-[#F8FAFC] rounded-lg p-4 md:p-6 border border-[#E2E8F0] mt-4 md:mt-6">
-                <div className="flex items-center gap-2 mb-2 md:mb-3">
-                  <i className="ri-code-s-slash-line text-[#3B82F6] text-base md:text-lg"></i>
-                  <span className="text-xs md:text-sm font-bold text-[#1A2332]">Ejemplo de Endpoint</span>
+            <div className="flex-1">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Señales para identificarlo:</h3>
+              <div className="space-y-3 md:space-y-4">
+                <div className="flex items-start gap-3">
+                  <i className="ri-checkbox-circle-fill text-green-500 text-xl mt-1 flex-shrink-0"></i>
+                  <p className="text-base md:text-lg text-gray-700">
+                    Si al cambiar una pantalla <strong>no tienes que tocar la base de datos</strong>, probablemente hay capas
+                  </p>
                 </div>
-                <code className="text-xs md:text-sm text-[#475569] block overflow-x-auto">
-                  POST /api/v1/patient/&#123;id&#125;/vitals<br/>
-                  &#123; "heartRate": 72, "bloodPressure": "120/80" &#125;
-                </code>
+                <div className="flex items-start gap-3">
+                  <i className="ri-checkbox-circle-fill text-green-500 text-xl mt-1 flex-shrink-0"></i>
+                  <p className="text-base md:text-lg text-gray-700">
+                    Si ves un <strong>API compartida por web y móvil</strong>, la lógica de negocio vive "debajo" en otra capa
+                  </p>
+                </div>
               </div>
             </div>
           </div>

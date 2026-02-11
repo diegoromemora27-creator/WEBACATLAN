@@ -17,39 +17,27 @@ export default function HeroSection() {
           {/* Título */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Arquitectura de Software
-            <span className="block mt-2 md:mt-3 text-[#10B981]">Parte 1</span>
+            <span className="block mt-2 md:mt-3 text-[#10B981]">Fundamentos</span>
           </h1>
 
           {/* Descripción */}
           <p className="text-base md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed px-2">
-            Estructura de alto nivel que organiza componentes, define relaciones y cumple requisitos funcionales y no funcionales
+            El "plano" de una ciudad digital: organiza qué partes existen, cómo se conectan y con qué tecnología se construyen
           </p>
 
           {/* Conceptos clave */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 pt-4 md:pt-8">
-            <div className="flex items-center gap-2 px-3 md:px-5 py-2 md:py-3 bg-white rounded-full shadow-lg">
-              <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
-                <i className="ri-stack-line text-[#3B82F6] text-lg md:text-xl"></i>
-              </div>
-              <span className="text-[#1A2332] font-medium text-xs md:text-sm">Componentes</span>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 text-xs md:text-sm px-4">
+            <div className="px-3 md:px-4 py-1.5 md:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+              <span className="text-white/70">Modularidad</span>
             </div>
-            <div className="flex items-center gap-2 px-3 md:px-5 py-2 md:py-3 bg-white rounded-full shadow-lg">
-              <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
-                <i className="ri-links-line text-[#10B981] text-lg md:text-xl"></i>
-              </div>
-              <span className="text-[#1A2332] font-medium text-xs md:text-sm">Interfaces</span>
+            <div className="px-3 md:px-4 py-1.5 md:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+              <span className="text-white/70">Capas</span>
             </div>
-            <div className="flex items-center gap-2 px-3 md:px-5 py-2 md:py-3 bg-white rounded-full shadow-lg">
-              <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
-                <i className="ri-share-line text-[#3B82F6] text-lg md:text-xl"></i>
-              </div>
-              <span className="text-[#1A2332] font-medium text-xs md:text-sm">Conectores</span>
+            <div className="px-3 md:px-4 py-1.5 md:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+              <span className="text-white/70">Escalabilidad</span>
             </div>
-            <div className="flex items-center gap-2 px-3 md:px-5 py-2 md:py-3 bg-white rounded-full shadow-lg">
-              <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
-                <i className="ri-scales-3-line text-[#10B981] text-lg md:text-xl"></i>
-              </div>
-              <span className="text-[#1A2332] font-medium text-xs md:text-sm">Escalabilidad</span>
+            <div className="px-3 md:px-4 py-1.5 md:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+              <span className="text-white/70">Mantenibilidad</span>
             </div>
           </div>
         </div>
