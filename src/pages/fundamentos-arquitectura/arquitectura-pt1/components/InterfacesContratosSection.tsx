@@ -1,4 +1,3 @@
-
 export default function InterfacesContratosSection() {
   return (
     <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -155,6 +154,28 @@ export default function InterfacesContratosSection() {
                 <p className="text-xs md:text-sm text-green-700">Servicios en la nube</p>
               </div>
             </div>
+          </div>
+
+          {/* LAMP */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5 md:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-yellow-500 rounded-lg">
+                <i className="ri-server-line text-white text-xl md:text-2xl"></i>
+              </div>
+              <h4 className="text-lg md:text-xl font-bold text-gray-900">Arquitectura LAMP</h4>
+            </div>
+            <p className="text-sm md:text-base text-gray-700 mb-4">
+              Un stack clásico para aplicaciones web que sigue este principio de capas.
+            </p>
+            <a
+              href="https://gamma.app/docs/Arquitectura-LAMP-5gl8fntwntwvn61"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition-colors"
+            >
+              <i className="ri-external-link-line"></i>
+              <span>Ver Recurso Externo</span>
+            </a>
           </div>
         </div>
 
