@@ -8,6 +8,7 @@ import Backend from "../pages/backend/page";
 import Asincronia from "../pages/backend/asincronia/page";
 import NestJSFundamentos from "../pages/backend/nestjs-fundamentos/page";
 import ORM from "../pages/backend/orm/page";
+import BasesDatos from "../pages/backend/bases-datos/page";
 import NextJSFundamentos from "../pages/frontend/nextjs-fundamentos/page";
 import POO from "../pages/code-concepts/poo/page";
 import TypeScript from "../pages/code-concepts/typescript/page";
@@ -21,6 +22,7 @@ import ArquitecturaPT1Page from "../pages/fundamentos-arquitectura/arquitectura-
 
 import IAParte1 from "../pages/fundamentos-ia/ia-pt1/page";
 import IAParte2 from "../pages/fundamentos-ia/ia-pt2/page";
+import BasesDatosPage from '../pages/backend/bases-datos/page';
 
 const HTMLPage = lazy(() => import('../pages/frontend/html/page'));
 const CSSPage = lazy(() => import('../pages/frontend/css/page'));
@@ -80,6 +82,10 @@ const routes: RouteObject[] = [
     element: <ORM />,
   },
   {
+    path: "/backend/bases-datos",
+    element: <BasesDatos />,
+  },
+  {
     path: "/frontend/nextjs-fundamentos",
     element: <NextJSFundamentos />,
   },
@@ -87,6 +93,7 @@ const routes: RouteObject[] = [
     path: "/frontend/html",
     element: <HTMLPage />,
   },
+
   {
     path: "/frontend/css",
     element: <CSSPage />,
@@ -94,6 +101,10 @@ const routes: RouteObject[] = [
   {
     path: "/frontend/conceptos-avanzados",
     element: <ConceptosAvanzados />,
+  },
+    {
+    path: "/backend/bases-datos",
+    element: <BasesDatosPage />,
   },
   {
     path: '/seguridad-testing',

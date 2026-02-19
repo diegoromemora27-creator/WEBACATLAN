@@ -169,6 +169,7 @@ export default function Navbar({ activeSection }) {
         { id: 'backend-asincronia', label: 'Asincronía', icon: 'ri-time-line', path: '/backend/asincronia' },
         { id: 'backend-nestjs', label: 'NestJS Fundamentos', icon: 'ri-nest-line', path: '/backend/nestjs-fundamentos' },
         { id: 'backend-orm', label: 'ORM (TypeORM)', icon: 'ri-database-2-line', path: '/backend/orm' },
+        { id: 'backend-bases-datos', label: 'Bases de Datos', icon: 'ri-database-2-line', path: '/backend/bases-datos' },
       ]
     },
     { 
@@ -183,7 +184,7 @@ export default function Navbar({ activeSection }) {
         { id: 'frontend-nextjs', label: 'Next.js Fundamentos', icon: 'ri-reactjs-line', path: '/frontend/nextjs-fundamentos' },
       ]
     },
-    { id: 'bases-datos', label: 'Bases de Datos', icon: 'ri-database-2-line' },
+    { id: 'backend-bases-datos', label: 'Bases de Datos', icon: 'ri-database-2-line', path: '/backend/bases-datos' },
     { id: 'seguridad-testing', label: 'Seguridad, Testing & Calidad del Software', icon: 'ri-shield-check-line', path: '/seguridad-testing' },
   ];
 
