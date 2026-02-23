@@ -5,9 +5,7 @@ import {
   felicitaciones,
   getAvailableSprints,
   calculateTeamAverages,
-  countFelicitaciones,
   getTeamRecommendations,
-  findStudentTeam,
   Team,
 } from './data/teamsData';
 
@@ -27,17 +25,24 @@ export default function AnalisisEquipos() {
   // Count total members and responses
   const totalMembers = teams.reduce((sum, team) => sum + team.members.length, 0);
   const totalResponses = sprintData.filter(d => d.sprint === selectedSprint).length;
-  const felicitacionesCounts = countFelicitaciones(selectedSprint);
+  
+  // Estudiantes destacados - Lista oficial por sprint
+  const estudiantesDestacadosPorSprint: Record<number, { name: string; teamId: number }[]> = {
+    1: [
+      { name: "Carlos Emiliano Segura Loera", teamId: 2 },
+      { name: "Hernández Peña Angel Adrian", teamId: 1 },
+      { name: "Dominguez Lira Estefani Michelle", teamId: 3 },
+      { name: "Trinidad Potrero Josue", teamId: 4 },
+      { name: "Aguilar Buendía Bruno", teamId: 4 },
+      { name: "Diego Herrera Hernández", teamId: 8 },
+    ],
+  };
   
   // Get top felicitados with team info
-  const topFelicitados = Array.from(felicitacionesCounts.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 6)
-    .map(([name, count]) => ({
-      name,
-      count,
-      team: findStudentTeam(name),
-    }));
+  const topFelicitados = (estudiantesDestacadosPorSprint[selectedSprint] || []).map(({ name, teamId }) => ({
+    name,
+    team: teams.find(t => t.id === teamId),
+  }));
 
   // Top performing teams (7 and 8)
   const topTeams = [7, 8].map(id => ({
@@ -87,8 +92,8 @@ export default function AnalisisEquipos() {
           </div>
 
           {/* Sprint Selector */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex items-center bg-white rounded-xl shadow-md p-2">
+          <div className="flex flex-col items-center mb-8">
+            <div className="inline-flex items-center bg-white rounded-xl shadow-md p-2 mb-4">
               <span className="px-4 text-[#1b3d70] font-medium">Sprint:</span>
               {availableSprints.map(sprint => (
                 <button
@@ -104,6 +109,18 @@ export default function AnalisisEquipos() {
                 </button>
               ))}
             </div>
+            {selectedSprint === 1 && (
+              <a
+                href="https://docs.google.com/forms/d/1PMZg1pL03OtB4bhIMWK4Haft4H70VHMQ1Bl-MudcWx0/edit#responses"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <i className="ri-file-list-3-line mr-2"></i>
+                Formulario de Autoevaluación Sprint 1
+                <i className="ri-external-link-line ml-1"></i>
+              </a>
+            )}
           </div>
         </section>
 
@@ -228,19 +245,13 @@ export default function AnalisisEquipos() {
             
             {topFelicitados.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {topFelicitados.map(({ name, team }, index) => (
+                {topFelicitados.map(({ name, team }) => (
                   <div
                     key={name}
-                    className={`bg-white rounded-xl p-6 shadow-md border-l-4 ${
-                      index === 0 ? 'border-yellow-400' : 
-                      index === 1 ? 'border-gray-400' :
-                      index === 2 ? 'border-amber-600' : 'border-blue-400'
-                    }`}
+                    className="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400"
                   >
                     <div className="flex items-center mb-3">
-                      <span className="text-3xl">
-                        {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '⭐'}
-                      </span>
+                      <span className="text-3xl">⭐</span>
                     </div>
                     <h3 className="text-lg font-bold text-[#1b3d70] capitalize mb-2">{name}</h3>
                     {team && (
@@ -340,6 +351,8 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
 }) {
   const averages = calculateTeamAverages(team.id, sprint);
   const recommendations = getTeamRecommendations(team.id, sprint);
+  const MIN_TEAM_SIZE = 4;
+  const hasLowMembers = team.members.length < MIN_TEAM_SIZE;
 
   const getBoardIcon = (tool: string) => {
     switch (tool) {
@@ -380,11 +393,25 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
             )}
           </div>
           <div className="flex items-center space-x-2">
-            <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+            <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
+              hasLowMembers 
+                ? 'bg-red-100 text-red-700' 
+                : 'bg-blue-100 text-blue-700'
+            }`}>
               {team.members.length} <i className="ri-user-line ml-1"></i>
             </span>
           </div>
         </div>
+
+        {/* Low Members Warning */}
+        {hasLowMembers && (
+          <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-3">
+            <p className="text-sm text-red-700 flex items-center">
+              <i className="ri-alarm-warning-line mr-2"></i>
+              <span><strong>Faltan integrantes:</strong> Mínimo {MIN_TEAM_SIZE} miembros requeridos</span>
+            </p>
+          </div>
+        )}
 
         {/* Performance Badge */}
         {averages && (
@@ -507,10 +534,25 @@ function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
 
         {/* All Members with Emails */}
         <div className="mb-6">
-          <h3 className="font-semibold text-[#1b3d70] mb-3">
-            <i className="ri-group-line mr-2"></i>
-            Integrantes ({team.members.length})
-          </h3>
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="font-semibold text-[#1b3d70] flex items-center">
+              <i className="ri-group-line mr-2"></i>
+              Integrantes 
+              <span className={`ml-2 px-2 py-0.5 rounded-full text-sm font-semibold ${
+                team.members.length < 4 
+                  ? 'bg-red-100 text-red-700' 
+                  : 'bg-blue-100 text-blue-700'
+              }`}>
+                {team.members.length}
+              </span>
+            </h3>
+            {team.members.length < 4 && (
+              <span className="text-red-600 text-sm flex items-center">
+                <i className="ri-alarm-warning-line mr-1"></i>
+                Faltan respuestas (mín. 4)
+              </span>
+            )}
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {team.members.map((member, idx) => (
               <div key={idx} className="bg-gray-50 rounded-lg p-3 flex items-center space-x-3">
