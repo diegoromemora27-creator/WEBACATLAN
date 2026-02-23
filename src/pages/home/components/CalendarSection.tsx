@@ -1,12 +1,20 @@
 import { Link } from 'react-router-dom';
 
+interface ResourceLink {
+  label: string;
+  url: string;
+  type: 'internal' | 'external' | 'canva';
+  icon: string;
+}
+
 interface CalendarItem {
   date: string;
   dayOfWeek: string;
   type: 'class' | 'lab';
   labNumber?: number;
   title: string;
-  link: string;
+  mainLink: string;
+  resources: ResourceLink[];
   tips: string[];
   relatedTo?: string;
 }
@@ -17,12 +25,18 @@ const calendarItems: CalendarItem[] = [
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 3,
-    title: 'LAB 03 - Práctica de APIs RESTful',
-    link: '/backend',
+    title: 'LAB 03 - Práctica Arquitectura de Capas (Usando Supabase, PostgREST y Postman)',
+    mainLink: '/backend',
+    resources: [
+      { label: 'Ver tema', url: '/backend', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHByEE8z2Q/Lj6Z3MS87_h6AoQxJnpoMQ/view?utm_content=DAHByEE8z2Q&utm_campaign=designshare&utm_medium=link&utm_source=viewer', type: 'canva', icon: 'ri-palette-line' },
+      { label: 'Postman Docs', url: 'https://learning.postman.com/docs/getting-started/introduction/', type: 'external', icon: 'ri-file-text-line' },
+      { label: 'Supabase Docs', url: 'https://supabase.com/docs', type: 'external', icon: 'ri-database-2-line' }
+    ],
     tips: [
-      'Repasa los métodos HTTP (GET, POST, PUT, DELETE)',
-      'Ten Node.js instalado y actualizado',
-      'Revisar conceptos de DTOs y validación'
+      'Repasa los métodos HTTP (GET, POST, PUT, DELETE) y sus codigos de estado asociados',
+      'Entender la arquitectura de capas (Capa de Datos, Capa de Servicio, Capa de Presentación)',
+      'Tener una cuenta gratuita en Supabase para pruebas'
     ],
     relatedTo: 'Repaso: APIs RESTful y Protocolo HTTP'
   },
@@ -31,7 +45,12 @@ const calendarItems: CalendarItem[] = [
     dayOfWeek: 'Jueves',
     type: 'class',
     title: 'Introducción a NestJS - Módulos y Controladores',
-    link: '/backend/nestjs-fundamentos',
+    mainLink: '/backend/nestjs-fundamentos',
+    resources: [
+      { label: 'Ver tema', url: '/backend/nestjs-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'NestJS Docs', url: 'https://docs.nestjs.com/', type: 'external', icon: 'ri-file-text-line' },
+      { label: 'Video Tutorial', url: 'https://www.youtube.com/watch?v=0M8AYU_hPas', type: 'external', icon: 'ri-youtube-fill' }
+    ],
     tips: [
       'Conocimientos previos de TypeScript recomendados',
       'Entender decoradores básicos (@, annotations)',
@@ -45,7 +64,12 @@ const calendarItems: CalendarItem[] = [
     type: 'lab',
     labNumber: 4,
     title: 'LAB 04 - Creando tu primer proyecto NestJS',
-    link: '/backend/nestjs-fundamentos',
+    mainLink: '/backend/nestjs-fundamentos',
+    resources: [
+      { label: 'Ver tema', url: '/backend/nestjs-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'LAB en Canva', url: 'https://www.canva.com', type: 'canva', icon: 'ri-palette-line' },
+      { label: 'NestJS CLI', url: 'https://docs.nestjs.com/cli/overview', type: 'external', icon: 'ri-terminal-box-line' }
+    ],
     tips: [
       'Repasa la estructura de módulos en NestJS',
       'Ten instalado @nestjs/cli globalmente',
@@ -58,7 +82,12 @@ const calendarItems: CalendarItem[] = [
     dayOfWeek: 'Jueves',
     type: 'class',
     title: 'Bases de Datos y Modelado ER',
-    link: '/backend/bases-datos',
+    mainLink: '/backend/bases-datos',
+    resources: [
+      { label: 'Ver tema', url: '/backend/bases-datos', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'PostgreSQL Docs', url: 'https://www.postgresql.org/docs/', type: 'external', icon: 'ri-database-2-line' },
+      { label: 'dbdiagram.io', url: 'https://dbdiagram.io/', type: 'external', icon: 'ri-layout-grid-line' }
+    ],
     tips: [
       'Entender conceptos de relaciones (1:1, 1:N, N:M)',
       'Conocer SQL básico (SELECT, INSERT, UPDATE)',
@@ -131,23 +160,53 @@ export default function CalendarSection() {
 
                   {/* Center - Title & Link */}
                   <div className="flex-1">
-                    <Link 
-                      to={item.link}
-                      className="group inline-flex items-center gap-2 mb-3"
-                    >
-                      <h3 className={`text-lg sm:text-xl font-bold transition-colors ${
-                        item.type === 'lab' 
-                          ? 'text-[#1b3d70] group-hover:text-[#bb8800]' 
-                          : 'text-[#1b3d70] group-hover:text-[#2a5490]'
-                      }`}>
-                        {item.title}
-                      </h3>
-                      <i className={`ri-external-link-line transition-colors ${
-                        item.type === 'lab' 
-                          ? 'text-gray-400 group-hover:text-[#bb8800]' 
-                          : 'text-gray-400 group-hover:text-[#1b3d70]'
-                      }`}></i>
-                    </Link>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#1b3d70] mb-3">
+                      {item.title}
+                    </h3>
+                    
+                    {/* Resources Links */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {item.resources.map((resource, resIndex) => (
+                        resource.type === 'internal' ? (
+                          <Link
+                            key={resIndex}
+                            to={resource.url}
+                            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
+                              item.type === 'lab'
+                                ? 'bg-[#bb8800]/10 text-[#bb8800] hover:bg-[#bb8800] hover:text-white'
+                                : 'bg-[#1b3d70]/10 text-[#1b3d70] hover:bg-[#1b3d70] hover:text-white'
+                            }`}
+                          >
+                            <i className={resource.icon}></i>
+                            <span>{resource.label}</span>
+                          </Link>
+                        ) : resource.type === 'canva' ? (
+                          <a
+                            key={resIndex}
+                            href={resource.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-[#00C4CC] to-[#7B2FF7] text-white hover:from-[#00D4DC] hover:to-[#8B3FFF] hover:shadow-lg transition-all duration-300"
+                          >
+                            <i className={resource.icon}></i>
+                            <span>{resource.label}</span>
+                            <i className="ri-external-link-line text-[10px]"></i>
+                          </a>
+                        ) : (
+                          <a
+                            key={resIndex}
+                            href={resource.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800 transition-all duration-300"
+                          >
+                            <i className={resource.icon}></i>
+                            <span>{resource.label}</span>
+                            <i className="ri-external-link-line text-[10px]"></i>
+                          </a>
+                        )
+                      ))}
+                    </div>
                     
                     {/* Tips */}
                     <div className="space-y-2">
@@ -172,7 +231,7 @@ export default function CalendarSection() {
                   {/* Right - Action Button */}
                   <div className="lg:w-36 flex-shrink-0 flex lg:justify-end mt-4 lg:mt-0">
                     <Link
-                      to={item.link}
+                      to={item.mainLink}
                       className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 ${
                         item.type === 'lab'
                           ? 'bg-[#bb8800] text-white hover:bg-[#d49a00]'
@@ -200,6 +259,11 @@ export default function CalendarSection() {
             <div className="flex items-center gap-2">
               <span className="w-4 h-4 rounded-full bg-[#1b3d70]"></span>
               <span className="text-gray-600 text-xs sm:text-sm font-medium">Clase (Jueves)</span>
+            </div>
+            <div className="hidden sm:block w-px h-6 bg-gray-300"></div>
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full bg-gradient-to-r from-[#00C4CC] to-[#7B2FF7]"></span>
+              <span className="text-gray-600 text-xs sm:text-sm font-medium">Canva LAB</span>
             </div>
           </div>
         </div>
