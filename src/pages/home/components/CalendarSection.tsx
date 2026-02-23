@@ -30,7 +30,9 @@ const calendarItems: CalendarItem[] = [
     resources: [
       { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHByEE8z2Q/Lj6Z3MS87_h6AoQxJnpoMQ/view?utm_content=DAHByEE8z2Q&utm_campaign=designshare&utm_medium=link&utm_source=viewer', type: 'canva', icon: 'ri-palette-line' },
       { label: 'Postman Docs', url: 'https://learning.postman.com/docs/getting-started/introduction/', type: 'external', icon: 'ri-file-text-line' },
-      { label: 'Supabase Docs', url: 'https://supabase.com/docs', type: 'external', icon: 'ri-database-2-line' }
+      { label: 'Supabase Docs', url: 'https://supabase.com/docs', type: 'external', icon: 'ri-database-2-line' },
+      { label: 'Entrega en el SEA', url: 'https://sea.acatlan.unam.mx/mod/assign/view.php?id=1196361', type: 'external', icon: 'ri-database-2-line' }
+
     ],
     tips: [
       'Repasa los métodos HTTP (GET, POST, PUT, DELETE) y sus codigos de estado asociados',
@@ -59,8 +61,27 @@ const calendarItems: CalendarItem[] = [
      relatedTo: 'Realizaremos un repaso de los conceptos vistos y luego trabajaran en equipo en su proyecto.'
 
   },
+    {
+    date: '3 de Marzo, 2026',
+    dayOfWeek: 'Jueves',
+    type: 'lab',
+    labNumber: 4,
+    title: 'LAB 04 - Aplica los conocimientos adquiridos en tu proyecto en equipo (Modelado ER, Arquitectura de Capas, CRUD con PostgREST y Supabase)',
+    mainLink: '/backend/nestjs-fundamentos',
+    resources: [
+      { label: 'Ver tema', url: '/backend/nestjs-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'LAB en Canva', url: 'https://www.canva.com', type: 'canva', icon: 'ri-palette-line' },
+      { label: 'NestJS CLI', url: 'https://docs.nestjs.com/cli/overview', type: 'external', icon: 'ri-terminal-box-line' }
+    ],
+    tips: [
+      'Repasa la estructura de módulos en NestJS',
+      'Ten instalado @nestjs/cli globalmente',
+      'Revisar el patrón de inyección de dependencias'
+    ],
+    relatedTo: 'Realizaran el mismo ejercicio del LAB 03 pero ahora aplicando los conocimientos adquiridos en su proyecto en equipo. Deberán modelar su base de datos, crear las tablas en Supabase y exponer un CRUD básico usando PostgREST.'
+  },
   {
-    date: '26 de Febrero, 2026',
+    date: '5 de Marzo, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
     title: 'Introducción a NestJS - Módulos y Controladores',
@@ -77,26 +98,6 @@ const calendarItems: CalendarItem[] = [
       'Tener instalado Node.js v18+'
     ]
   },
-  {
-    date: '3 de Marzo, 2026',
-    dayOfWeek: 'Martes',
-    type: 'lab',
-    labNumber: 4,
-    title: 'LAB 04 - Creando tu primer proyecto NestJS',
-    mainLink: '/backend/nestjs-fundamentos',
-    resources: [
-      { label: 'Ver tema', url: '/backend/nestjs-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
-      { label: 'LAB en Canva', url: 'https://www.canva.com', type: 'canva', icon: 'ri-palette-line' },
-      { label: 'NestJS CLI', url: 'https://docs.nestjs.com/cli/overview', type: 'external', icon: 'ri-terminal-box-line' }
-    ],
-    tips: [
-      'Repasa la estructura de módulos en NestJS',
-      'Ten instalado @nestjs/cli globalmente',
-      'Revisar el patrón de inyección de dependencias'
-    ],
-    relatedTo: 'Repaso: Introducción a NestJS'
-  },
-
 ];
 
 export default function CalendarSection() {
