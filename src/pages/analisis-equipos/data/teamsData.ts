@@ -613,18 +613,75 @@ export const getFelicitacionesForPerson = (personName: string, sprint?: number):
   );
 };
 
+// Normaliza nombres para agrupar variaciones (Ángel/Angel, Arturo/Arthur, Diego/Diego Herrera, etc)
+const normalizeStudentName = (name: string): string => {
+  let normalized = name.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Remover acentos
+  
+  // Mapeo de nombres equivalentes
+  const nameAliases: Record<string, string> = {
+    'angel': 'angel',
+    'ángel': 'angel',
+    'arturo': 'arturo',
+    'arthur': 'arturo',
+    'diego': 'diego',
+    'diego herrera hernandez': 'diego',
+    'diego herrera': 'diego',
+    'estefani': 'estefani',
+    'dominguez lira estefani michelle': 'estefani',
+    'carlos': 'carlos',
+    'carlos emiliano': 'carlos',
+    'ramon': 'ramon',
+    'ramon medina': 'ramon',
+    'miguel angel': 'miguel angel',
+    'miguel': 'miguel angel',
+  };
+  
+  // Buscar si hay un alias directo
+  if (nameAliases[normalized]) {
+    return nameAliases[normalized];
+  }
+  
+  // Buscar coincidencia parcial
+  for (const [alias, canonical] of Object.entries(nameAliases)) {
+    if (normalized.includes(alias) || alias.includes(normalized)) {
+      return canonical;
+    }
+  }
+  
+  return normalized;
+};
+
 export const countFelicitaciones = (sprint?: number): Map<string, number> => {
   const counts = new Map<string, number>();
+  const displayNames = new Map<string, string>(); // Para guardar la versión capitalizada
   const filtered = sprint !== undefined 
     ? felicitaciones.filter(f => f.sprint === sprint) 
     : felicitaciones;
   
   filtered.forEach(f => {
-    const key = f.to.toLowerCase();
+    // Ignorar felicitaciones genéricas como "Todos" o "Todo el equipo"
+    if (f.to.toLowerCase().includes('todos') || f.to.toLowerCase().includes('todo el equipo')) {
+      return;
+    }
+    
+    const key = normalizeStudentName(f.to);
     counts.set(key, (counts.get(key) || 0) + 1);
+    
+    // Guardar una versión capitalizada del nombre
+    if (!displayNames.has(key)) {
+      displayNames.set(key, f.to);
+    }
   });
   
-  return counts;
+  // Retornar con nombres capitalizados
+  const result = new Map<string, number>();
+  counts.forEach((count, key) => {
+    const displayName = displayNames.get(key) || key;
+    result.set(displayName, count);
+  });
+  
+  return result;
 };
 
 export const getAvailableSprints = (): number[] => {
@@ -871,11 +928,20 @@ export const getTeamRecommendations = (teamId: number, sprint?: number): TeamRec
 
 // Función para obtener el equipo de un estudiante reconocido
 export const findStudentTeam = (studentName: string): Team | undefined => {
-  const lowerName = studentName.toLowerCase();
+  const normalized = studentName.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  
   return teams.find(team => 
-    team.members.some(member => 
-      member.name.toLowerCase().includes(lowerName) || 
-      lowerName.includes(member.name.toLowerCase().split(' ')[0])
-    )
+    team.members.some(member => {
+      const memberNormalized = member.name.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const firstName = memberNormalized.split(' ')[0];
+      const lastName = memberNormalized.split(' ').slice(-1)[0];
+      
+      return memberNormalized.includes(normalized) || 
+        normalized.includes(firstName) ||
+        normalized.includes(lastName) ||
+        firstName === normalized;
+    })
   );
 };

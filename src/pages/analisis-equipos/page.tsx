@@ -228,7 +228,7 @@ export default function AnalisisEquipos() {
             
             {topFelicitados.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {topFelicitados.map(({ name, count, team }, index) => (
+                {topFelicitados.map(({ name, team }, index) => (
                   <div
                     key={name}
                     className={`bg-white rounded-xl p-6 shadow-md border-l-4 ${
@@ -237,12 +237,9 @@ export default function AnalisisEquipos() {
                       index === 2 ? 'border-amber-600' : 'border-blue-400'
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center mb-3">
                       <span className="text-3xl">
                         {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '⭐'}
-                      </span>
-                      <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">
-                        {count} {count === 1 ? 'voto' : 'votos'}
                       </span>
                     </div>
                     <h3 className="text-lg font-bold text-[#1b3d70] capitalize mb-2">{name}</h3>
