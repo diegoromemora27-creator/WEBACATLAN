@@ -84,19 +84,21 @@ const calendarItems: CalendarItem[] = [
     date: '5 de Marzo, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
-    title: 'Introducción a NestJS - Módulos y Controladores',
-    mainLink: '/backend/nestjs-fundamentos',
+    title: 'Introducción a HTML Y CSS y JavaScript',
+    mainLink: '/frontend/html-css-fundamentos',
     resources: [
-      { label: 'Ver tema', url: '/backend/nestjs-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
-      { label: 'NestJS Docs', url: 'https://docs.nestjs.com/', type: 'external', icon: 'ri-file-text-line' },
-      { label: 'Video Tutorial', url: 'https://www.youtube.com/watch?v=0M8AYU_hPas', type: 'external', icon: 'ri-youtube-fill' }
+      { label: 'Ver tema', url: '/frontend/html-css-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'HTML Docs', url: 'https://developer.mozilla.org/es/docs/Web/HTML', type: 'external', icon: 'ri-file-text-line' },
+      { label: 'CSS Docs', url: 'https://developer.mozilla.org/es/docs/Web/CSS', type: 'external', icon: 'ri-file-text-line' },
+      { label: 'JavaScript Docs', url: 'https://developer.mozilla.org/es/docs/Web/JavaScript', type: 'external', icon: 'ri-file-text-line' },
+      { label: 'Video Tutorial', url: 'https://www.youtube.com/watch?v=Y-OhzQpsRwI', type: 'external', icon: 'ri-youtube-fill' }
     ],
     tips: [
-      'Conocimientos previos de TypeScript recomendados',
-      'Entender decoradores básicos (@, annotations)',
-      'Familiaridad con arquitectura MVC',
-      'Tener instalado Node.js v18+'
-    ]
+      'Familiarizarse con la estructura básica de un documento HTML',
+      'Entender la diferencia entre etiquetas de bloque y en línea',
+      'Revisar conceptos básicos de selectores y propiedades CSS',
+      'Familiarizarse con la sintaxis básica de JavaScript'
+      ]
   },
 ];
 
