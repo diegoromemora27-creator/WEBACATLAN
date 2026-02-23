@@ -28,7 +28,6 @@ const calendarItems: CalendarItem[] = [
     title: 'LAB 03 - Práctica Arquitectura de Capas (Usando Supabase, PostgREST y Postman)',
     mainLink: '/backend',
     resources: [
-      { label: 'Ver tema', url: '/backend', type: 'internal', icon: 'ri-book-open-line' },
       { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHByEE8z2Q/Lj6Z3MS87_h6AoQxJnpoMQ/view?utm_content=DAHByEE8z2Q&utm_campaign=designshare&utm_medium=link&utm_source=viewer', type: 'canva', icon: 'ri-palette-line' },
       { label: 'Postman Docs', url: 'https://learning.postman.com/docs/getting-started/introduction/', type: 'external', icon: 'ri-file-text-line' },
       { label: 'Supabase Docs', url: 'https://supabase.com/docs', type: 'external', icon: 'ri-database-2-line' }
@@ -38,7 +37,27 @@ const calendarItems: CalendarItem[] = [
       'Entender la arquitectura de capas (Capa de Datos, Capa de Servicio, Capa de Presentación)',
       'Tener una cuenta gratuita en Supabase para pruebas'
     ],
-    relatedTo: 'Repaso: APIs RESTful y Protocolo HTTP'
+    relatedTo: 'Repaso: Bases de Datos para desarrollo web y Arquitectura de Capas'
+  },
+    {
+    date: '26 de Febrero, 2026',
+    dayOfWeek: 'Jueves',
+    type: 'class',
+    title: 'Bases de Datos y Modelado ER para su proyecto en equipo (y repaso de conceptos vistos)',
+    mainLink: '/backend/bases-datos',
+    resources: [
+      { label: 'Ver tema', url: '/backend/bases-datos', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHByEE8z2Q/Lj6Z3MS87_h6AoQxJnpoMQ/view?utm_content=DAHByEE8z2Q&utm_campaign=designshare&utm_medium=link&utm_source=viewer', type: 'canva', icon: 'ri-palette-line' },
+      { label: 'Diagrama ER by IBM', url: 'https://www.ibm.com/mx-es/think/topics/entity-relationship-diagram', type: 'external', icon: 'ri-database-2-line' },
+      { label: 'Diagrama ER by lucidchart', url: 'https://www.lucidchart.com/pages/es/que-es-un-diagrama-entidad-relacion', type: 'external', icon: 'ri-layout-grid-line' }
+    ],
+    tips: [
+      'Entender conceptos de relaciones (1:1, 1:N, N:M)',
+      'Conocer SQL básico (SELECT, INSERT, UPDATE)',
+      'Revisar conceptos de normalización'
+    ],
+     relatedTo: 'Realizaremos un repaso de los conceptos vistos y luego trabajaran en equipo en su proyecto.'
+
   },
   {
     date: '26 de Febrero, 2026',
@@ -77,24 +96,7 @@ const calendarItems: CalendarItem[] = [
     ],
     relatedTo: 'Repaso: Introducción a NestJS'
   },
-  {
-    date: '5 de Marzo, 2026',
-    dayOfWeek: 'Jueves',
-    type: 'class',
-    title: 'Bases de Datos y Modelado ER',
-    mainLink: '/backend/bases-datos',
-    resources: [
-      { label: 'Ver tema', url: '/backend/bases-datos', type: 'internal', icon: 'ri-book-open-line' },
-      { label: 'PostgreSQL Docs', url: 'https://www.postgresql.org/docs/', type: 'external', icon: 'ri-database-2-line' },
-      { label: 'dbdiagram.io', url: 'https://dbdiagram.io/', type: 'external', icon: 'ri-layout-grid-line' }
-    ],
-    tips: [
-      'Entender conceptos de relaciones (1:1, 1:N, N:M)',
-      'Conocer SQL básico (SELECT, INSERT, UPDATE)',
-      'Tener PostgreSQL o MySQL instalado',
-      'Revisar conceptos de normalización'
-    ]
-  }
+
 ];
 
 export default function CalendarSection() {
