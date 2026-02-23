@@ -5,11 +5,10 @@ import {
   felicitaciones,
   getAvailableSprints,
   calculateTeamAverages,
-  getSprintDataByTeam,
-  getFelicitacionesByTeam,
   countFelicitaciones,
+  getTeamRecommendations,
+  findStudentTeam,
   Team,
-  SprintEvaluation,
 } from './data/teamsData';
 
 export default function AnalisisEquipos() {
@@ -30,10 +29,21 @@ export default function AnalisisEquipos() {
   const totalResponses = sprintData.filter(d => d.sprint === selectedSprint).length;
   const felicitacionesCounts = countFelicitaciones(selectedSprint);
   
-  // Get top felicitados
+  // Get top felicitados with team info
   const topFelicitados = Array.from(felicitacionesCounts.entries())
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 5);
+    .slice(0, 6)
+    .map(([name, count]) => ({
+      name,
+      count,
+      team: findStudentTeam(name),
+    }));
+
+  // Top performing teams (7 and 8)
+  const topTeams = [7, 8].map(id => ({
+    team: teams.find(t => t.id === id)!,
+    averages: calculateTeamAverages(id, selectedSprint),
+  })).filter(t => t.team && t.averages);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -127,17 +137,98 @@ export default function AnalisisEquipos() {
           </div>
         </section>
 
-        {/* Felicitaciones Section */}
+        {/* Top Teams Board */}
+        <section className="mb-12">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white">
+            <h2 className="text-2xl font-bold mb-6 flex items-center">
+              <i className="ri-vip-crown-2-fill text-yellow-300 mr-3"></i>
+              🏆 Equipos con Mejor Desempeño - Sprint {selectedSprint}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {topTeams.map(({ team, averages }, index) => (
+                <div
+                  key={team.id}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-4xl">{index === 0 ? '🥇' : '🥈'}</span>
+                      <div>
+                        <h3 className="text-xl font-bold">{team.name}</h3>
+                        {team.projectName && (
+                          <p className="text-white/70 text-sm">{team.projectName}</p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-3xl font-bold text-yellow-300">
+                        {averages?.overall.toFixed(1)}
+                      </p>
+                      <p className="text-white/70 text-sm">/ 5.0</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    <div className="bg-white/10 rounded-lg p-3 text-center">
+                      <p className="text-xs text-white/60">Productividad</p>
+                      <p className="font-bold">{averages?.productivity.toFixed(1)}</p>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 text-center">
+                      <p className="text-xs text-white/60">Colaboración</p>
+                      <p className="font-bold">{averages?.collaboration.toFixed(1)}</p>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 text-center">
+                      <p className="text-xs text-white/60">Calidad</p>
+                      <p className="font-bold">{averages?.quality.toFixed(1)}</p>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-3 text-center">
+                      <p className="text-xs text-white/60">Objetivos</p>
+                      <p className="font-bold">{averages?.objectivesCompleted.toFixed(1)}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-4">
+                    <a
+                      href={team.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors text-sm"
+                    >
+                      <i className="ri-github-fill"></i>
+                      <span>GitHub</span>
+                    </a>
+                    {team.boardUrl && (
+                      <a
+                        href={team.boardUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors text-sm"
+                      >
+                        <i className="ri-kanban-view"></i>
+                        <span>{team.boardTool}</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Estudiantes Destacados Section */}
         <section className="mb-12">
           <div className="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-8 border border-yellow-200">
             <h2 className="text-2xl font-bold text-[#1b3d70] mb-6 flex items-center">
               <i className="ri-trophy-line text-yellow-500 mr-3"></i>
-              🎉 Reconocimientos del Sprint {selectedSprint}
+              🎉 Estudiantes Destacados - Sprint {selectedSprint}
             </h2>
+            <p className="text-gray-600 mb-6">
+              Reconocimientos otorgados por los compañeros de equipo durante el sprint.
+            </p>
             
             {topFelicitados.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {topFelicitados.map(([name, count], index) => (
+                {topFelicitados.map(({ name, count, team }, index) => (
                   <div
                     key={name}
                     className={`bg-white rounded-xl p-6 shadow-md border-l-4 ${
@@ -146,50 +237,34 @@ export default function AnalisisEquipos() {
                       index === 2 ? 'border-amber-600' : 'border-blue-400'
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-2xl">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-3xl">
                         {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '⭐'}
                       </span>
                       <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">
                         {count} {count === 1 ? 'voto' : 'votos'}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-[#1b3d70] capitalize">{name}</h3>
-                    <p className="text-sm text-gray-500 mt-1">
-                      Reconocido por sus compañeros
-                    </p>
+                    <h3 className="text-lg font-bold text-[#1b3d70] capitalize mb-2">{name}</h3>
+                    {team && (
+                      <div className="flex items-center space-x-2">
+                        <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-medium">
+                          <i className="ri-team-line mr-1"></i>
+                          {team.name}
+                        </span>
+                        {team.projectName && (
+                          <span className="text-xs text-gray-500">
+                            {team.projectName}
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-gray-500 text-center">No hay felicitaciones registradas para este sprint.</p>
+              <p className="text-gray-500 text-center">No hay reconocimientos registrados para este sprint.</p>
             )}
-
-            {/* All Felicitaciones List */}
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold text-[#1b3d70] mb-4">
-                Todas las Felicitaciones
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-64 overflow-y-auto">
-                {felicitaciones
-                  .filter(f => f.sprint === selectedSprint)
-                  .map((f, idx) => (
-                    <div key={idx} className="bg-white rounded-lg p-4 border border-yellow-100 flex items-start space-x-3">
-                      <i className="ri-heart-fill text-red-400 mt-1"></i>
-                      <div>
-                        <p className="text-sm">
-                          <span className="font-medium text-gray-700">{f.from}</span>
-                          <span className="text-gray-400 mx-2">→</span>
-                          <span className="font-semibold text-[#1b3d70]">{f.to}</span>
-                        </p>
-                        {f.reason && (
-                          <p className="text-xs text-gray-500 mt-1 italic">"{f.reason}"</p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -197,7 +272,7 @@ export default function AnalisisEquipos() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-[#1b3d70] mb-6 flex items-center">
             <i className="ri-team-fill mr-3"></i>
-            Equipos
+            Todos los Equipos
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teams.map(team => (
@@ -267,7 +342,7 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
   onClick: () => void;
 }) {
   const averages = calculateTeamAverages(team.id, sprint);
-  const teamFelicitaciones = getFelicitacionesByTeam(team.id, sprint);
+  const recommendations = getTeamRecommendations(team.id, sprint);
 
   const getBoardIcon = (tool: string) => {
     switch (tool) {
@@ -279,14 +354,26 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
     }
   };
 
+  // Check if this is a top team
+  const isTopTeam = team.id === 7 || team.id === 8;
+
   return (
     <div
       onClick={onClick}
       className={`bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-2 ${
-        isSelected ? 'border-[#1b3d70]' : 'border-transparent'
+        isSelected ? 'border-[#1b3d70]' : isTopTeam ? 'border-yellow-300' : 'border-transparent'
       }`}
     >
       <div className="p-6">
+        {/* Top Team Badge */}
+        {isTopTeam && (
+          <div className="mb-3">
+            <span className="bg-gradient-to-r from-yellow-400 to-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+              🏆 TOP PERFORMER
+            </span>
+          </div>
+        )}
+
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -299,24 +386,6 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
             <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
               {team.members.length} <i className="ri-user-line ml-1"></i>
             </span>
-          </div>
-        </div>
-
-        {/* Members */}
-        <div className="mb-4">
-          <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">Integrantes</p>
-          <div className="space-y-1">
-            {team.members.slice(0, 3).map((member, idx) => (
-              <p key={idx} className="text-sm text-gray-700 truncate">
-                <i className="ri-user-3-line mr-2 text-gray-400"></i>
-                {member.name}
-              </p>
-            ))}
-            {team.members.length > 3 && (
-              <p className="text-sm text-gray-400">
-                +{team.members.length - 3} más...
-              </p>
-            )}
           </div>
         </div>
 
@@ -346,6 +415,17 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
           </div>
         )}
 
+        {/* Quick Recommendations Preview */}
+        {recommendations && recommendations.areasToImprove.length > 0 && (
+          <div className="mb-4">
+            <p className="text-xs text-gray-400 uppercase tracking-wider mb-2">Área de mejora principal:</p>
+            <p className="text-sm text-orange-600 bg-orange-50 px-3 py-2 rounded-lg">
+              <i className="ri-error-warning-line mr-1"></i>
+              {recommendations.areasToImprove[0]}
+            </p>
+          </div>
+        )}
+
         {/* Links */}
         <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
           <a
@@ -371,16 +451,6 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
             </a>
           )}
         </div>
-
-        {/* Felicitaciones indicator */}
-        {teamFelicitaciones.length > 0 && (
-          <div className="mt-3 pt-3 border-t border-gray-100">
-            <span className="text-xs text-yellow-600">
-              <i className="ri-star-fill mr-1"></i>
-              {teamFelicitaciones.length} felicitación(es) dadas
-            </span>
-          </div>
-        )}
       </div>
     </div>
   );
@@ -388,18 +458,10 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
 
 function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
   const team = teams.find(t => t.id === teamId);
-  const evaluations = getSprintDataByTeam(teamId, sprint);
   const averages = calculateTeamAverages(teamId, sprint);
+  const recommendations = getTeamRecommendations(teamId, sprint);
 
   if (!team) return null;
-
-  const scoreToText = (score: number) => {
-    if (score >= 4.5) return 'Excelente';
-    if (score >= 3.5) return 'Bueno';
-    if (score >= 2.5) return 'Aceptable';
-    if (score >= 1.5) return 'Bajo';
-    return 'Muy Bajo';
-  };
 
   return (
     <section className="mb-12 animate-fadeIn">
@@ -410,6 +472,11 @@ function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
             Detalles del {team.name}
             {team.projectName && <span className="text-gray-400 ml-2">- {team.projectName}</span>}
           </h2>
+          {(teamId === 7 || teamId === 8) && (
+            <span className="bg-gradient-to-r from-yellow-400 to-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+              🏆 TOP PERFORMER
+            </span>
+          )}
         </div>
 
         {/* Team Links */}
@@ -441,7 +508,7 @@ function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
           </div>
         </div>
 
-        {/* All Members */}
+        {/* All Members with Emails */}
         <div className="mb-6">
           <h3 className="font-semibold text-[#1b3d70] mb-3">
             <i className="ri-group-line mr-2"></i>
@@ -453,10 +520,10 @@ function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
                 <div className="w-10 h-10 bg-[#1b3d70] rounded-full flex items-center justify-center text-white font-bold">
                   {member.name.charAt(0)}
                 </div>
-                <div>
-                  <p className="font-medium text-gray-800">{member.name}</p>
+                <div className="min-w-0 flex-1">
+                  <p className="font-medium text-gray-800 truncate">{member.name}</p>
                   {member.email && (
-                    <p className="text-xs text-gray-500">{member.email}</p>
+                    <p className="text-xs text-gray-500 truncate">{member.email}</p>
                   )}
                 </div>
               </div>
@@ -464,7 +531,7 @@ function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
           </div>
         </div>
 
-        {/* Performance Overview */}
+        {/* Performance Metrics */}
         {averages && (
           <div className="mb-6">
             <h3 className="font-semibold text-[#1b3d70] mb-3">
@@ -481,25 +548,81 @@ function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
           </div>
         )}
 
-        {/* Individual Evaluations */}
-        {evaluations.length > 0 && (
-          <div>
-            <h3 className="font-semibold text-[#1b3d70] mb-3">
-              <i className="ri-file-user-line mr-2"></i>
-              Evaluaciones Individuales
-            </h3>
-            <div className="space-y-4">
-              {evaluations.map((eval_, idx) => (
-                <EvaluationCard key={idx} evaluation={eval_} />
-              ))}
+        {/* Recommendations Section */}
+        {recommendations && (
+          <div className="space-y-6">
+            {/* Strengths */}
+            <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+              <h3 className="font-semibold text-green-700 mb-4 flex items-center">
+                <i className="ri-thumb-up-fill mr-2"></i>
+                Fortalezas del Equipo
+              </h3>
+              <ul className="space-y-2">
+                {recommendations.strengths.map((strength, idx) => (
+                  <li key={idx} className="flex items-start space-x-2 text-green-800">
+                    <i className="ri-check-line mt-1 text-green-500"></i>
+                    <span>{strength}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {/* Areas to Improve */}
+            <div className="bg-orange-50 rounded-xl p-6 border border-orange-200">
+              <h3 className="font-semibold text-orange-700 mb-4 flex items-center">
+                <i className="ri-error-warning-fill mr-2"></i>
+                Áreas de Mejora
+              </h3>
+              <ul className="space-y-2">
+                {recommendations.areasToImprove.map((area, idx) => (
+                  <li key={idx} className="flex items-start space-x-2 text-orange-800">
+                    <i className="ri-alert-line mt-1 text-orange-500"></i>
+                    <span className={area.includes('CRÍTICO') ? 'font-bold' : ''}>{area}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Recommendations */}
+            <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
+              <h3 className="font-semibold text-blue-700 mb-4 flex items-center">
+                <i className="ri-lightbulb-fill mr-2"></i>
+                Recomendaciones para el Próximo Sprint
+              </h3>
+              <ul className="space-y-2">
+                {recommendations.recommendations.map((rec, idx) => (
+                  <li key={idx} className="flex items-start space-x-2 text-blue-800">
+                    <i className="ri-arrow-right-circle-line mt-1 text-blue-500"></i>
+                    <span className={rec.includes('URGENTE') ? 'font-bold text-red-600' : ''}>{rec}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Blockers Summary */}
+            {recommendations.blockersSummary.length > 0 && (
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                <h3 className="font-semibold text-gray-700 mb-4 flex items-center">
+                  <i className="ri-roadster-fill mr-2"></i>
+                  Bloqueos Identificados
+                </h3>
+                <ul className="space-y-2">
+                  {recommendations.blockersSummary.map((blocker, idx) => (
+                    <li key={idx} className="flex items-start space-x-2 text-gray-600">
+                      <i className="ri-stop-circle-line mt-1 text-gray-400"></i>
+                      <span>{blocker}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
 
-        {evaluations.length === 0 && (
+        {!recommendations && (
           <div className="text-center py-8 text-gray-500">
             <i className="ri-file-search-line text-4xl mb-2"></i>
-            <p>No hay evaluaciones registradas para este sprint.</p>
+            <p>No hay recomendaciones disponibles para este sprint.</p>
           </div>
         )}
       </div>
@@ -528,112 +651,4 @@ function MetricCard({ label, value, highlight = false }: {
       <p className={`text-xs mt-1 ${highlight ? 'opacity-80' : ''}`}>/ 5.0</p>
     </div>
   );
-}
-
-function EvaluationCard({ evaluation }: { evaluation: SprintEvaluation }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  return (
-    <div className="bg-gray-50 rounded-xl p-4">
-      <div 
-        className="flex items-center justify-between cursor-pointer"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-[#1b3d70] rounded-full flex items-center justify-center text-white font-bold">
-            {evaluation.memberName.charAt(0)}
-          </div>
-          <div>
-            <p className="font-medium text-gray-800">{evaluation.memberName}</p>
-            <p className="text-sm text-gray-500">
-              Autoevaluación: <span className="font-semibold">{evaluation.selfEvaluation}/5</span>
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <div className="hidden md:flex items-center space-x-2">
-            <span className={`px-2 py-1 rounded text-xs font-medium ${getEvalColor(evaluation.productivity)}`}>
-              {evaluation.productivity}
-            </span>
-            <span className={`px-2 py-1 rounded text-xs font-medium ${getEvalColor(evaluation.collaboration)}`}>
-              {evaluation.collaboration}
-            </span>
-          </div>
-          <i className={`ri-arrow-${isExpanded ? 'up' : 'down'}-s-line text-xl text-gray-400`}></i>
-        </div>
-      </div>
-
-      {isExpanded && (
-        <div className="mt-4 pt-4 border-t border-gray-200 space-y-4 animate-fadeIn">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <EvalBadge label="Productividad" value={evaluation.productivity} />
-            <EvalBadge label="Colaboración" value={evaluation.collaboration} />
-            <EvalBadge label="Calidad" value={evaluation.quality} />
-            <EvalBadge label="Objetivos" value={evaluation.objectivesCompleted} />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div>
-              <p className="font-medium text-gray-700 mb-1">
-                <i className="ri-checkbox-circle-line mr-1 text-green-500"></i>
-                Tareas Completadas:
-              </p>
-              <p className="text-gray-600 bg-white p-2 rounded">{evaluation.tasksCompleted || 'No especificado'}</p>
-            </div>
-            <div>
-              <p className="font-medium text-gray-700 mb-1">
-                <i className="ri-error-warning-line mr-1 text-red-500"></i>
-                Bloqueos:
-              </p>
-              <p className="text-gray-600 bg-white p-2 rounded">{evaluation.blockers || 'Ninguno'}</p>
-            </div>
-            <div>
-              <p className="font-medium text-gray-700 mb-1">
-                <i className="ri-lightbulb-line mr-1 text-yellow-500"></i>
-                Áreas de Mejora:
-              </p>
-              <p className="text-gray-600 bg-white p-2 rounded">{evaluation.areasToImprove || 'No especificado'}</p>
-            </div>
-            <div>
-              <p className="font-medium text-gray-700 mb-1">
-                <i className="ri-focus-3-line mr-1 text-blue-500"></i>
-                Enfoque Próximo Sprint:
-              </p>
-              <p className="text-gray-600 bg-white p-2 rounded">{evaluation.nextSprintFocus || 'No especificado'}</p>
-            </div>
-          </div>
-
-          {evaluation.improvementProposals && (
-            <div className="text-sm">
-              <p className="font-medium text-gray-700 mb-1">
-                <i className="ri-magic-line mr-1 text-purple-500"></i>
-                Propuestas de Mejora:
-              </p>
-              <p className="text-gray-600 bg-white p-2 rounded">{evaluation.improvementProposals}</p>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function EvalBadge({ label, value }: { label: string; value: string }) {
-  return (
-    <div className={`text-center p-2 rounded-lg ${getEvalColor(value)}`}>
-      <p className="text-xs opacity-70">{label}</p>
-      <p className="font-semibold">{value}</p>
-    </div>
-  );
-}
-
-function getEvalColor(value: string): string {
-  switch (value) {
-    case 'Excelente': return 'bg-green-100 text-green-700';
-    case 'Bueno': return 'bg-blue-100 text-blue-700';
-    case 'Aceptable': return 'bg-yellow-100 text-yellow-700';
-    case 'Bajo': return 'bg-orange-100 text-orange-700';
-    case 'Muy Bajo': return 'bg-red-100 text-red-700';
-    default: return 'bg-gray-100 text-gray-700';
-  }
 }

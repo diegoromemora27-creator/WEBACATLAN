@@ -659,3 +659,223 @@ export const calculateTeamAverages = (teamId: number, sprint?: number) => {
     overall: (avgProductivity + avgCollaboration + avgQuality + avgObjectives) / 4,
   };
 };
+
+// ========================================
+// RECOMENDACIONES POR EQUIPO
+// Basadas en análisis de las respuestas
+// ========================================
+export interface TeamRecommendation {
+  teamId: number;
+  sprint: number;
+  strengths: string[];
+  areasToImprove: string[];
+  recommendations: string[];
+  blockersSummary: string[];
+}
+
+export const teamRecommendations: TeamRecommendation[] = [
+  {
+    teamId: 1,
+    sprint: 1,
+    strengths: [
+      "Excelente comunicación y organización del equipo",
+      "Proactividad en compartir materiales y documentación",
+      "Buena validación con usuarios finales (profesores)",
+    ],
+    areasToImprove: [
+      "Conocimientos técnicos en Git/GitHub",
+      "Manejo de bases de datos (PostgreSQL, MongoDB)",
+      "Comunicación en línea (mensajes, documentos)",
+    ],
+    recommendations: [
+      "Implementar sesiones de pair programming para Git/GitHub",
+      "Crear un repositorio de ideas y sistema de recompensas internas",
+      "Establecer canales de comunicación asíncrona más efectivos",
+    ],
+    blockersSummary: [
+      "Bloqueos mentales por proyectos de gran magnitud",
+      "Manejo del estrés y tiempos",
+    ],
+  },
+  {
+    teamId: 2,
+    sprint: 1,
+    strengths: [
+      "Buenas ideas iniciales para el proyecto",
+      "Creatividad en propuestas de diseño",
+    ],
+    areasToImprove: [
+      "Comunicación entre integrantes - CRÍTICO",
+      "Conocimiento de APIs y endpoints",
+      "Participación equitativa de todos los miembros",
+    ],
+    recommendations: [
+      "Establecer reuniones obligatorias semanales fuera del laboratorio",
+      "Crear un canal de comunicación activo (WhatsApp/Discord)",
+      "Definir roles claros y responsabilidades específicas",
+      "Realizar sesiones de capacitación en APIs REST",
+    ],
+    blockersSummary: [
+      "Solo se reúnen en el laboratorio",
+      "Falta de participación de algunos integrantes",
+    ],
+  },
+  {
+    teamId: 3,
+    sprint: 1,
+    strengths: [
+      "Líder muy proactivo y organizado",
+      "Buena documentación y uso de herramientas (Notion, Postman)",
+      "Claridad en la definición de requerimientos",
+    ],
+    areasToImprove: [
+      "Asistencia y participación del equipo completo",
+      "Conceptos de Bases de Datos y Estructuras de Datos",
+      "Comunicación activa de todos los integrantes",
+    ],
+    recommendations: [
+      "Establecer compromisos de asistencia con el equipo",
+      "Distribuir tareas de forma que todos participen activamente",
+      "Organizar sesiones de repaso de conceptos técnicos",
+    ],
+    blockersSummary: [
+      "Inasistencia de integrantes",
+      "Problemas externos (electricidad)",
+    ],
+  },
+  {
+    teamId: 4,
+    sprint: 1,
+    strengths: [
+      "Buen trabajo en equipo usando herramientas colaborativas",
+      "Iniciativa en proponer ideas y herramientas",
+      "Uso efectivo de Google Docs para trabajo simultáneo",
+    ],
+    areasToImprove: [
+      "Definir mejor roles (Scrum Master)",
+      "Conocimientos de backend y Git",
+      "Comunicación verbal más activa",
+    ],
+    recommendations: [
+      "Designar un Scrum Master oficial rotativo",
+      "Mejorar la comunicación y hablar más en las reuniones",
+      "Continuar usando herramientas colaborativas",
+    ],
+    blockersSummary: [
+      "Herramientas nuevas (Git, ClickUp)",
+      "Saturación escolar",
+    ],
+  },
+  {
+    teamId: 6,
+    sprint: 1,
+    strengths: [
+      "Buen desarrollo de frontend",
+      "Seguimiento de tiempos y recordatorios",
+      "Delimitación efectiva de alcances",
+    ],
+    areasToImprove: [
+      "Conocimiento de herramientas específicas",
+      "Desarrollo backend y JavaScript",
+    ],
+    recommendations: [
+      "Crear más espacios de trabajo en paralelo",
+      "Enfocarse en definir entidades para la base de datos",
+      "Capacitación en JavaScript para desarrollo futuro",
+    ],
+    blockersSummary: [
+      "Falta de conocimiento de ciertas herramientas",
+    ],
+  },
+  {
+    teamId: 7,
+    sprint: 1,
+    strengths: [
+      "Excelente organización con JIRA",
+      "Equipo grande pero bien coordinado",
+      "Liderazgo efectivo (Arturo como líder)",
+      "Buena unificación de prompts y visión del proyecto",
+      "Alta proactividad de todos los miembros",
+    ],
+    areasToImprove: [
+      "División de tareas al inicio del sprint",
+      "Conocimientos de backend y APIs",
+      "Algunos miembros llegaron tarde al equipo",
+    ],
+    recommendations: [
+      "Implementar reuniones diarias de 15 minutos (Daily Standup)",
+      "Declarar tareas desde el día 1 del sprint",
+      "Continuar con el modelo de liderazgo actual",
+      "Capacitación en backend para todo el equipo",
+    ],
+    blockersSummary: [
+      "No conocerse previamente",
+      "Falta de instrucciones claras al inicio",
+    ],
+  },
+  {
+    teamId: 8,
+    sprint: 1,
+    strengths: [
+      "Excelente colaboración y trabajo en equipo",
+      "Liderazgo inclusivo (involucrar a todos)",
+      "Buena documentación y prompts originales",
+      "Reuniones organizadas para finalizar trabajo",
+    ],
+    areasToImprove: [
+      "Manejo de endpoints y backend",
+      "Familiarización con nuevas plataformas",
+      "Gestión del tiempo personal",
+    ],
+    recommendations: [
+      "Establecer reuniones rutinarias de trabajo",
+      "Dividir tareas grandes en más pequeñas",
+      "Mantener el enfoque de involucrar a todos",
+      "Mejorar comunicación y conocimiento técnico",
+    ],
+    blockersSummary: [
+      "Tiempo limitado por otras materias",
+      "Dificultad con endpoints",
+    ],
+  },
+  {
+    teamId: 9,
+    sprint: 1,
+    strengths: [
+      "Buen trabajo en documentación de requerimientos",
+      "Desglose detallado del documento",
+    ],
+    areasToImprove: [
+      "Participación del equipo - CRÍTICO",
+      "Conocimientos básicos de desarrollo de sistemas",
+      "Conceptos y herramientas de desarrollo",
+    ],
+    recommendations: [
+      "URGENTE: Involucrar a más miembros del equipo",
+      "Establecer compromisos de participación",
+      "Sesiones de capacitación en desarrollo de sistemas",
+      "Considerar redistribución de responsabilidades",
+    ],
+    blockersSummary: [
+      "Solo dos personas están trabajando activamente",
+      "Desconocimiento del desarrollo del sistema",
+    ],
+  },
+];
+
+export const getTeamRecommendations = (teamId: number, sprint?: number): TeamRecommendation | undefined => {
+  return teamRecommendations.find(r => 
+    r.teamId === teamId && (sprint === undefined || r.sprint === sprint)
+  );
+};
+
+// Función para obtener el equipo de un estudiante reconocido
+export const findStudentTeam = (studentName: string): Team | undefined => {
+  const lowerName = studentName.toLowerCase();
+  return teams.find(team => 
+    team.members.some(member => 
+      member.name.toLowerCase().includes(lowerName) || 
+      lowerName.includes(member.name.toLowerCase().split(' ')[0])
+    )
+  );
+};
