@@ -23,6 +23,7 @@ import ArquitecturaPT1Page from "../pages/fundamentos-arquitectura/arquitectura-
 import IAParte1 from "../pages/fundamentos-ia/ia-pt1/page";
 import IAParte2 from "../pages/fundamentos-ia/ia-pt2/page";
 import BasesDatosPage from '../pages/backend/bases-datos/page';
+import AnalisisEquipos from "../pages/analisis-equipos/page";
 
 const HTMLPage = lazy(() => import('../pages/frontend/html/page'));
 const CSSPage = lazy(() => import('../pages/frontend/css/page'));
@@ -125,6 +126,10 @@ const routes: RouteObject[] = [
   {
     path: '/devops/cloud-computing',
     element: <CloudComputing />,
+  },
+  {
+    path: '/analisis-equipos',
+    element: <AnalisisEquipos />,
   },
   {
     path: "*",

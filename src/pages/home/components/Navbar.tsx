@@ -186,6 +186,7 @@ export default function Navbar({ activeSection }) {
     },
     { id: 'backend-bases-datos', label: 'Bases de Datos', icon: 'ri-database-2-line', path: '/backend/bases-datos' },
     { id: 'seguridad-testing', label: 'Seguridad, Testing & Calidad del Software', icon: 'ri-shield-check-line', path: '/seguridad-testing' },
+    { id: 'analisis-equipos', label: 'Análisis de Equipos', icon: 'ri-bar-chart-grouped-line', path: '/analisis-equipos' },
   ];
 
   const handleTopicClick = (topic) => {
