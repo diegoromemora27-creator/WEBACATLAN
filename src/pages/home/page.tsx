@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import CalendarSection from './components/CalendarSection';
 import CourseInfo from './components/CourseInfo';
 import ProfessorProfile from './components/ProfessorProfile';
 import EvaluationDashboard from './components/EvaluationDashboard';
@@ -36,6 +37,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       <Navbar activeSection={activeSection} />
       <Hero />
+      <CalendarSection />
       <CourseInfo />
       <ProfessorProfile />
       <EvaluationDashboard />
