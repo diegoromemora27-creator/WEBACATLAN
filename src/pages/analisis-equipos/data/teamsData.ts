@@ -860,8 +860,8 @@ export const teamRecommendations: TeamRecommendation[] = [
     teamId: 2,
     sprint: 1,
     strengths: [
-      "Buenas ideas iniciales para el proyecto (Antonio y Samuel)",
-      "Carlos reconocido por 3 compañeros - aporte valioso al equipo",
+      "Buenas ideas iniciales para el proyecto",
+      "Un integrante reconocido por 3 compañeros - aporte valioso al equipo",
       "Creatividad en propuestas de diseño",
       "Aportes para ampliar el mercado del sitio web",
     ],
@@ -876,13 +876,15 @@ export const teamRecommendations: TeamRecommendation[] = [
       "Crear un canal de comunicación activo (WhatsApp/Discord) para coordinación diaria",
       "Definir roles claros y responsabilidades específicas para cada miembro",
       "Realizar sesiones de capacitación en APIs REST y bases de datos",
-      "Abordar conflicto de percepciones: Carlos siente que el equipo no aporta, mientras el equipo percibe baja colaboración de Carlos",
+      "Abordar conflicto de percepciones entre integrantes sobre participación",
       "Establecer métricas claras de contribución para evitar malentendidos",
     ],
     blockersSummary: [
       "Solo se reúnen en el laboratorio - sin comunicación fuera de clase",
       "Percepción encontrada sobre participación del equipo",
       "Desconocimiento de temas técnicos (APIs, BD)",
+      "Profesor no agregado al board (agregar: diegoromemora27@gmail.com)",
+      "Solo 2 integrantes agregados en GitHub - faltan 2",
     ],
   },
   {
@@ -949,7 +951,7 @@ export const teamRecommendations: TeamRecommendation[] = [
     ],
     recommendations: [
       "Establecer reuniones de seguimiento en días sin clases",
-      "Crear sesiones de capacitación en Git/GitHub (Alitzel puede enseñar)",
+      "Crear sesiones de capacitación en Git/GitHub (integrante con experiencia puede enseñar)",
       "Elaborar un glosario de terminología técnica del proyecto",
       "Definir tareas del siguiente sprint antes de terminar el actual",
       "Clarificar entregables con el profesor al inicio del sprint",
@@ -966,26 +968,26 @@ export const teamRecommendations: TeamRecommendation[] = [
       "Buen desarrollo de frontend y backend (trabajo complementario)",
       "Seguimiento de tiempos y recordatorios efectivos",
       "Delimitación efectiva de alcances mediante llamadas",
-      "Buena colaboración y reconocimiento mutuo hacia Michelle",
+      "Buena colaboración y reconocimiento mutuo entre integrantes",
       "Trabajo bien organizado según los integrantes",
     ],
     areasToImprove: [
       "Conocimiento de herramientas específicas",
       "Desarrollo backend y JavaScript",
-      "Participación de Michelle - Sin respuesta en encuesta",
+      "Un integrante no respondió la encuesta",
       "Disponibilidad para reuniones en línea",
     ],
     recommendations: [
       "Crear más espacios de trabajo en paralelo",
       "Enfocarse en definir entidades para la base de datos",
       "Capacitación en JavaScript para desarrollo futuro",
-      "Involucrar a Michelle activamente en el siguiente sprint",
+      "Involucrar a todos los integrantes activamente en el siguiente sprint",
       "Flexibilizar horarios de reuniones para todos los integrantes",
     ],
     blockersSummary: [
       "Falta de conocimiento de ciertas herramientas",
       "Razones personales impidieron asistencia a reuniones",
-      "Michelle no respondió la encuesta",
+      "Un integrante no respondió la encuesta",
     ],
   },
   {
@@ -994,7 +996,7 @@ export const teamRecommendations: TeamRecommendation[] = [
     strengths: [
       "Excelente organización con JIRA",
       "Equipo grande pero bien coordinado",
-      "Liderazgo efectivo (Arturo como líder)",
+      "Liderazgo efectivo del equipo",
       "Buena unificación de prompts y visión del proyecto",
       "Alta proactividad de todos los miembros",
     ],
@@ -1018,11 +1020,11 @@ export const teamRecommendations: TeamRecommendation[] = [
     teamId: 8,
     sprint: 1,
     strengths: [
-      "Diego reconocido por 3 compañeros - liderazgo valorado",
+      "Un integrante reconocido por 3 compañeros - liderazgo valorado",
       "Excelente colaboración del equipo (todos respondieron)",
       "Buena documentación y prompts originales",
       "Trabajo en diseño de IA y simulador de UI",
-      "Diego busca involucrar a todos sin dejar a nadie atrás",
+      "El líder busca involucrar a todos sin dejar a nadie atrás",
     ],
     areasToImprove: [
       "Manejo de endpoints y backend",
@@ -1045,8 +1047,8 @@ export const teamRecommendations: TeamRecommendation[] = [
     teamId: 9,
     sprint: 1,
     strengths: [
-      "Buen trabajo en documentación de requerimientos (Bryan)",
-      "Prompt de UI y pruebas en Postman (Arantza)",
+      "Buen trabajo en documentación de requerimientos",
+      "Prompt de UI y pruebas en Postman completadas",
       "Reconocimiento mutuo entre los dos integrantes activos",
     ],
     areasToImprove: [
