@@ -69,14 +69,15 @@ const calendarItems: CalendarItem[] = [
     title: 'LAB 04 - Aplica los conocimientos adquiridos en tu proyecto en equipo (Modelado ER, Arquitectura de Capas, CRUD con PostgREST y Supabase)',
     mainLink: '/backend/nestjs-fundamentos',
     resources: [
-      { label: 'Ver tema', url: '/backend/nestjs-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
-      { label: 'LAB en Canva', url: 'https://www.canva.com', type: 'canva', icon: 'ri-palette-line' },
-      { label: 'NestJS CLI', url: 'https://docs.nestjs.com/cli/overview', type: 'external', icon: 'ri-terminal-box-line' }
+      { label: 'Ver tema', url: '/backend/bases-datos', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHByEE8z2Q/Lj6Z3MS87_h6AoQxJnpoMQ/view?utm_content=DAHByEE8z2Q&utm_campaign=designshare&utm_medium=link&utm_source=viewer', type: 'canva', icon: 'ri-palette-line' },
+      { label: 'Diagrama ER by IBM', url: 'https://www.ibm.com/mx-es/think/topics/entity-relationship-diagram', type: 'external', icon: 'ri-database-2-line' },
+      { label: 'Diagrama ER by lucidchart', url: 'https://www.lucidchart.com/pages/es/que-es-un-diagrama-entidad-relacion', type: 'external', icon: 'ri-layout-grid-line' }
     ],
     tips: [
-      'Repasa la estructura de módulos en NestJS',
-      'Ten instalado @nestjs/cli globalmente',
-      'Revisar el patrón de inyección de dependencias'
+      'Entender conceptos de relaciones (1:1, 1:N, N:M)',
+      'Conocer SQL básico (SELECT, INSERT, UPDATE)',
+      'Revisar conceptos de normalización'
     ],
     relatedTo: 'Realizaran el mismo ejercicio del LAB 03 pero ahora aplicando los conocimientos adquiridos en su proyecto en equipo. Deberán modelar su base de datos, crear las tablas en Supabase y exponer un CRUD básico usando PostgREST.'
   },
