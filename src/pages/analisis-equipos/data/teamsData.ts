@@ -114,6 +114,18 @@ export const teams: Team[] = [
     boardTool: "ClickUp",
   },
   {
+    id: 5,
+    name: "Equipo 5",
+    projectName: "AcaShop",
+    members: [
+      { name: "Alitzel Sophia Camacho Flores", email: "321238940@pcpuma.acatlan.unam.mx" },
+      { name: "Cristina Vianeth Saiz Perez", email: "317152522@pcpuma.acatlan.unam.mx" },
+    ],
+    githubUrl: "https://github.com/AcaShop-Acatlan",
+    boardUrl: "https://cristinavianethsaizperez.atlassian.net/jira/software/projects/SCRUM/boards/1",
+    boardTool: "Jira",
+  },
+  {
     id: 6,
     name: "Equipo 6",
     members: [
@@ -354,6 +366,40 @@ export const sprintData: SprintEvaluation[] = [
     improvementProposals: "Mejor organización y definir líder/Scrum Master.",
   },
 
+  // === EQUIPO 5 ===
+  {
+    memberId: "e5-1",
+    memberName: "Alitzel Sophia Camacho Flores",
+    teamId: 5,
+    sprint: 1,
+    productivity: "Bueno",
+    collaboration: "Bueno",
+    quality: "Excelente",
+    objectivesCompleted: "Bueno",
+    selfEvaluation: 5,
+    tasksCompleted: "Pdf del Readdy, organización de github (readme e inicio de frontend), organización del equipo.",
+    blockers: "No entender del todo que era lo que había por entregar.",
+    areasToImprove: "Aprender y enseñar a mis compañeras github.",
+    nextSprintFocus: "Implementación técnica.",
+    improvementProposals: "Comunicación entre todas las integrantes los días que no hay clases sobre el progreso.",
+  },
+  {
+    memberId: "e5-2",
+    memberName: "Cristina Vianeth Saiz Perez",
+    teamId: 5,
+    sprint: 1,
+    productivity: "Excelente",
+    collaboration: "Bueno",
+    quality: "Excelente",
+    objectivesCompleted: "Excelente",
+    selfEvaluation: 5,
+    tasksCompleted: "Realice la organización en Jira así como el escrito de documentación de iniciación del proyecto así como la conexión del backend.",
+    blockers: "Se me complican mucho entender todo el proceso de backend y frontend, son muchas terminologías y estoy revuelta.",
+    areasToImprove: "Falta de conocimiento de Git.",
+    nextSprintFocus: "Aún no nos hemos organizado entre el equipo en el siguiente Sprint.",
+    improvementProposals: "Comunicación.",
+  },
+
   // === EQUIPO 6 ===
   {
     memberId: "e6-1",
@@ -584,6 +630,8 @@ export const felicitaciones: Felicitacion[] = [
   { from: "Cruz Chávez Miguel Ángel", fromTeam: 7, to: "Todos", sprint: 1, reason: "Muy proactivos" },
   { from: "Cortes Cortes Bryan Yael", fromTeam: 9, to: "Cortes Cortes Bryan Yael", sprint: 1 },
   { from: "Escutia Pascacio Eduardo Emiliano", fromTeam: 6, to: "Michelle", sprint: 1 },
+  { from: "Alitzel Sophia Camacho Flores", fromTeam: 5, to: "Cristina", sprint: 1, reason: "Por la idea del proyecto y estar al pendiente" },
+  { from: "Cristina Vianeth Saiz Perez", fromTeam: 5, to: "Ali", sprint: 1 },
 ];
 
 // ========================================
