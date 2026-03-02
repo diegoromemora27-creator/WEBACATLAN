@@ -18,9 +18,10 @@ const examen = {
     'Conceptos Avanzados de Frontend (BEM, frameworks)',
   ],
   distribucion: [
-    { tipo: 'Opción Múltiple', cantidad: 15, puntos: 15 },
-    { tipo: 'Verdadero / Falso', cantidad: 10, puntos: 5 },
-    { tipo: 'Respuesta Corta', cantidad: 5, puntos: 15 },
+    { tipo: 'Pregunta de Opción Múltiple', cantidad: 12, puntos: 12 },
+    { tipo: 'Pregunta Abierta', cantidad: 10, puntos: 20 },
+    { tipo: 'Completar Código', cantidad: 5, puntos: 10 },
+    { tipo: 'Relacionar Columnas', cantidad: 3, puntos: 4.5 },
   ],
 };
 
