@@ -9,7 +9,7 @@ const examenes = [
     border: '#3B0764',
     peso: '20%',
     duracion: '90 min',
-    preguntas: 30,
+    preguntas: 21,
     temas: [
       'Fundamentos de Arquitectura: software, modularidad, escalabilidad y mantenibilidad',
       'Arquitecturas: Monolítica, Microservicios, Serverless y Cliente-Servidor',
@@ -19,11 +19,10 @@ const examenes = [
       'Scrum & Agile: Scrum, Daily Scrum, Sprint y Product Backlog',
     ],
     distribucion: [
-      { tipo: 'Pregunta de Opción Múltiple', cantidad: 10, puntos: 10 },
-      { tipo: 'Relacionar Columnas', cantidad: 6, puntos: 9 },
-      { tipo: 'Pregunta Abierta', cantidad: 8, puntos: 20 },
-      { tipo: 'Completar Código', cantidad: 4, puntos: 12 },
-      { tipo: 'Caso de Uso', cantidad: 2, puntos: 8 },
+      { tipo: 'Pregunta de Opción Múltiple', cantidad: 8, puntos: 8 },
+      { tipo: 'Pregunta Abierta', cantidad: 6, puntos: 18 },
+      { tipo: 'Completar Código', cantidad: 5, puntos: 10 },
+      { tipo: 'Caso de Uso', cantidad: 2, puntos: 10 },
     ],
   },
 ];
