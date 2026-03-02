@@ -54,6 +54,20 @@ const mundos = [
       { nombre: 'Postman', desc: 'Herramienta para probar y desarrollar APIs. Permite crear solicitudes HTTP, guardar colecciones, automatizar tests y documentar endpoints.' },
     ],
   },
+  {
+    mundo: 'MUNDO 4',
+    tema: 'Scrum & Agile',
+    color: '#1b3d70',
+    border: '#0d2040',
+    emoji: '📋',
+    conceptos: [
+      { nombre: 'Agile', desc: 'Enfoque iterativo e incremental para entregar valor continuo y adaptarse rápido al cambio.' },
+      { nombre: 'Scrum', desc: 'Framework ágil basado en sprints, roles y eventos para organizar el trabajo en equipo.' },
+      { nombre: 'Daily Scrum', desc: 'Reunión diaria corta (15 min) para sincronizar al equipo y revisar el avance del sprint.' },
+      { nombre: 'Sprint', desc: 'Período fijo de trabajo (normalmente 1 a 4 semanas) donde se construye un incremento del producto.' },
+      { nombre: 'Product Backlog', desc: 'Lista priorizada de requisitos, mejoras e historias de usuario que el producto necesita.' },
+    ],
+  },
 ];
 
 export default function ConceptosSection() {
