@@ -25,6 +25,7 @@ import IAParte2 from "../pages/fundamentos-ia/ia-pt2/page";
 import BasesDatosPage from '../pages/backend/bases-datos/page';
 import AnalisisEquiposTeams from "../pages/analisis-equipos/equipos/page";
 import AnalisisSprint1 from "../pages/analisis-equipos/sprint-1/page";
+import Examen1 from "../pages/examenes/examen-1/page";
 
 const HTMLPage = lazy(() => import('../pages/frontend/html/page'));
 const CSSPage = lazy(() => import('../pages/frontend/css/page'));
@@ -135,6 +136,10 @@ const routes: RouteObject[] = [
   {
     path: '/analisis-equipos/sprint-1',
     element: <AnalisisSprint1 />,
+  },
+  {
+    path: '/examenes/examen-1',
+    element: <Examen1 />,
   },
   {
     path: "*",

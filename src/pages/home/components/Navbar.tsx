@@ -20,6 +20,8 @@ export default function Navbar({ activeSection }) {
   const [isMobileIAOpen, setIsMobileIAOpen] = useState(false);
   const [isAnalisisEquiposOpen, setIsAnalisisEquiposOpen] = useState(false);
   const [isMobileAnalisisEquiposOpen, setIsMobileAnalisisEquiposOpen] = useState(false);
+  const [isExamenesOpen, setIsExamenesOpen] = useState(false);
+  const [isMobileExamenesOpen, setIsMobileExamenesOpen] = useState(false);
   const dropdownRef = useRef(null);
   const backendDropdownRef = useRef(null);
   const frontendDropdownRef = useRef(null);
@@ -28,6 +30,7 @@ export default function Navbar({ activeSection }) {
   const fundamentosDropdownRef = useRef(null);
   const iaDropdownRef = useRef(null);
   const analisisEquiposDropdownRef = useRef(null);
+  const examenesDropdownRef = useRef(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -73,6 +76,9 @@ export default function Navbar({ activeSection }) {
       }
       if (analisisEquiposDropdownRef.current && !analisisEquiposDropdownRef.current.contains(event.target)) {
         setIsAnalisisEquiposOpen(false);
+      }
+      if (examenesDropdownRef.current && !examenesDropdownRef.current.contains(event.target)) {
+        setIsExamenesOpen(false);
       }
     };
 
@@ -202,6 +208,15 @@ export default function Navbar({ activeSection }) {
         { id: 'analisis-equipos-sprint1', label: 'Sprint 1 Análisis', icon: 'ri-bar-chart-grouped-line', path: '/analisis-equipos/sprint-1' },
       ]
     },
+    { 
+      id: 'guia-examenes', 
+      label: 'Guía de Exámenes', 
+      icon: 'ri-file-list-3-line',
+      hasSubmenu: true,
+      submenu: [
+        { id: 'examen-1', label: 'Examen 1', icon: 'ri-questionnaire-line', path: '/examenes/examen-1' },
+      ]
+    },
   ];
 
   const handleTopicClick = (topic) => {
@@ -256,6 +271,16 @@ export default function Navbar({ activeSection }) {
         setIsDevOpsOpen(false);
         setIsFundamentosOpen(false);
         setIsIAOpen(false);
+        setIsExamenesOpen(false);
+      } else if (topic.id === 'guia-examenes') {
+        setIsExamenesOpen(!isExamenesOpen);
+        setIsBackendOpen(false);
+        setIsFrontendOpen(false);
+        setIsCodeConceptsOpen(false);
+        setIsDevOpsOpen(false);
+        setIsFundamentosOpen(false);
+        setIsIAOpen(false);
+        setIsAnalisisEquiposOpen(false);
       }
       return;
     }
@@ -292,8 +317,8 @@ export default function Navbar({ activeSection }) {
     setIsIAOpen(false);
     setIsMobileIAOpen(false);
     setIsAnalisisEquiposOpen(false);
-    setIsMobileAnalisisEquiposOpen(false);
-    
+    setIsMobileAnalisisEquiposOpen(false);    setIsExamenesOpen(false);
+    setIsMobileExamenesOpen(false);    
     if (submenuItem.path && window.REACT_APP_NAVIGATE) {
       window.REACT_APP_NAVIGATE(submenuItem.path);
     }
@@ -364,7 +389,7 @@ export default function Navbar({ activeSection }) {
               {isTopicsOpen && (
                 <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-100 py-2 animate-fadeIn max-h-[calc(100vh-120px)] overflow-y-auto">
                   {topicItems.map((topic) => (
-                    <div key={topic.id} className="relative" ref={topic.id === 'backend' ? backendDropdownRef : topic.id === 'frontend' ? frontendDropdownRef : topic.id === 'code-concepts' ? codeConceptsDropdownRef : topic.id === 'devops-deployment' ? devOpsDropdownRef : topic.id === 'fundamentos-arquitectura' ? fundamentosDropdownRef : topic.id === 'fundamentos-ia' ? iaDropdownRef : topic.id === 'analisis-equipos' ? analisisEquiposDropdownRef : null}>
+                    <div key={topic.id} className="relative" ref={topic.id === 'backend' ? backendDropdownRef : topic.id === 'frontend' ? frontendDropdownRef : topic.id === 'code-concepts' ? codeConceptsDropdownRef : topic.id === 'devops-deployment' ? devOpsDropdownRef : topic.id === 'fundamentos-arquitectura' ? fundamentosDropdownRef : topic.id === 'fundamentos-ia' ? iaDropdownRef : topic.id === 'analisis-equipos' ? analisisEquiposDropdownRef : topic.id === 'guia-examenes' ? examenesDropdownRef : null}>
                       <button
                         onClick={() => handleTopicClick(topic)}
                         className="w-full text-left px-4 py-3 text-sm text-[#1b3d70] hover:bg-[#1b3d70]/5 hover:text-[#bb8800] transition-all duration-200 flex items-center gap-3 cursor-pointer"
@@ -375,7 +400,7 @@ export default function Navbar({ activeSection }) {
                         <span className="font-medium flex-1">{topic.label}</span>
                         {topic.hasSubmenu && (
                           <i className={`ri-arrow-right-s-line transition-transform duration-300 ${
-                            (topic.id === 'backend' && isBackendOpen) || (topic.id === 'frontend' && isFrontendOpen) || (topic.id === 'code-concepts' && isCodeConceptsOpen) || (topic.id === 'devops-deployment' && isDevOpsOpen) || (topic.id === 'fundamentos-arquitectura' && isFundamentosOpen) || (topic.id === 'fundamentos-ia' && isIAOpen) ? 'rotate-90' : ''
+                            (topic.id === 'backend' && isBackendOpen) || (topic.id === 'frontend' && isFrontendOpen) || (topic.id === 'code-concepts' && isCodeConceptsOpen) || (topic.id === 'devops-deployment' && isDevOpsOpen) || (topic.id === 'fundamentos-arquitectura' && isFundamentosOpen) || (topic.id === 'fundamentos-ia' && isIAOpen) || (topic.id === 'analisis-equipos' && isAnalisisEquiposOpen) || (topic.id === 'guia-examenes' && isExamenesOpen) ? 'rotate-90' : ''
                           }`}></i>
                         )}
                       </button>
@@ -508,6 +533,22 @@ export default function Navbar({ activeSection }) {
                           ))}
                         </div>
                       )}
+
+                      {/* Guía de Exámenes Submenu */}
+                      {topic.id === 'guia-examenes' && topic.hasSubmenu && isExamenesOpen && (
+                        <div className="bg-[#f8f9fa] border-l-2 border-[#FFFF00] ml-4 mr-2 rounded-r-lg overflow-hidden">
+                          {topic.submenu.map((submenuItem) => (
+                            <button
+                              key={submenuItem.id}
+                              onClick={() => handleSubmenuClick(submenuItem)}
+                              className="w-full text-left px-4 py-2.5 text-sm text-[#1b3d70] hover:bg-[#FFFF00]/20 hover:text-[#000000] transition-all duration-200 flex items-center gap-2 cursor-pointer font-mono"
+                            >
+                              <i className={`${submenuItem.icon} text-[#000000]`}></i>
+                              <span>{submenuItem.label}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -609,6 +650,26 @@ export default function Navbar({ activeSection }) {
                                   setIsMobileCodeConceptsOpen(false);
                                   setIsMobileDevOpsOpen(false);
                                   setIsMobileFundamentosOpen(false);
+                                  setIsMobileAnalisisEquiposOpen(false);
+                                  setIsMobileExamenesOpen(false);
+                                } else if (topic.id === 'analisis-equipos') {
+                                  setIsMobileAnalisisEquiposOpen(!isMobileAnalisisEquiposOpen);
+                                  setIsMobileBackendOpen(false);
+                                  setIsMobileFrontendOpen(false);
+                                  setIsMobileCodeConceptsOpen(false);
+                                  setIsMobileDevOpsOpen(false);
+                                  setIsMobileFundamentosOpen(false);
+                                  setIsMobileIAOpen(false);
+                                  setIsMobileExamenesOpen(false);
+                                } else if (topic.id === 'guia-examenes') {
+                                  setIsMobileExamenesOpen(!isMobileExamenesOpen);
+                                  setIsMobileBackendOpen(false);
+                                  setIsMobileFrontendOpen(false);
+                                  setIsMobileCodeConceptsOpen(false);
+                                  setIsMobileDevOpsOpen(false);
+                                  setIsMobileFundamentosOpen(false);
+                                  setIsMobileIAOpen(false);
+                                  setIsMobileAnalisisEquiposOpen(false);
                                 }
                               }}
                               className="w-full text-left py-2 px-3 text-sm text-[#1b3d70] hover:text-[#bb8800] transition-all duration-200 flex items-center justify-between cursor-pointer rounded-lg hover:bg-gray-50"
@@ -618,7 +679,7 @@ export default function Navbar({ activeSection }) {
                                 <span>{topic.label}</span>
                               </div>
                               <i className={`ri-arrow-down-s-line transition-transform duration-300 ${
-                                (topic.id === 'backend' && isMobileBackendOpen) || (topic.id === 'frontend' && isMobileFrontendOpen) || (topic.id === 'code-concepts' && isMobileCodeConceptsOpen) || (topic.id === 'devops-deployment' && isMobileDevOpsOpen) || (topic.id === 'fundamentos-arquitectura' && isMobileFundamentosOpen) || (topic.id === 'fundamentos-ia' && isMobileIAOpen) ? 'rotate-180' : ''
+                                (topic.id === 'backend' && isMobileBackendOpen) || (topic.id === 'frontend' && isMobileFrontendOpen) || (topic.id === 'code-concepts' && isMobileCodeConceptsOpen) || (topic.id === 'devops-deployment' && isMobileDevOpsOpen) || (topic.id === 'fundamentos-arquitectura' && isMobileFundamentosOpen) || (topic.id === 'fundamentos-ia' && isMobileIAOpen) || (topic.id === 'analisis-equipos' && isMobileAnalisisEquiposOpen) || (topic.id === 'guia-examenes' && isMobileExamenesOpen) ? 'rotate-180' : ''
                               }`}></i>
                             </button>
                             
@@ -733,6 +794,38 @@ export default function Navbar({ activeSection }) {
                                       className="w-full text-left py-2 px-2 text-sm text-[#1b3d70] hover:text-[#0070f3] transition-all duration-200 flex items-center gap-2 cursor-pointer rounded-lg hover:bg-[#0070f3]/5"
                                     >
                                       <i className={`${submenuItem.icon} text-[#0070f3]`}></i>
+                                      <span>{submenuItem.label}</span>
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+
+                            {topic.id === 'analisis-equipos' && isMobileAnalisisEquiposOpen && (
+                              <ul className="mt-1 ml-4 space-y-1 border-l-2 border-[#3b82f6]/30 pl-3">
+                                {topic.submenu.map((submenuItem) => (
+                                  <li key={submenuItem.id}>
+                                    <button
+                                      onClick={() => handleSubmenuClick(submenuItem)}
+                                      className="w-full text-left py-2 px-2 text-sm text-[#1b3d70] hover:text-[#3b82f6] transition-all duration-200 flex items-center gap-2 cursor-pointer rounded-lg hover:bg-[#3b82f6]/5"
+                                    >
+                                      <i className={`${submenuItem.icon} text-[#3b82f6]`}></i>
+                                      <span>{submenuItem.label}</span>
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+
+                            {topic.id === 'guia-examenes' && isMobileExamenesOpen && (
+                              <ul className="mt-1 ml-4 space-y-1 border-l-2 border-[#FFFF00]/50 pl-3">
+                                {topic.submenu.map((submenuItem) => (
+                                  <li key={submenuItem.id}>
+                                    <button
+                                      onClick={() => handleSubmenuClick(submenuItem)}
+                                      className="w-full text-left py-2 px-2 text-sm text-[#1b3d70] hover:text-[#000000] hover:bg-[#FFFF00]/20 transition-all duration-200 flex items-center gap-2 cursor-pointer rounded-lg font-mono"
+                                    >
+                                      <i className={`${submenuItem.icon} text-[#000000]`}></i>
                                       <span>{submenuItem.label}</span>
                                     </button>
                                   </li>
