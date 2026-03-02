@@ -303,13 +303,29 @@ export default function CalendarSection() {
                     </li>
                     <li className="flex items-start gap-2">
                       <i className="ri-link-m text-[#1b3d70] mt-0.5"></i>
-                      <span>Incluir links a Supabase (proyecto y tablas)</span>
+                      <span>Incluir links a Supabase (TODOS los endpoints generados)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <i className="ri-test-tube-line text-[#1b3d70] mt-0.5"></i>
                       <span>Adjuntar pruebas de Postman y la coleccion JSON</span>
                     </li>
                   </ul>
+                </div>
+
+                <div className="mt-4">
+                  <h4 className="text-sm font-bold text-[#1b3d70] uppercase tracking-wide mb-2">Links de apoyo</h4>
+                  <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <a
+                      href="https://learning.postman.com/docs/getting-started/importing-and-exporting/exporting-data"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#1b3d70] hover:text-[#2a5490]"
+                    >
+                      <i className="ri-file-text-line"></i>
+                      <span>Exportar colecciones en Postman</span>
+                      <i className="ri-external-link-line text-[10px]"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
