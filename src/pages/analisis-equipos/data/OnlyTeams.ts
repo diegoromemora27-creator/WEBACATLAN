@@ -176,20 +176,24 @@ export const onlyTeams: SimpleTeam[] = [
     projectName: "Angeles de MAC",
     members: [
       {
+        name: "González Sánchez Raúl Alejandro",
+        email: "321265302@pcpuma.acatlan.unam.mx",
+      },
+      {
         name: "Escutia Pascacio Eduardo Emiliano",
         email: "319035148@pcpuma.acatlan.unam.mx",
       },
       {
-        name: "González Sánchez Raúl Alejandro",
-        email: "321265302@pcpuma.acatlan.unam.mx",
+        name: "Libonatti Valdivia Sadrach Neftali",
+        email: "320020171@pcpuma.acatlan.unam.mx",
       },
       {
         name: "Moctezuma Isidro Michelle",
         email: "318690597@pcpuma.acatlan.unam.mx",
       },
       {
-        name: "Libonatti Valdivia Sadrach Neftali",
-        email: "320020171@pcpuma.acatlan.unam.mx",
+        name: "Elías García Luis David",
+        email: "424018681@pcpuma.acatlan.unam.mx",
       },
     ],
     githubUrl: "https://github.com/Angeles-de-MAC",
