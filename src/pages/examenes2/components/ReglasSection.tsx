@@ -15,9 +15,9 @@ const reglas = [
     border: '#0099BB',
   },
   {
-    icon: '✏️',
-    titulo: 'Respuestas Definitivas',
-    descripcion: 'Una vez enviada una respuesta en línea, no podrá modificarse. Lee bien antes de disparar.',
+    icon: '❓',
+    titulo: 'Usa tus participaciones',
+    descripcion: 'Los stickers que tienen, pueden ser usados para reponer __ pts cada una,  estas seran mostradas al inicio del examen.',
     color: '#00FF88',
     border: '#00AA55',
   },
@@ -30,8 +30,8 @@ const reglas = [
   },
   {
     icon: '🔄',
-    titulo: 'Sin Reposición Automática',
-    descripcion: 'No hay exámenes de reposición automáticos. En caso de falta justificada, hablar directamente con el profesor.',
+    titulo: 'Sin Reposición',
+    descripcion: 'No hay exámenes de reposición.',
     color: '#AA88FF',
     border: '#7755CC',
   },

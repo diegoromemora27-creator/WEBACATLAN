@@ -63,7 +63,7 @@ const calendarItems: CalendarItem[] = [
   },
     {
     date: '3 de Marzo, 2026',
-    dayOfWeek: 'Jueves',
+    dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 4,
     title: 'LAB 04 - Aplica los conocimientos adquiridos en tu proyecto en equipo (Modelado ER, Arquitectura de Capas, CRUD con PostgREST y Supabase)',
@@ -252,6 +252,68 @@ export default function CalendarSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Sprint Deliverable */}
+        <div className="mt-10 sm:mt-14">
+          <div className="border-2 rounded-2xl p-5 sm:p-6 md:p-8 bg-white shadow-sm">
+            <div className="flex items-start gap-3 mb-4">
+              <div className="text-2xl">📦</div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#1b3d70]">Entregable Final por Sprint</h3>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  Para este sprint entregaremos el cierre del avance del proyecto.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <h4 className="text-sm font-bold text-[#1b3d70] uppercase tracking-wide mb-2">Lo que se entrega</h4>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start gap-2">
+                    <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
+                    <span>Diagrama ER del proyecto</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
+                    <span>Implementacion en Supabase (tablas y relaciones)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
+                    <span>Pruebas completas en Postman con todos los endpoints probados</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
+                    <span>Coleccion de Postman en formato JSON</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-bold text-[#1b3d70] uppercase tracking-wide mb-2">Donde entregar</h4>
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                  <p className="text-sm text-gray-700 mb-2">
+                    La entrega se realiza en la plataforma <span className="font-bold">SEA</span>.
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <i className="ri-file-upload-line text-[#1b3d70] mt-0.5"></i>
+                      <span>Subir un PDF con capturas del Diagrama ER y de la BD en Supabase</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <i className="ri-link-m text-[#1b3d70] mt-0.5"></i>
+                      <span>Incluir links a Supabase (proyecto y tablas)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <i className="ri-test-tube-line text-[#1b3d70] mt-0.5"></i>
+                      <span>Adjuntar pruebas de Postman y la coleccion JSON</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Footer Note */}

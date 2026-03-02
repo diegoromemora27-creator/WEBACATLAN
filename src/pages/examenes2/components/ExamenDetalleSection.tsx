@@ -6,7 +6,7 @@ const examen = {
   emoji: '👾',
   color: '#00AA55',
   border: '#006633',
-  peso: '20%',
+  peso: '10%',
   duracion: '90 min',
   preguntas: 30,
   temas: [
