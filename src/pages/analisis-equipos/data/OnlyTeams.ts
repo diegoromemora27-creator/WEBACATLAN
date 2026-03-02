@@ -20,7 +20,7 @@ export interface SimpleTeam {
 
 /**
  * EQUIPOS SPRINT 1
- * 45 respuestas totales de autoevaluación
+ * 57 respuestas totales de autoevaluación
  */
 export const onlyTeams: SimpleTeam[] = [
   // ========== EQUIPO 1 - DevStudy ==========
@@ -44,6 +44,10 @@ export const onlyTeams: SimpleTeam[] = [
       {
         name: "Buenrostro Cruces Saraí",
         email: "saraicruces158@gmail.com",
+      },
+      {
+        name: "Pérez López Zaira Cecilia",
+        email: "318331674@pcpuma.acatlan.unam.mx",
       },
     ],
     githubUrl: "https://github.com/DevStudyJS",
@@ -94,12 +98,12 @@ export const onlyTeams: SimpleTeam[] = [
         email: "318000787@pcpuma.acatlan.unam.mx",
       },
       {
-        name: "Domínguez Lira Estefaní Michelle",
-        email: "estef.dominguez@pcpuma.acatlan.unam.mx",
+        name: "Ruiz García Emiliano",
+        email: "424126694@pcpuma.acatlan.unam.mx",
       },
       {
-        name: "Ruiz García Emiliano",
-        email: "321339968@pcpuma.acatlan.unam.mx",
+        name: "Raygoza Islas José Ángel",
+        email: "421103605@pcpuma.acatlan.unam.mx",
       },
     ],
     githubUrl: "https://github.com/RecursosMAC/Recursos",
@@ -126,6 +130,10 @@ export const onlyTeams: SimpleTeam[] = [
         name: "Aguilar Buendía Bruno",
         email: "brunoaguilar.2610@gmail.com",
       },
+      {
+        name: "Mendoza Hernández Daniela Itzel",
+        email: "318352378@pcpuma.acatlan.unam.mx",
+      },
     ],
     githubUrl: "https://github.com/Null-Nexus",
     boardUrl: "https://app.clickup.com/9017897580/v/s/90174290770",
@@ -146,6 +154,14 @@ export const onlyTeams: SimpleTeam[] = [
         name: "Cristina Vianeth Saiz Pérez",
         email: "317152522@pcpuma.acatlan.unam.mx",
       },
+      {
+        name: "Chávez González Itzel",
+        email: "321573577@pcpuma.acatlan.unam.mx",
+      },
+      {
+        name: "Toledo Méndez Ximena",
+        email: "421114564@pcpuma.acatlan.unam.mx",
+      },
     ],
     githubUrl: "https://github.com/AcaShop-Acatlan",
     boardUrl:
@@ -153,11 +169,11 @@ export const onlyTeams: SimpleTeam[] = [
     boardTool: "Jira",
   },
 
-  // ========== EQUIPO 6 - Equipo 6 ==========
+  // ========== EQUIPO 6 - Angeles de MAC ==========
   {
     id: 6,
     name: "Equipo 6",
-    projectName: "Readdy",
+    projectName: "Angeles de MAC",
     members: [
       {
         name: "Escutia Pascacio Eduardo Emiliano",
@@ -169,12 +185,16 @@ export const onlyTeams: SimpleTeam[] = [
       },
       {
         name: "Moctezuma Isidro Michelle",
-        email: "321267890@pcpuma.acatlan.unam.mx",
+        email: "318690597@pcpuma.acatlan.unam.mx",
+      },
+      {
+        name: "Libonatti Valdivia Sadrach Neftali",
+        email: "320020171@pcpuma.acatlan.unam.mx",
       },
     ],
-    githubUrl: "https://github.com/?locale=es-419",
-    boardUrl: "https://readdy.ai/signin?redirect=https%253A%252F%252Freaddy.ai",
-    boardTool: "Readdy",
+    githubUrl: "https://github.com/Angeles-de-MAC",
+    boardUrl: "https://miro.com/welcomeonboard/N2FybWh0VndPTXEydzI1MTZvTDBGdzRES2ZkcFVWblpvbGw1eGw1dGlRS0dTMXZDUWVUUjN6UHV0UTRyWHJmcGhycnJqTDE2c0hQYWJnRC9FNy9vTWw0WWNMdE1wV21UdS94emdpamNQN0lrOXhZdFZMQjl6OTJHNGIyRFZPQml3VHhHVHd5UWtSM1BidUtUYmxycDRnPT0hdjE=?share_link_id=997238655474",
+    boardTool: "Other",
   },
 
   // ========== EQUIPO 7 - Académicos Web ==========
@@ -243,11 +263,11 @@ export const onlyTeams: SimpleTeam[] = [
     boardTool: "Jira",
   },
 
-  // ========== EQUIPO 9 - Equipo 9 ==========
+  // ========== EQUIPO 9 ==========
   {
     id: 9,
     name: "Equipo 9",
-    projectName: "API Management",
+    projectName: "Sistema de Gestión",
     members: [
       {
         name: "Cortés Cortés Bryan Yael",
@@ -257,6 +277,14 @@ export const onlyTeams: SimpleTeam[] = [
         name: "Ríos Barrera Arantza Ilian",
         email: "321103097@pcpuma.acatlan.unam.mx",
       },
+      {
+        name: "Romero Velázquez Luis Fernando",
+        email: "320584622@pcpuma.acatlan.unam.mx",
+      },
+      {
+        name: "Valdovinos Sedano Daniela Ariday",
+        email: "424066376@pcpuma.acatlan.unam.mx",
+      },
     ],
     githubUrl: "https://github.com/317110375/Equipo9-",
     boardUrl:
@@ -264,19 +292,31 @@ export const onlyTeams: SimpleTeam[] = [
     boardTool: "Google Docs",
   },
 
-  // ========== EQUIPO 10 - Equipo 10 ==========
+  // ========== EQUIPO 10 ==========
   {
     id: 10,
     name: "Equipo 10",
-    projectName: "Gestión de Proyectos",
+    projectName: "Monitoreo",
     members: [
+      {
+        name: "Velázquez García Leonardo Daniel",
+        email: "leonardoxvelazquezz@gmail.com",
+      },
+      {
+        name: "Rojas Uriostigue Rodrigo",
+        email: "uriostiguerodrigo@gmail.com",
+      },
+      {
+        name: "Luna Martínez Escobar Guillermo",
+        email: "guilumaesco@gmail.com",
+      },
+      {
+        name: "Martínez Hernández Ricardo Ramón",
+        email: "317162783@pcpuma.acatlan.unam.mx",
+      },
       {
         name: "Álvarez Casas Jesús",
         email: "424032496@pcpuma.acatlan.unam.mx",
-      },
-      {
-        name: "Nava García Daniel",
-        email: "321267900@pcpuma.acatlan.unam.mx",
       },
     ],
     githubUrl: "https://github.com/Equipo10MAC",
