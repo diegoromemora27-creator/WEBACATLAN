@@ -93,21 +93,18 @@ export default function AnalisisEquipos() {
 
           {/* Sprint Selector */}
           <div className="flex flex-col items-center mb-8">
-            <div className="inline-flex items-center bg-white rounded-xl shadow-md p-2 mb-4">
-              <span className="px-4 text-[#1b3d70] font-medium">Sprint:</span>
-              {availableSprints.map(sprint => (
-                <button
-                  key={sprint}
-                  onClick={() => setSelectedSprint(sprint)}
-                  className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
-                    selectedSprint === sprint
-                      ? 'bg-[#1b3d70] text-white'
-                      : 'text-[#1b3d70] hover:bg-blue-50'
-                  }`}
-                >
-                  Sprint {sprint}
-                </button>
-              ))}
+            <div className="mb-4">
+              <select
+                value={selectedSprint}
+                onChange={(e) => setSelectedSprint(Number(e.target.value))}
+                className="px-6 py-3 rounded-xl bg-white text-[#1b3d70] font-semibold border-2 border-[#1b3d70] shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                {availableSprints.map(sprint => (
+                  <option key={sprint} value={sprint}>
+                    Sprint {sprint} Análisis
+                  </option>
+                ))}
+              </select>
             </div>
             {selectedSprint === 1 && (
               <a
