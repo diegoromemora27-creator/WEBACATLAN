@@ -8,7 +8,6 @@ import TiposPreguntaSection from './components/TiposPreguntaSection';
 import ConceptosSection from './components/ConceptosSection';
 import ExamenesListSection from './components/ExamenesListSection';
 import ConsejosSection from './components/ConsejosSection';
-import PreguntasEjemploSection from './components/PreguntasEjemploSection';
 
 export default function ExamenesPage() {
   const [activeSection] = useState('');
@@ -20,7 +19,6 @@ export default function ExamenesPage() {
       <ExamenesListSection />
       <TiposPreguntaSection />
       <ConceptosSection />
-        <PreguntasEjemploSection />
       <ReglasSection />
       <ConsejosSection />
       <Footer />

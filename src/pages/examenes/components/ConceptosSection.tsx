@@ -50,7 +50,6 @@ const mundos = [
       { nombre: 'Next.js', desc: 'Framework React con SSR, SSG, App Router, Server Components y optimizaciones automáticas.' },
       { nombre: 'BEM', desc: 'Block__Element--Modifier. Metodología de nomenclatura CSS para código mantenible.' },
       { nombre: 'TypeScript', desc: 'Superset de JS con tipado estático. Interfaces, tipos, genéricos, enums, decoradores.' },
-      { nombre: 'Componentes React', desc: 'Funciones que retornan JSX. Props, estado, hooks (useState, useEffect, useContext).' },
       { nombre: 'Postman', desc: 'Herramienta para probar y desarrollar APIs. Permite crear solicitudes HTTP, guardar colecciones, automatizar tests y documentar endpoints.' },
     ],
   },
@@ -65,7 +64,8 @@ const mundos = [
       { nombre: 'Scrum', desc: 'Framework ágil basado en sprints, roles y eventos para organizar el trabajo en equipo.' },
       { nombre: 'Daily Scrum', desc: 'Reunión diaria corta (15 min) para sincronizar al equipo y revisar el avance del sprint.' },
       { nombre: 'Sprint', desc: 'Período fijo de trabajo (normalmente 1 a 4 semanas) donde se construye un incremento del producto.' },
-      { nombre: 'Product Backlog', desc: 'Lista priorizada de requisitos, mejoras e historias de usuario que el producto necesita.' },
+      { nombre: 'Product Owner', desc: 'Responsable de maximizar el valor del producto y priorizar el trabajo del equipo en Scrum.' },
+      { nombre: 'Product Master', desc: 'Rol de facilitación del proceso Scrum para asegurar que se sigan prácticas ágiles y remover impedimentos.' },
     ],
   },
 ];
