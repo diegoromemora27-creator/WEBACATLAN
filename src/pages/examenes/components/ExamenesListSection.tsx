@@ -19,11 +19,12 @@ const examenes = [
       'Scrum & Agile: Scrum, Daily Scrum, Sprint y Product Backlog',
     ],
     distribucion: [
-      { tipo: 'Pregunta de Opción Múltiple', cantidad: 8, puntos: 8 },
-      { tipo: 'Pregunta Abierta', cantidad: 6, puntos: 18 },
-      { tipo: 'Completar Código', cantidad: 5, puntos: 10 },
-      { tipo: 'Caso de Uso', cantidad: 2, puntos: 10 },
+      { tipo: 'Pregunta de Opción Múltiple', cantidad: 8, puntos: 24 },
+      { tipo: 'Pregunta Abierta', cantidad: 6, puntos: 36 },
+      { tipo: 'Completar Código', cantidad: 5, puntos: 20 },
+      { tipo: 'Caso de Uso', cantidad: 2, puntos: 20 },
     ],
+    puntajeMinimoParaPasar: 60,
   },
 ];
 
@@ -120,6 +121,14 @@ export default function ExamenesListSection() {
                       <span className="font-black text-sm" style={{ color: examen.color }}>
                         {examen.distribucion.reduce((acc, d) => acc + d.puntos, 0)} pts
                       </span>
+                    </div>
+                    {/* Mínimo para pasar */}
+                    <div className="flex items-center justify-between p-2 border-l-4" style={{ borderLeftColor: '#FFD700', background: 'rgba(255,215,0,0.08)' }}>
+                      <div>
+                        <span className="font-black text-sm text-gray-800">Mínimo para pasar</span>
+                        <span className="text-gray-500 text-xs ml-2">(Nota 6.0)</span>
+                      </div>
+                      <span className="font-black text-sm" style={{ color: '#FFD700' }}>60 pts</span>
                     </div>
                   </div>
                 </div>

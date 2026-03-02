@@ -103,6 +103,95 @@ export default function ConsejosSection() {
           ))}
         </div>
 
+        {/* Tabla de Puntuaciones */}
+        <div className="mt-14 md:mt-20 mb-14">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-black text-[#1b3d70] mb-2">Ejemplos de Puntuaciones</h3>
+            <p className="text-gray-600 text-sm md:text-base">Conoce diferentes perfiles de estudiantes y sus resultados esperados</p>
+          </div>
+
+          <div className="overflow-x-auto border-4 border-[#1b3d70] shadow-[4px_4px_0px_rgba(0,0,0,0.2)]">
+            <table className="w-full">
+              <thead>
+                <tr style={{ background: '#1b3d70' }}>
+                  <th className="px-3 py-3 md:px-4 md:py-4 text-white font-black text-xs md:text-sm text-left">Perfil</th>
+                  <th className="px-2 py-3 md:px-3 md:py-4 text-white font-black text-xs md:text-sm text-center">OM (×3)</th>
+                  <th className="px-2 py-3 md:px-3 md:py-4 text-white font-black text-xs md:text-sm text-center">Abierta (×6)</th>
+                  <th className="px-2 py-3 md:px-3 md:py-4 text-white font-black text-xs md:text-sm text-center">Código (×4)</th>
+                  <th className="px-2 py-3 md:px-3 md:py-4 text-white font-black text-xs md:text-sm text-center">Caso (×10)</th>
+                  <th className="px-3 py-3 md:px-4 md:py-4 text-white font-black text-xs md:text-sm text-right">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ background: '#E8F5E9', borderBottom: '2px solid #ddd' }}>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-gray-800">Sobresaliente</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">8/8 → 24</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">6/6 → 36</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">5/5 → 20</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">2/2 → 20</td>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-right" style={{ color: '#228B22' }}>100 ✅</td>
+                </tr>
+                <tr style={{ background: '#fff', borderBottom: '2px solid #ddd' }}>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-gray-800">Sólido</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">8/8 → 24</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">5/6 → 30</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">5/5 → 20</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">2/2 → 20</td>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-right" style={{ color: '#228B22' }}>94 ✅</td>
+                </tr>
+                <tr style={{ background: '#F3E5F5', borderBottom: '2px solid #ddd' }}>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-gray-800">Teórico fuerte</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">8/8 → 24</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">5/6 → 30</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">1/5 → 4</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">1/2 → 10</td>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-right" style={{ color: '#228B22' }}>68 ✅</td>
+                </tr>
+                <tr style={{ background: '#FFFDE7', borderBottom: '2px solid #ddd' }}>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-gray-800">Pasa justo</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">6/8 → 18</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">4/6 → 24</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">2/5 → 8</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">1/2 → 10</td>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-right" style={{ color: '#228B22' }}>60 ✅</td>
+                </tr>
+                <tr style={{ background: '#FFEBEE', borderBottom: '2px solid #ddd' }}>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-gray-800">Solo memoriza</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">8/8 → 24</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">2/6 → 12</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">1/5 → 4</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">0/2 → 0</td>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-right" style={{ color: '#E52521' }}>40 ❌</td>
+                </tr>
+                <tr style={{ background: '#FFEBEE' }}>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-gray-800">Solo código</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">2/8 → 6</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">1/6 → 6</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">5/5 → 20</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">0/2 → 0</td>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-right" style={{ color: '#E52521' }}>32 ❌</td>
+                </tr>
+                <tr style={{ background: '#F5F5F5', borderTop: '3px solid #1b3d70' }}>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-gray-800">Máximo posible</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center font-black text-gray-800">24</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center font-black text-gray-800">36</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center font-black text-gray-800">20</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center font-black text-gray-800">20</td>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-right" style={{ color: '#1b3d70' }}>100</td>
+                </tr>
+                <tr style={{ background: '#F5F5F5' }}>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-gray-800">Peso relativo</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">24%</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">36%</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">20%</td>
+                  <td className="px-2 py-2 md:px-3 md:py-3 text-xs md:text-sm text-center text-gray-700">20%</td>
+                  <td className="px-3 py-2 md:px-4 md:py-3 font-black text-xs md:text-sm text-right text-gray-700">100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         {/* Final CTA */}
         <div className="mt-14 md:mt-20 text-center">
           <div
