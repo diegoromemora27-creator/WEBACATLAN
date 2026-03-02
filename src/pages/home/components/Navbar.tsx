@@ -18,6 +18,8 @@ export default function Navbar({ activeSection }) {
   const [isMobileFundamentosOpen, setIsMobileFundamentosOpen] = useState(false);
   const [isIAOpen, setIsIAOpen] = useState(false);
   const [isMobileIAOpen, setIsMobileIAOpen] = useState(false);
+  const [isAnalisisEquiposOpen, setIsAnalisisEquiposOpen] = useState(false);
+  const [isMobileAnalisisEquiposOpen, setIsMobileAnalisisEquiposOpen] = useState(false);
   const dropdownRef = useRef(null);
   const backendDropdownRef = useRef(null);
   const frontendDropdownRef = useRef(null);
@@ -25,6 +27,7 @@ export default function Navbar({ activeSection }) {
   const devOpsDropdownRef = useRef(null);
   const fundamentosDropdownRef = useRef(null);
   const iaDropdownRef = useRef(null);
+  const analisisEquiposDropdownRef = useRef(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -67,6 +70,9 @@ export default function Navbar({ activeSection }) {
       }
       if (iaDropdownRef.current && !iaDropdownRef.current.contains(event.target)) {
         setIsIAOpen(false);
+      }
+      if (analisisEquiposDropdownRef.current && !analisisEquiposDropdownRef.current.contains(event.target)) {
+        setIsAnalisisEquiposOpen(false);
       }
     };
 
@@ -186,7 +192,16 @@ export default function Navbar({ activeSection }) {
     },
     { id: 'backend-bases-datos', label: 'Bases de Datos', icon: 'ri-database-2-line', path: '/backend/bases-datos' },
     { id: 'seguridad-testing', label: 'Seguridad, Testing & Calidad del Software', icon: 'ri-shield-check-line', path: '/seguridad-testing' },
-    { id: 'analisis-equipos', label: 'Análisis de Equipos', icon: 'ri-bar-chart-grouped-line', path: '/analisis-equipos' },
+    { 
+      id: 'analisis-equipos', 
+      label: 'Análisis de Equipos', 
+      icon: 'ri-bar-chart-grouped-line',
+      hasSubmenu: true,
+      submenu: [
+        { id: 'analisis-equipos-teams', label: 'Teams', icon: 'ri-team-line', path: '/analisis-equipos/equipos' },
+        { id: 'analisis-equipos-sprint1', label: 'Sprint 1 Análisis', icon: 'ri-bar-chart-grouped-line', path: '/analisis-equipos/sprint-1' },
+      ]
+    },
   ];
 
   const handleTopicClick = (topic) => {
@@ -233,6 +248,14 @@ export default function Navbar({ activeSection }) {
         setIsCodeConceptsOpen(false);
         setIsDevOpsOpen(false);
         setIsFundamentosOpen(false);
+      } else if (topic.id === 'analisis-equipos') {
+        setIsAnalisisEquiposOpen(!isAnalisisEquiposOpen);
+        setIsBackendOpen(false);
+        setIsFrontendOpen(false);
+        setIsCodeConceptsOpen(false);
+        setIsDevOpsOpen(false);
+        setIsFundamentosOpen(false);
+        setIsIAOpen(false);
       }
       return;
     }
@@ -268,6 +291,8 @@ export default function Navbar({ activeSection }) {
     setIsMobileFundamentosOpen(false);
     setIsIAOpen(false);
     setIsMobileIAOpen(false);
+    setIsAnalisisEquiposOpen(false);
+    setIsMobileAnalisisEquiposOpen(false);
     
     if (submenuItem.path && window.REACT_APP_NAVIGATE) {
       window.REACT_APP_NAVIGATE(submenuItem.path);
@@ -339,7 +364,7 @@ export default function Navbar({ activeSection }) {
               {isTopicsOpen && (
                 <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-100 py-2 animate-fadeIn max-h-[calc(100vh-120px)] overflow-y-auto">
                   {topicItems.map((topic) => (
-                    <div key={topic.id} className="relative" ref={topic.id === 'backend' ? backendDropdownRef : topic.id === 'frontend' ? frontendDropdownRef : topic.id === 'code-concepts' ? codeConceptsDropdownRef : topic.id === 'devops-deployment' ? devOpsDropdownRef : topic.id === 'fundamentos-arquitectura' ? fundamentosDropdownRef : topic.id === 'fundamentos-ia' ? iaDropdownRef : null}>
+                    <div key={topic.id} className="relative" ref={topic.id === 'backend' ? backendDropdownRef : topic.id === 'frontend' ? frontendDropdownRef : topic.id === 'code-concepts' ? codeConceptsDropdownRef : topic.id === 'devops-deployment' ? devOpsDropdownRef : topic.id === 'fundamentos-arquitectura' ? fundamentosDropdownRef : topic.id === 'fundamentos-ia' ? iaDropdownRef : topic.id === 'analisis-equipos' ? analisisEquiposDropdownRef : null}>
                       <button
                         onClick={() => handleTopicClick(topic)}
                         className="w-full text-left px-4 py-3 text-sm text-[#1b3d70] hover:bg-[#1b3d70]/5 hover:text-[#bb8800] transition-all duration-200 flex items-center gap-3 cursor-pointer"
@@ -420,9 +445,25 @@ export default function Navbar({ activeSection }) {
                         </div>
                       )}
 
+                      {/* Análisis de Equipos Submenu */}
+                      {topic.id === 'analisis-equipos' && topic.hasSubmenu && isAnalisisEquiposOpen && (
+                        <div className="bg-[#f8f9fa] border-l-2 border-[#3b82f6] ml-4 mr-2 rounded-r-lg overflow-hidden">
+                          {topic.submenu.map((submenuItem) => (
+                            <button
+                              key={submenuItem.id}
+                              onClick={() => handleSubmenuClick(submenuItem)}
+                              className="w-full text-left px-4 py-2.5 text-sm text-[#1b3d70] hover:bg-[#3b82f6]/10 hover:text-[#3b82f6] transition-all duration-200 flex items-center gap-2 cursor-pointer"
+                            >
+                              <i className={`${submenuItem.icon} text-[#3b82f6]`}></i>
+                              <span>{submenuItem.label}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
                       {/* Code Concepts Submenu */}
                       {topic.id === 'code-concepts' && topic.hasSubmenu && isCodeConceptsOpen && (
-                        <div className="bg-[#f8f9fa] border-l-2 border-[#bb8800] ml-4 mr-2 rounded-r-lg overflow-hidden">
+                        <div className="bg-[#f8f9fa] border-l-2 border-[#bb8800] ml-4 mr-2 rounded-r-lg overflow-hidden">{}
                           {topic.submenu.map((submenuItem) => (
                             <button
                               key={submenuItem.id}

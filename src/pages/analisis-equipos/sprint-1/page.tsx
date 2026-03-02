@@ -7,9 +7,9 @@ import {
   calculateTeamAverages,
   getTeamRecommendations,
   Team,
-} from './data/teamsData';
+} from '../data/teamsData';
 
-export default function AnalisisEquipos() {
+export default function AnalisisSprint1() {
   const [selectedSprint, setSelectedSprint] = useState<number>(1);
   const [selectedTeam, setSelectedTeam] = useState<number | null>(null);
   const availableSprints = getAvailableSprints();
@@ -69,7 +69,7 @@ export default function AnalisisEquipos() {
               className="h-12 w-auto"
             />
             <div className="text-[#1b3d70]">
-              <div className="font-bold text-base leading-tight">Análisis de Equipos</div>
+              <div className="font-bold text-base leading-tight">Sprint 1 Análisis</div>
               <div className="text-xs opacity-70">Dashboard Sprint {selectedSprint}</div>
             </div>
           </div>
@@ -82,8 +82,8 @@ export default function AnalisisEquipos() {
         <section className="mb-12">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-[#1b3d70] mb-4">
-              <i className="ri-team-line mr-3"></i>
-              Análisis de Equipos Scrum
+              <i className="ri-bar-chart-grouped-line mr-3"></i>
+              Análisis de Equipos Sprint 1
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Dashboard de seguimiento y evaluación de los equipos de desarrollo.
