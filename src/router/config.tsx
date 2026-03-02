@@ -26,6 +26,8 @@ import BasesDatosPage from '../pages/backend/bases-datos/page';
 import AnalisisEquiposTeams from "../pages/analisis-equipos/equipos/page";
 import AnalisisSprint1 from "../pages/analisis-equipos/sprint-1/page";
 import Examen1 from "../pages/examenes/examen-1/page";
+import ExamenesPrincipal from "../pages/examenes/page";
+import Examenes2 from "../pages/examenes2/page";
 
 const HTMLPage = lazy(() => import('../pages/frontend/html/page'));
 const CSSPage = lazy(() => import('../pages/frontend/css/page'));
@@ -138,8 +140,16 @@ const routes: RouteObject[] = [
     element: <AnalisisSprint1 />,
   },
   {
+    path: '/examenes',
+    element: <ExamenesPrincipal />,
+  },
+  {
     path: '/examenes/examen-1',
     element: <Examen1 />,
+  },
+  {
+    path: '/examenes2',
+    element: <Examenes2 />,
   },
   {
     path: "*",
