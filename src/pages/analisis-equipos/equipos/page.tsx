@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import {
-  teams,
-  Team,
-  calculateTeamAverages,
-  getTeamRecommendations,
-} from '../data/teamsData';
+  onlyTeams,
+  getAllTeams,
+  type SimpleTeam as Team,
+  getTotalMembers,
+} from '../data/OnlyTeams';
 
 export default function AnalisisEquiposTeams() {
   const [selectedTeam, setSelectedTeam] = useState<number | null>(null);
@@ -19,7 +19,7 @@ export default function AnalisisEquiposTeams() {
   };
 
   // Count total members
-  const totalMembers = teams.reduce((sum, team) => sum + team.members.length, 0);
+  const totalMembers = getTotalMembers();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -69,7 +69,7 @@ export default function AnalisisEquiposTeams() {
             <StatCard
               icon="ri-group-line"
               label="Total Equipos"
-              value={teams.length}
+              value={onlyTeams.length}
               color="blue"
             />
             <StatCard
@@ -81,7 +81,7 @@ export default function AnalisisEquiposTeams() {
             <StatCard
               icon="ri-map-pin-line"
               label="Proyectos Activos"
-              value={teams.filter(t => t.projectName).length}
+              value={onlyTeams.filter(t => t.projectName).length}
               color="purple"
             />
           </div>
@@ -104,7 +104,7 @@ export default function AnalisisEquiposTeams() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {teams.map(team => (
+            {onlyTeams.map(team => (
               <TeamCard
                 key={team.id}
                 team={team}
@@ -176,6 +176,8 @@ function TeamCard({ team, isSelected, onClick }: {
       case 'Notion': return 'ri-notion-line';
       case 'ClickUp': return 'ri-checkbox-circle-line';
       case 'Trello': return 'ri-trello-line';
+      case 'Google Docs': return 'ri-google-docs-line';
+      case 'Readdy': return 'ri-edit-line';
       default: return 'ri-kanban-view';
     }
   };
@@ -265,7 +267,7 @@ function TeamCard({ team, isSelected, onClick }: {
 }
 
 function TeamDetails({ teamId }: { teamId: number }) {
-  const team = teams.find(t => t.id === teamId);
+  const team = onlyTeams.find(t => t.id === teamId);
 
   if (!team) return null;
 
