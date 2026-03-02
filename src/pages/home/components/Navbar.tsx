@@ -214,9 +214,8 @@ export default function Navbar({ activeSection }) {
       icon: 'ri-file-list-3-line',
       hasSubmenu: true,
       submenu: [
-        { id: 'examenes-inicio', label: 'Inicio Guía', icon: 'ri-home-line', path: '/examenes' },
-        { id: 'examen-1', label: 'Examen 1', icon: 'ri-questionnaire-line', path: '/examenes/examen-1' },
-        { id: 'examen-2', label: 'Examen 2', icon: 'ri-questionnaire-line', path: '/examenes2' },
+        { id: 'examen-1', label: 'examen-1', icon: 'ri-home-line', path: '/examenes/examen-1' },
+        { id: 'examen-2', label: 'Examen 2', icon: 'ri-questionnaire-line', path: '/examenes/examen-2' },
       ]
     },
   ];
