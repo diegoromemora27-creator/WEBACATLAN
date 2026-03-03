@@ -8,7 +8,12 @@ import {
 
 export default function AnalisisEquiposTeams() {
   const [selectedTeam, setSelectedTeam] = useState<number | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const defaultSprint = 1;
+
+  const toggleDropdown = (section: string) => {
+    setOpenDropdown(openDropdown === section ? null : section);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -142,24 +147,34 @@ export default function AnalisisEquiposTeams() {
             </div>
 
             {/* Autoevaluación / Scrum Section */}
-            <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-200 mb-6">
-              <h3 className="text-xl font-bold text-purple-900 mb-4 flex items-center">
-                <i className="ri-survey-line mr-2"></i>
-                1. Autoevaluación / Scrum (2.5% por sprint = 20% total)
-              </h3>
-              
-              <div className="bg-purple-100 border-l-4 border-purple-600 p-4 mb-6">
-                <p className="text-sm text-purple-900 font-semibold">
-                  <i className="ri-calendar-check-line mr-2"></i>
-                  Evaluación al final del semestre con el reporte de los 8 formularios
-                </p>
-              </div>
+            <div className="bg-purple-50 rounded-xl border-2 border-purple-200 mb-6">
+              {/* Dropdown Header */}
+              <button
+                onClick={() => toggleDropdown('autoevaluacion')}
+                className="w-full flex items-center justify-between p-6 hover:bg-purple-100 transition-colors duration-200"
+              >
+                <h3 className="text-xl font-bold text-purple-900 flex items-center">
+                  <i className="ri-survey-line mr-2"></i>
+                  1. Autoevaluación / Scrum (2.5% por sprint = 20% total)
+                </h3>
+                <i className={`ri-chevron-down-line text-purple-900 text-2xl transition-transform duration-300 ${openDropdown === 'autoevaluacion' ? 'rotate-180' : ''}`}></i>
+              </button>
 
-              <p className="text-gray-700 mb-6">
-                Esta evaluación se basa en dos componentes que miden tanto la <strong>constancia</strong> en 
-                responder los formularios como la <strong>calidad de la autoevaluación</strong> que haces de 
-                tu trabajo durante todo el semestre.
-              </p>
+              {/* Dropdown Content */}
+              {openDropdown === 'autoevaluacion' && (
+                <div className="px-6 pb-6 border-t-2 border-purple-200">
+                  <div className="bg-purple-100 border-l-4 border-purple-600 p-4 mb-6">
+                    <p className="text-sm text-purple-900 font-semibold">
+                      <i className="ri-calendar-check-line mr-2"></i>
+                      Evaluación al final del semestre con el reporte de los 8 formularios
+                    </p>
+                  </div>
+
+                  <p className="text-gray-700 mb-6">
+                    Esta evaluación se basa en dos componentes que miden tanto la <strong>constancia</strong> en 
+                    responder los formularios como la <strong>calidad de la autoevaluación</strong> que haces de 
+                    tu trabajo durante todo el semestre.
+                  </p>
 
               {/* Componente 1: Participación */}
               <div className="mb-6">
@@ -399,27 +414,39 @@ export default function AnalisisEquiposTeams() {
                   </div>
                 </div>
               </div>
+                </div>
+              )}
             </div>
 
             {/* Desempeño Individual / Commits Section */}
-            <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
-              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
-                <i className="ri-git-commit-line mr-2"></i>
-                2. Desempeño Individual Técnico (2.5% por sprint = 20% total)
-              </h3>
-              
-              <div className="bg-blue-100 border-l-4 border-blue-600 p-4 mb-6">
-                <p className="text-sm text-blue-900 font-semibold">
-                  <i className="ri-calendar-check-line mr-2"></i>
-                  Evaluación al final del semestre con reporte de GitHub y tablero
-                </p>
-              </div>
+            <div className="bg-blue-50 rounded-xl border-2 border-blue-200 mb-6">
+              {/* Dropdown Header */}
+              <button
+                onClick={() => toggleDropdown('desempeno')}
+                className="w-full flex items-center justify-between p-6 hover:bg-blue-100 transition-colors duration-200"
+              >
+                <h3 className="text-xl font-bold text-blue-900 flex items-center">
+                  <i className="ri-git-commit-line mr-2"></i>
+                  2. Desempeño Individual Técnico (2.5% por sprint = 20% total)
+                </h3>
+                <i className={`ri-chevron-down-line text-blue-900 text-2xl transition-transform duration-300 ${openDropdown === 'desempeno' ? 'rotate-180' : ''}`}></i>
+              </button>
 
-              <p className="text-gray-700 mb-6">
-                Esta evaluación mide tu <strong>contribución técnica real</strong> al proyecto a través de dos 
-                componentes: tu actividad en GitHub (commits, PRs, code reviews) y tu gestión de tareas en el 
-                tablero del equipo (Jira/ClickUp/Trello).
-              </p>
+              {/* Dropdown Content */}
+              {openDropdown === 'desempeno' && (
+                <div className="px-6 pb-6 border-t-2 border-blue-200">
+                  <div className="bg-blue-100 border-l-4 border-blue-600 p-4 mb-6">
+                    <p className="text-sm text-blue-900 font-semibold">
+                      <i className="ri-calendar-check-line mr-2"></i>
+                      Evaluación al final del semestre con reporte de GitHub y tablero
+                    </p>
+                  </div>
+
+                  <p className="text-gray-700 mb-6">
+                    Esta evaluación mide tu <strong>contribución técnica real</strong> al proyecto a través de dos 
+                    componentes: tu actividad en GitHub (commits, PRs, code reviews) y tu gestión de tareas en el 
+                    tablero del equipo (Jira/ClickUp/Trello).
+                  </p>
 
               {/* Componente 1: Actividad en GitHub */}
               <div className="mb-6">
@@ -696,27 +723,39 @@ export default function AnalisisEquiposTeams() {
                   </li>
                 </ul>
               </div>
+                </div>
+              )}
             </div>
 
             {/* Funcionalidad de Equipo Section */}
-            <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200 mb-6">
-              <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center">
-                <i className="ri-rocket-line mr-2"></i>
-                3. Funcionalidad de Equipo (3.75% por sprint = 30% total)
-              </h3>
-              
-              <div className="bg-green-100 border-l-4 border-green-600 p-4 mb-6">
-                <p className="text-sm text-green-900 font-semibold">
-                  <i className="ri-calendar-check-line mr-2"></i>
-                  Evaluación acumulada al final del semestre
-                </p>
-              </div>
+            <div className="bg-green-50 rounded-xl border-2 border-green-200 mb-6">
+              {/* Dropdown Header */}
+              <button
+                onClick={() => toggleDropdown('funcionalidad')}
+                className="w-full flex items-center justify-between p-6 hover:bg-green-100 transition-colors duration-200"
+              >
+                <h3 className="text-xl font-bold text-green-900 flex items-center">
+                  <i className="ri-rocket-line mr-2"></i>
+                  3. Funcionalidad de Equipo (3.75% por sprint = 30% total)
+                </h3>
+                <i className={`ri-chevron-down-line text-green-900 text-2xl transition-transform duration-300 ${openDropdown === 'funcionalidad' ? 'rotate-180' : ''}`}></i>
+              </button>
 
-              <p className="text-gray-700 mb-6">
-                Esta evaluación mide el <strong>resultado técnico colectivo</strong> del equipo: que el proyecto 
-                esté desplegado en internet, que tenga endpoints funcionales de punta a punta, y que esté 
-                documentado adecuadamente. Es el componente de mayor peso (30%).
-              </p>
+              {/* Dropdown Content */}
+              {openDropdown === 'funcionalidad' && (
+                <div className="px-6 pb-6 border-t-2 border-green-200">
+                  <div className="bg-green-100 border-l-4 border-green-600 p-4 mb-6">
+                    <p className="text-sm text-green-900 font-semibold">
+                      <i className="ri-calendar-check-line mr-2"></i>
+                      Evaluación acumulada al final del semestre
+                    </p>
+                  </div>
+
+                  <p className="text-gray-700 mb-6">
+                    Esta evaluación mide el <strong>resultado técnico colectivo</strong> del equipo: que el proyecto 
+                    esté desplegado en internet, que tenga endpoints funcionales de punta a punta, y que esté 
+                    documentado adecuadamente. Es el componente de mayor peso (30%).
+                  </p>
 
               {/* Componente 1: Despliegue */}
               <div className="mb-6">
@@ -1128,6 +1167,8 @@ export default function AnalisisEquiposTeams() {
                   para desplegar por primera vez.
                 </p>
               </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
