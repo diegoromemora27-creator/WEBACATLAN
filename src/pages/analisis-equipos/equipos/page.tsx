@@ -87,6 +87,226 @@ export default function AnalisisEquiposTeams() {
           </div>
         </section>
 
+        {/* Evaluation System */}
+        <section className="mb-12">
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border-2 border-[#1b3d70]">
+            <div className="text-center mb-6">
+              <h2 className="text-3xl font-bold text-[#1b3d70] mb-2 flex items-center justify-center">
+                <i className="ri-bar-chart-box-line mr-3"></i>
+                Sistema de Evaluación por Equipos
+              </h2>
+              <p className="text-gray-600">
+                Cada sprint representa el 8.75% de tu calificación final, distribuido en 3 componentes clave
+              </p>
+            </div>
+
+            {/* Evaluation Table */}
+            <div className="overflow-x-auto mb-8">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-[#1b3d70] text-white">
+                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Componente</th>
+                    <th className="border border-gray-300 px-4 py-3 text-center font-semibold">% Total</th>
+                    <th className="border border-gray-300 px-4 py-3 text-center font-semibold">% por Sprint (×8)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-purple-50 hover:bg-purple-100 transition-colors">
+                    <td className="border border-gray-300 px-4 py-3 font-medium text-gray-800">
+                      Autoevaluación / Scrum
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-purple-700">20%</td>
+                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-purple-700">2.5%</td>
+                  </tr>
+                  <tr className="bg-blue-50 hover:bg-blue-100 transition-colors">
+                    <td className="border border-gray-300 px-4 py-3 font-medium text-gray-800">
+                      Desempeño Individual / Commits
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-blue-700">20%</td>
+                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-blue-700">2.5%</td>
+                  </tr>
+                  <tr className="bg-green-50 hover:bg-green-100 transition-colors">
+                    <td className="border border-gray-300 px-4 py-3 font-medium text-gray-800">
+                      Funcionalidad de Equipo
+                    </td>
+                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-green-700">30%</td>
+                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-green-700">3.75%</td>
+                  </tr>
+                  <tr className="bg-gray-100 font-bold">
+                    <td className="border border-gray-300 px-4 py-3 text-gray-900">Total por sprint</td>
+                    <td className="border border-gray-300 px-4 py-3 text-center text-gray-900">70%</td>
+                    <td className="border border-gray-300 px-4 py-3 text-center text-[#1b3d70] text-lg">8.75%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Autoevaluación Explanation */}
+            <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-200 mb-6">
+              <h3 className="text-xl font-bold text-purple-900 mb-4 flex items-center">
+                <i className="ri-survey-line mr-2"></i>
+                1. Autoevaluación / Scrum (2.5%)
+              </h3>
+              
+              <p className="text-gray-700 mb-4">
+                Esta evaluación se calcula en base al <strong>promedio del equipo</strong> sobre dos preguntas
+                clave del formulario de desempeño:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div className="bg-white rounded-lg p-4 border border-purple-300">
+                  <h4 className="font-bold text-purple-800 mb-2 flex items-center">
+                    <i className="ri-star-line mr-2"></i>
+                    Pregunta 1
+                  </h4>
+                  <p className="text-sm text-gray-700 mb-2 font-semibold">
+                    Autoevaluación de mi Contribución Personal al Sprint
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-gray-500 mt-2">
+                    <span>Baja ⬤</span>
+                    <span className="flex gap-1">
+                      <span>1</span>
+                      <span>2</span>
+                      <span>3</span>
+                      <span>4</span>
+                      <span>5</span>
+                    </span>
+                    <span>⬤ Alta</span>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-lg p-4 border border-purple-300">
+                  <h4 className="font-bold text-purple-800 mb-2 flex items-center">
+                    <i className="ri-team-line mr-2"></i>
+                    Pregunta 2
+                  </h4>
+                  <p className="text-sm text-gray-700 mb-2 font-semibold">
+                    Evaluación General del Equipo
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-gray-500 mt-2">
+                    <span>Baja ⬤</span>
+                    <span className="flex gap-1">
+                      <span>1</span>
+                      <span>2</span>
+                      <span>3</span>
+                      <span>4</span>
+                      <span>5</span>
+                    </span>
+                    <span>⬤ Alta</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Calculation Examples */}
+              <div className="bg-white rounded-lg p-5 border-2 border-purple-400">
+                <h4 className="font-bold text-purple-900 mb-3 flex items-center">
+                  <i className="ri-calculator-line mr-2"></i>
+                  Cómo se calcula:
+                </h4>
+                
+                <div className="space-y-4">
+                  {/* Example 1: Perfect Score */}
+                  <div className="border-l-4 border-green-500 pl-4">
+                    <p className="text-sm font-semibold text-green-800 mb-1">
+                      ✅ Caso ideal: Todos responden 5/5
+                    </p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      Si todos los integrantes califican con 5 tanto su contribución personal como el desempeño del equipo:
+                    </p>
+                    <div className="bg-green-50 rounded p-2 text-xs">
+                      <span className="font-mono">Promedio = (5 + 5) / 2 = <strong className="text-green-700">5.0</strong></span><br/>
+                      <span className="font-mono">Calificación = (5.0 / 5.0) × 2.5% = <strong className="text-green-700">2.5%</strong> ✓</span>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2 italic">
+                      <strong>Nota importante:</strong> Este puntaje se coteja con el avance real del proyecto. 
+                      Si no hay evidencia de trabajo (commits, entregas), el puntaje puede ajustarse.
+                    </p>
+                  </div>
+
+                  {/* Example 2: Good Performance */}
+                  <div className="border-l-4 border-blue-500 pl-4">
+                    <p className="text-sm font-semibold text-blue-800 mb-1">
+                      👍 Buen desempeño: Promedio 4/5
+                    </p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      El equipo en general se autoevalúa con 4s y algunos 5s:
+                    </p>
+                    <div className="bg-blue-50 rounded p-2 text-xs">
+                      <span className="font-mono">Promedio = 4.0</span><br/>
+                      <span className="font-mono">Calificación = (4.0 / 5.0) × 2.5% = <strong className="text-blue-700">2.0%</strong></span>
+                    </div>
+                  </div>
+
+                  {/* Example 3: Mixed Performance */}
+                  <div className="border-l-4 border-yellow-500 pl-4">
+                    <p className="text-sm font-semibold text-yellow-800 mb-1">
+                      ⚠️ Desempeño variado: Promedio 3/5
+                    </p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      Algunas respuestas bajas (2-3) y otras altas (4-5):
+                    </p>
+                    <div className="bg-yellow-50 rounded p-2 text-xs">
+                      <span className="font-mono">Promedio = 3.0</span><br/>
+                      <span className="font-mono">Calificación = (3.0 / 5.0) × 2.5% = <strong className="text-yellow-700">1.5%</strong></span>
+                    </div>
+                  </div>
+
+                  {/* Example 4: Poor Performance */}
+                  <div className="border-l-4 border-red-500 pl-4">
+                    <p className="text-sm font-semibold text-red-800 mb-1">
+                      ❌ Bajo desempeño: Promedio 2/5 o menos
+                    </p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      El equipo reporta problemas serios de colaboración o contribución:
+                    </p>
+                    <div className="bg-red-50 rounded p-2 text-xs">
+                      <span className="font-mono">Promedio = 2.0</span><br/>
+                      <span className="font-mono">Calificación = (2.0 / 5.0) × 2.5% = <strong className="text-red-700">1.0%</strong></span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Important Note */}
+                <div className="mt-4 bg-amber-50 border border-amber-300 rounded-lg p-3">
+                  <p className="text-xs text-amber-900 flex items-start">
+                    <i className="ri-alert-line mr-2 mt-0.5 flex-shrink-0"></i>
+                    <span>
+                      <strong>Verificación cruzada:</strong> Aunque todos califiquen con 5, el profesor 
+                      verificará el avance real del proyecto (commits, funcionalidades entregadas, 
+                      cumplimiento de deadlines). Si no hay evidencia de trabajo, el puntaje se ajustará proporcionalmente.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Other Components Preview */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-blue-50 rounded-xl p-5 border-2 border-blue-200">
+                <h3 className="text-lg font-bold text-blue-900 mb-2 flex items-center">
+                  <i className="ri-git-commit-line mr-2"></i>
+                  2. Desempeño Individual (2.5%)
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Evaluación basada en commits, contribuciones al código y participación 
+                  individual en el repositorio del equipo.
+                </p>
+              </div>
+
+              <div className="bg-green-50 rounded-xl p-5 border-2 border-green-200">
+                <h3 className="text-lg font-bold text-green-900 mb-2 flex items-center">
+                  <i className="ri-checkbox-multiple-line mr-2"></i>
+                  3. Funcionalidad de Equipo (3.75%)
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Evaluación de las funcionalidades entregadas, calidad del código, 
+                  cumplimiento de requisitos y presentación del proyecto.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Teams Grid */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-6">

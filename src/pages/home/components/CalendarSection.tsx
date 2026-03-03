@@ -254,6 +254,33 @@ export default function CalendarSection() {
           ))}
         </div>
 
+        {/* Google Forms CTA */}
+        <div className="mt-8 sm:mt-10">
+          <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-2xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="flex flex-col items-center gap-4">
+              <div className="text-4xl">📝</div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                  Evaluación de Desempeño - Sprint 2
+                </h3>
+                <p className="text-purple-100 text-sm sm:text-base mb-4">
+                  Comparte tu experiencia y retroalimenta a tu equipo
+                </p>
+              </div>
+              <a
+                href="https://forms.gle/zjLeGEiPLGkP2RCX6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-purple-600 px-6 py-3 rounded-full font-bold text-sm sm:text-base shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+              >
+                <i className="ri-file-list-3-line text-lg"></i>
+                <span>Responder Formulario</span>
+                <i className="ri-external-link-line text-xs"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Sprint Deliverable */}
         <div className="mt-10 sm:mt-14">
           <div className="border-2 rounded-2xl p-5 sm:p-6 md:p-8 bg-white shadow-sm">
