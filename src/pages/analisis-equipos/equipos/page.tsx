@@ -114,26 +114,22 @@ export default function AnalisisEquiposTeams() {
                       Autoevaluación / Scrum
                     </td>
                     <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-purple-700">20%</td>
-                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-purple-700">2.5%</td>
                   </tr>
                   <tr className="bg-blue-50 hover:bg-blue-100 transition-colors">
                     <td className="border border-gray-300 px-4 py-3 font-medium text-gray-800">
                       Desempeño Individual / Commits
                     </td>
                     <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-blue-700">20%</td>
-                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-blue-700">2.5%</td>
                   </tr>
                   <tr className="bg-green-50 hover:bg-green-100 transition-colors">
                     <td className="border border-gray-300 px-4 py-3 font-medium text-gray-800">
                       Funcionalidad de Equipo
                     </td>
                     <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-green-700">30%</td>
-                    <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-green-700">3.75%</td>
                   </tr>
                   <tr className="bg-gray-100 font-bold">
                     <td className="border border-gray-300 px-4 py-3 text-gray-900">Total por sprint</td>
                     <td className="border border-gray-300 px-4 py-3 text-center text-gray-900">70%</td>
-                    <td className="border border-gray-300 px-4 py-3 text-center text-[#1b3d70] text-lg">8.75%</td>
                   </tr>
                 </tbody>
               </table>
