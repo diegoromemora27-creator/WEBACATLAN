@@ -241,7 +241,8 @@ export default function AnalisisEquiposTeams() {
                   
                   <p className="text-sm text-gray-700 mb-4">
                     Se calcula con el <strong>promedio de las respuestas</strong> dadas a lo largo de los 8 formularios. 
-                    Cada formulario usa escala 1–5 con <strong>5 preguntas</strong> (máximo 25 puntos por formulario).
+                    Cada formulario usa escala 1–5 en la pregunta <strong>Autoevaluación de mi Contribución Personal al Sprint</strong> 
+                    (máximo 5 puntos por formulario).
                   </p>
 
                   {/* Fórmula */}
@@ -249,10 +250,13 @@ export default function AnalisisEquiposTeams() {
                     <p className="text-xs text-purple-900 font-semibold mb-2">📐 Fórmula de cálculo:</p>
                     <div className="bg-white rounded p-3 font-mono text-sm text-center border border-purple-300">
                       <div className="mb-2">
-                        Promedio general = <span className="text-purple-700 font-bold">(Σ Suma formulario<sub>i</sub> / (8 × 25)) × 100</span>
+                        Promedio general = <span className="text-purple-700 font-bold">(Σ Respuesta formulario<sub>i</sub> / (8 × 5)) × 100</span>
                       </div>
                       <div className="text-xs text-gray-600 mt-2">
-                        Donde: Suma formulario<sub>i</sub> = suma de las 5 respuestas del formulario i (máx. 25)
+                        Donde: Respuesta formulario<sub>i</sub> = respuesta del formulario i (rango 1-5, máx. 5 pts)
+                      </div>
+                      <div className="text-xs text-gray-600 mt-1">
+                        Total posible: 8 formularios × 5 pts = <strong>40 puntos</strong>
                       </div>
                     </div>
                   </div>
@@ -358,8 +362,8 @@ export default function AnalisisEquiposTeams() {
                     <p className="font-semibold text-green-800 mb-2">✅ Caso ideal:</p>
                     <ul className="space-y-1 text-gray-700">
                       <li>• Respondiste los <strong>8 formularios</strong> → 8 pts (Componente 1)</li>
-                      <li>• Suma total de tus respuestas: 190 de 200 posibles (8 formularios × 25 pts)</li>
-                      <li>• Promedio: (190 / 200) × 100 = <strong>95%</strong> → 12 pts (Componente 2)</li>
+                      <li>• Suma total de tus respuestas: 38 de 40 posibles (8 formularios × 5 pts máx.)</li>
+                      <li>• Promedio: (38 / 40) × 100 = <strong>95%</strong> → 12 pts (Componente 2)</li>
                       <li>• Hay actividad en Jira → Se respeta la autoevaluación</li>
                       <li className="font-bold text-green-700 pt-2 border-t border-green-300 mt-2">
                         = <strong>8 + 12 = 20 puntos de 20</strong> ✓
@@ -371,8 +375,8 @@ export default function AnalisisEquiposTeams() {
                     <p className="font-semibold text-yellow-800 mb-2">⚠️ Caso con fallas:</p>
                     <ul className="space-y-1 text-gray-700">
                       <li>• Respondiste solo <strong>6 formularios</strong> → 4 pts (Componente 1)</li>
-                      <li>• Suma total: 140 de 200 posibles</li>
-                      <li>• Promedio: (140 / 200) × 100 = <strong>70%</strong> → 6 pts (Componente 2)</li>
+                      <li>• Suma total de esos 6 formularios: 28 de 40 posibles (promediaste 4.67 de 5 en cada uno)</li>
+                      <li>• Promedio: (28 / 40) × 100 = <strong>70%</strong> → 6 pts (Componente 2)</li>
                       <li>• Hay actividad en Jira → Se respeta</li>
                       <li className="font-bold text-yellow-700 pt-2 border-t border-yellow-300 mt-2">
                         = <strong>4 + 6 = 10 puntos de 20</strong>
@@ -394,6 +398,303 @@ export default function AnalisisEquiposTeams() {
                     </ul>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Desempeño Individual / Commits Section */}
+            <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200 mb-6">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <i className="ri-git-commit-line mr-2"></i>
+                2. Desempeño Individual Técnico (2.5% por sprint = 20% total)
+              </h3>
+              
+              <div className="bg-blue-100 border-l-4 border-blue-600 p-4 mb-6">
+                <p className="text-sm text-blue-900 font-semibold">
+                  <i className="ri-calendar-check-line mr-2"></i>
+                  Evaluación al final del semestre con reporte de GitHub y tablero
+                </p>
+              </div>
+
+              <p className="text-gray-700 mb-6">
+                Esta evaluación mide tu <strong>contribución técnica real</strong> al proyecto a través de dos 
+                componentes: tu actividad en GitHub (commits, PRs, code reviews) y tu gestión de tareas en el 
+                tablero del equipo (Jira/ClickUp/Trello).
+              </p>
+
+              {/* Componente 1: Actividad en GitHub */}
+              <div className="mb-6">
+                <div className="bg-white rounded-lg p-5 border-2 border-blue-300">
+                  <h4 className="font-bold text-blue-800 mb-3 flex items-center text-lg">
+                    <i className="ri-github-fill mr-2"></i>
+                    Componente 1: Actividad en GitHub
+                    <span className="ml-auto text-blue-700">12 puntos de 20</span>
+                  </h4>
+                  
+                  <p className="text-sm text-gray-700 mb-4 italic">
+                    Se revisa el historial completo de commits, PRs y code reviews del alumno a lo largo de 
+                    los 8 sprints. La calidad y consistencia del trabajo técnico son fundamentales.
+                  </p>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="bg-blue-700 text-white">
+                          <th className="border border-blue-600 px-4 py-2 text-left font-bold">Evidencia</th>
+                          <th className="border border-blue-600 px-4 py-2 text-center font-bold">Puntos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-green-50 hover:bg-green-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>Commits consistentes</strong> en todos los sprints, mensajes descriptivos, 
+                            participó en PRs y/o code reviews
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-green-700">
+                            12 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-blue-50 hover:bg-blue-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>Commits en la mayoría</strong> de los sprints, mensajes aceptables, 
+                            al menos algunos PRs
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-blue-700">
+                            9 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-yellow-50 hover:bg-yellow-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>Commits irregulares</strong>, mensajes genéricos (fix, update), 
+                            pocos o ningún PR
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-yellow-700">
+                            6 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-orange-50 hover:bg-orange-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>Commits solo al final</strong> de varios sprints o concentrados en 1–2 sprints
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-orange-700">
+                            3 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-red-50 hover:bg-red-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>Sin actividad relevante</strong> en GitHub
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-red-700">
+                            0 pts
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* GitHub Best Practices */}
+                  <div className="bg-blue-50 rounded-lg p-4 mt-4 border border-blue-200">
+                    <p className="text-xs text-blue-900 font-semibold mb-2">
+                      <i className="ri-lightbulb-line mr-1"></i>
+                      Buenas prácticas para maximizar puntos:
+                    </p>
+                    <ul className="text-xs text-gray-700 space-y-1 ml-4">
+                      <li>✓ Commits pequeños y frecuentes en lugar de commits gigantes</li>
+                      <li>✓ Mensajes descriptivos: "Implementa validación de formulario de login" en lugar de "fix"</li>
+                      <li>✓ Participar en Pull Requests: crear, revisar código de compañeros, comentar</li>
+                      <li>✓ Distribuir commits a lo largo de todos los sprints (no solo al final)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Componente 2: Gestión de tareas */}
+              <div className="mb-6">
+                <div className="bg-white rounded-lg p-5 border-2 border-blue-300">
+                  <h4 className="font-bold text-blue-800 mb-3 flex items-center text-lg">
+                    <i className="ri-kanban-view mr-2"></i>
+                    Componente 2: Gestión de tareas en el tablero
+                    <span className="ml-auto text-blue-700">8 puntos de 20</span>
+                  </h4>
+                  
+                  <p className="text-sm text-gray-700 mb-4">
+                    Se revisa el historial del tablero (Jira / ClickUp / Trello) al final del semestre. 
+                    No basta con cerrar tickets, se busca evidencia de <strong>seguimiento real</strong> 
+                    del trabajo durante todos los sprints.
+                  </p>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="bg-blue-700 text-white">
+                          <th className="border border-blue-600 px-4 py-2 text-left font-bold">Evidencia</th>
+                          <th className="border border-blue-600 px-4 py-2 text-center font-bold">Puntos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-green-50 hover:bg-green-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>Tickets asignados, movidos y cerrados</strong> consistentemente sprint a sprint 
+                            con comentarios o actualizaciones visibles
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-green-700">
+                            8 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-blue-50 hover:bg-blue-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>La mayoría de tickets cerrados</strong>, movimientos visibles pero sin 
+                            comentarios o estimaciones
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-blue-700">
+                            6 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-yellow-50 hover:bg-yellow-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>Tickets cerrados de forma irregular</strong> o solo actualizados al final del sprint
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-yellow-700">
+                            4 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-orange-50 hover:bg-orange-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>Pocos tickets completados</strong> o movidos sin seguimiento real
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-orange-700">
+                            2 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-red-50 hover:bg-red-100">
+                          <td className="border border-blue-300 px-4 py-2 text-gray-700">
+                            <strong>No interactuó</strong> con el tablero o no tiene tickets asignados
+                          </td>
+                          <td className="border border-blue-300 px-4 py-2 text-center font-bold text-red-700">
+                            0 pts
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Board Best Practices */}
+                  <div className="bg-blue-50 rounded-lg p-4 mt-4 border border-blue-200">
+                    <p className="text-xs text-blue-900 font-semibold mb-2">
+                      <i className="ri-lightbulb-line mr-1"></i>
+                      Buenas prácticas para maximizar puntos:
+                    </p>
+                    <ul className="text-xs text-gray-700 space-y-1 ml-4">
+                      <li>✓ Asignar y completar tickets en cada sprint (no acumular para el final)</li>
+                      <li>✓ Mover tickets entre columnas (To Do → In Progress → Done) con regularidad</li>
+                      <li>✓ Agregar comentarios sobre progreso, bloqueos o decisiones técnicas</li>
+                      <li>✓ Incluir estimaciones de tiempo o story points cuando sea posible</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Ejemplo de cálculo */}
+              <div className="mt-6 bg-white rounded-lg p-5 border-2 border-blue-400">
+                <h5 className="font-bold text-blue-900 mb-3 flex items-center">
+                  <i className="ri-calculator-line mr-2"></i>
+                  Ejemplos de cálculo completo
+                </h5>
+
+                <div className="space-y-3 text-sm">
+                  <div className="border-l-4 border-green-500 pl-3 bg-green-50 p-3 rounded">
+                    <p className="font-semibold text-green-800 mb-2">✅ Caso ideal - Desarrollador activo:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>GitHub:</strong> 40+ commits distribuidos en los 8 sprints, mensajes claros 
+                      ("Implementa API de usuarios", "Refactoriza servicio de autenticación"), creó 5 PRs, 
+                      revisó código de 3 compañeros → <strong>12 pts</strong></li>
+                      <li>• <strong>Tablero:</strong> 24 tickets completados (3 por sprint en promedio), todos 
+                      con comentarios de progreso, movidos consistentemente entre columnas, estimaciones agregadas 
+                      → <strong>8 pts</strong></li>
+                      <li className="font-bold text-green-700 pt-2 border-t border-green-300 mt-2">
+                        = <strong>12 + 8 = 20 puntos de 20</strong> ✓
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-yellow-500 pl-3 bg-yellow-50 p-3 rounded">
+                    <p className="font-semibold text-yellow-800 mb-2">⚠️ Caso intermedio - Trabajo irregular:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>GitHub:</strong> 20 commits concentrados en 5 sprints (3 sprints sin actividad), 
+                      mensajes genéricos ("update", "fix bug"), sin PRs ni code reviews → <strong>6 pts</strong></li>
+                      <li>• <strong>Tablero:</strong> 12 tickets cerrados pero sin comentarios, la mayoría movidos 
+                      solo al final de cada sprint → <strong>4 pts</strong></li>
+                      <li className="font-bold text-yellow-700 pt-2 border-t border-yellow-300 mt-2">
+                        = <strong>6 + 4 = 10 puntos de 20</strong>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-red-500 pl-3 bg-red-50 p-3 rounded">
+                    <p className="font-semibold text-red-800 mb-2">❌ Caso crítico - Sin evidencia técnica:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>GitHub:</strong> 5 commits totales concentrados en los últimos 2 sprints, 
+                      todos con mensaje "update" → <strong>3 pts</strong></li>
+                      <li>• <strong>Tablero:</strong> Solo 2 tickets asignados en todo el semestre, sin movimientos 
+                      visibles ni comentarios → <strong>2 pts</strong></li>
+                      <li className="font-bold text-red-700 pt-2 border-t border-red-300 mt-2">
+                        = <strong>3 + 2 = 5 puntos de 20</strong> ❌
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-purple-500 pl-3 bg-purple-50 p-3 rounded">
+                    <p className="font-semibold text-purple-800 mb-2">🎯 Caso avanzado - Líder técnico:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>GitHub:</strong> 60+ commits bien distribuidos, mensajes con contexto completo, 
+                      creó 8 PRs con descripciones detalladas, hizo 10+ code reviews con sugerencias constructivas 
+                      → <strong>12 pts</strong></li>
+                      <li>• <strong>Tablero:</strong> 30 tickets completados, todos con comentarios técnicos, 
+                      estimaciones precisas, bloqueadores documentados, ayudó a desbloquear tickets de otros 
+                      → <strong>8 pts</strong></li>
+                      <li className="font-bold text-purple-700 pt-2 border-t border-purple-300 mt-2">
+                        = <strong>12 + 8 = 20 puntos de 20</strong> ⭐ (Excelencia técnica)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Important Notes */}
+              <div className="bg-amber-50 border-2 border-amber-400 rounded-lg p-4 mt-6">
+                <h5 className="font-bold text-amber-900 mb-2 flex items-center">
+                  <i className="ri-alert-line mr-2"></i>
+                  Notas importantes
+                </h5>
+                <ul className="text-sm text-amber-900 space-y-2">
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>Consistencia {'>'} Cantidad:</strong> Es mejor tener commits pequeños distribuidos en 
+                      todos los sprints que muchos commits concentrados al final del semestre.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>Calidad de mensajes:</strong> Los commits con mensajes descriptivos demuestran 
+                      profesionalismo y facilitan el trabajo en equipo.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>Trabajo en equipo:</strong> Participar en PRs y code reviews no solo suma puntos, 
+                      también mejora la calidad del código del equipo completo.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>Tablero actualizado:</strong> El tablero debe reflejar el trabajo real. Actualízalo 
+                      durante el sprint, no solo al final.
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
