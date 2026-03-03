@@ -487,16 +487,248 @@ export default function AnalisisEquiposTeams() {
               </div>
             </div>
 
-            {/* Funcionalidad de Equipo Preview */}
-            <div className="bg-green-50 rounded-xl p-5 border-2 border-green-200">
-              <h3 className="text-lg font-bold text-green-900 mb-2 flex items-center">
+            {/* Funcionalidad de Equipo Explanation */}
+            <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200">
+              <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center">
                 <i className="ri-checkbox-multiple-line mr-2"></i>
-                3. Funcionalidad de Equipo (3.75%)
+                3. Funcionalidad de Equipo (3.75% por sprint)
               </h3>
-              <p className="text-sm text-gray-700">
-                Evaluación de las funcionalidades entregadas, calidad del código, 
-                cumplimiento de requisitos y presentación del proyecto.
+
+              <p className="text-gray-700 mb-4 text-sm">
+                <strong>Acumulado en 8 sprints:</strong> 3.75 × 8 = 30 puntos = 30%
               </p>
+
+              <p className="text-gray-700 mb-4">
+                Esta evaluación se mide en base a <strong>tres criterios</strong> que valoran 
+                qué y cuán bien entrega el equipo:
+              </p>
+
+              {/* Criterion 1: Completeness */}
+              <div className="mb-6">
+                <h4 className="font-bold text-green-800 mb-3 flex items-center">
+                  <i className="ri-checkbox-circle-line mr-2"></i>
+                  Criterio 1: Funcionalidades completadas vs. planeadas - <span className="text-green-700 ml-1">1.5 pts</span>
+                </h4>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-green-700 text-white">
+                        <th className="border border-green-600 px-3 py-2 text-center font-bold">Puntos</th>
+                        <th className="border border-green-600 px-3 py-2 text-left font-bold">Descripción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-green-50 hover:bg-green-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-green-700">1.5</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          El equipo completó el 100% de lo que se comprometió a entregar en el sprint. 
+                          Todo lo planeado en el tablero está en "Done" y fue demostrado en el sprint review
+                        </td>
+                      </tr>
+                      <tr className="bg-blue-50 hover:bg-blue-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-blue-700">1.1</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Se completó entre el 75–99% de lo planeado. Lo que faltó es menor y no afecta el flujo principal de la funcionalidad entregada
+                        </td>
+                      </tr>
+                      <tr className="bg-yellow-50 hover:bg-yellow-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-yellow-700">0.7</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Se completó entre el 50–74% de lo planeado. Hay partes incompletas que limitan la funcionalidad, 
+                          pero existe algo demostrable
+                        </td>
+                      </tr>
+                      <tr className="bg-orange-50 hover:bg-orange-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-orange-700">0.3</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Se completó menos del 50% de lo planeado o la demo fue muy parcial y no refleja el sprint goal
+                        </td>
+                      </tr>
+                      <tr className="bg-red-50 hover:bg-red-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-red-700">0</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          No hubo entrega, demo ni evidencia de avance en el sprint
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Criterion 2: Quality */}
+              <div className="mb-6">
+                <h4 className="font-bold text-green-800 mb-3 flex items-center">
+                  <i className="ri-bug-line mr-2"></i>
+                  Criterio 2: Calidad funcional - <span className="text-green-700 ml-1">1.25 pts</span>
+                </h4>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-green-700 text-white">
+                        <th className="border border-green-600 px-3 py-2 text-center font-bold">Puntos</th>
+                        <th className="border border-green-600 px-3 py-2 text-left font-bold">Descripción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-green-50 hover:bg-green-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-green-700">1.25</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Lo entregado funciona sin errores bloqueantes. El flujo principal corre de principio a fin 
+                          durante la demo sin interrupciones
+                        </td>
+                      </tr>
+                      <tr className="bg-blue-50 hover:bg-blue-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-blue-700">0.9</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Hay 1–2 detalles menores (visuales, mensajes de error, casos edge), pero el flujo principal funciona correctamente
+                        </td>
+                      </tr>
+                      <tr className="bg-yellow-50 hover:bg-yellow-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-yellow-700">0.6</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Hay errores evidentes que interrumpen partes del flujo, pero el equipo puede mostrar al menos una funcionalidad estable
+                        </td>
+                      </tr>
+                      <tr className="bg-orange-50 hover:bg-orange-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-orange-700">0.3</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Lo entregado falla frecuentemente o solo funciona en condiciones muy controladas
+                        </td>
+                      </tr>
+                      <tr className="bg-red-50 hover:bg-red-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-red-700">0</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Nada de lo entregado funciona o no hubo demo
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Criterion 3: Documentation */}
+              <div className="mb-6">
+                <h4 className="font-bold text-green-800 mb-3 flex items-center">
+                  <i className="ri-file-text-line mr-2"></i>
+                  Criterio 3: Documentación del sprint - <span className="text-green-700 ml-1">1.0 pts</span>
+                </h4>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-green-700 text-white">
+                        <th className="border border-green-600 px-3 py-2 text-center font-bold">Puntos</th>
+                        <th className="border border-green-600 px-3 py-2 text-left font-bold">Descripción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-green-50 hover:bg-green-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-green-700">1.0</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Todos los tickets del sprint están cerrados y actualizados. Existe evidencia escrita del avance 
+                          (README, comentarios en tickets, wiki, notas de retrospectiva o cualquier documento del equipo)
+                        </td>
+                      </tr>
+                      <tr className="bg-blue-50 hover:bg-blue-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-blue-700">0.7</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          La mayoría de los tickets están cerrados. Hay algo de documentación pero incompleta o sin estructura clara
+                        </td>
+                      </tr>
+                      <tr className="bg-yellow-50 hover:bg-yellow-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-yellow-700">0.4</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Pocos tickets actualizados o la documentación es mínima (solo títulos, sin descripciones ni evidencia)
+                        </td>
+                      </tr>
+                      <tr className="bg-red-50 hover:bg-red-100">
+                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-red-700">0</td>
+                        <td className="border border-green-300 px-3 py-2 text-gray-700">
+                          Los tickets no fueron actualizados y no existe ningún tipo de documentación del sprint
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Sum Table */}
+              <div className="bg-white rounded-lg p-5 border-2 border-green-400 mb-6">
+                <h4 className="font-bold text-green-900 mb-3 flex items-center">
+                  <i className="ri-calculator-line mr-2"></i>
+                  Tabla de suma por sprint
+                </h4>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-green-700 text-white">
+                        <th className="border border-green-600 px-3 py-2 text-center font-bold text-xs">Funcionalidades<br/>(máx. 1.5)</th>
+                        <th className="border border-green-600 px-3 py-2 text-center font-bold text-xs">Calidad funcional<br/>(máx. 1.25)</th>
+                        <th className="border border-green-600 px-3 py-2 text-center font-bold text-xs">Documentación<br/>(máx. 1.0)</th>
+                        <th className="border border-green-600 px-3 py-2 text-center font-bold text-xs">Total sprint<br/>(máx. 3.75 pts)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-green-50 font-bold">
+                        <td className="border border-green-300 px-3 py-2 text-center text-green-700">1.5</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-green-700">1.25</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-green-700">1.0</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-green-700 text-base">✅ 3.75</td>
+                      </tr>
+                      <tr className="bg-blue-50 font-bold">
+                        <td className="border border-green-300 px-3 py-2 text-center text-blue-700">1.1</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-blue-700">0.9</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-blue-700">0.7</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-blue-700 text-base">👍 2.7</td>
+                      </tr>
+                      <tr className="bg-yellow-50 font-bold">
+                        <td className="border border-green-300 px-3 py-2 text-center text-yellow-700">0.7</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-yellow-700">0.6</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-yellow-700">0.4</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-yellow-700 text-base">⚠️ 1.7</td>
+                      </tr>
+                      <tr className="bg-orange-50 font-bold">
+                        <td className="border border-green-300 px-3 py-2 text-center text-orange-700">0.3</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-orange-700">0.3</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-orange-700">0</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-orange-700 text-base">⚠️ 0.6</td>
+                      </tr>
+                      <tr className="bg-red-50 font-bold">
+                        <td className="border border-green-300 px-3 py-2 text-center text-red-700">0</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-red-700">0</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-red-700">0</td>
+                        <td className="border border-green-300 px-3 py-2 text-center text-red-700 text-base">❌ 0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Key Notes */}
+              <div className="space-y-3">
+                <div className="bg-green-100 border border-green-400 rounded-lg p-3">
+                  <p className="text-xs text-green-900 flex items-start gap-2">
+                    <span className="flex-shrink-0">✅</span>
+                    <span>
+                      <strong>Caso ideal:</strong> El equipo completa todo (1.5), sin bugs (1.25) 
+                      y documenta bien (1.0) = <strong>3.75 pts</strong>
+                    </span>
+                  </p>
+                </div>
+
+                <div className="bg-amber-100 border border-amber-400 rounded-lg p-3">
+                  <p className="text-xs text-amber-900 flex items-start gap-2">
+                    <span className="flex-shrink-0">💡</span>
+                    <span>
+                      <strong>Nota:</strong> Los 3.75 puntos por sprint se repiten 8 veces a lo largo del curso. 
+                      Tu calificación final de funcionalidad (30%) es el promedio de los 8 sprints.
+                    </span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
