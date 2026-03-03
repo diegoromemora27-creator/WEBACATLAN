@@ -280,29 +280,223 @@ export default function AnalisisEquiposTeams() {
               </div>
             </div>
 
-            {/* Other Components Preview */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-blue-50 rounded-xl p-5 border-2 border-blue-200">
-                <h3 className="text-lg font-bold text-blue-900 mb-2 flex items-center">
-                  <i className="ri-git-commit-line mr-2"></i>
-                  2. Desempeño Individual (2.5%)
-                </h3>
-                <p className="text-sm text-gray-700">
-                  Evaluación basada en commits, contribuciones al código y participación 
-                  individual en el repositorio del equipo.
+            {/* Desempeño Individual Explanation */}
+            <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <i className="ri-git-commit-line mr-2"></i>
+                2. Desempeño Individual / Commits (2.5%)
+              </h3>
+
+              <div className="bg-white rounded-lg p-4 mb-5 border-l-4 border-amber-400">
+                <p className="text-sm text-amber-900 flex items-start gap-2">
+                  <span className="font-bold">💡 Importante:</span>
+                  <span>
+                    <strong>2%</strong> está en juego basado en tu desempeño real.
+                    <strong>0.5%</strong> es "de regalo" si respondes el formulario de evaluación.
+                    Si no respondes el formulario, pierdes automáticamente esos 0.5 puntos.
+                  </span>
                 </p>
               </div>
 
-              <div className="bg-green-50 rounded-xl p-5 border-2 border-green-200">
-                <h3 className="text-lg font-bold text-green-900 mb-2 flex items-center">
-                  <i className="ri-checkbox-multiple-line mr-2"></i>
-                  3. Funcionalidad de Equipo (3.75%)
-                </h3>
-                <p className="text-sm text-gray-700">
-                  Evaluación de las funcionalidades entregadas, calidad del código, 
-                  cumplimiento de requisitos y presentación del proyecto.
+              <p className="text-gray-700 mb-4">
+                Esta evaluación se mide en base a <strong>dos criterios</strong>:
+              </p>
+
+              {/* Criterion 1: GitHub Activity */}
+              <div className="mb-6">
+                <h4 className="font-bold text-blue-800 mb-3 flex items-center">
+                  <i className="ri-github-fill mr-2"></i>
+                  Criterio 1: Actividad en GitHub (commits y PRs) - <span className="text-blue-700 ml-1">0.8 pts</span>
+                </h4>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-blue-700 text-white">
+                        <th className="border border-blue-600 px-3 py-2 text-center font-bold">Puntos</th>
+                        <th className="border border-blue-600 px-3 py-2 text-left font-bold">Descripción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-green-50 hover:bg-green-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-green-700">0.8</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          ≥5 commits atómicos con mensajes descriptivos, distribuidos a lo largo del sprint, 
+                          PR abierto con descripción y participación en al menos un code review
+                        </td>
+                      </tr>
+                      <tr className="bg-blue-50 hover:bg-blue-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-blue-700">0.6</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          3–4 commits con mensajes aceptables y PR abierto, sin descripción completa o sin code review
+                        </td>
+                      </tr>
+                      <tr className="bg-yellow-50 hover:bg-yellow-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-yellow-700">0.4</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          1–2 commits o mensajes genéricos (fix, update), push directo sin PR
+                        </td>
+                      </tr>
+                      <tr className="bg-orange-50 hover:bg-orange-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-orange-700">0.2</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          Solo 1 commit al final del sprint, sin mensaje claro y sin PR
+                        </td>
+                      </tr>
+                      <tr className="bg-red-50 hover:bg-red-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-red-700">0</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          Sin commits registrados en el sprint
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Criterion 2: Task Management */}
+              <div className="mb-6">
+                <h4 className="font-bold text-blue-800 mb-3 flex items-center">
+                  <i className="ri-kanban-view mr-2"></i>
+                  Criterio 2: Gestión de tareas en Jira / ClickUp / Trello - <span className="text-blue-700 ml-1">1.2 pts</span>
+                </h4>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-blue-700 text-white">
+                        <th className="border border-blue-600 px-3 py-2 text-center font-bold">Puntos</th>
+                        <th className="border border-blue-600 px-3 py-2 text-left font-bold">Descripción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-green-50 hover:bg-green-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-green-700">1.2</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          100% - 90% de tickets en "Done" al cierre del sprint, con actualizaciones visibles durante el sprint
+                        </td>
+                      </tr>
+                      <tr className="bg-blue-50 hover:bg-blue-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-blue-700">0.9</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          75–90% de tickets completados, actualizados pero sin comentarios o estimaciones
+                        </td>
+                      </tr>
+                      <tr className="bg-yellow-50 hover:bg-yellow-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-yellow-700">0.6</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          50–74% de tickets completados o movidos solo al final del sprint
+                        </td>
+                      </tr>
+                      <tr className="bg-orange-50 hover:bg-orange-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-orange-700">0.3</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          Menos del 50% completados o sin movimiento durante el sprint
+                        </td>
+                      </tr>
+                      <tr className="bg-red-50 hover:bg-red-100">
+                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-red-700">0</td>
+                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
+                          Sin tickets asignados, no los creó o no interactuó con el tablero
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <p className="text-xs text-gray-600 mt-3 italic flex items-start gap-2">
+                  <span className="flex-shrink-0">📌</span>
+                  <span>
+                    <strong>Nota importante:</strong> Si no hay commits a revisar en un sprint, 
+                    toda la evaluación se carga a las actividades de seguimiento en Jira/ClickUp/Trello.
+                  </span>
                 </p>
               </div>
+
+              {/* Calculation Examples */}
+              <div className="bg-white rounded-lg p-5 border-2 border-blue-400">
+                <h4 className="font-bold text-blue-900 mb-3 flex items-center">
+                  <i className="ri-calculator-line mr-2"></i>
+                  Cómo se calcula:
+                </h4>
+
+                <div className="space-y-4">
+                  {/* Example 1: Perfect */}
+                  <div className="border-l-4 border-green-500 pl-4">
+                    <p className="text-sm font-semibold text-green-800 mb-1">
+                      ✅ Desempeño excelente
+                    </p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      GitHub 0.8 + Jira 1.2 = 2.0 pts (máximo en juego)
+                    </p>
+                    <div className="bg-green-50 rounded p-2 text-xs space-y-1">
+                      <span className="font-mono block"><strong>0.8</strong> (GitHub: 5+ commits + PR + code review)</span>
+                      <span className="font-mono block"><strong>+ 1.2</strong> (Jira: 90-100% tickets Done)</span>
+                      <span className="font-mono block border-t pt-1"><strong className="text-green-700">= 2.0 pts</strong> + 0.5 (formulario) = <strong className="text-green-700">2.5%</strong> ✓</span>
+                    </div>
+                  </div>
+
+                  {/* Example 2: Good */}
+                  <div className="border-l-4 border-blue-500 pl-4">
+                    <p className="text-sm font-semibold text-blue-800 mb-1">
+                      👍 Buen desempeño
+                    </p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      GitHub 0.6 + Jira 0.9 = 1.5 pts (en juego)
+                    </p>
+                    <div className="bg-blue-50 rounded p-2 text-xs space-y-1">
+                      <span className="font-mono block"><strong>0.6</strong> (GitHub: 3-4 commits + PR)</span>
+                      <span className="font-mono block"><strong>+ 0.9</strong> (Jira: 75-90% tickets Done)</span>
+                      <span className="font-mono block border-t pt-1"><strong className="text-blue-700">= 1.5 pts</strong> + 0.5 (formulario) = <strong className="text-blue-700">2.0%</strong></span>
+                    </div>
+                  </div>
+
+                  {/* Example 3: Mixed */}
+                  <div className="border-l-4 border-yellow-500 pl-4">
+                    <p className="text-sm font-semibold text-yellow-800 mb-1">
+                      ⚠️ Desempeño variado
+                    </p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      GitHub 0.4 + Jira 0.6 = 1.0 pts (en juego)
+                    </p>
+                    <div className="bg-yellow-50 rounded p-2 text-xs space-y-1">
+                      <span className="font-mono block"><strong>0.4</strong> (GitHub: 1-2 commits, sin PR)</span>
+                      <span className="font-mono block"><strong>+ 0.6</strong> (Jira: 50-74% tickets completados)</span>
+                      <span className="font-mono block border-t pt-1"><strong className="text-yellow-700">= 1.0 pts</strong> + 0.5 (formulario) = <strong className="text-yellow-700">1.5%</strong></span>
+                    </div>
+                  </div>
+
+                  {/* Example 4: Sin formulario */}
+                  <div className="border-l-4 border-red-500 pl-4">
+                    <p className="text-sm font-semibold text-red-800 mb-1">
+                      ❌ Olvidas responder el formulario
+                    </p>
+                    <p className="text-xs text-gray-600 mb-2">
+                      Aunque tengas buen desempeño: GitHub 0.8 + Jira 1.2 = 2.0 pts
+                    </p>
+                    <div className="bg-red-50 rounded p-2 text-xs space-y-1">
+                      <span className="font-mono block"><strong>0.8</strong> (GitHub: excelente)</span>
+                      <span className="font-mono block"><strong>+ 1.2</strong> (Jira: 100% Done)</span>
+                      <span className="font-mono block border-t pt-1"><strong className="text-red-700">= 2.0 pts</strong> + 0 (SIN formulario) = <strong className="text-red-700">2.0%</strong> ❌</span>
+                    </div>
+                    <p className="text-xs text-red-700 font-semibold mt-2">
+                      Perdiste los 0.5 puntos de regalo por no responder el formulario
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Funcionalidad de Equipo Preview */}
+            <div className="bg-green-50 rounded-xl p-5 border-2 border-green-200">
+              <h3 className="text-lg font-bold text-green-900 mb-2 flex items-center">
+                <i className="ri-checkbox-multiple-line mr-2"></i>
+                3. Funcionalidad de Equipo (3.75%)
+              </h3>
+              <p className="text-sm text-gray-700">
+                Evaluación de las funcionalidades entregadas, calidad del código, 
+                cumplimiento de requisitos y presentación del proyecto.
+              </p>
             </div>
           </div>
         </section>
