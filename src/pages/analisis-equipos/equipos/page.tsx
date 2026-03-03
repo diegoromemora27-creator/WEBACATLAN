@@ -141,592 +141,258 @@ export default function AnalisisEquiposTeams() {
               </table>
             </div>
 
-            {/* Autoevaluación Explanation */}
+            {/* Autoevaluación / Scrum Section */}
             <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-200 mb-6">
               <h3 className="text-xl font-bold text-purple-900 mb-4 flex items-center">
                 <i className="ri-survey-line mr-2"></i>
-                1. Autoevaluación / Scrum (2.5%)
+                1. Autoevaluación / Scrum (2.5% por sprint = 20% total)
               </h3>
               
-              <p className="text-gray-700 mb-4">
-                Esta evaluación se calcula en base al <strong>promedio del equipo</strong> sobre dos preguntas
-                clave del formulario de desempeño:
+              <div className="bg-purple-100 border-l-4 border-purple-600 p-4 mb-6">
+                <p className="text-sm text-purple-900 font-semibold">
+                  <i className="ri-calendar-check-line mr-2"></i>
+                  Evaluación al final del semestre con el reporte de los 8 formularios
+                </p>
+              </div>
+
+              <p className="text-gray-700 mb-6">
+                Esta evaluación se basa en dos componentes que miden tanto la <strong>constancia</strong> en 
+                responder los formularios como la <strong>calidad de la autoevaluación</strong> que haces de 
+                tu trabajo durante todo el semestre.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div className="bg-white rounded-lg p-4 border border-purple-300">
-                  <h4 className="font-bold text-purple-800 mb-2 flex items-center">
+              {/* Componente 1: Participación */}
+              <div className="mb-6">
+                <div className="bg-white rounded-lg p-5 border-2 border-purple-300">
+                  <h4 className="font-bold text-purple-800 mb-3 flex items-center text-lg">
+                    <i className="ri-file-list-3-line mr-2"></i>
+                    Componente 1: Participación y constancia en formularios
+                    <span className="ml-auto text-purple-700">8 puntos de 20</span>
+                  </h4>
+                  
+                  <p className="text-sm text-gray-700 mb-4 italic">
+                    No importa qué tan bien te autoevalúes si no respondiste. Este criterio premia 
+                    simplemente haber completado los 8 formularios a lo largo del semestre.
+                  </p>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="bg-purple-700 text-white">
+                          <th className="border border-purple-600 px-4 py-2 text-center font-bold">Formularios respondidos</th>
+                          <th className="border border-purple-600 px-4 py-2 text-center font-bold">Puntos obtenidos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-green-50 hover:bg-green-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            8 de 8
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-green-700">
+                            8 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-blue-50 hover:bg-blue-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            7 de 8
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-blue-700">
+                            6 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-yellow-50 hover:bg-yellow-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            6 de 8
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-yellow-700">
+                            4 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-orange-50 hover:bg-orange-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            5 de 8
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-orange-700">
+                            2 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-red-50 hover:bg-red-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            4 o menos
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-red-700">
+                            0 pts
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              {/* Componente 2: Autoevaluación */}
+              <div className="mb-6">
+                <div className="bg-white rounded-lg p-5 border-2 border-purple-300">
+                  <h4 className="font-bold text-purple-800 mb-3 flex items-center text-lg">
                     <i className="ri-star-line mr-2"></i>
-                    Pregunta 1
+                    Componente 2: Autoevaluación de contribución personal
+                    <span className="ml-auto text-purple-700">12 puntos de 20</span>
                   </h4>
-                  <p className="text-sm text-gray-700 mb-2 font-semibold">
-                    Autoevaluación de mi Contribución Personal al Sprint
+                  
+                  <p className="text-sm text-gray-700 mb-4">
+                    Se calcula con el <strong>promedio de las respuestas</strong> dadas a lo largo de los 8 formularios. 
+                    Cada formulario usa escala 1–5 con <strong>5 preguntas</strong> (máximo 25 puntos por formulario).
                   </p>
-                  <div className="flex items-center justify-between text-xs text-gray-500 mt-2">
-                    <span>Baja ⬤</span>
-                    <span className="flex gap-1">
-                      <span>1</span>
-                      <span>2</span>
-                      <span>3</span>
-                      <span>4</span>
-                      <span>5</span>
-                    </span>
-                    <span>⬤ Alta</span>
-                  </div>
-                </div>
 
-                <div className="bg-white rounded-lg p-4 border border-purple-300">
-                  <h4 className="font-bold text-purple-800 mb-2 flex items-center">
-                    <i className="ri-team-line mr-2"></i>
-                    Pregunta 2
-                  </h4>
-                  <p className="text-sm text-gray-700 mb-2 font-semibold">
-                    Evaluación General del Equipo
+                  {/* Fórmula */}
+                  <div className="bg-purple-50 rounded-lg p-4 mb-4 border border-purple-200">
+                    <p className="text-xs text-purple-900 font-semibold mb-2">📐 Fórmula de cálculo:</p>
+                    <div className="bg-white rounded p-3 font-mono text-sm text-center border border-purple-300">
+                      <div className="mb-2">
+                        Promedio general = <span className="text-purple-700 font-bold">(Σ Suma formulario<sub>i</sub> / (8 × 25)) × 100</span>
+                      </div>
+                      <div className="text-xs text-gray-600 mt-2">
+                        Donde: Suma formulario<sub>i</sub> = suma de las 5 respuestas del formulario i (máx. 25)
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tabla de conversión */}
+                  <p className="text-sm text-gray-700 mb-3 font-semibold">
+                    Ese porcentaje se convierte a los 12 puntos de la siguiente manera:
                   </p>
-                  <div className="flex items-center justify-between text-xs text-gray-500 mt-2">
-                    <span>Baja ⬤</span>
-                    <span className="flex gap-1">
-                      <span>1</span>
-                      <span>2</span>
-                      <span>3</span>
-                      <span>4</span>
-                      <span>5</span>
-                    </span>
-                    <span>⬤ Alta</span>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="bg-purple-700 text-white">
+                          <th className="border border-purple-600 px-4 py-2 text-center font-bold">Promedio general</th>
+                          <th className="border border-purple-600 px-4 py-2 text-center font-bold">Puntos obtenidos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-green-50 hover:bg-green-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            90–100%
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-green-700">
+                            12 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-blue-50 hover:bg-blue-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            75–89%
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-blue-700">
+                            9 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-yellow-50 hover:bg-yellow-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            60–74%
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-yellow-700">
+                            6 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-orange-50 hover:bg-orange-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            45–59%
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-orange-700">
+                            3 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-red-50 hover:bg-red-100">
+                          <td className="border border-purple-300 px-4 py-2 text-center font-semibold text-gray-700">
+                            Menos del 45%
+                          </td>
+                          <td className="border border-purple-300 px-4 py-2 text-center font-bold text-red-700">
+                            0 pts
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
 
-              {/* Calculation Examples */}
-              <div className="bg-white rounded-lg p-5 border-2 border-purple-400">
-                <h4 className="font-bold text-purple-900 mb-3 flex items-center">
-                  <i className="ri-calculator-line mr-2"></i>
-                  Cómo se calcula:
-                </h4>
-                
-                <div className="space-y-4">
-                  {/* Example 1: Perfect Score */}
-                  <div className="border-l-4 border-green-500 pl-4">
-                    <p className="text-sm font-semibold text-green-800 mb-1">
-                      ✅ Caso ideal: Todos responden 5/5
-                    </p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      Si todos los integrantes califican con 5 tanto su contribución personal como el desempeño del equipo:
-                    </p>
-                    <div className="bg-green-50 rounded p-2 text-xs">
-                      <span className="font-mono">Promedio = (5 + 5) / 2 = <strong className="text-green-700">5.0</strong></span><br/>
-                      <span className="font-mono">Calificación = (5.0 / 5.0) × 2.5% = <strong className="text-green-700">2.5%</strong> ✓</span>
-                    </div>
-                    <p className="text-xs text-gray-500 mt-2 italic">
-                      <strong>Nota importante:</strong> Este puntaje se coteja con el avance real del proyecto. 
-                      Si no hay evidencia de trabajo (commits, entregas), el puntaje puede ajustarse.
-                    </p>
-                  </div>
-
-                  {/* Example 2: Good Performance */}
-                  <div className="border-l-4 border-blue-500 pl-4">
-                    <p className="text-sm font-semibold text-blue-800 mb-1">
-                      👍 Buen desempeño: Promedio 4/5
-                    </p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      El equipo en general se autoevalúa con 4s y algunos 5s:
-                    </p>
-                    <div className="bg-blue-50 rounded p-2 text-xs">
-                      <span className="font-mono">Promedio = 4.0</span><br/>
-                      <span className="font-mono">Calificación = (4.0 / 5.0) × 2.5% = <strong className="text-blue-700">2.0%</strong></span>
-                    </div>
-                  </div>
-
-                  {/* Example 3: Mixed Performance */}
-                  <div className="border-l-4 border-yellow-500 pl-4">
-                    <p className="text-sm font-semibold text-yellow-800 mb-1">
-                      ⚠️ Desempeño variado: Promedio 3/5
-                    </p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      Algunas respuestas bajas (2-3) y otras altas (4-5):
-                    </p>
-                    <div className="bg-yellow-50 rounded p-2 text-xs">
-                      <span className="font-mono">Promedio = 3.0</span><br/>
-                      <span className="font-mono">Calificación = (3.0 / 5.0) × 2.5% = <strong className="text-yellow-700">1.5%</strong></span>
-                    </div>
-                  </div>
-
-                  {/* Example 4: Poor Performance */}
-                  <div className="border-l-4 border-red-500 pl-4">
-                    <p className="text-sm font-semibold text-red-800 mb-1">
-                      ❌ Bajo desempeño: Promedio 2/5 o menos
-                    </p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      El equipo reporta problemas serios de colaboración o contribución:
-                    </p>
-                    <div className="bg-red-50 rounded p-2 text-xs">
-                      <span className="font-mono">Promedio = 2.0</span><br/>
-                      <span className="font-mono">Calificación = (2.0 / 5.0) × 2.5% = <strong className="text-red-700">1.0%</strong></span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Important Note */}
-                <div className="mt-4 bg-amber-50 border border-amber-300 rounded-lg p-3">
-                  <p className="text-xs text-amber-900 flex items-start">
-                    <i className="ri-alert-line mr-2 mt-0.5 flex-shrink-0"></i>
-                    <span>
-                      <strong>Verificación cruzada:</strong> Aunque todos califiquen con 5, el profesor 
-                      verificará el avance real del proyecto (commits, funcionalidades entregadas, 
-                      cumplimiento de deadlines). Si no hay evidencia de trabajo, el puntaje se ajustará proporcionalmente.
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Desempeño Individual Explanation */}
-            <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200">
-              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
-                <i className="ri-git-commit-line mr-2"></i>
-                2. Desempeño Individual / Commits (2.5%)
-              </h3>
-
-              <div className="bg-white rounded-lg p-4 mb-5 border-l-4 border-amber-400">
-                <p className="text-sm text-amber-900 flex items-start gap-2">
-                  <span className="font-bold">💡 Importante:</span>
-                  <span>
-                    <strong>2%</strong> está en juego basado en tu desempeño real.
-                    <strong>0.5%</strong> es "de regalo" si respondes el formulario de evaluación.
-                    Si no respondes el formulario, pierdes automáticamente esos 0.5 puntos.
-                  </span>
+              {/* Verificación con Jira */}
+              <div className="bg-amber-50 border-2 border-amber-400 rounded-lg p-4">
+                <h5 className="font-bold text-amber-900 mb-2 flex items-center">
+                  <i className="ri-shield-check-line mr-2"></i>
+                  Verificación cruzada con Jira / ClickUp
+                </h5>
+                <p className="text-sm text-amber-900">
+                  <strong>Importante:</strong> Se coteja el rendimiento reportado en los formularios con la 
+                  actividad real en Jira/ClickUp:
                 </p>
-              </div>
-
-              <p className="text-gray-700 mb-4">
-                Esta evaluación se mide en base a <strong>dos criterios</strong>:
-              </p>
-
-              {/* Criterion 1: GitHub Activity */}
-              <div className="mb-6">
-                <h4 className="font-bold text-blue-800 mb-3 flex items-center">
-                  <i className="ri-github-fill mr-2"></i>
-                  Criterio 1: Actividad en GitHub (commits y PRs) - <span className="text-blue-700 ml-1">0.8 pts</span>
-                </h4>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm border-collapse">
-                    <thead>
-                      <tr className="bg-blue-700 text-white">
-                        <th className="border border-blue-600 px-3 py-2 text-center font-bold">Puntos</th>
-                        <th className="border border-blue-600 px-3 py-2 text-left font-bold">Descripción</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-green-50 hover:bg-green-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-green-700">0.8</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          ≥5 commits atómicos con mensajes descriptivos, distribuidos a lo largo del sprint, 
-                          PR abierto con descripción y participación en al menos un code review
-                        </td>
-                      </tr>
-                      <tr className="bg-blue-50 hover:bg-blue-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-blue-700">0.6</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          3–4 commits con mensajes aceptables y PR abierto, sin descripción completa o sin code review
-                        </td>
-                      </tr>
-                      <tr className="bg-yellow-50 hover:bg-yellow-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-yellow-700">0.4</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          1–2 commits o mensajes genéricos (fix, update), push directo sin PR
-                        </td>
-                      </tr>
-                      <tr className="bg-orange-50 hover:bg-orange-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-orange-700">0.2</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          Solo 1 commit al final del sprint, sin mensaje claro y sin PR
-                        </td>
-                      </tr>
-                      <tr className="bg-red-50 hover:bg-red-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-red-700">0</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          Sin commits registrados en el sprint
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Criterion 2: Task Management */}
-              <div className="mb-6">
-                <h4 className="font-bold text-blue-800 mb-3 flex items-center">
-                  <i className="ri-kanban-view mr-2"></i>
-                  Criterio 2: Gestión de tareas en Jira / ClickUp / Trello - <span className="text-blue-700 ml-1">1.2 pts</span>
-                </h4>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm border-collapse">
-                    <thead>
-                      <tr className="bg-blue-700 text-white">
-                        <th className="border border-blue-600 px-3 py-2 text-center font-bold">Puntos</th>
-                        <th className="border border-blue-600 px-3 py-2 text-left font-bold">Descripción</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-green-50 hover:bg-green-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-green-700">1.2</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          100% - 90% de tickets en "Done" al cierre del sprint, con actualizaciones visibles durante el sprint
-                        </td>
-                      </tr>
-                      <tr className="bg-blue-50 hover:bg-blue-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-blue-700">0.9</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          75–90% de tickets completados, actualizados pero sin comentarios o estimaciones
-                        </td>
-                      </tr>
-                      <tr className="bg-yellow-50 hover:bg-yellow-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-yellow-700">0.6</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          50–74% de tickets completados o movidos solo al final del sprint
-                        </td>
-                      </tr>
-                      <tr className="bg-orange-50 hover:bg-orange-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-orange-700">0.3</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          Menos del 50% completados o sin movimiento durante el sprint
-                        </td>
-                      </tr>
-                      <tr className="bg-red-50 hover:bg-red-100">
-                        <td className="border border-blue-300 px-3 py-2 text-center font-bold text-red-700">0</td>
-                        <td className="border border-blue-300 px-3 py-2 text-gray-700">
-                          Sin tickets asignados, no los creó o no interactuó con el tablero
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <p className="text-xs text-gray-600 mt-3 italic flex items-start gap-2">
-                  <span className="flex-shrink-0">📌</span>
-                  <span>
-                    <strong>Nota importante:</strong> Si no hay commits a revisar en un sprint, 
-                    toda la evaluación se carga a las actividades de seguimiento en Jira/ClickUp/Trello.
-                  </span>
-                </p>
-              </div>
-
-              {/* Calculation Examples */}
-              <div className="bg-white rounded-lg p-5 border-2 border-blue-400">
-                <h4 className="font-bold text-blue-900 mb-3 flex items-center">
-                  <i className="ri-calculator-line mr-2"></i>
-                  Cómo se calcula:
-                </h4>
-
-                <div className="space-y-4">
-                  {/* Example 1: Perfect */}
-                  <div className="border-l-4 border-green-500 pl-4">
-                    <p className="text-sm font-semibold text-green-800 mb-1">
-                      ✅ Desempeño excelente
-                    </p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      GitHub 0.8 + Jira 1.2 = 2.0 pts (máximo en juego)
-                    </p>
-                    <div className="bg-green-50 rounded p-2 text-xs space-y-1">
-                      <span className="font-mono block"><strong>0.8</strong> (GitHub: 5+ commits + PR + code review)</span>
-                      <span className="font-mono block"><strong>+ 1.2</strong> (Jira: 90-100% tickets Done)</span>
-                      <span className="font-mono block border-t pt-1"><strong className="text-green-700">= 2.0 pts</strong> + 0.5 (formulario) = <strong className="text-green-700">2.5%</strong> ✓</span>
-                    </div>
-                  </div>
-
-                  {/* Example 2: Good */}
-                  <div className="border-l-4 border-blue-500 pl-4">
-                    <p className="text-sm font-semibold text-blue-800 mb-1">
-                      👍 Buen desempeño
-                    </p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      GitHub 0.6 + Jira 0.9 = 1.5 pts (en juego)
-                    </p>
-                    <div className="bg-blue-50 rounded p-2 text-xs space-y-1">
-                      <span className="font-mono block"><strong>0.6</strong> (GitHub: 3-4 commits + PR)</span>
-                      <span className="font-mono block"><strong>+ 0.9</strong> (Jira: 75-90% tickets Done)</span>
-                      <span className="font-mono block border-t pt-1"><strong className="text-blue-700">= 1.5 pts</strong> + 0.5 (formulario) = <strong className="text-blue-700">2.0%</strong></span>
-                    </div>
-                  </div>
-
-                  {/* Example 3: Mixed */}
-                  <div className="border-l-4 border-yellow-500 pl-4">
-                    <p className="text-sm font-semibold text-yellow-800 mb-1">
-                      ⚠️ Desempeño variado
-                    </p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      GitHub 0.4 + Jira 0.6 = 1.0 pts (en juego)
-                    </p>
-                    <div className="bg-yellow-50 rounded p-2 text-xs space-y-1">
-                      <span className="font-mono block"><strong>0.4</strong> (GitHub: 1-2 commits, sin PR)</span>
-                      <span className="font-mono block"><strong>+ 0.6</strong> (Jira: 50-74% tickets completados)</span>
-                      <span className="font-mono block border-t pt-1"><strong className="text-yellow-700">= 1.0 pts</strong> + 0.5 (formulario) = <strong className="text-yellow-700">1.5%</strong></span>
-                    </div>
-                  </div>
-
-                  {/* Example 4: Sin formulario */}
-                  <div className="border-l-4 border-red-500 pl-4">
-                    <p className="text-sm font-semibold text-red-800 mb-1">
-                      ❌ Olvidas responder el formulario
-                    </p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      Aunque tengas buen desempeño: GitHub 0.8 + Jira 1.2 = 2.0 pts
-                    </p>
-                    <div className="bg-red-50 rounded p-2 text-xs space-y-1">
-                      <span className="font-mono block"><strong>0.8</strong> (GitHub: excelente)</span>
-                      <span className="font-mono block"><strong>+ 1.2</strong> (Jira: 100% Done)</span>
-                      <span className="font-mono block border-t pt-1"><strong className="text-red-700">= 2.0 pts</strong> + 0 (SIN formulario) = <strong className="text-red-700">2.0%</strong> ❌</span>
-                    </div>
-                    <p className="text-xs text-red-700 font-semibold mt-2">
-                      Perdiste los 0.5 puntos de regalo por no responder el formulario
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Funcionalidad de Equipo Explanation */}
-            <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200">
-              <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center">
-                <i className="ri-checkbox-multiple-line mr-2"></i>
-                3. Funcionalidad de Equipo (3.75% por sprint)
-              </h3>
-
-              <p className="text-gray-700 mb-4 text-sm">
-                <strong>Acumulado en 8 sprints:</strong> 3.75 × 8 = 30 puntos = 30%
-              </p>
-
-              <p className="text-gray-700 mb-4">
-                Esta evaluación se mide en base a <strong>tres criterios</strong> que valoran 
-                qué y cuán bien entrega el equipo:
-              </p>
-
-              {/* Criterion 1: Completeness */}
-              <div className="mb-6">
-                <h4 className="font-bold text-green-800 mb-3 flex items-center">
-                  <i className="ri-checkbox-circle-line mr-2"></i>
-                  Criterio 1: Funcionalidades completadas vs. planeadas - <span className="text-green-700 ml-1">1.5 pts</span>
-                </h4>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm border-collapse">
-                    <thead>
-                      <tr className="bg-green-700 text-white">
-                        <th className="border border-green-600 px-3 py-2 text-center font-bold">Puntos</th>
-                        <th className="border border-green-600 px-3 py-2 text-left font-bold">Descripción</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-green-50 hover:bg-green-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-green-700">1.5</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          El equipo completó el 100% de lo que se comprometió a entregar en el sprint. 
-                          Todo lo planeado en el tablero está en "Done" y fue demostrado en el sprint review
-                        </td>
-                      </tr>
-                      <tr className="bg-blue-50 hover:bg-blue-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-blue-700">1.1</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Se completó entre el 75–99% de lo planeado. Lo que faltó es menor y no afecta el flujo principal de la funcionalidad entregada
-                        </td>
-                      </tr>
-                      <tr className="bg-yellow-50 hover:bg-yellow-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-yellow-700">0.7</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Se completó entre el 50–74% de lo planeado. Hay partes incompletas que limitan la funcionalidad, 
-                          pero existe algo demostrable
-                        </td>
-                      </tr>
-                      <tr className="bg-orange-50 hover:bg-orange-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-orange-700">0.3</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Se completó menos del 50% de lo planeado o la demo fue muy parcial y no refleja el sprint goal
-                        </td>
-                      </tr>
-                      <tr className="bg-red-50 hover:bg-red-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-red-700">0</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          No hubo entrega, demo ni evidencia de avance en el sprint
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Criterion 2: Quality */}
-              <div className="mb-6">
-                <h4 className="font-bold text-green-800 mb-3 flex items-center">
-                  <i className="ri-bug-line mr-2"></i>
-                  Criterio 2: Calidad funcional - <span className="text-green-700 ml-1">1.25 pts</span>
-                </h4>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm border-collapse">
-                    <thead>
-                      <tr className="bg-green-700 text-white">
-                        <th className="border border-green-600 px-3 py-2 text-center font-bold">Puntos</th>
-                        <th className="border border-green-600 px-3 py-2 text-left font-bold">Descripción</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-green-50 hover:bg-green-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-green-700">1.25</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Lo entregado funciona sin errores bloqueantes. El flujo principal corre de principio a fin 
-                          durante la demo sin interrupciones
-                        </td>
-                      </tr>
-                      <tr className="bg-blue-50 hover:bg-blue-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-blue-700">0.9</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Hay 1–2 detalles menores (visuales, mensajes de error, casos edge), pero el flujo principal funciona correctamente
-                        </td>
-                      </tr>
-                      <tr className="bg-yellow-50 hover:bg-yellow-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-yellow-700">0.6</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Hay errores evidentes que interrumpen partes del flujo, pero el equipo puede mostrar al menos una funcionalidad estable
-                        </td>
-                      </tr>
-                      <tr className="bg-orange-50 hover:bg-orange-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-orange-700">0.3</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Lo entregado falla frecuentemente o solo funciona en condiciones muy controladas
-                        </td>
-                      </tr>
-                      <tr className="bg-red-50 hover:bg-red-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-red-700">0</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Nada de lo entregado funciona o no hubo demo
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Criterion 3: Documentation */}
-              <div className="mb-6">
-                <h4 className="font-bold text-green-800 mb-3 flex items-center">
-                  <i className="ri-file-text-line mr-2"></i>
-                  Criterio 3: Documentación del sprint - <span className="text-green-700 ml-1">1.0 pts</span>
-                </h4>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm border-collapse">
-                    <thead>
-                      <tr className="bg-green-700 text-white">
-                        <th className="border border-green-600 px-3 py-2 text-center font-bold">Puntos</th>
-                        <th className="border border-green-600 px-3 py-2 text-left font-bold">Descripción</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-green-50 hover:bg-green-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-green-700">1.0</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Todos los tickets del sprint están cerrados y actualizados. Existe evidencia escrita del avance 
-                          (README, comentarios en tickets, wiki, notas de retrospectiva o cualquier documento del equipo)
-                        </td>
-                      </tr>
-                      <tr className="bg-blue-50 hover:bg-blue-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-blue-700">0.7</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          La mayoría de los tickets están cerrados. Hay algo de documentación pero incompleta o sin estructura clara
-                        </td>
-                      </tr>
-                      <tr className="bg-yellow-50 hover:bg-yellow-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-yellow-700">0.4</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Pocos tickets actualizados o la documentación es mínima (solo títulos, sin descripciones ni evidencia)
-                        </td>
-                      </tr>
-                      <tr className="bg-red-50 hover:bg-red-100">
-                        <td className="border border-green-300 px-3 py-2 text-center font-bold text-red-700">0</td>
-                        <td className="border border-green-300 px-3 py-2 text-gray-700">
-                          Los tickets no fueron actualizados y no existe ningún tipo de documentación del sprint
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Sum Table */}
-              <div className="bg-white rounded-lg p-5 border-2 border-green-400 mb-6">
-                <h4 className="font-bold text-green-900 mb-3 flex items-center">
-                  <i className="ri-calculator-line mr-2"></i>
-                  Tabla de suma por sprint
-                </h4>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm border-collapse">
-                    <thead>
-                      <tr className="bg-green-700 text-white">
-                        <th className="border border-green-600 px-3 py-2 text-center font-bold text-xs">Funcionalidades<br/>(máx. 1.5)</th>
-                        <th className="border border-green-600 px-3 py-2 text-center font-bold text-xs">Calidad funcional<br/>(máx. 1.25)</th>
-                        <th className="border border-green-600 px-3 py-2 text-center font-bold text-xs">Documentación<br/>(máx. 1.0)</th>
-                        <th className="border border-green-600 px-3 py-2 text-center font-bold text-xs">Total sprint<br/>(máx. 3.75 pts)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-green-50 font-bold">
-                        <td className="border border-green-300 px-3 py-2 text-center text-green-700">1.5</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-green-700">1.25</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-green-700">1.0</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-green-700 text-base">✅ 3.75</td>
-                      </tr>
-                      <tr className="bg-blue-50 font-bold">
-                        <td className="border border-green-300 px-3 py-2 text-center text-blue-700">1.1</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-blue-700">0.9</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-blue-700">0.7</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-blue-700 text-base">👍 2.7</td>
-                      </tr>
-                      <tr className="bg-yellow-50 font-bold">
-                        <td className="border border-green-300 px-3 py-2 text-center text-yellow-700">0.7</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-yellow-700">0.6</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-yellow-700">0.4</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-yellow-700 text-base">⚠️ 1.7</td>
-                      </tr>
-                      <tr className="bg-orange-50 font-bold">
-                        <td className="border border-green-300 px-3 py-2 text-center text-orange-700">0.3</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-orange-700">0.3</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-orange-700">0</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-orange-700 text-base">⚠️ 0.6</td>
-                      </tr>
-                      <tr className="bg-red-50 font-bold">
-                        <td className="border border-green-300 px-3 py-2 text-center text-red-700">0</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-red-700">0</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-red-700">0</td>
-                        <td className="border border-green-300 px-3 py-2 text-center text-red-700 text-base">❌ 0</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Key Notes */}
-              <div className="space-y-3">
-                <div className="bg-green-100 border border-green-400 rounded-lg p-3">
-                  <p className="text-xs text-green-900 flex items-start gap-2">
-                    <span className="flex-shrink-0">✅</span>
+                <ul className="text-sm text-amber-900 mt-2 space-y-1 ml-5">
+                  <li className="flex items-start">
+                    <i className="ri-close-circle-fill text-red-600 mr-2 mt-1"></i>
                     <span>
-                      <strong>Caso ideal:</strong> El equipo completa todo (1.5), sin bugs (1.25) 
-                      y documenta bien (1.0) = <strong>3.75 pts</strong>
+                      <strong>Sin actividad en Jira:</strong> Si no hay movimiento de tickets, creación de tareas, 
+                      o actualización del board, la calificación se reduce a <strong>solo 0.5 décimas</strong> 
+                      (independiente de lo que hayas reportado en los formularios).
                     </span>
-                  </p>
-                </div>
-
-                <div className="bg-amber-100 border border-amber-400 rounded-lg p-3">
-                  <p className="text-xs text-amber-900 flex items-start gap-2">
-                    <span className="flex-shrink-0">💡</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-checkbox-circle-fill text-green-600 mr-2 mt-1"></i>
                     <span>
-                      <strong>Nota:</strong> Los 3.75 puntos por sprint se repiten 8 veces a lo largo del curso. 
-                      Tu calificación final de funcionalidad (30%) es el promedio de los 8 sprints.
+                      <strong>Con actividad en Jira:</strong> Si hay tickets creados, movimientos en el board, 
+                      comentarios y evidencia de trabajo, se respeta la autoevaluación calculada.
                     </span>
-                  </p>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Ejemplo de cálculo */}
+              <div className="mt-6 bg-white rounded-lg p-5 border-2 border-purple-400">
+                <h5 className="font-bold text-purple-900 mb-3 flex items-center">
+                  <i className="ri-calculator-line mr-2"></i>
+                  Ejemplo de cálculo completo
+                </h5>
+
+                <div className="space-y-3 text-sm">
+                  <div className="border-l-4 border-green-500 pl-3 bg-green-50 p-3 rounded">
+                    <p className="font-semibold text-green-800 mb-2">✅ Caso ideal:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• Respondiste los <strong>8 formularios</strong> → 8 pts (Componente 1)</li>
+                      <li>• Suma total de tus respuestas: 190 de 200 posibles (8 formularios × 25 pts)</li>
+                      <li>• Promedio: (190 / 200) × 100 = <strong>95%</strong> → 12 pts (Componente 2)</li>
+                      <li>• Hay actividad en Jira → Se respeta la autoevaluación</li>
+                      <li className="font-bold text-green-700 pt-2 border-t border-green-300 mt-2">
+                        = <strong>8 + 12 = 20 puntos de 20</strong> ✓
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-yellow-500 pl-3 bg-yellow-50 p-3 rounded">
+                    <p className="font-semibold text-yellow-800 mb-2">⚠️ Caso con fallas:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• Respondiste solo <strong>6 formularios</strong> → 4 pts (Componente 1)</li>
+                      <li>• Suma total: 140 de 200 posibles</li>
+                      <li>• Promedio: (140 / 200) × 100 = <strong>70%</strong> → 6 pts (Componente 2)</li>
+                      <li>• Hay actividad en Jira → Se respeta</li>
+                      <li className="font-bold text-yellow-700 pt-2 border-t border-yellow-300 mt-2">
+                        = <strong>4 + 6 = 10 puntos de 20</strong>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-red-500 pl-3 bg-red-50 p-3 rounded">
+                    <p className="font-semibold text-red-800 mb-2">❌ Caso sin actividad en Jira:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• Respondiste los <strong>8 formularios</strong> → 8 pts (Componente 1)</li>
+                      <li>• Promedio: 95% → 12 pts (Componente 2)</li>
+                      <li className="text-red-700 font-semibold">
+                        ⚠️ PERO: No hay tickets, ni movimientos en Jira durante el semestre
+                      </li>
+                      <li className="font-bold text-red-700 pt-2 border-t border-red-300 mt-2">
+                        = Calificación ajustada a <strong>0.5 puntos de 20</strong> ❌
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
