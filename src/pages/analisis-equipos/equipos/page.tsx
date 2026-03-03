@@ -108,13 +108,6 @@ export default function AnalisisEquiposTeams() {
             {/* Evaluation Table */}
             <div className="overflow-x-auto mb-8">
               <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-[#1b3d70] text-white">
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Componente</th>
-                    <th className="border border-gray-300 px-4 py-3 text-center font-semibold">% Total</th>
-                    <th className="border border-gray-300 px-4 py-3 text-center font-semibold">% por Sprint (×8)</th>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr className="bg-purple-50 hover:bg-purple-100 transition-colors">
                     <td className="border border-gray-300 px-4 py-3 font-medium text-gray-800">
@@ -155,7 +148,7 @@ export default function AnalisisEquiposTeams() {
               >
                 <h3 className="text-xl font-bold text-purple-900 flex items-center">
                   <i className="ri-survey-line mr-2"></i>
-                  1. Autoevaluación / Scrum (2.5% por sprint = 20% total)
+                  1. Autoevaluación / Scrum 
                 </h3>
                 <i className={`ri-chevron-down-line text-purple-900 text-2xl transition-transform duration-300 ${openDropdown === 'autoevaluacion' ? 'rotate-180' : ''}`}></i>
               </button>
@@ -427,7 +420,7 @@ export default function AnalisisEquiposTeams() {
               >
                 <h3 className="text-xl font-bold text-blue-900 flex items-center">
                   <i className="ri-git-commit-line mr-2"></i>
-                  2. Desempeño Individual Técnico (2.5% por sprint = 20% total)
+                  2. Desempeño Individual Técnico
                 </h3>
                 <i className={`ri-chevron-down-line text-blue-900 text-2xl transition-transform duration-300 ${openDropdown === 'desempeno' ? 'rotate-180' : ''}`}></i>
               </button>
@@ -736,7 +729,7 @@ export default function AnalisisEquiposTeams() {
               >
                 <h3 className="text-xl font-bold text-green-900 flex items-center">
                   <i className="ri-rocket-line mr-2"></i>
-                  3. Funcionalidad de Equipo (3.75% por sprint = 30% total)
+                  3. Funcionalidad de Equipo 
                 </h3>
                 <i className={`ri-chevron-down-line text-green-900 text-2xl transition-transform duration-300 ${openDropdown === 'funcionalidad' ? 'rotate-180' : ''}`}></i>
               </button>
