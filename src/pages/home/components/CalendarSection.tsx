@@ -70,7 +70,7 @@ const calendarItems: CalendarItem[] = [
     mainLink: '/backend/nestjs-fundamentos',
     resources: [
       { label: 'Ver tema', url: '/backend/bases-datos', type: 'internal', icon: 'ri-book-open-line' },
-      { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHByEE8z2Q/Lj6Z3MS87_h6AoQxJnpoMQ/view?utm_content=DAHByEE8z2Q&utm_campaign=designshare&utm_medium=link&utm_source=viewer', type: 'canva', icon: 'ri-palette-line' },
+      { label: 'LAB en Canva', url:"https://www.canva.com/design/DAHC2_ZLM-M/RBYsp4DmMxOTKUjlUOqJRg/view?utm_content=DAHC2_ZLM-M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hdadae6ff6f", type: 'canva', icon: 'ri-palette-line' },
       { label: 'Diagrama ER by IBM', url: 'https://www.ibm.com/mx-es/think/topics/entity-relationship-diagram', type: 'external', icon: 'ri-database-2-line' },
       { label: 'Diagrama ER by lucidchart', url: 'https://www.lucidchart.com/pages/es/que-es-un-diagrama-entidad-relacion', type: 'external', icon: 'ri-layout-grid-line' }
     ],
@@ -268,7 +268,7 @@ export default function CalendarSection() {
                 </p>
               </div>
               <a
-                href="https://forms.gle/zjLeGEiPLGkP2RCX6"
+                href="https://forms.gle/TwSEnt8oasTDLyBD8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-purple-600 px-6 py-3 rounded-full font-bold text-sm sm:text-base shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"

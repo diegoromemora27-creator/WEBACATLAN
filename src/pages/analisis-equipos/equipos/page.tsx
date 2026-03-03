@@ -697,6 +697,438 @@ export default function AnalisisEquiposTeams() {
                 </ul>
               </div>
             </div>
+
+            {/* Funcionalidad de Equipo Section */}
+            <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200 mb-6">
+              <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center">
+                <i className="ri-rocket-line mr-2"></i>
+                3. Funcionalidad de Equipo (3.75% por sprint = 30% total)
+              </h3>
+              
+              <div className="bg-green-100 border-l-4 border-green-600 p-4 mb-6">
+                <p className="text-sm text-green-900 font-semibold">
+                  <i className="ri-calendar-check-line mr-2"></i>
+                  Evaluación acumulada al final del semestre
+                </p>
+              </div>
+
+              <p className="text-gray-700 mb-6">
+                Esta evaluación mide el <strong>resultado técnico colectivo</strong> del equipo: que el proyecto 
+                esté desplegado en internet, que tenga endpoints funcionales de punta a punta, y que esté 
+                documentado adecuadamente. Es el componente de mayor peso (30%).
+              </p>
+
+              {/* Componente 1: Despliegue */}
+              <div className="mb-6">
+                <div className="bg-white rounded-lg p-5 border-2 border-green-300">
+                  <h4 className="font-bold text-green-800 mb-3 flex items-center text-lg">
+                    <i className="ri-cloud-line mr-2"></i>
+                    Componente 1: Despliegue y accesibilidad en internet
+                    <span className="ml-auto text-green-700">15 puntos de 30</span>
+                  </h4>
+                  
+                  <div className="bg-red-50 border-l-4 border-red-500 p-3 mb-4">
+                    <p className="text-sm text-red-800 font-bold flex items-center">
+                      <i className="ri-alert-fill mr-2"></i>
+                      ⚠️ OBLIGATORIO - Este es el criterio de mayor peso
+                    </p>
+                  </div>
+
+                  <p className="text-sm text-gray-700 mb-4">
+                    El proyecto debe ser <strong>accesible desde internet</strong> con frontend, servidor y 
+                    base de datos desplegados. No basta con que funcione en local, debe estar en producción 
+                    y ser accesible desde cualquier navegador.
+                  </p>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="bg-green-700 text-white">
+                          <th className="border border-green-600 px-4 py-2 text-left font-bold">Evidencia</th>
+                          <th className="border border-green-600 px-4 py-2 text-center font-bold">Puntos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-green-50 hover:bg-green-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>Frontend, servidor y base de datos desplegados</strong> y accesibles desde 
+                            internet, todo funciona de forma integrada
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-green-700">
+                            15 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-blue-50 hover:bg-blue-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>Los tres están desplegados</strong> pero hay intermitencia o algún servicio 
+                            falla ocasionalmente
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-blue-700">
+                            10 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-yellow-50 hover:bg-yellow-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>Solo 2 de los 3 están desplegados</strong> (ej. frontend y servidor pero 
+                            sin base de datos en producción)
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-yellow-700">
+                            6 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-orange-50 hover:bg-orange-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>Solo el frontend está desplegado</strong>, el servidor corre en local
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-orange-700">
+                            3 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-red-50 hover:bg-red-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>Nada está desplegado</strong>, el proyecto solo corre en local
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-red-700">
+                            0 pts
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Deployment Best Practices */}
+                  <div className="bg-green-50 rounded-lg p-4 mt-4 border border-green-200">
+                    <p className="text-xs text-green-900 font-semibold mb-2">
+                      <i className="ri-lightbulb-line mr-1"></i>
+                      Plataformas recomendadas para despliegue:
+                    </p>
+                    <ul className="text-xs text-gray-700 space-y-1 ml-4">
+                      <li>✓ <strong>Frontend:</strong> Vercel, Netlify, GitHub Pages, Railway</li>
+                      <li>✓ <strong>Backend/Servidor:</strong> Railway, Render, Heroku, AWS, Google Cloud</li>
+                      <li>✓ <strong>Base de datos:</strong> Railway (PostgreSQL/MySQL), MongoDB Atlas, Supabase, PlanetScale</li>
+                      <li>✓ Asegúrate de que las variables de entorno estén configuradas correctamente</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Componente 2: Endpoints */}
+              <div className="mb-6">
+                <div className="bg-white rounded-lg p-5 border-2 border-green-300">
+                  <h4 className="font-bold text-green-800 mb-3 flex items-center text-lg">
+                    <i className="ri-link mr-2"></i>
+                    Componente 2: Endpoints implementados (flujo completo)
+                    <span className="ml-auto text-green-700">10 puntos de 30</span>
+                  </h4>
+                  
+                  <p className="text-sm text-gray-700 mb-4">
+                    Se revisa que los endpoints vayan <strong>de punta a punta</strong>: frontend → servidor → 
+                    base de datos. El mínimo esperado es de 3 a 4 endpoints funcionales. No basta con tener 
+                    código en el backend, debe estar conectado y funcionar en producción.
+                  </p>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="bg-green-700 text-white">
+                          <th className="border border-green-600 px-4 py-2 text-left font-bold">Evidencia</th>
+                          <th className="border border-green-600 px-4 py-2 text-center font-bold">Puntos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-green-50 hover:bg-green-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>4 o más endpoints funcionales</strong> de punta a punta, con al menos un 
+                            CRUD completo o flujo representativo
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-green-700">
+                            10 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-blue-50 hover:bg-blue-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>3 endpoints funcionales</strong> de punta a punta, flujo básico completo
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-blue-700">
+                            7 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-yellow-50 hover:bg-yellow-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>2 endpoints funcionales</strong>, flujo incompleto o sin conexión real a 
+                            base de datos
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-yellow-700">
+                            4 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-orange-50 hover:bg-orange-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>1 endpoint</strong> o endpoints que no llegan a la base de datos
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-orange-700">
+                            2 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-red-50 hover:bg-red-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>Sin endpoints funcionales</strong> o sin conexión entre capas
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-red-700">
+                            0 pts
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Endpoints Examples */}
+                  <div className="bg-green-50 rounded-lg p-4 mt-4 border border-green-200">
+                    <p className="text-xs text-green-900 font-semibold mb-2">
+                      <i className="ri-lightbulb-line mr-1"></i>
+                      Ejemplos de endpoints de punta a punta:
+                    </p>
+                    <ul className="text-xs text-gray-700 space-y-1 ml-4">
+                      <li>✓ <strong>GET /api/users</strong> - Listar usuarios desde la base de datos</li>
+                      <li>✓ <strong>POST /api/users</strong> - Crear nuevo usuario en la base de datos</li>
+                      <li>✓ <strong>PUT /api/users/:id</strong> - Actualizar usuario existente</li>
+                      <li>✓ <strong>DELETE /api/users/:id</strong> - Eliminar usuario de la base de datos</li>
+                      <li>✓ Cada endpoint debe ser invocado desde el frontend y reflejarse en la UI</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Componente 3: Documentación */}
+              <div className="mb-6">
+                <div className="bg-white rounded-lg p-5 border-2 border-green-300">
+                  <h4 className="font-bold text-green-800 mb-3 flex items-center text-lg">
+                    <i className="ri-file-text-line mr-2"></i>
+                    Componente 3: Documentación del proyecto
+                    <span className="ml-auto text-green-700">5 puntos de 30</span>
+                  </h4>
+                  
+                  <p className="text-sm text-gray-700 mb-4">
+                    El README del repositorio debe servir como <strong>carta de presentación</strong> del proyecto. 
+                    Debe incluir el link al proyecto desplegado, instrucciones de uso y descripción de los endpoints.
+                  </p>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="bg-green-700 text-white">
+                          <th className="border border-green-600 px-4 py-2 text-left font-bold">Evidencia</th>
+                          <th className="border border-green-600 px-4 py-2 text-center font-bold">Puntos</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-green-50 hover:bg-green-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>README completo</strong> con link al proyecto desplegado, instrucciones de 
+                            uso y descripción de endpoints
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-green-700">
+                            5 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-yellow-50 hover:bg-yellow-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>README con link desplegado</strong> pero sin descripción de endpoints o 
+                            instrucciones incompletas
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-yellow-700">
+                            3 pts
+                          </td>
+                        </tr>
+                        <tr className="bg-orange-50 hover:bg-orange-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>Documentación mínima</strong>, sin link o sin estructura clara
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-orange-700">
+                            1 pt
+                          </td>
+                        </tr>
+                        <tr className="bg-red-50 hover:bg-red-100">
+                          <td className="border border-green-300 px-4 py-2 text-gray-700">
+                            <strong>Sin documentación</strong>
+                          </td>
+                          <td className="border border-green-300 px-4 py-2 text-center font-bold text-red-700">
+                            0 pts
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Documentation Template */}
+                  <div className="bg-green-50 rounded-lg p-4 mt-4 border border-green-200">
+                    <p className="text-xs text-green-900 font-semibold mb-2">
+                      <i className="ri-lightbulb-line mr-1"></i>
+                      Contenido mínimo esperado en el README:
+                    </p>
+                    <ul className="text-xs text-gray-700 space-y-1 ml-4">
+                      <li>✓ <strong>Link al proyecto desplegado</strong> (URL funcional)</li>
+                      <li>✓ <strong>Descripción del proyecto</strong> (qué hace, para qué sirve)</li>
+                      <li>✓ <strong>Tecnologías utilizadas</strong> (React, NestJS, PostgreSQL, etc.)</li>
+                      <li>✓ <strong>Lista de endpoints</strong> con método HTTP y descripción</li>
+                      <li>✓ <strong>Instrucciones de uso</strong> (cómo navegar la aplicación)</li>
+                      <li>✓ <strong>Credenciales de prueba</strong> (si aplica para login/autenticación)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Ejemplos de cálculo */}
+              <div className="mt-6 bg-white rounded-lg p-5 border-2 border-green-400">
+                <h5 className="font-bold text-green-900 mb-3 flex items-center">
+                  <i className="ri-calculator-line mr-2"></i>
+                  Ejemplos de cálculo completo
+                </h5>
+
+                <div className="space-y-3 text-sm">
+                  <div className="border-l-4 border-green-500 pl-3 bg-green-50 p-3 rounded">
+                    <p className="font-semibold text-green-800 mb-2">✅ Caso ideal - Proyecto completo en producción:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>Despliegue:</strong> Frontend en Vercel, backend en Railway, PostgreSQL en Railway 
+                      → todo accesible y funcional desde internet → <strong>15 pts</strong></li>
+                      <li>• <strong>Endpoints:</strong> 5 endpoints funcionales (CRUD completo de usuarios + login), 
+                      todos conectan frontend → servidor → base de datos → <strong>10 pts</strong></li>
+                      <li>• <strong>Documentación:</strong> README con link desplegado, descripción de todos los 
+                      endpoints, instrucciones de uso, credenciales de prueba → <strong>5 pts</strong></li>
+                      <li className="font-bold text-green-700 pt-2 border-t border-green-300 mt-2">
+                        = <strong>15 + 10 + 5 = 30 puntos de 30</strong> ✓ (Proyecto profesional)
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-blue-500 pl-3 bg-blue-50 p-3 rounded">
+                    <p className="font-semibold text-blue-800 mb-2">✅ Caso bueno - Proyecto funcional con intermitencias:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>Despliegue:</strong> Los 3 servicios desplegados pero el backend ocasionalmente 
+                      tiene timeouts o la DB se duerme (free tier) → <strong>10 pts</strong></li>
+                      <li>• <strong>Endpoints:</strong> 3 endpoints funcionales (GET users, POST user, GET user/:id), 
+                      flujo básico completo → <strong>7 pts</strong></li>
+                      <li>• <strong>Documentación:</strong> README con link y lista de endpoints, pero sin 
+                      instrucciones detalladas de uso → <strong>3 pts</strong></li>
+                      <li className="font-bold text-blue-700 pt-2 border-t border-blue-300 mt-2">
+                        = <strong>10 + 7 + 3 = 20 puntos de 30</strong>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-yellow-500 pl-3 bg-yellow-50 p-3 rounded">
+                    <p className="font-semibold text-yellow-800 mb-2">⚠️ Caso intermedio - Despliegue parcial:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>Despliegue:</strong> Solo frontend y backend desplegados, pero la base de datos 
+                      corre en local (datos mockeados en producción) → <strong>6 pts</strong></li>
+                      <li>• <strong>Endpoints:</strong> 2 endpoints que funcionan con datos mock, no llegan a DB real 
+                      → <strong>4 pts</strong></li>
+                      <li>• <strong>Documentación:</strong> README básico con link pero sin descripción de endpoints 
+                      → <strong>1 pt</strong></li>
+                      <li className="font-bold text-yellow-700 pt-2 border-t border-yellow-300 mt-2">
+                        = <strong>6 + 4 + 1 = 11 puntos de 30</strong>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-orange-500 pl-3 bg-orange-50 p-3 rounded">
+                    <p className="font-semibold text-orange-800 mb-2">⚠️ Caso mínimo - Solo frontend desplegado:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>Despliegue:</strong> Solo frontend desplegado en Vercel, backend y DB corren en 
+                      local → <strong>3 pts</strong></li>
+                      <li>• <strong>Endpoints:</strong> 1 endpoint funcional con datos hardcoded → <strong>2 pts</strong></li>
+                      <li>• <strong>Documentación:</strong> Sin README o solo con título del proyecto → <strong>0 pts</strong></li>
+                      <li className="font-bold text-orange-700 pt-2 border-t border-orange-300 mt-2">
+                        = <strong>3 + 2 + 0 = 5 puntos de 30</strong>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="border-l-4 border-red-500 pl-3 bg-red-50 p-3 rounded">
+                    <p className="font-semibold text-red-800 mb-2">❌ Caso crítico - Proyecto solo en local:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• <strong>Despliegue:</strong> Nada está desplegado, todo corre en localhost → <strong>0 pts</strong></li>
+                      <li>• <strong>Endpoints:</strong> Sin endpoints funcionales o sin conexión entre capas → <strong>0 pts</strong></li>
+                      <li>• <strong>Documentación:</strong> Sin README → <strong>0 pts</strong></li>
+                      <li className="font-bold text-red-700 pt-2 border-t border-red-300 mt-2">
+                        = <strong>0 + 0 + 0 = 0 puntos de 30</strong> ❌ (Proyecto no entregable)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Important Notes */}
+              <div className="bg-amber-50 border-2 border-amber-400 rounded-lg p-4 mt-6">
+                <h5 className="font-bold text-amber-900 mb-2 flex items-center">
+                  <i className="ri-alert-line mr-2"></i>
+                  Notas críticas para la entrega final
+                </h5>
+                <ul className="text-sm text-amber-900 space-y-2">
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>El despliegue es OBLIGATORIO:</strong> Un proyecto que solo corre en local no es 
+                      entregable profesionalmente. El 50% de esta rúbrica (15 pts) depende del despliegue.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>Prueben antes de la entrega:</strong> Asegúrense de que el proyecto desplegado 
+                      funcione desde navegadores de sus compañeros y del profesor.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>Variables de entorno:</strong> Configuren correctamente las URLs de producción en 
+                      las variables de entorno (no dejen localhost hardcoded).
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>Base de datos persistente:</strong> Usen un servicio de base de datos real en la nube, 
+                      no datos mock ni bases de datos que se borren al reiniciar.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
+                    <span>
+                      <strong>README profesional:</strong> Es lo primero que ve cualquier persona que revisa su 
+                      proyecto. Dediquen tiempo a documentar bien.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Summary Card */}
+              <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg p-5 mt-6 text-white">
+                <h5 className="font-bold mb-3 flex items-center text-lg">
+                  <i className="ri-trophy-line mr-2"></i>
+                  Resumen del componente de Funcionalidad (30%)
+                </h5>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                  <div className="bg-white/10 rounded-lg p-3">
+                    <div className="font-bold text-lg mb-1">15 pts</div>
+                    <div className="text-white/90">Despliegue completo (frontend + backend + DB)</div>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-3">
+                    <div className="font-bold text-lg mb-1">10 pts</div>
+                    <div className="text-white/90">Endpoints funcionales (mínimo 3-4)</div>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-3">
+                    <div className="font-bold text-lg mb-1">5 pts</div>
+                    <div className="text-white/90">Documentación completa en README</div>
+                  </div>
+                </div>
+                <p className="text-white/90 mt-4 text-sm">
+                  💡 <strong>Tip final:</strong> Desplieguen temprano y con frecuencia. No esperen al último sprint 
+                  para desplegar por primera vez.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
