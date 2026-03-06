@@ -21,84 +21,78 @@ interface CalendarItem {
 
 const calendarItems: CalendarItem[] = [
   {
-    date: '24 de Febrero, 2026',
+    date: '10 de Marzo, 2026',
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 3,
-    title: 'LAB 03 - Práctica Arquitectura de Capas (Usando Supabase, PostgREST y Postman)',
-    mainLink: '/backend',
+    title: 'LAB 04 - HTML & CSS Sandbox',
+    mainLink: '/frontend/html-css-fundamentos',
     resources: [
-      { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHByEE8z2Q/Lj6Z3MS87_h6AoQxJnpoMQ/view?utm_content=DAHByEE8z2Q&utm_campaign=designshare&utm_medium=link&utm_source=viewer', type: 'canva', icon: 'ri-palette-line' },
-      { label: 'Postman Docs', url: 'https://learning.postman.com/docs/getting-started/introduction/', type: 'external', icon: 'ri-file-text-line' },
-      { label: 'Supabase Docs', url: 'https://supabase.com/docs', type: 'external', icon: 'ri-database-2-line' },
+      { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHDH1SfcR4/0WwUC63kNspYVmLTjHeTuw/view?utm_content=DAHDH1SfcR4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h78fd77a262', type: 'canva', icon: 'ri-palette-line' },
+      { label: 'HTML', url: 'https://www.w3schools.com/html/', type: 'external', icon: 'ri-file-text-line' },
+      { label: 'CSS', url: 'https://developer.mozilla.org/es/docs/Web/CSS', type: 'external', icon: 'ri-database-2-line' },
       { label: 'Entrega en el SEA', url: 'https://sea.acatlan.unam.mx/mod/assign/view.php?id=1196361', type: 'external', icon: 'ri-database-2-line' }
 
     ],
     tips: [
-      'Repasa los métodos HTTP (GET, POST, PUT, DELETE) y sus codigos de estado asociados',
-      'Entender la arquitectura de capas (Capa de Datos, Capa de Servicio, Capa de Presentación)',
-      'Tener una cuenta gratuita en Supabase para pruebas'
+      'Repasar conceptos de git y github (commits, ramas)',
+      'Usaremos una plataforma como Render.com para desplegar nuestro proyecto',
+      'Revisar conceptos básicos de HTML y CSS'
     ],
-    relatedTo: 'Repaso: Bases de Datos para desarrollo web y Arquitectura de Capas'
+    relatedTo: 'Rompan el codigo y experimenten con HTML y CSS '
   },
     {
-    date: '26 de Febrero, 2026',
+    date: '12 de Marzo, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
-    title: 'Bases de Datos y Modelado ER para su proyecto en equipo (y repaso de conceptos vistos)',
-    mainLink: '/backend/bases-datos',
+    title: 'Introducción a TS & Asincronía',
+    mainLink: '/code-concepts/typescript',
     resources: [
-      { label: 'Ver tema', url: '/backend/bases-datos', type: 'internal', icon: 'ri-book-open-line' },
-      { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHByEE8z2Q/Lj6Z3MS87_h6AoQxJnpoMQ/view?utm_content=DAHByEE8z2Q&utm_campaign=designshare&utm_medium=link&utm_source=viewer', type: 'canva', icon: 'ri-palette-line' },
-      { label: 'Diagrama ER by IBM', url: 'https://www.ibm.com/mx-es/think/topics/entity-relationship-diagram', type: 'external', icon: 'ri-database-2-line' },
-      { label: 'Diagrama ER by lucidchart', url: 'https://www.lucidchart.com/pages/es/que-es-un-diagrama-entidad-relacion', type: 'external', icon: 'ri-layout-grid-line' }
+      { label: 'Typescript', url: 'https://www.w3schools.com/typescript/typescript_intro.php', type: 'external', icon: 'ri-palette-line' },
+      { label: 'TypeScript', url: 'https://www.typescriptlang.org/', type: 'external', icon: 'ri-database-2-line' },
+      { label: 'Asincronía ', url: 'https://lenguajejs.com/asincronia/introduccion/que-es/', type: 'external', icon: 'ri-file-text-line' },
     ],
     tips: [
-      'Entender conceptos de relaciones (1:1, 1:N, N:M)',
-      'Conocer SQL básico (SELECT, INSERT, UPDATE)',
-      'Revisar conceptos de normalización'
+      'Entender los elementos básicos de TypeScript (tipos, interfaces, funciones)',
+      'Estudiar la sintaxis de TypeScript',
+      'Revisar conceptos de asincronía en JavaScript (callbacks, promesas, async/await)'
     ],
-     relatedTo: 'Realizaremos un repaso de los conceptos vistos y luego trabajaran en equipo en su proyecto.'
-
+      relatedTo: 'En esta clase se introducirá el lenguaje TypeScript, que es la base para el desarrollo con Next.js. Es importante entender los conceptos básicos de TS para poder aprovechar al máximo las funcionalidades de Next.js en las siguientes clases.'
   },
     {
-    date: '3 de Marzo, 2026',
+    date: '16 de Marzo, 2026',
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 4,
-    title: 'LAB 04 - Aplica los conocimientos adquiridos en tu proyecto en equipo (Modelado ER, Arquitectura de Capas, CRUD con PostgREST y Supabase)',
-    mainLink: '/backend/nestjs-fundamentos',
+    title: 'LAB 05 Usando Typescript y Asincronía (Sandbox de llamadas a APIs)',
+    mainLink: '/code-concepts/typescript',
     resources: [
-      { label: 'Ver tema', url: '/backend/bases-datos', type: 'internal', icon: 'ri-book-open-line' },
       { label: 'LAB en Canva', url:"https://www.canva.com/design/DAHC2_ZLM-M/RBYsp4DmMxOTKUjlUOqJRg/view?utm_content=DAHC2_ZLM-M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hdadae6ff6f", type: 'canva', icon: 'ri-palette-line' },
-      { label: 'Diagrama ER by IBM', url: 'https://www.ibm.com/mx-es/think/topics/entity-relationship-diagram', type: 'external', icon: 'ri-database-2-line' },
-      { label: 'Diagrama ER by lucidchart', url: 'https://www.lucidchart.com/pages/es/que-es-un-diagrama-entidad-relacion', type: 'external', icon: 'ri-layout-grid-line' }
     ],
     tips: [
-      'Entender conceptos de relaciones (1:1, 1:N, N:M)',
-      'Conocer SQL básico (SELECT, INSERT, UPDATE)',
-      'Revisar conceptos de normalización'
+      'Aplicar los conceptos de TypeScript para definir tipos y estructuras de datos',
+      'Experimentar con llamadas a APIs públicas para entender la asincronía en la práctica',
+      'Revisar ejemplos de código que combinan TypeScript y asincronía para entender su uso conjunto'
     ],
-    relatedTo: 'Realizaran el mismo ejercicio del LAB 03 pero ahora aplicando los conocimientos adquiridos en su proyecto en equipo. Deberán modelar su base de datos, crear las tablas en Supabase y exponer un CRUD básico usando PostgREST.'
+    relatedTo: 'En este laboratorio se aplicarán los conceptos de TypeScript y asincronía para realizar llamadas a APIs públicas. Es una oportunidad para experimentar con código real y entender cómo TypeScript puede mejorar la experiencia de desarrollo al proporcionar tipado estático y herramientas de desarrollo más robustas.'
+  
   },
   {
     date: '5 de Marzo, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
-    title: 'Introducción a HTML Y CSS y JavaScript',
-    mainLink: '/frontend/html-css-fundamentos',
+    title: 'Introducción a Next JS',
+    mainLink: '/frontend/nextjs-fundamentos',
     resources: [
-      { label: 'Ver tema', url: '/frontend/html-css-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
-      { label: 'HTML Docs', url: 'https://developer.mozilla.org/es/docs/Web/HTML', type: 'external', icon: 'ri-file-text-line' },
-      { label: 'CSS Docs', url: 'https://developer.mozilla.org/es/docs/Web/CSS', type: 'external', icon: 'ri-file-text-line' },
+      { label: 'Ver tema', url: '/frontend/nextjs-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
+      { label: 'Next.js Docs', url: 'https://nextjs.org/docs', type: 'external', icon: 'ri-file-text-line' },
       { label: 'JavaScript Docs', url: 'https://developer.mozilla.org/es/docs/Web/JavaScript', type: 'external', icon: 'ri-file-text-line' },
-      { label: 'Video Tutorial', url: 'https://www.youtube.com/watch?v=Y-OhzQpsRwI', type: 'external', icon: 'ri-youtube-fill' }
+      { label: 'Video Tutorial', url: 'https://www.youtube.com/watch?v=jMy4pVZMyLM', type: 'external', icon: 'ri-youtube-fill' }
     ],
     tips: [
-      'Familiarizarse con la estructura básica de un documento HTML',
-      'Entender la diferencia entre etiquetas de bloque y en línea',
-      'Revisar conceptos básicos de selectores y propiedades CSS',
-      'Familiarizarse con la sintaxis básica de JavaScript'
+      'Entender la estructura de un proyecto Next.js (pages, components, public)',
+      'Revisar los conceptos de SSR (Server-Side Rendering) y SSG (Static Site Generation)',
+      'Experimentar con la creación de páginas y componentes en Next.js para familiarizarse con su sintaxis y funcionalidades'
       ]
   },
 ];
