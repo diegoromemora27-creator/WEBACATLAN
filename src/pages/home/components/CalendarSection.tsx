@@ -116,6 +116,56 @@ export default function CalendarSection() {
           </div>
         </div>
 
+        {/* Próxima Entrega Destacada */}
+        <div className="mb-10 sm:mb-12">
+          <div className="relative bg-gradient-to-r from-[#bb8800] to-[#d49a00] rounded-2xl p-6 sm:p-8 shadow-lg overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+            
+            <div className="relative">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i className="ri-alarm-warning-line text-white text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-lg sm:text-xl">📌 Próxima Entrega</h3>
+                    <div className="flex items-center gap-2 mt-1">
+                      <i className="ri-calendar-event-line text-white/90"></i>
+                      <p className="text-white/90 text-sm sm:text-base font-semibold">
+                        Cierre: Martes, 17 de marzo de 2026, 00:00
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://www.canva.com/design/DAHDOO-GDH8/KH4YF69ZyOZ7oT2vFwFuMw/view?utm_content=DAHDOO-GDH8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3527b32bda"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-[#bb8800] rounded-full font-bold text-sm hover:bg-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    <i className="ri-file-list-3-line"></i>
+                    <span>Ver Instrucciones</span>
+                    <i className="ri-external-link-line text-xs"></i>
+                  </a>
+                  <a
+                    href="https://sea.acatlan.unam.mx/mod/assign/view.php?id=1197973&forceview=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#1b3d70] text-white rounded-full font-bold text-sm hover:bg-[#2a5490] hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    <i className="ri-upload-cloud-line"></i>
+                    <span>Entregar en SEA</span>
+                    <i className="ri-external-link-line text-xs"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Calendar Grid */}
         <div className="grid gap-4 sm:gap-6">
           {calendarItems.map((item, index) => (
@@ -255,7 +305,7 @@ export default function CalendarSection() {
               <div className="text-4xl">📝</div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                  Evaluación de Desempeño - Sprint 2
+                  Evaluación de Desempeño - Sprint 3
                 </h3>
                 <p className="text-purple-100 text-sm sm:text-base mb-4">
                   Comparte tu experiencia y retroalimenta a tu equipo
@@ -294,19 +344,11 @@ export default function CalendarSection() {
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-start gap-2">
                     <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
-                    <span>Diagrama ER del proyecto</span>
+                    <span>Repositorio de Github Creado para Front End</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
-                    <span>Implementacion en Supabase (tablas y relaciones)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
-                    <span>Pruebas completas en Postman con todos los endpoints probados</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
-                    <span>Coleccion de Postman en formato JSON</span>
+                    <span>Repositorio de su Landing Page elegida con github pages</span>
                   </li>
                 </ul>
               </div>
@@ -315,20 +357,20 @@ export default function CalendarSection() {
                 <h4 className="text-sm font-bold text-[#1b3d70] uppercase tracking-wide mb-2">Donde entregar</h4>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
                   <p className="text-sm text-gray-700 mb-2">
-                    La entrega se realiza en la plataforma <span className="font-bold">SEA</span>.
+                    La entrega se realiza en la plataforma <span className="font-bold">GITHUB</span>.
                   </p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start gap-2">
                       <i className="ri-file-upload-line text-[#1b3d70] mt-0.5"></i>
-                      <span>Subir un PDF con capturas del Diagrama ER y de la BD en Supabase</span>
+                      <span>Todos los integrantes deben asegurarse que existan en github</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <i className="ri-link-m text-[#1b3d70] mt-0.5"></i>
-                      <span>Incluir links a Supabase (TODOS los endpoints generados)</span>
+                      <span>Respositorio Inicializado de Next JS</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <i className="ri-test-tube-line text-[#1b3d70] mt-0.5"></i>
-                      <span>Adjuntar pruebas de Postman y la coleccion JSON</span>
+                      <span>Repositorio de su landing page con Github Pages activado</span>
                     </li>
                   </ul>
                 </div>
