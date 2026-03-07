@@ -305,7 +305,7 @@ export default function CalendarSection() {
               <div className="text-4xl">📝</div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                  Evaluación de Desempeño - Sprint 3
+                  Evaluación de Desempeño - Sprint 2
                 </h3>
                 <p className="text-purple-100 text-sm sm:text-base mb-4">
                   Comparte tu experiencia y retroalimenta a tu equipo
@@ -344,11 +344,10 @@ export default function CalendarSection() {
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-start gap-2">
                     <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
-                    <span>Repositorio de Github Creado para Front End</span>
+                    <span>Laboratorio 03 en el sea</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
-                    <span>Repositorio de su Landing Page elegida con github pages</span>
                   </li>
                 </ul>
               </div>
@@ -357,22 +356,8 @@ export default function CalendarSection() {
                 <h4 className="text-sm font-bold text-[#1b3d70] uppercase tracking-wide mb-2">Donde entregar</h4>
                 <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
                   <p className="text-sm text-gray-700 mb-2">
-                    La entrega se realiza en la plataforma <span className="font-bold">GITHUB</span>.
+                    La entrega se realiza en la plataforma <span className="font-bold">SEA</span>.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-start gap-2">
-                      <i className="ri-file-upload-line text-[#1b3d70] mt-0.5"></i>
-                      <span>Todos los integrantes deben asegurarse que existan en github</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <i className="ri-link-m text-[#1b3d70] mt-0.5"></i>
-                      <span>Respositorio Inicializado de Next JS</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <i className="ri-test-tube-line text-[#1b3d70] mt-0.5"></i>
-                      <span>Repositorio de su landing page con Github Pages activado</span>
-                    </li>
-                  </ul>
                 </div>
 
                 <div className="mt-4">
