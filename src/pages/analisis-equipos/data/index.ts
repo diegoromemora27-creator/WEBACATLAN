@@ -24,3 +24,13 @@ export {
   type SprintEvaluation,
   type Felicitacion,
 } from './teamsData';
+
+// Exportar datos de Sprint 2
+export {
+  sprint2Data,
+  sprint2Felicitaciones,
+  getSprint2DataByTeam,
+  getSprint2FelicitacionesByTeam,
+  getSprint2FelicitacionesForPerson,
+  countSprint2Felicitaciones,
+} from './sprint2TeamsData';

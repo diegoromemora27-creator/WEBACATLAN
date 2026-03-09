@@ -1,18 +1,64 @@
 import { useEffect, useState } from 'react';
 import {
-  teams,
   sprintData,
   felicitaciones,
-  getAvailableSprints,
-  calculateTeamAverages,
   getTeamRecommendations,
-  Team,
+  TeamRecommendation,
+  SprintEvaluation,
+  Felicitacion,
 } from '../data/teamsData';
+import { sprint2Data, sprint2Felicitaciones } from '../data/sprint2TeamsData';
+import { onlyTeams, SimpleTeam } from '../data/OnlyTeams';
+
+type SprintAnalysis = 1 | 2;
+
+interface TeamAverages {
+  selfEvaluation: number;
+  productivity: number;
+  collaboration: number;
+  quality: number;
+  objectivesCompleted: number;
+  overall: number;
+}
+
+const calculateTeamAveragesByData = (
+  teamId: number,
+  data: SprintEvaluation[]
+): TeamAverages | null => {
+  const teamData = data.filter(entry => entry.teamId === teamId);
+  if (teamData.length === 0) return null;
+
+  const scoreMap: Record<string, number> = {
+    Excelente: 5,
+    Bueno: 4,
+    Aceptable: 3,
+    Bajo: 2,
+    'Muy Bajo': 1,
+  };
+
+  const avgSelfEval = teamData.reduce((sum, d) => sum + d.selfEvaluation, 0) / teamData.length;
+  const avgProductivity = teamData.reduce((sum, d) => sum + (scoreMap[d.productivity] || 3), 0) / teamData.length;
+  const avgCollaboration = teamData.reduce((sum, d) => sum + (scoreMap[d.collaboration] || 3), 0) / teamData.length;
+  const avgQuality = teamData.reduce((sum, d) => sum + (scoreMap[d.quality] || 3), 0) / teamData.length;
+  const avgObjectives = teamData.reduce((sum, d) => sum + (scoreMap[d.objectivesCompleted] || 3), 0) / teamData.length;
+
+  return {
+    selfEvaluation: avgSelfEval,
+    productivity: avgProductivity,
+    collaboration: avgCollaboration,
+    quality: avgQuality,
+    objectivesCompleted: avgObjectives,
+    overall: (avgProductivity + avgCollaboration + avgQuality + avgObjectives) / 4,
+  };
+};
 
 export default function AnalisisSprint1() {
-  const [selectedSprint, setSelectedSprint] = useState<number>(1);
+  const [selectedSprint, setSelectedSprint] = useState<SprintAnalysis>(1);
   const [selectedTeam, setSelectedTeam] = useState<number | null>(null);
-  const availableSprints = getAvailableSprints();
+
+  const teams = onlyTeams;
+  const currentSprintData = selectedSprint === 1 ? sprintData : sprint2Data;
+  const currentFelicitaciones = selectedSprint === 1 ? felicitaciones : sprint2Felicitaciones;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,7 +70,7 @@ export default function AnalisisSprint1() {
 
   // Count total members and responses
   const totalMembers = teams.reduce((sum, team) => sum + team.members.length, 0);
-  const totalResponses = sprintData.filter(d => d.sprint === selectedSprint).length;
+  const totalResponses = currentSprintData.length;
   
   // Estudiantes destacados - Lista oficial por sprint
   const estudiantesDestacadosPorSprint: Record<number, { name: string; teamId: number }[]> = {
@@ -36,6 +82,20 @@ export default function AnalisisSprint1() {
       { name: "Aguilar Buendía Bruno", teamId: 4 },
       { name: "Diego Herrera Hernández", teamId: 8 },
     ],
+    2: [
+      { name: "Vanesa Sebastian Cervantes", teamId: 8 },
+      { name: "Rodrigo Rojas Uriositigue", teamId: 10 },
+      { name: "Monserrat Hernández Martínez", teamId: 7 },
+      { name: "Ramon Medina", teamId: 1 },
+      { name: "Samuel", teamId: 2 },
+      { name: "Yael Cortes", teamId: 9 },
+    ],
+  };
+
+  const getTeamAverages = (teamId: number) => calculateTeamAveragesByData(teamId, currentSprintData);
+  const getTeamSprintRecommendations = (teamId: number): TeamRecommendation | undefined => {
+    if (selectedSprint !== 1) return undefined;
+    return getTeamRecommendations(teamId, 1);
   };
   
   // Get top felicitados with team info
@@ -44,11 +104,18 @@ export default function AnalisisSprint1() {
     team: teams.find(t => t.id === teamId),
   }));
 
-  // Top performing teams (7 and 8)
-  const topTeams = [7, 8].map(id => ({
-    team: teams.find(t => t.id === id)!,
-    averages: calculateTeamAverages(id, selectedSprint),
-  })).filter(t => t.team && t.averages);
+  // Top performing teams (top 2 por promedio)
+  const topTeams = teams
+    .map(team => ({
+      team,
+      averages: getTeamAverages(team.id),
+    }))
+    .filter(({ averages }) => Boolean(averages))
+    .sort((a, b) => (b.averages?.overall || 0) - (a.averages?.overall || 0))
+    .slice(0, 2);
+
+  const topTeamIds = new Set(topTeams.map(entry => entry.team.id));
+  const selectedTeamData = selectedTeam ? teams.find(t => t.id === selectedTeam) : null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -69,7 +136,7 @@ export default function AnalisisSprint1() {
               className="h-12 w-auto"
             />
             <div className="text-[#1b3d70]">
-              <div className="font-bold text-base leading-tight">Sprint 1 Análisis</div>
+              <div className="font-bold text-base leading-tight">Análisis de Sprints</div>
               <div className="text-xs opacity-70">Dashboard Sprint {selectedSprint}</div>
             </div>
           </div>
@@ -83,7 +150,7 @@ export default function AnalisisSprint1() {
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-[#1b3d70] mb-4">
               <i className="ri-bar-chart-grouped-line mr-3"></i>
-              Análisis de Equipos Sprint 1
+              Análisis de Equipos Sprint {selectedSprint}
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Dashboard de seguimiento y evaluación de los equipos de desarrollo.
@@ -96,14 +163,14 @@ export default function AnalisisSprint1() {
             <div className="mb-4">
               <select
                 value={selectedSprint}
-                onChange={(e) => setSelectedSprint(Number(e.target.value))}
+                onChange={(e) => {
+                  setSelectedSprint(Number(e.target.value) as SprintAnalysis);
+                  setSelectedTeam(null);
+                }}
                 className="px-6 py-3 rounded-xl bg-white text-[#1b3d70] font-semibold border-2 border-[#1b3d70] shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
-                {availableSprints.map(sprint => (
-                  <option key={sprint} value={sprint}>
-                    Sprint {sprint} Análisis
-                  </option>
-                ))}
+                <option value={1}>Sprint 1 Análisis</option>
+                <option value={2}>Sprint 2 Análisis</option>
               </select>
             </div>
             {selectedSprint === 1 && (
@@ -117,6 +184,12 @@ export default function AnalisisSprint1() {
                 Formulario de Autoevaluación Sprint 1
                 <i className="ri-external-link-line ml-1"></i>
               </a>
+            )}
+            {selectedSprint === 2 && (
+              <p className="inline-flex items-center text-sm text-gray-600">
+                <i className="ri-database-2-line mr-2"></i>
+                Visualizando datos capturados del formulario de Sprint 2
+              </p>
             )}
           </div>
         </section>
@@ -145,7 +218,7 @@ export default function AnalisisSprint1() {
             <StatCard
               icon="ri-award-line"
               label="Felicitaciones"
-              value={felicitaciones.filter(f => f.sprint === selectedSprint).length}
+              value={currentFelicitaciones.length}
               color="yellow"
             />
           </div>
@@ -284,7 +357,9 @@ export default function AnalisisSprint1() {
               <TeamCard
                 key={team.id}
                 team={team}
-                sprint={selectedSprint}
+                averages={getTeamAverages(team.id)}
+                recommendations={getTeamSprintRecommendations(team.id)}
+                isTopTeam={topTeamIds.has(team.id)}
                 isSelected={selectedTeam === team.id}
                 onClick={() => setSelectedTeam(selectedTeam === team.id ? null : team.id)}
               />
@@ -293,8 +368,14 @@ export default function AnalisisSprint1() {
         </section>
 
         {/* Selected Team Details */}
-        {selectedTeam && (
-          <TeamDetails teamId={selectedTeam} sprint={selectedSprint} />
+        {selectedTeamData && (
+          <TeamDetails
+            team={selectedTeamData}
+            sprint={selectedSprint}
+            isTopTeam={topTeamIds.has(selectedTeamData.id)}
+            averages={getTeamAverages(selectedTeamData.id)}
+            recommendations={getTeamSprintRecommendations(selectedTeamData.id)}
+          />
         )}
       </main>
 
@@ -340,14 +421,14 @@ function StatCard({ icon, label, value, color }: {
   );
 }
 
-function TeamCard({ team, sprint, isSelected, onClick }: { 
-  team: Team; 
-  sprint: number;
+function TeamCard({ team, averages, recommendations, isTopTeam, isSelected, onClick }: {
+  team: SimpleTeam;
+  averages: TeamAverages | null;
+  recommendations: TeamRecommendation | undefined;
+  isTopTeam: boolean;
   isSelected: boolean;
   onClick: () => void;
 }) {
-  const averages = calculateTeamAverages(team.id, sprint);
-  const recommendations = getTeamRecommendations(team.id, sprint);
   const MIN_TEAM_SIZE = 4;
   const hasLowMembers = team.members.length < MIN_TEAM_SIZE;
 
@@ -360,9 +441,6 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
       default: return 'ri-kanban-view';
     }
   };
-
-  // Check if this is a top team
-  const isTopTeam = team.id === 7 || team.id === 8;
 
   return (
     <div
@@ -477,12 +555,19 @@ function TeamCard({ team, sprint, isSelected, onClick }: {
   );
 }
 
-function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
-  const team = teams.find(t => t.id === teamId);
-  const averages = calculateTeamAverages(teamId, sprint);
-  const recommendations = getTeamRecommendations(teamId, sprint);
-
-  if (!team) return null;
+function TeamDetails({
+  team,
+  sprint,
+  isTopTeam,
+  averages,
+  recommendations,
+}: {
+  team: SimpleTeam;
+  sprint: number;
+  isTopTeam: boolean;
+  averages: TeamAverages | null;
+  recommendations: TeamRecommendation | undefined;
+}) {
 
   return (
     <section className="mb-12 animate-fadeIn">
@@ -493,7 +578,7 @@ function TeamDetails({ teamId, sprint }: { teamId: number; sprint: number }) {
             Detalles del {team.name}
             {team.projectName && <span className="text-gray-400 ml-2">- {team.projectName}</span>}
           </h2>
-          {(teamId === 7 || teamId === 8) && (
+          {isTopTeam && (
             <span className="bg-gradient-to-r from-yellow-400 to-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold">
               🏆 TOP PERFORMER
             </span>
