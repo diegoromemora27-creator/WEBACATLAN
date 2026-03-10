@@ -89,6 +89,8 @@ export default function AnalisisSprint1() {
       { name: "Ramon Medina", teamId: 1 },
       { name: "Samuel", teamId: 2 },
       { name: "Yael Cortes", teamId: 9 },
+      { name: "Moctezuma Isidro Michelle", teamId: 6 },
+      { name: "González Hernández Leslie Danaé", teamId: 8 },
     ],
   };
 
@@ -104,17 +106,20 @@ export default function AnalisisSprint1() {
     team: teams.find(t => t.id === teamId),
   }));
 
-  // Top performing teams (top 2 por promedio)
-  const topTeams = teams
-    .map(team => ({
-      team,
-      averages: getTeamAverages(team.id),
-    }))
-    .filter(({ averages }) => Boolean(averages))
-    .sort((a, b) => (b.averages?.overall || 0) - (a.averages?.overall || 0))
-    .slice(0, 2);
+  // Top performing teams definidos por sprint
+  const topTeamIdsBySprint: Record<number, number[]> = {
+    1: [7, 8], // Sprint 1: Equipos 7 y 8
+    2: [1, 3, 7], // Sprint 2: Equipos 1, 3 y 7
+  };
 
-  const topTeamIds = new Set(topTeams.map(entry => entry.team.id));
+  const topTeams = (topTeamIdsBySprint[selectedSprint] || [])
+    .map(id => ({
+      team: teams.find(t => t.id === id)!,
+      averages: getTeamAverages(id),
+    }))
+    .filter(({ team, averages }) => team && averages);
+
+  const topTeamIds = new Set(topTeamIdsBySprint[selectedSprint] || []);
   const selectedTeamData = selectedTeam ? teams.find(t => t.id === selectedTeam) : null;
 
   return (
@@ -231,29 +236,33 @@ export default function AnalisisSprint1() {
               <i className="ri-vip-crown-2-fill text-yellow-300 mr-3"></i>
               🏆 Equipos con Mejor Desempeño - Sprint {selectedSprint}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {topTeams.map(({ team, averages }, index) => (
-                <div
-                  key={team.id}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-3">
-                      <span className="text-4xl">{index === 0 ? '🥇' : '🥈'}</span>
-                      <div>
-                        <h3 className="text-xl font-bold">{team.name}</h3>
-                        {team.projectName && (
-                          <p className="text-white/70 text-sm">{team.projectName}</p>
-                        )}
+            <div className={`grid grid-cols-1 ${topTeams.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-6`}>
+              {topTeams.map(({ team, averages }, index) => {
+                const medals = ['🥇', '🥈', '🥉'];
+                const medal = medals[index] || '⭐';
+                
+                return (
+                  <div
+                    key={team.id}
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-4xl">{medal}</span>
+                        <div>
+                          <h3 className="text-xl font-bold">{team.name}</h3>
+                          {team.projectName && (
+                            <p className="text-white/70 text-sm">{team.projectName}</p>
+                          )}
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-3xl font-bold text-yellow-300">
+                          {averages?.overall.toFixed(1)}
+                        </p>
+                        <p className="text-white/70 text-sm">/ 5.0</p>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-3xl font-bold text-yellow-300">
-                        {averages?.overall.toFixed(1)}
-                      </p>
-                      <p className="text-white/70 text-sm">/ 5.0</p>
-                    </div>
-                  </div>
                   
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     <div className="bg-white/10 rounded-lg p-3 text-center">
@@ -297,7 +306,8 @@ export default function AnalisisSprint1() {
                     )}
                   </div>
                 </div>
-              ))}
+              );
+              })}
             </div>
           </div>
         </section>
