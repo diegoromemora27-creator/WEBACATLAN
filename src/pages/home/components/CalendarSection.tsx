@@ -67,7 +67,7 @@ const calendarItems: CalendarItem[] = [
     title: 'LAB 05 Usando Typescript y Asincronía (Sandbox de llamadas a APIs)',
     mainLink: '/code-concepts/typescript',
     resources: [
-      { label: 'LAB en Canva', url:"https://www.canva.com/design/DAHDgoMIC1I/RkvDUCc86q6Iys9JZce-8g/edit", type: 'canva', icon: 'ri-palette-line' },
+      { label: 'LAB en Canva', url:"https://www.canva.com/design/DAHDgoMIC1I/mYriuMxB1hwfw9kuFN172A/view?utm_content=DAHDgoMIC1I&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb58e5a62a9", type: 'canva', icon: 'ri-palette-line' },
     ],
     tips: [
       'Aplicar los conceptos de TypeScript para definir tipos y estructuras de datos',
