@@ -13,8 +13,8 @@ const examenes = [
     temas: [
       'Fundamentos de Arquitectura: software, modularidad, escalabilidad y mantenibilidad',
       'Arquitecturas: Monolítica, Microservicios, Serverless y Cliente-Servidor',
-      'Backend & APIs: REST, verbos HTTP, códigos de estado, asincronía, BaaS y Supabase',
-      'Frontend & Web: HTML semántico, CSS (Box Model/Flexbox/Grid), Responsive, React y TypeScript',
+      'Backend & APIs: REST, verbos HTTP, códigos de estado, BaaS y Supabase',
+      'Frontend & Web: conceptos básicos de HTML y uso de selectores en CSS',
       'Herramientas de API: Postman para pruebas y documentación de endpoints',
       'Scrum & Agile: Scrum, Daily Scrum, Sprint y Product Backlog',
     ],
