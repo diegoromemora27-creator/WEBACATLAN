@@ -9,61 +9,55 @@ export default function AsincroniaPage() {
   return (
     <div className="min-h-screen bg-[#0d1117]">
       <Navbar activeSection={activeSection} />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 sm:pt-24 pb-12 sm:pb-16 bg-gradient-to-br from-[#0d1117] via-[#161b22] to-[#0d1117] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-[#f59e0b] rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-[#10b981] rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 border border-white/10">
-            <i className="ri-time-line text-[#f59e0b] text-lg sm:text-xl"></i>
-            <span className="text-white text-xs sm:text-sm font-medium">Programación Asíncrona</span>
+            <i className="ri-loop-left-line text-[#f59e0b] text-lg sm:text-xl"></i>
+            <span className="text-white text-xs sm:text-sm font-medium">Modelo de Ejecución en JavaScript</span>
           </div>
-          
+
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-            Asincronía en<br />JavaScript
+            Asincronía y el<br />Event Loop
           </h1>
-          
+
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
-            Domina el arte de manejar operaciones que toman tiempo sin bloquear tu aplicación. Desde Callbacks hasta Async/Await.
+            Entiende cómo JavaScript organiza el trabajo con un solo hilo, delega tareas lentas y logra concurrencia sin dejar de atender al usuario.
           </p>
 
-          {/* Imagen de Asincronía */}
-          <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
-            <img 
-              src="https://static.readdy.ai/image/f0504b97139bc354dc5720a1b109b5af/2e45de63800503e5dabfcaf3f96a8bc4.png" 
-              alt="Diagrama de tareas síncronas y asíncronas en JavaScript"
-              className="w-full h-auto rounded-xl border border-white/10 shadow-2xl"
-            />
-          </div>
-          
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-gray-400 text-xs sm:text-sm">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <i className="ri-checkbox-circle-fill text-[#ef4444]"></i>
-              <span>Callbacks</span>
+              <span>Síncrono vs Asíncrono</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
               <i className="ri-checkbox-circle-fill text-[#f59e0b]"></i>
-              <span>Promises</span>
+              <span>Call Stack</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
               <i className="ri-checkbox-circle-fill text-[#10b981]"></i>
-              <span>Async/Await</span>
+              <span>Web APIs</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
               <i className="ri-checkbox-circle-fill text-[#3b82f6]"></i>
               <span>Event Loop</span>
             </div>
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <i className="ri-checkbox-circle-fill text-[#a855f7]"></i>
+              <span>Callback Queue</span>
+            </div>
           </div>
 
-          {/* Botón Invito a Profundizar */}
           <div className="mt-6 sm:mt-8">
-            <a 
-              href="https://lenguajejs.com/asincronia/introduccion/que-es/" 
-              target="_blank" 
+            <a
+              href="https://lenguajejs.com/asincronia/introduccion/que-es/"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#f59e0b] hover:bg-[#d97706] text-black font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 cursor-pointer whitespace-nowrap text-sm sm:text-base"
             >
@@ -75,146 +69,736 @@ export default function AsincroniaPage() {
         </div>
       </section>
 
-      {/* ¿Por qué Asincronía? */}
+      {/* Glosario */}
+      <section className="py-12 sm:py-16 bg-[#161b22]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+              <i className="ri-book-2-line text-[#f59e0b] mr-2 sm:mr-3"></i>
+              Glosario
+            </h2>
+            <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-2">
+              Conceptos clave que necesitas conocer antes de avanzar.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#ef4444]/30 hover:border-[#ef4444]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#ef4444]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-pause-circle-line text-[#ef4444] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Síncrono</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Espera y no avanza hasta terminar.</p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#10b981]/30 hover:border-[#10b981]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#10b981]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-play-circle-line text-[#10b981] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Asíncrono</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Delega y sigue avanzando.</p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#f59e0b]/30 hover:border-[#f59e0b]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#f59e0b]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-user-line text-[#f59e0b] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Monohilo</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Un solo flujo principal de trabajo.</p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#3b82f6]/30 hover:border-[#3b82f6]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#3b82f6]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-swap-line text-[#3b82f6] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Concurrencia</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Avanzar en varias tareas intercalándolas.</p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#a855f7]/30 hover:border-[#a855f7]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#a855f7]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-speed-line text-[#a855f7] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Paralelismo</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Ejecutar varias tareas al mismo tiempo real.</p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#f59e0b]/30 hover:border-[#f59e0b]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#f59e0b]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-stack-line text-[#f59e0b] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Call Stack</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Pila de lo que se está ejecutando.</p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#10b981]/30 hover:border-[#10b981]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#10b981]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-global-line text-[#10b981] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Web APIs</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Servicios externos al motor de JS que manejan tareas lentas o eventos.</p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#3b82f6]/30 hover:border-[#3b82f6]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#3b82f6]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-list-check text-[#3b82f6] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Callback Queue</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Fila de tareas listas para ser atendidas.</p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-5 border border-[#a855f7]/30 hover:border-[#a855f7]/60 transition-colors">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-[#a855f7]/20 rounded-lg flex-shrink-0">
+                  <i className="ri-loop-left-line text-[#a855f7] text-lg"></i>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-white">Event Loop</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm">Coordinador que mete tareas al Stack cuando este queda libre.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Idea General */}
       <section className="py-12 sm:py-16 bg-[#0d1117]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-              ¿Por qué necesitamos Asincronía?
+              <i className="ri-lightbulb-line text-[#f59e0b] mr-2 sm:mr-3"></i>
+              Idea General
             </h2>
-            <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-2">
-              JavaScript es single-threaded. Sin asincronía, tu app se congelaría cada vez que espera datos del servidor.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-8">
-            {/* Código Síncrono */}
-            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
-              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#ef4444]/20 rounded-lg">
-                  <i className="ri-close-circle-line text-[#ef4444] text-lg sm:text-xl"></i>
+          <div className="bg-[#161b22] rounded-xl p-6 sm:p-8 border border-[#f59e0b]/30 max-w-4xl mx-auto">
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
+              JavaScript, especialmente en el navegador, trabaja con <span className="text-[#f59e0b] font-semibold">un solo hilo principal</span> para ejecutar instrucciones. Eso significa que no puede hacer dos cosas al mismo tiempo en ese hilo, pero sí puede <span className="text-[#10b981] font-semibold">organizar el trabajo</span> para no quedarse detenido cuando una tarea tarda mucho. Esa organización se logra gracias al <span className="text-[#f59e0b]">Call Stack</span>, las <span className="text-[#10b981]">Web APIs</span>, las <span className="text-[#3b82f6]">colas de tareas</span> y el <span className="text-[#a855f7]">Event Loop</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 1. Ejecución Bloqueante / Síncrona */}
+      <section className="py-12 sm:py-16 bg-[#161b22]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#ef4444]/20 rounded-xl">
+              <i className="ri-stop-circle-line text-[#ef4444] text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">1. Ejecución Bloqueante (Síncrona)</h2>
+              <p className="text-gray-400 text-xs sm:text-base">El programa hace una cosa a la vez y no avanza hasta terminar</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+            {/* Definiciones */}
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-code-s-slash-line text-[#ef4444]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición técnica</h3>
                 </div>
-                <h3 className="text-sm sm:text-base md:text-xl font-bold text-white">Código Síncrono (Bloqueante)</h3>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  La ejecución bloqueante o síncrona es un modelo en el que cada instrucción debe terminar completamente antes de que la siguiente pueda comenzar. El hilo de ejecución permanece ocupado durante toda la operación, incluso si esa operación implica esperar un resultado externo, como una lectura de disco, una consulta a base de datos o una petición de red.
+                </p>
               </div>
-              <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm mb-3 sm:mb-4 overflow-x-auto">
-                <pre className="text-gray-300 whitespace-pre">
-{`// ❌ Esto bloquea TODO
-const datos = fetchDatosDelServidor(); // 3 segundos...
-console.log(datos); // Espera 3 segundos
-console.log("Hola"); // También espera`}
-                </pre>
+
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-chat-smile-2-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición sencilla</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  Es cuando el programa hace una cosa a la vez y no puede avanzar hasta terminar la actual. Si una tarea tarda, todo lo demás se queda esperando.
+                </p>
               </div>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                <i className="ri-error-warning-line text-[#ef4444] mr-1 sm:mr-2"></i>
-                El usuario no puede hacer nada mientras espera. La UI se congela.
+            </div>
+
+            {/* Analogía y problemas */}
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-restaurant-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#f59e0b]">Ejemplo cotidiano</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  Imagina una cocina con un solo cocinero. Si pone un muffin en el horno y decide quedarse parado frente al horno hasta que se caliente, no puede atender nuevos pedidos, servir café ni cobrar. Toda la cocina se frena por esa espera.
+                </p>
+              </div>
+
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                  <i className="ri-error-warning-line text-[#ef4444]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#ef4444]">¿Qué problema causa?</h3>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <i className="ri-close-line text-[#ef4444] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">La aplicación parece congelarse.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <i className="ri-close-line text-[#ef4444] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">El usuario no recibe respuesta inmediata.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <i className="ri-close-line text-[#ef4444] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">Botones, animaciones o interacciones pueden sentirse lentas o detenidas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Ejecución No Bloqueante / Asíncrona */}
+      <section className="py-12 sm:py-16 bg-[#0d1117]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#10b981]/20 rounded-xl">
+              <i className="ri-play-circle-line text-[#10b981] text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">2. Ejecución No Bloqueante (Asíncrona)</h2>
+              <p className="text-gray-400 text-xs sm:text-base">Encarga la tarea lenta y sigue trabajando</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-code-s-slash-line text-[#10b981]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición técnica</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  La ejecución no bloqueante o asíncrona permite iniciar una operación que tardará tiempo y continuar con otras tareas sin esperar a que esa operación termine de inmediato. Cuando el resultado está listo, este se agenda para ser procesado después, mediante mecanismos como callbacks, promesas o colas de eventos.
+                </p>
+              </div>
+
+              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-chat-smile-2-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición sencilla</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  Es cuando el programa encarga una tarea lenta a otro sistema y mientras tanto sigue trabajando en otras cosas. Luego, cuando la tarea termina, recoge el resultado.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-store-2-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#f59e0b]">Ejemplo cotidiano</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  En una cafetería, el empleado mete el muffin al horno y no se queda mirando. Mientras el muffin se calienta, toma otro pedido, sirve una bebida y cobra a otro cliente. Cuando el horno avisa que el muffin está listo, entonces lo recoge.
+                </p>
+              </div>
+
+              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#10b981]/30">
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                  <i className="ri-key-2-line text-[#10b981]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#10b981]">La idea clave</h3>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <i className="ri-check-line text-[#10b981] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">La tarea lenta no detiene todo.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <i className="ri-check-line text-[#10b981] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">El sistema necesita una forma de enterarse de que ya terminó.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <i className="ri-check-line text-[#10b981] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">Esa "notificación" es lo que permite continuar con el resultado más adelante.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Single Thread */}
+      <section className="py-12 sm:py-16 bg-[#161b22]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#f59e0b]/20 rounded-xl">
+              <i className="ri-user-line text-[#f59e0b] text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">3. Single Thread (Un Solo Hilo)</h2>
+              <p className="text-gray-400 text-xs sm:text-base">JavaScript tiene un solo "brazo" de trabajo principal</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <i className="ri-code-s-slash-line text-[#f59e0b]"></i>
+                <h3 className="text-sm sm:text-base font-bold text-white">Definición técnica</h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                JavaScript, en su modelo tradicional de ejecución en el hilo principal, es monohilo. Esto significa que solo tiene un flujo principal de ejecución para procesar instrucciones, evaluar expresiones y ejecutar funciones. En ese hilo no hay paralelismo real entre tareas; las operaciones se atienden una por una.
               </p>
             </div>
 
-            {/* Código Asíncrono */}
-            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#10b981]/30">
-              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#10b981]/20 rounded-lg">
-                  <i className="ri-checkbox-circle-line text-[#10b981] text-lg sm:text-xl"></i>
-                </div>
-                <h3 className="text-sm sm:text-base md:text-xl font-bold text-white">Código Asíncrono (No Bloqueante)</h3>
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <i className="ri-building-line text-[#f59e0b]"></i>
+                <h3 className="text-sm sm:text-base font-bold text-[#f59e0b]">Ejemplo cotidiano</h3>
               </div>
-              <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm mb-3 sm:mb-4 overflow-x-auto">
-                <pre className="text-gray-300 whitespace-pre">
-{`// ✅ Esto NO bloquea
-fetchDatosDelServidor().then(datos => {
-  console.log(datos); // Se ejecuta cuando llegan
-});
-console.log("Hola"); // Se ejecuta inmediatamente`}
-                </pre>
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                Piensa en una recepcionista sola en una oficina. Solo hay una persona para contestar llamadas, recibir paquetes y atender visitantes. No puede hablar con dos personas al mismo tiempo, pero sí puede organizar el trabajo y dejar algunas tareas en otras áreas.
+              </p>
+            </div>
+
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#10b981]/30">
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <i className="ri-lightbulb-flash-line text-[#10b981]"></i>
+                <h3 className="text-sm sm:text-base font-bold text-[#10b981]">Punto importante</h3>
               </div>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                <i className="ri-checkbox-circle-line text-[#10b981] mr-1 sm:mr-2"></i>
-                El usuario puede seguir interactuando. La UI permanece responsiva.
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                Que JavaScript sea monohilo <span className="text-white font-medium">no significa que todo sea lento</span>. Lo importante es que sabe delegar tareas largas fuera del hilo principal.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Event Loop */}
-      <section className="py-12 sm:py-16 bg-[#161b22]">
+      {/* 4. Concurrencia vs Paralelismo */}
+      <section className="py-12 sm:py-16 bg-[#0d1117]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-              <i className="ri-loop-left-line text-[#3b82f6] mr-2 sm:mr-3"></i>
-              El Event Loop
+              4. Concurrencia vs Paralelismo
             </h2>
             <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-2">
-              El corazón de la asincronía en JavaScript. Entiende cómo funciona y nunca más te confundirás.
+              Dos conceptos que suenan igual pero funcionan diferente.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#f59e0b]/20 rounded-xl mb-3 sm:mb-4">
-                <span className="text-[#f59e0b] font-bold text-lg sm:text-xl">1</span>
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
+            {/* Concurrencia */}
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#3b82f6]/30">
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#3b82f6]/20 rounded-xl">
+                  <i className="ri-swap-line text-[#3b82f6] text-xl sm:text-2xl"></i>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-[#3b82f6]">Concurrencia</h3>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-2">Call Stack</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                La pila de ejecución. Aquí se ejecuta tu código línea por línea. Solo puede hacer UNA cosa a la vez.
-              </p>
+
+              <div className="space-y-3 sm:space-y-4">
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4">
+                  <p className="text-xs sm:text-sm text-gray-400 mb-1 font-medium text-white">Técnica:</p>
+                  <p className="text-xs sm:text-sm text-gray-400">La capacidad de avanzar en múltiples tareas durante el mismo periodo de tiempo, intercalando su atención y coordinando su progreso, aunque no necesariamente se ejecuten exactamente al mismo tiempo.</p>
+                </div>
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4">
+                  <p className="text-xs sm:text-sm text-gray-400 mb-1 font-medium text-white">Sencilla:</p>
+                  <p className="text-xs sm:text-sm text-gray-400">Es saber manejar varias cosas "a la vez", alternando entre ellas de forma organizada.</p>
+                </div>
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 border border-[#3b82f6]/20">
+                  <div className="flex items-center gap-2 mb-1">
+                    <i className="ri-restaurant-line text-[#3b82f6] text-sm"></i>
+                    <p className="text-xs sm:text-sm font-medium text-[#3b82f6]">Ejemplo:</p>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-400">Un mesero toma un pedido, luego lleva un café a otra mesa, después cobra una cuenta y luego vuelve a revisar la cocina. No hizo todo exactamente al mismo segundo, pero sí avanzó en varias tareas en el mismo periodo.</p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#10b981]/20 rounded-xl mb-3 sm:mb-4">
-                <span className="text-[#10b981] font-bold text-lg sm:text-xl">2</span>
+            {/* Paralelismo */}
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#a855f7]/30">
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#a855f7]/20 rounded-xl">
+                  <i className="ri-speed-line text-[#a855f7] text-xl sm:text-2xl"></i>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-[#a855f7]">Paralelismo</h3>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-2">Web APIs</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                El navegador maneja las operaciones asíncronas (fetch, setTimeout, eventos) en segundo plano.
-              </p>
-            </div>
 
-            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10 sm:col-span-2 lg:col-span-1">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#3b82f6]/20 rounded-xl mb-3 sm:mb-4">
-                <span className="text-[#3b82f6] font-bold text-lg sm:text-xl">3</span>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4">
+                  <p className="text-xs sm:text-sm text-gray-400 mb-1 font-medium text-white">Técnica:</p>
+                  <p className="text-xs sm:text-sm text-gray-400">La ejecución real y simultánea de múltiples tareas al mismo tiempo, generalmente usando varios hilos o varios núcleos de procesamiento.</p>
+                </div>
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4">
+                  <p className="text-xs sm:text-sm text-gray-400 mb-1 font-medium text-white">Sencilla:</p>
+                  <p className="text-xs sm:text-sm text-gray-400">Es cuando varias cosas sí se hacen literalmente al mismo instante porque hay varios trabajadores haciéndolas.</p>
+                </div>
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 border border-[#a855f7]/20">
+                  <div className="flex items-center gap-2 mb-1">
+                    <i className="ri-restaurant-line text-[#a855f7] text-sm"></i>
+                    <p className="text-xs sm:text-sm font-medium text-[#a855f7]">Ejemplo:</p>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-400">En una cocina con tres cocineros, uno prepara ensalada, otro hornea pan y otro sirve bebidas al mismo tiempo. Eso sí es paralelismo.</p>
+                </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-2">Callback Queue</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                Cuando una operación termina, su callback espera aquí hasta que el Call Stack esté vacío.
-              </p>
             </div>
           </div>
 
-          {/* Diagrama del Event Loop */}
-          <div className="bg-[#0d1117] rounded-xl p-4 sm:p-8 border border-white/10">
-            <h4 className="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 text-center">Flujo del Event Loop</h4>
+          {/* Relación con JS */}
+          <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-white/10 max-w-3xl mx-auto">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <i className="ri-javascript-line text-[#f59e0b] text-lg sm:text-xl"></i>
+              <h3 className="text-sm sm:text-base font-bold text-white">Relación con JavaScript</h3>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2">
+                <i className="ri-arrow-right-s-line text-[#3b82f6] mt-0.5 flex-shrink-0"></i>
+                <p className="text-gray-400 text-xs sm:text-sm">JavaScript en el hilo principal trabaja sobre todo con <span className="text-[#3b82f6] font-medium">concurrencia</span>.</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <i className="ri-arrow-right-s-line text-[#a855f7] mt-0.5 flex-shrink-0"></i>
+                <p className="text-gray-400 text-xs sm:text-sm">No hace <span className="text-[#a855f7] font-medium">paralelismo</span> real en ese hilo principal.</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <i className="ri-arrow-right-s-line text-[#10b981] mt-0.5 flex-shrink-0"></i>
+                <p className="text-gray-400 text-xs sm:text-sm">El entorno que lo rodea (navegador o Node.js) sí puede apoyarse en otros mecanismos del sistema para manejar tareas externas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Call Stack */}
+      <section className="py-12 sm:py-16 bg-[#161b22]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#f59e0b]/20 rounded-xl">
+              <i className="ri-stack-line text-[#f59e0b] text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">5. Call Stack (Pila de Ejecución)</h2>
+              <p className="text-gray-400 text-xs sm:text-base">Lo que JavaScript está haciendo ahora mismo</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-code-s-slash-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición técnica</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  El Call Stack es la estructura de datos donde JavaScript registra el contexto de ejecución de las funciones activas. Sigue el principio <span className="text-[#f59e0b] font-semibold">LIFO</span> (Last In, First Out), es decir, la última función en entrar es la primera en salir. Cada nueva llamada se apila encima de la anterior hasta completarse.
+                </p>
+              </div>
+
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-stack-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#f59e0b]">Ejemplo cotidiano</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  Imagina una pila de platos. Cada vez que llega una nueva tarea urgente, se coloca arriba. Para quitar platos, siempre retiras primero el de arriba. Así funciona la pila de ejecución.
+                </p>
+              </div>
+            </div>
+
+            {/* Visual LIFO */}
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+                <h4 className="text-sm sm:text-base font-bold text-white mb-4 text-center">Principio LIFO (Pila de Platos)</h4>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-full max-w-xs bg-[#f59e0b]/20 border border-[#f59e0b]/40 rounded-lg p-2 sm:p-3 text-center">
+                    <span className="text-[#f59e0b] text-xs sm:text-sm font-medium">funcion3() ← sale primero</span>
+                  </div>
+                  <div className="w-full max-w-xs bg-[#10b981]/20 border border-[#10b981]/40 rounded-lg p-2 sm:p-3 text-center">
+                    <span className="text-[#10b981] text-xs sm:text-sm font-medium">funcion2()</span>
+                  </div>
+                  <div className="w-full max-w-xs bg-[#3b82f6]/20 border border-[#3b82f6]/40 rounded-lg p-2 sm:p-3 text-center">
+                    <span className="text-[#3b82f6] text-xs sm:text-sm font-medium">funcion1() ← entró primero</span>
+                  </div>
+                  <i className="ri-arrow-down-line text-gray-500 text-lg mt-1"></i>
+                  <p className="text-gray-500 text-[10px] sm:text-xs">Base del Stack</p>
+                </div>
+              </div>
+
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                  <i className="ri-error-warning-line text-[#ef4444]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#ef4444]">¿Por qué importa?</h3>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <i className="ri-alert-line text-[#ef4444] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">Si una tarea pesada ocupa el Stack demasiado tiempo, nada más puede ejecutarse.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <i className="ri-alert-line text-[#ef4444] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">Si entra un proceso infinito, el sistema queda atrapado.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <i className="ri-alert-line text-[#ef4444] mt-0.5 flex-shrink-0"></i>
+                    <p className="text-gray-400 text-xs sm:text-sm">El Event Loop no puede mover nuevas tareas al Stack si este sigue ocupado.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Web APIs */}
+      <section className="py-12 sm:py-16 bg-[#0d1117]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#10b981]/20 rounded-xl">
+              <i className="ri-global-line text-[#10b981] text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">6. Web APIs (Sistema de Delegación)</h2>
+              <p className="text-gray-400 text-xs sm:text-base">Departamentos externos que se encargan de tareas que toman tiempo</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-10">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-code-s-slash-line text-[#10b981]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición técnica</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  Las Web APIs son capacidades proporcionadas por el entorno de ejecución del navegador, no por el lenguaje JavaScript en sí. Incluyen temporizadores, manejo del DOM, eventos del usuario, peticiones de red, geolocalización y más. Estas APIs permiten que ciertas operaciones se realicen fuera del Call Stack principal.
+                </p>
+              </div>
+
+              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-building-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#f59e0b]">Ejemplo cotidiano</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  En una oficina, la recepcionista no hace todo. Si necesita enviar un paquete, se lo entrega al mensajero. Si necesita imprimir cien hojas, se lo manda a la impresora. La recepcionista sigue atendiendo mientras otros sistemas trabajan.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#10b981]/30">
+              <div className="flex items-center gap-2 mb-4 sm:mb-5">
+                <i className="ri-list-unordered text-[#10b981]"></i>
+                <h3 className="text-sm sm:text-base font-bold text-white">¿Qué tipo de cosas se delegan?</h3>
+              </div>
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center">
+                  <i className="ri-timer-line text-[#f59e0b] text-lg sm:text-xl mb-1"></i>
+                  <p className="text-gray-300 text-xs sm:text-sm">Temporizadores</p>
+                </div>
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center">
+                  <i className="ri-cursor-line text-[#3b82f6] text-lg sm:text-xl mb-1"></i>
+                  <p className="text-gray-300 text-xs sm:text-sm">Clics y eventos</p>
+                </div>
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center">
+                  <i className="ri-server-line text-[#10b981] text-lg sm:text-xl mb-1"></i>
+                  <p className="text-gray-300 text-xs sm:text-sm">Peticiones a servidores</p>
+                </div>
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center">
+                  <i className="ri-download-line text-[#a855f7] text-lg sm:text-xl mb-1"></i>
+                  <p className="text-gray-300 text-xs sm:text-sm">Descargas de archivos</p>
+                </div>
+                <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center col-span-2">
+                  <i className="ri-window-line text-[#ef4444] text-lg sm:text-xl mb-1"></i>
+                  <p className="text-gray-300 text-xs sm:text-sm">Operaciones del navegador</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Callback Queue */}
+      <section className="py-12 sm:py-16 bg-[#161b22]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#3b82f6]/20 rounded-xl">
+              <i className="ri-list-check text-[#3b82f6] text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">7. Callback Queue (Task Queue)</h2>
+              <p className="text-gray-400 text-xs sm:text-base">La fila de tareas terminadas que esperan su turno</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-code-s-slash-line text-[#3b82f6]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición técnica</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  La Callback Queue, también llamada Task Queue, es una estructura <span className="text-[#3b82f6] font-semibold">FIFO</span> (First In, First Out) donde se colocan las tareas cuyo trabajo externo ya terminó y están listas para ejecutarse cuando el Call Stack quede libre.
+                </p>
+              </div>
+
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-chat-smile-2-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición sencilla</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  Es la fila de tareas terminadas que están esperando su turno para ser atendidas por JavaScript.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-ticket-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#f59e0b]">Ejemplo cotidiano</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  Imagina una ventanilla donde se entregan fichas. Aunque varias personas ya llegaron y están listas para ser atendidas, deben esperar formadas. La primera que entró a la fila será la primera en pasar cuando el encargado quede libre.
+                </p>
+              </div>
+
+              {/* Visual FIFO */}
+              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#3b82f6]/30">
+                <h4 className="text-sm sm:text-base font-bold text-white mb-3 text-center">Principio FIFO (Fila)</h4>
+                <div className="flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto">
+                  <div className="bg-[#3b82f6]/20 border border-[#3b82f6]/40 rounded-lg p-2 sm:p-3 text-center flex-shrink-0">
+                    <span className="text-[#3b82f6] text-[10px] sm:text-xs font-medium">Tarea 1 →</span>
+                  </div>
+                  <div className="bg-[#10b981]/20 border border-[#10b981]/40 rounded-lg p-2 sm:p-3 text-center flex-shrink-0">
+                    <span className="text-[#10b981] text-[10px] sm:text-xs font-medium">Tarea 2</span>
+                  </div>
+                  <div className="bg-[#f59e0b]/20 border border-[#f59e0b]/40 rounded-lg p-2 sm:p-3 text-center flex-shrink-0">
+                    <span className="text-[#f59e0b] text-[10px] sm:text-xs font-medium">Tarea 3</span>
+                  </div>
+                  <i className="ri-arrow-right-line text-gray-500 text-lg flex-shrink-0"></i>
+                  <div className="bg-[#a855f7]/20 border border-[#a855f7]/40 rounded-lg p-2 sm:p-3 text-center flex-shrink-0">
+                    <span className="text-[#a855f7] text-[10px] sm:text-xs font-medium">Al Stack</span>
+                  </div>
+                </div>
+                <p className="text-gray-500 text-[10px] sm:text-xs text-center mt-2">Una tarea terminada no interrumpe directamente al programa. Debe esperar su turno.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Event Loop */}
+      <section className="py-12 sm:py-16 bg-[#0d1117]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#a855f7]/20 rounded-xl">
+              <i className="ri-loop-left-line text-[#a855f7] text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">8. Event Loop</h2>
+              <p className="text-gray-400 text-xs sm:text-base">El supervisor que coordina cuándo entra cada tarea</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-10">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-white/10">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-code-s-slash-line text-[#a855f7]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-white">Definición técnica</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  El Event Loop es el mecanismo de coordinación que monitorea continuamente el Call Stack y las colas de tareas. Cuando detecta que el Stack está vacío, toma la siguiente tarea pendiente de la cola correspondiente y la coloca en el Stack para su ejecución.
+                </p>
+              </div>
+
+              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <i className="ri-shield-user-line text-[#f59e0b]"></i>
+                  <h3 className="text-sm sm:text-base font-bold text-[#f59e0b]">Ejemplo cotidiano</h3>
+                </div>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                  Piensa en un guardia de acceso. Revisa si la oficina principal está libre. Si lo está, deja entrar a la siguiente persona formada. Si no, la hace esperar afuera.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#a855f7]/30">
+              <div className="flex items-center gap-2 mb-4 sm:mb-5">
+                <i className="ri-key-2-line text-[#a855f7]"></i>
+                <h3 className="text-sm sm:text-base font-bold text-[#a855f7]">La clave del Event Loop</h3>
+              </div>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-start gap-3 bg-[#0d1117] rounded-lg p-3 sm:p-4">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-[#a855f7]/20 rounded-full flex-shrink-0">
+                    <span className="text-[#a855f7] text-xs font-bold">1</span>
+                  </div>
+                  <p className="text-gray-400 text-xs sm:text-sm">No ejecuta tareas por sí mismo.</p>
+                </div>
+                <div className="flex items-start gap-3 bg-[#0d1117] rounded-lg p-3 sm:p-4">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-[#a855f7]/20 rounded-full flex-shrink-0">
+                    <span className="text-[#a855f7] text-xs font-bold">2</span>
+                  </div>
+                  <p className="text-gray-400 text-xs sm:text-sm">Solo administra el momento en que una tarea puede entrar al Stack.</p>
+                </div>
+                <div className="flex items-start gap-3 bg-[#0d1117] rounded-lg p-3 sm:p-4">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-[#ef4444]/20 rounded-full flex-shrink-0">
+                    <span className="text-[#ef4444] text-xs font-bold">!</span>
+                  </div>
+                  <p className="text-gray-400 text-xs sm:text-sm">Si el Stack nunca queda libre, <span className="text-[#ef4444] font-medium">nadie más entra</span>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Diagrama completo del flujo */}
+          <div className="bg-[#161b22] rounded-xl p-4 sm:p-8 border border-white/10">
+            <h4 className="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 text-center">Flujo Completo del Event Loop</h4>
             <div className="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-3 sm:gap-4 lg:gap-8">
               <div className="bg-[#f59e0b]/10 border border-[#f59e0b]/30 rounded-lg p-3 sm:p-4 text-center">
                 <i className="ri-stack-line text-[#f59e0b] text-xl sm:text-2xl mb-1 sm:mb-2"></i>
                 <p className="text-white font-medium text-xs sm:text-sm">Call Stack</p>
                 <p className="text-gray-500 text-[10px] sm:text-xs">Ejecuta código</p>
               </div>
-              
+
               <div className="hidden sm:block">
                 <i className="ri-arrow-right-line text-gray-500 text-xl sm:text-2xl"></i>
               </div>
-              
+
               <div className="bg-[#10b981]/10 border border-[#10b981]/30 rounded-lg p-3 sm:p-4 text-center">
                 <i className="ri-global-line text-[#10b981] text-xl sm:text-2xl mb-1 sm:mb-2"></i>
                 <p className="text-white font-medium text-xs sm:text-sm">Web APIs</p>
                 <p className="text-gray-500 text-[10px] sm:text-xs">Procesa async</p>
               </div>
-              
+
               <div className="hidden sm:block">
                 <i className="ri-arrow-right-line text-gray-500 text-xl sm:text-2xl"></i>
               </div>
-              
+
               <div className="bg-[#3b82f6]/10 border border-[#3b82f6]/30 rounded-lg p-3 sm:p-4 text-center">
                 <i className="ri-list-check text-[#3b82f6] text-xl sm:text-2xl mb-1 sm:mb-2"></i>
                 <p className="text-white font-medium text-xs sm:text-sm">Callback Queue</p>
                 <p className="text-gray-500 text-[10px] sm:text-xs">Espera turno</p>
               </div>
-              
+
               <div className="hidden sm:block">
                 <i className="ri-arrow-right-line text-gray-500 text-xl sm:text-2xl"></i>
               </div>
-              
+
               <div className="bg-[#a855f7]/10 border border-[#a855f7]/30 rounded-lg p-3 sm:p-4 text-center">
                 <i className="ri-loop-left-line text-[#a855f7] text-xl sm:text-2xl mb-1 sm:mb-2"></i>
                 <p className="text-white font-medium text-xs sm:text-sm">Event Loop</p>
@@ -225,581 +809,120 @@ console.log("Hola"); // Se ejecuta inmediatamente`}
         </div>
       </section>
 
-      {/* Callbacks */}
-      <section className="py-12 sm:py-16 bg-[#0d1117]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#ef4444]/20 rounded-xl">
-              <i className="ri-function-line text-[#ef4444] text-xl sm:text-2xl"></i>
-            </div>
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">1. Callbacks</h2>
-              <p className="text-gray-400 text-xs sm:text-base">La forma original de manejar asincronía</p>
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
-            <div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">¿Qué es un Callback?</h3>
-              <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6">
-                Es simplemente una función que se pasa como argumento a otra función, para que se ejecute cuando algo termine.
-              </p>
-              
-              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-white/10 mb-4 sm:mb-6">
-                <h4 className="text-xs sm:text-sm font-medium text-gray-400 mb-2 sm:mb-3">Ejemplo Básico</h4>
-                <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                  <pre className="text-gray-300 whitespace-pre">
-{`function hacerAlgo(callback) {
-  console.log("Haciendo algo...");
-  setTimeout(() => {
-    callback("¡Listo!");
-  }, 2000);
-}
-
-hacerAlgo((mensaje) => {
-  console.log(mensaje); // "¡Listo!" después de 2s
-});`}
-                  </pre>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-base sm:text-lg font-bold text-[#ef4444] mb-3 sm:mb-4">
-                <i className="ri-error-warning-line mr-1 sm:mr-2"></i>
-                Callback Hell
-              </h3>
-              <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6">
-                El problema: cuando tienes muchas operaciones asíncronas que dependen una de otra, el código se vuelve ilegible.
-              </p>
-              
-              <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
-                <h4 className="text-xs sm:text-sm font-medium text-[#ef4444] mb-2 sm:mb-3">❌ La Pirámide del Doom</h4>
-                <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                  <pre className="text-gray-300 whitespace-pre">
-{`getUsuario(id, (usuario) => {
-  getPedidos(usuario.id, (pedidos) => {
-    getProductos(pedidos[0].id, (productos) => {
-      getDetalles(productos[0].id, (detalles) => {
-        // 😵 Esto es inmantenible
-        console.log(detalles);
-      });
-    });
-  });
-});`}
-                  </pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Promises */}
-      <section className="py-12 sm:py-16 bg-[#161b22]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#f59e0b]/20 rounded-xl">
-              <i className="ri-hand-heart-line text-[#f59e0b] text-xl sm:text-2xl"></i>
-            </div>
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">2. Promises (Promesas)</h2>
-              <p className="text-gray-400 text-xs sm:text-base">La evolución que salvó a JavaScript</p>
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            <div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">¿Qué es una Promise?</h3>
-              <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6">
-                Es un objeto que representa el resultado eventual de una operación asíncrona. Puede estar en 3 estados:
-              </p>
-              
-              <div className="space-y-2 sm:space-y-3">
-                <div className="flex items-center gap-2 sm:gap-3 bg-[#0d1117] rounded-lg p-3 sm:p-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-[#f59e0b]/20 rounded-full flex-shrink-0">
-                    <i className="ri-loader-4-line text-[#f59e0b] text-sm sm:text-base"></i>
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[#f59e0b] font-medium text-sm sm:text-base">Pending</span>
-                    <span className="text-gray-400 text-xs sm:text-sm ml-1 sm:ml-2">- Esperando resultado</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-2 sm:gap-3 bg-[#0d1117] rounded-lg p-3 sm:p-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-[#10b981]/20 rounded-full flex-shrink-0">
-                    <i className="ri-checkbox-circle-line text-[#10b981] text-sm sm:text-base"></i>
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[#10b981] font-medium text-sm sm:text-base">Fulfilled</span>
-                    <span className="text-gray-400 text-xs sm:text-sm ml-1 sm:ml-2">- Operación exitosa</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-2 sm:gap-3 bg-[#0d1117] rounded-lg p-3 sm:p-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-[#ef4444]/20 rounded-full flex-shrink-0">
-                    <i className="ri-close-circle-line text-[#ef4444] text-sm sm:text-base"></i>
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[#ef4444] font-medium text-sm sm:text-base">Rejected</span>
-                    <span className="text-gray-400 text-xs sm:text-sm ml-1 sm:ml-2">- Algo falló</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Sintaxis de Promises</h3>
-              <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
-                <div className="font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                  <pre className="text-gray-300 whitespace-pre">
-{`// Crear una Promise
-const miPromesa = new Promise((resolve, reject) => {
-  const exito = true;
-  
-  if (exito) {
-    resolve("¡Datos obtenidos!"); // Fulfilled
-  } else {
-    reject("Error al obtener datos"); // Rejected
-  }
-});
-
-// Consumir la Promise
-miPromesa
-  .then(resultado => console.log(resultado))
-  .catch(error => console.error(error))
-  .finally(() => console.log("Terminó"));`}
-                  </pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Promise Chaining */}
-          <div className="bg-[#0d1117] rounded-xl p-4 sm:p-8 border border-[#10b981]/30">
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
-              <i className="ri-link text-[#10b981] mr-2"></i>
-              Promise Chaining (Encadenamiento)
-            </h3>
-            <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6">
-              La magia de las Promises: puedes encadenar operaciones de forma legible, evitando el Callback Hell.
-            </p>
-            
-            <div className="grid lg:grid-cols-2 gap-4 sm:gap-6">
-              <div>
-                <h4 className="text-xs sm:text-sm font-medium text-[#ef4444] mb-2 sm:mb-3">❌ Callback Hell</h4>
-                <div className="bg-[#161b22] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                  <pre className="text-gray-300 whitespace-pre">
-{`getUsuario(id, (usuario) => {
-  getPedidos(usuario.id, (pedidos) => {
-    getProductos(pedidos[0].id, (prod) => {
-      console.log(prod);
-    });
-  });
-});`}
-                  </pre>
-                </div>
-              </div>
-              
-              <div>
-                <h4 className="text-xs sm:text-sm font-medium text-[#10b981] mb-2 sm:mb-3">✅ Promise Chain</h4>
-                <div className="bg-[#161b22] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                  <pre className="text-gray-300 whitespace-pre">
-{`getUsuario(id)
-  .then(usuario => getPedidos(usuario.id))
-  .then(pedidos => getProductos(pedidos[0].id))
-  .then(productos => console.log(productos))
-  .catch(error => console.error(error));`}
-                  </pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Async/Await */}
-      <section className="py-12 sm:py-16 bg-[#0d1117]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#10b981]/20 rounded-xl">
-              <i className="ri-magic-line text-[#10b981] text-xl sm:text-2xl"></i>
-            </div>
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">3. Async/Await</h2>
-              <p className="text-gray-400 text-xs sm:text-base">Azúcar sintáctico que hace las Promises aún más legibles</p>
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            <div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">¿Qué es Async/Await?</h3>
-              <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6">
-                Es una forma de escribir código asíncrono que <span className="text-[#10b981]">parece síncrono</span>. 
-                Internamente sigue usando Promises, pero la sintaxis es mucho más limpia.
-              </p>
-              
-              <div className="space-y-3 sm:space-y-4">
-                <div className="bg-[#161b22] rounded-lg p-3 sm:p-4 border border-white/10">
-                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
-                    <span className="text-[#10b981] font-mono font-bold text-sm sm:text-base">async</span>
-                    <span className="text-gray-400 text-xs sm:text-sm">- Declara una función asíncrona</span>
-                  </div>
-                  <p className="text-gray-500 text-xs sm:text-sm">Hace que la función siempre retorne una Promise.</p>
-                </div>
-                
-                <div className="bg-[#161b22] rounded-lg p-3 sm:p-4 border border-white/10">
-                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
-                    <span className="text-[#f59e0b] font-mono font-bold text-sm sm:text-base">await</span>
-                    <span className="text-gray-400 text-xs sm:text-sm">- Espera el resultado de una Promise</span>
-                  </div>
-                  <p className="text-gray-500 text-xs sm:text-sm">Pausa la ejecución hasta que la Promise se resuelva.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Comparación de Sintaxis</h3>
-              <div className="space-y-3 sm:space-y-4">
-                <div className="bg-[#161b22] rounded-xl p-3 sm:p-4 border border-[#f59e0b]/30">
-                  <h4 className="text-xs sm:text-sm font-medium text-[#f59e0b] mb-2 sm:mb-3">Promises (.then)</h4>
-                  <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                    <pre className="text-gray-300 whitespace-pre">
-{`fetch('/api/usuarios')
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error(err));`}
-                    </pre>
-                  </div>
-                </div>
-                
-                <div className="bg-[#161b22] rounded-xl p-3 sm:p-4 border border-[#10b981]/30">
-                  <h4 className="text-xs sm:text-sm font-medium text-[#10b981] mb-2 sm:mb-3">Async/Await ✨</h4>
-                  <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                    <pre className="text-gray-300 whitespace-pre">
-{`async function getUsuarios() {
-  try {
-    const res = await fetch('/api/usuarios');
-    const data = await res.json();
-    console.log(data);
-  } catch (err) {
-    console.error(err);
-  }
-}`}
-                    </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Ejemplo Completo */}
-          <div className="bg-[#161b22] rounded-xl p-4 sm:p-8 border border-[#10b981]/30">
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
-              <i className="ri-code-s-slash-line text-[#10b981] mr-2"></i>
-              Ejemplo Completo: Fetch con Async/Await
-            </h3>
-            
-            <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-6 font-mono text-[10px] sm:text-xs md:text-sm mb-4 sm:mb-6 overflow-x-auto">
-              <pre className="text-gray-300 whitespace-pre">
-{`const obtenerProductos = async () => {
-  try {
-    // 1. Mostrar loading
-    setLoading(true);
-    
-    // 2. Hacer la petición y ESPERAR la respuesta
-    const response = await fetch('https://api.tienda.com/productos');
-    
-    // 3. Verificar si la respuesta es exitosa
-    if (!response.ok) {
-      throw new Error(\`HTTP error! status: \${response.status}\`);
-    }
-    
-    // 4. Convertir a JSON y ESPERAR
-    const productos = await response.json();
-    
-    // 5. Actualizar el estado
-    setProductos(productos);
-    
-  } catch (error) {
-    // 6. Manejar errores
-    console.error('Error al obtener productos:', error);
-    setError(error.message);
-    
-  } finally {
-    // 7. Siempre ocultar loading
-    setLoading(false);
-  }
-};
-
-// Llamar la función
-obtenerProductos();`}
-              </pre>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
-              <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center">
-                <i className="ri-loader-4-line text-[#f59e0b] text-xl sm:text-2xl mb-1 sm:mb-2"></i>
-                <p className="text-white text-xs sm:text-sm font-medium">try</p>
-                <p className="text-gray-500 text-[10px] sm:text-xs">Intenta ejecutar</p>
-              </div>
-              <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center">
-                <i className="ri-time-line text-[#3b82f6] text-xl sm:text-2xl mb-1 sm:mb-2"></i>
-                <p className="text-white text-xs sm:text-sm font-medium">await</p>
-                <p className="text-gray-500 text-[10px] sm:text-xs">Espera resultado</p>
-              </div>
-              <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center">
-                <i className="ri-error-warning-line text-[#ef4444] text-xl sm:text-2xl mb-1 sm:mb-2"></i>
-                <p className="text-white text-xs sm:text-sm font-medium">catch</p>
-                <p className="text-gray-500 text-[10px] sm:text-xs">Captura errores</p>
-              </div>
-              <div className="bg-[#0d1117] rounded-lg p-3 sm:p-4 text-center">
-                <i className="ri-checkbox-circle-line text-[#10b981] text-xl sm:text-2xl mb-1 sm:mb-2"></i>
-                <p className="text-white text-xs sm:text-sm font-medium">finally</p>
-                <p className="text-gray-500 text-[10px] sm:text-xs">Siempre ejecuta</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Métodos Útiles de Promises */}
+      {/* 9. Cómo viaja una petición web */}
       <section className="py-12 sm:py-16 bg-[#161b22]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-              Métodos Útiles de Promise
+              <i className="ri-route-line text-[#10b981] mr-2 sm:mr-3"></i>
+              9. Cómo Viaja una Petición Web
             </h2>
             <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-2">
-              Cuando necesitas manejar múltiples operaciones asíncronas al mismo tiempo.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-            {/* Promise.all */}
-            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#10b981]/30">
-              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#10b981]/20 rounded-lg flex-shrink-0">
-                  <i className="ri-checkbox-multiple-line text-[#10b981] text-lg sm:text-xl"></i>
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-base sm:text-lg font-bold text-white">Promise.all()</h3>
-                  <p className="text-gray-500 text-xs sm:text-sm">Espera a que TODAS terminen</p>
-                </div>
-              </div>
-              <div className="bg-[#161b22] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm mb-3 sm:mb-4 overflow-x-auto">
-                <pre className="text-gray-300 whitespace-pre">
-{`const [usuarios, productos, pedidos] = await Promise.all([
-  fetch('/api/usuarios').then(r => r.json()),
-  fetch('/api/productos').then(r => r.json()),
-  fetch('/api/pedidos').then(r => r.json())
-]);
-// Las 3 peticiones se hacen en PARALELO`}
-                </pre>
-              </div>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                <i className="ri-information-line text-[#10b981] mr-1 sm:mr-2"></i>
-                Si UNA falla, todas fallan. Ideal para datos que necesitas juntos.
-              </p>
-            </div>
-
-            {/* Promise.allSettled */}
-            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
-              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#f59e0b]/20 rounded-lg flex-shrink-0">
-                  <i className="ri-list-check-2 text-[#f59e0b] text-lg sm:text-xl"></i>
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-base sm:text-lg font-bold text-white">Promise.allSettled()</h3>
-                  <p className="text-gray-500 text-xs sm:text-sm">Espera a todas, sin importar si fallan</p>
-                </div>
-              </div>
-              <div className="bg-[#161b22] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm mb-3 sm:mb-4 overflow-x-auto">
-                <pre className="text-gray-300 whitespace-pre">
-{`const resultados = await Promise.allSettled([
-  fetch('/api/usuarios'),
-  fetch('/api/productos'),
-  fetch('/api/pedidos')
-]);
-// Cada resultado tiene: { status, value/reason }`}
-                </pre>
-              </div>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                <i className="ri-information-line text-[#f59e0b] mr-1 sm:mr-2"></i>
-                Nunca falla. Útil cuando quieres saber qué funcionó y qué no.
-              </p>
-            </div>
-
-            {/* Promise.race */}
-            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#3b82f6]/30">
-              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#3b82f6]/20 rounded-lg flex-shrink-0">
-                  <i className="ri-speed-line text-[#3b82f6] text-lg sm:text-xl"></i>
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-base sm:text-lg font-bold text-white">Promise.race()</h3>
-                  <p className="text-gray-500 text-xs sm:text-sm">La primera que termine gana</p>
-                </div>
-              </div>
-              <div className="bg-[#161b22] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm mb-3 sm:mb-4 overflow-x-auto">
-                <pre className="text-gray-300 whitespace-pre">
-{`const resultado = await Promise.race([
-  fetch('/api/servidor1'),
-  fetch('/api/servidor2'),
-  new Promise((_, reject) => 
-    setTimeout(() => reject('Timeout'), 5000)
-  )
-]);`}
-                </pre>
-              </div>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                <i className="ri-information-line text-[#3b82f6] mr-1 sm:mr-2"></i>
-                Útil para implementar timeouts o elegir el servidor más rápido.
-              </p>
-            </div>
-
-            {/* Promise.any */}
-            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#a855f7]/30">
-              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#a855f7]/20 rounded-lg flex-shrink-0">
-                  <i className="ri-trophy-line text-[#a855f7] text-lg sm:text-xl"></i>
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-base sm:text-lg font-bold text-white">Promise.any()</h3>
-                  <p className="text-gray-500 text-xs sm:text-sm">La primera EXITOSA gana</p>
-                </div>
-              </div>
-              <div className="bg-[#161b22] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm mb-3 sm:mb-4 overflow-x-auto">
-                <pre className="text-gray-300 whitespace-pre">
-{`const resultado = await Promise.any([
-  fetch('/api/cdn1/imagen.jpg'),
-  fetch('/api/cdn2/imagen.jpg'),
-  fetch('/api/cdn3/imagen.jpg')
-]);
-// Retorna la primera que NO falle`}
-                </pre>
-              </div>
-              <p className="text-gray-400 text-xs sm:text-sm">
-                <i className="ri-information-line text-[#a855f7] mr-1 sm:mr-2"></i>
-                Solo falla si TODAS fallan. Ideal para redundancia.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Errores Comunes */}
-      <section className="py-12 sm:py-16 bg-[#0d1117]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-              <i className="ri-bug-line text-[#ef4444] mr-2 sm:mr-3"></i>
-              Errores Comunes
-            </h2>
-            <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-2">
-              Evita estos errores que todos cometemos al empezar con asincronía.
+              Paso a paso: desde que el usuario hace clic hasta que la respuesta se muestra en pantalla.
             </p>
           </div>
 
           <div className="space-y-4 sm:space-y-6">
-            {/* Error 1 */}
-            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
-              <h3 className="text-base sm:text-lg font-bold text-[#ef4444] mb-3 sm:mb-4">
-                ❌ Olvidar el await
-              </h3>
-              <div className="grid lg:grid-cols-2 gap-4 sm:gap-6">
-                <div>
-                  <h4 className="text-xs sm:text-sm font-medium text-[#ef4444] mb-2">Incorrecto</h4>
-                  <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                    <pre className="text-gray-300 whitespace-pre">
-{`async function getData() {
-  const data = fetch('/api/data'); // ❌ Sin await
-  console.log(data); // Promise { <pending> }
-}`}
-                    </pre>
-                  </div>
+            {/* Paso 1 */}
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#ef4444]/20 rounded-xl flex-shrink-0">
+                  <span className="text-[#ef4444] font-bold text-lg sm:text-xl">1</span>
                 </div>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-medium text-[#10b981] mb-2">Correcto</h4>
-                  <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                    <pre className="text-gray-300 whitespace-pre">
-{`async function getData() {
-  const data = await fetch('/api/data'); // ✅
-  console.log(data); // Response object
-}`}
-                    </pre>
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">El usuario dispara un evento</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-3 leading-relaxed">
+                    El usuario hace clic en un botón, por ejemplo "Buscar productos". Ese clic es un evento. El navegador detecta el clic y, cuando JavaScript puede atenderlo, la función asociada entra al Call Stack.
+                  </p>
+                  <div className="bg-[#161b22] rounded-lg p-3 sm:p-4 border border-[#ef4444]/20">
+                    <div className="flex items-center gap-2">
+                      <i className="ri-restaurant-line text-[#f59e0b] text-sm"></i>
+                      <p className="text-xs sm:text-sm text-gray-400"><span className="text-[#f59e0b] font-medium">Analogía:</span> Un cliente toca el timbre en recepción. La recepcionista lo atiende cuando queda libre.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Error 2 */}
-            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
-              <h3 className="text-base sm:text-lg font-bold text-[#ef4444] mb-3 sm:mb-4">
-                ❌ Await en bucles (secuencial en vez de paralelo)
-              </h3>
-              <div className="grid lg:grid-cols-2 gap-4 sm:gap-6">
-                <div>
-                  <h4 className="text-xs sm:text-sm font-medium text-[#ef4444] mb-2">Lento (secuencial)</h4>
-                  <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                    <pre className="text-gray-300 whitespace-pre">
-{`// ❌ Cada petición espera a la anterior
-for (const id of ids) {
-  const data = await fetch(\`/api/\${id}\`);
-  results.push(data);
-} // 5 peticiones = 5 segundos`}
-                    </pre>
-                  </div>
+            {/* Paso 2 */}
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#f59e0b]/20 rounded-xl flex-shrink-0">
+                  <span className="text-[#f59e0b] font-bold text-lg sm:text-xl">2</span>
                 </div>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-medium text-[#10b981] mb-2">Rápido (paralelo)</h4>
-                  <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                    <pre className="text-gray-300 whitespace-pre">
-{`// ✅ Todas las peticiones en paralelo
-const results = await Promise.all(
-  ids.map(id => fetch(\`/api/\${id}\`))
-); // 5 peticiones = 1 segundo`}
-                    </pre>
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">JavaScript inicia la petición</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-3 leading-relaxed">
+                    La lógica de la página decide pedir información a un servidor externo. JavaScript inicia la solicitud pero no se queda esperando la respuesta dentro del Call Stack. Delega esa operación a las Web APIs del navegador.
+                  </p>
+                  <div className="bg-[#161b22] rounded-lg p-3 sm:p-4 border border-[#f59e0b]/20">
+                    <div className="flex items-center gap-2">
+                      <i className="ri-restaurant-line text-[#f59e0b] text-sm"></i>
+                      <p className="text-xs sm:text-sm text-gray-400"><span className="text-[#f59e0b] font-medium">Analogía:</span> La recepcionista llena un formato y lo manda al departamento de mensajería para que traiga un expediente de otro edificio.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Error 3 */}
-            <div className="bg-[#161b22] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
-              <h3 className="text-base sm:text-lg font-bold text-[#ef4444] mb-3 sm:mb-4">
-                ❌ No manejar errores
-              </h3>
-              <div className="grid lg:grid-cols-2 gap-4 sm:gap-6">
-                <div>
-                  <h4 className="text-xs sm:text-sm font-medium text-[#ef4444] mb-2">Peligroso</h4>
-                  <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                    <pre className="text-gray-300 whitespace-pre">
-{`// ❌ Si falla, la app explota
-async function getData() {
-  const res = await fetch('/api/data');
-  const data = await res.json();
-  return data;
-}`}
-                    </pre>
+            {/* Paso 3 */}
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#10b981]/30">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#10b981]/20 rounded-xl flex-shrink-0">
+                  <span className="text-[#10b981] font-bold text-lg sm:text-xl">3</span>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">La Web API se encarga de la espera</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-3 leading-relaxed">
+                    La Web API administra la comunicación con internet. Mientras el servidor remoto procesa y responde, el hilo principal de JavaScript sigue libre para otras tareas. La página puede seguir respondiendo a clics, animaciones u otras acciones.
+                  </p>
+                  <div className="bg-[#161b22] rounded-lg p-3 sm:p-4 border border-[#10b981]/20">
+                    <div className="flex items-center gap-2">
+                      <i className="ri-restaurant-line text-[#f59e0b] text-sm"></i>
+                      <p className="text-xs sm:text-sm text-gray-400"><span className="text-[#f59e0b] font-medium">Analogía:</span> El mensajero salió por el expediente. Mientras tanto, la recepcionista sigue atendiendo llamadas y visitantes.</p>
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <h4 className="text-xs sm:text-sm font-medium text-[#10b981] mb-2">Seguro</h4>
-                  <div className="bg-[#0d1117] rounded-lg p-2 sm:p-3 md:p-4 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
-                    <pre className="text-gray-300 whitespace-pre">
-{`// ✅ Errores controlados
-async function getData() {
-  try {
-    const res = await fetch('/api/data');
-    if (!res.ok) throw new Error('HTTP Error');
-    return await res.json();
-  } catch (err) {
-    console.error(err);
-    return null;
-  }
-}`}
-                    </pre>
+              </div>
+            </div>
+
+            {/* Paso 4 */}
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#3b82f6]/30">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#3b82f6]/20 rounded-xl flex-shrink-0">
+                  <span className="text-[#3b82f6] font-bold text-lg sm:text-xl">4</span>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">La respuesta llega</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-3 leading-relaxed">
+                    Cuando el servidor finalmente responde, la Web API ya tiene el resultado. La respuesta no entra de golpe al Call Stack. Primero se coloca en la Callback Queue para que JavaScript la procese cuando pueda.
+                  </p>
+                  <div className="bg-[#161b22] rounded-lg p-3 sm:p-4 border border-[#3b82f6]/20">
+                    <div className="flex items-center gap-2">
+                      <i className="ri-restaurant-line text-[#f59e0b] text-sm"></i>
+                      <p className="text-xs sm:text-sm text-gray-400"><span className="text-[#f59e0b] font-medium">Analogía:</span> El mensajero regresa con el expediente, pero si la recepcionista sigue ocupada, deja el expediente en una bandeja de pendientes.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Paso 5 */}
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#a855f7]/30">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#a855f7]/20 rounded-xl flex-shrink-0">
+                  <span className="text-[#a855f7] font-bold text-lg sm:text-xl">5</span>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">El Event Loop revisa si JavaScript está libre</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-3 leading-relaxed">
+                    El Event Loop observa continuamente si el Call Stack está vacío. Si JavaScript ya terminó lo anterior, el Event Loop toma la tarea pendiente de la cola, la coloca en el Stack y ahora sí se procesa la respuesta: se actualiza la interfaz, se muestran productos, se guarda información o se avisa un error.
+                  </p>
+                  <div className="bg-[#161b22] rounded-lg p-3 sm:p-4 border border-[#a855f7]/20">
+                    <div className="flex items-center gap-2">
+                      <i className="ri-restaurant-line text-[#f59e0b] text-sm"></i>
+                      <p className="text-xs sm:text-sm text-gray-400"><span className="text-[#f59e0b] font-medium">Analogía:</span> Cuando la recepcionista termina con el visitante actual, toma el expediente de la bandeja y ahora sí lo registra en el sistema.</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -808,58 +931,215 @@ async function getData() {
         </div>
       </section>
 
-      {/* Resumen Visual */}
-      <section className="py-12 sm:py-16 bg-[#161b22]">
+      {/* 10. Ejemplo Completo: El Restaurante */}
+      <section className="py-12 sm:py-16 bg-[#0d1117]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-              Resumen: Evolución de la Asincronía
+              <i className="ri-restaurant-2-line text-[#f59e0b] mr-2 sm:mr-3"></i>
+              10. Ejemplo Completo: El Restaurante
             </h2>
+            <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-2">
+              Todo el modelo de asincronía explicado con una sola analogía.
+            </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0">
-            {/* Callbacks */}
-            <div className="bg-[#ef4444]/10 border border-[#ef4444]/30 rounded-xl p-4 sm:p-6 text-center w-full sm:w-auto lg:w-64">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center bg-[#ef4444]/20 rounded-full mx-auto mb-3 sm:mb-4">
-                <i className="ri-function-line text-[#ef4444] text-2xl sm:text-3xl"></i>
+          <div className="bg-[#161b22] rounded-xl p-4 sm:p-8 border border-[#f59e0b]/30 mb-8 sm:mb-10">
+            <div className="space-y-3 sm:space-y-4">
+              {[
+                { num: '1', text: 'Llega un cliente y pide ver el menú de postres.', color: '#ef4444' },
+                { num: '2', text: 'La persona de caja no va a cocinar el postre ni a ir por ingredientes; solo manda la orden a cocina.', color: '#f59e0b' },
+                { num: '3', text: 'Mientras cocina trabaja en eso, la persona de caja sigue cobrando a otros clientes y recibiendo pedidos.', color: '#10b981' },
+                { num: '4', text: 'Cuando cocina termina, no grita encima del cliente actual para interrumpirlo.', color: '#3b82f6' },
+                { num: '5', text: 'En lugar de eso, deja el platillo en una barra de entregas.', color: '#3b82f6' },
+                { num: '6', text: 'Cuando la persona de caja termina con quien estaba atendiendo, revisa la barra.', color: '#a855f7' },
+                { num: '7', text: 'Toma el siguiente platillo listo y se lo entrega al cliente correcto.', color: '#a855f7' },
+              ].map((step) => (
+                <div key={step.num} className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: `${step.color}20` }}>
+                    <span className="font-bold text-sm" style={{ color: step.color }}>{step.num}</span>
+                  </div>
+                  <p className="text-gray-300 text-sm sm:text-base pt-1">{step.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mapeo de analogía */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-5 border border-[#f59e0b]/30 text-center">
+              <i className="ri-user-line text-[#f59e0b] text-2xl sm:text-3xl mb-2 sm:mb-3"></i>
+              <h4 className="text-white font-bold text-sm sm:text-base mb-1">La persona de caja</h4>
+              <p className="text-gray-400 text-xs sm:text-sm">= Hilo principal de JavaScript</p>
+            </div>
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-5 border border-[#10b981]/30 text-center">
+              <i className="ri-restaurant-line text-[#10b981] text-2xl sm:text-3xl mb-2 sm:mb-3"></i>
+              <h4 className="text-white font-bold text-sm sm:text-base mb-1">La cocina</h4>
+              <p className="text-gray-400 text-xs sm:text-sm">= Web API / sistema externo</p>
+            </div>
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-5 border border-[#3b82f6]/30 text-center">
+              <i className="ri-inbox-line text-[#3b82f6] text-2xl sm:text-3xl mb-2 sm:mb-3"></i>
+              <h4 className="text-white font-bold text-sm sm:text-base mb-1">La barra de entregas</h4>
+              <p className="text-gray-400 text-xs sm:text-sm">= Callback Queue</p>
+            </div>
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-5 border border-[#a855f7]/30 text-center">
+              <i className="ri-eye-line text-[#a855f7] text-2xl sm:text-3xl mb-2 sm:mb-3"></i>
+              <h4 className="text-white font-bold text-sm sm:text-base mb-1">Revisar si está libre</h4>
+              <p className="text-gray-400 text-xs sm:text-sm">= Event Loop</p>
+            </div>
+            <div className="bg-[#161b22] rounded-xl p-4 sm:p-5 border border-[#ef4444]/30 text-center sm:col-span-2 lg:col-span-1">
+              <i className="ri-user-smile-line text-[#ef4444] text-2xl sm:text-3xl mb-2 sm:mb-3"></i>
+              <h4 className="text-white font-bold text-sm sm:text-base mb-1">El cliente esperando</h4>
+              <p className="text-gray-400 text-xs sm:text-sm">= La interfaz esperando la respuesta</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Qué pasa si el hilo se bloquea */}
+      <section className="py-12 sm:py-16 bg-[#161b22]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#ef4444]/20 rounded-xl">
+              <i className="ri-alarm-warning-line text-[#ef4444] text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">11. ¿Qué Pasa si el Hilo se Bloquea?</h2>
+              <p className="text-gray-400 text-xs sm:text-base">Aunque la respuesta esté lista, no se procesa si el Stack está ocupado</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-white/10">
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <i className="ri-code-s-slash-line text-[#ef4444]"></i>
+                <h3 className="text-sm sm:text-base font-bold text-white">Definición técnica</h3>
               </div>
-              <h3 className="text-white font-bold text-sm sm:text-base mb-1 sm:mb-2">Callbacks</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">La forma original</p>
-              <p className="text-[#ef4444] text-[10px] sm:text-xs mt-1 sm:mt-2">⚠️ Callback Hell</p>
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                Si el Call Stack permanece saturado con una operación larga, el Event Loop no puede transferir tareas pendientes desde la cola hacia el Stack, retrasando el procesamiento de eventos, temporizadores y respuestas de red.
+              </p>
             </div>
 
-            <div className="hidden lg:block">
-              <i className="ri-arrow-right-line text-gray-500 text-2xl sm:text-3xl mx-4"></i>
-            </div>
-            <div className="lg:hidden">
-              <i className="ri-arrow-down-line text-gray-500 text-2xl my-1"></i>
-            </div>
-
-            {/* Promises */}
-            <div className="bg-[#f59e0b]/10 border border-[#f59e0b]/30 rounded-xl p-4 sm:p-6 text-center w-full sm:w-auto lg:w-64">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center bg-[#f59e0b]/20 rounded-full mx-auto mb-3 sm:mb-4">
-                <i className="ri-hand-heart-line text-[#f59e0b] text-2xl sm:text-3xl"></i>
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#f59e0b]/30">
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <i className="ri-chat-smile-2-line text-[#f59e0b]"></i>
+                <h3 className="text-sm sm:text-base font-bold text-white">Definición sencilla</h3>
               </div>
-              <h3 className="text-white font-bold text-sm sm:text-base mb-1 sm:mb-2">Promises</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">Encadenamiento limpio</p>
-              <p className="text-[#f59e0b] text-[10px] sm:text-xs mt-1 sm:mt-2">✓ .then().catch()</p>
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                Aunque la comida ya esté lista, si quien la entrega sigue atrapado haciendo otra cosa pesada, nadie recibirá su pedido todavía.
+              </p>
             </div>
 
-            <div className="hidden lg:block">
-              <i className="ri-arrow-right-line text-gray-500 text-2xl sm:text-3xl mx-4"></i>
-            </div>
-            <div className="lg:hidden">
-              <i className="ri-arrow-down-line text-gray-500 text-2xl my-1"></i>
-            </div>
-
-            {/* Async/Await */}
-            <div className="bg-[#10b981]/10 border border-[#10b981]/30 rounded-xl p-4 sm:p-6 text-center w-full sm:w-auto lg:w-64">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center bg-[#10b981]/20 rounded-full mx-auto mb-3 sm:mb-4">
-                <i className="ri-magic-line text-[#10b981] text-2xl sm:text-3xl"></i>
+            <div className="bg-[#0d1117] rounded-xl p-4 sm:p-6 border border-[#ef4444]/30">
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <i className="ri-restaurant-line text-[#ef4444]"></i>
+                <h3 className="text-sm sm:text-base font-bold text-[#ef4444]">Ejemplo cotidiano</h3>
               </div>
-              <h3 className="text-white font-bold text-sm sm:text-base mb-1 sm:mb-2">Async/Await</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">Código que parece síncrono</p>
-              <p className="text-[#10b981] text-[10px] sm:text-xs mt-1 sm:mt-2">✨ Recomendado</p>
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                La cocina ya terminó el platillo y lo dejó en la barra, pero la cajera está ocupada contando monedas durante diez minutos. Aunque el pedido está listo, el cliente siente que "el sistema no responde".
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 12. Relación entre todos los conceptos */}
+      <section className="py-12 sm:py-16 bg-[#0d1117]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+              <i className="ri-mind-map text-[#10b981] mr-2 sm:mr-3"></i>
+              12. Relación entre Todos los Conceptos
+            </h2>
+            <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-2">
+              Estos conceptos no están separados; forman una cadena completa.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-0">
+              {/* Paso 1 */}
+              <div className="flex items-stretch gap-3 sm:gap-5">
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#f59e0b]/20 rounded-full border-2 border-[#f59e0b]/50 flex-shrink-0">
+                    <i className="ri-stack-line text-[#f59e0b] text-lg sm:text-xl"></i>
+                  </div>
+                  <div className="w-0.5 flex-1 bg-gradient-to-b from-[#f59e0b]/50 to-[#10b981]/50"></div>
+                </div>
+                <div className="pb-6 sm:pb-8">
+                  <h3 className="text-sm sm:text-base font-bold text-[#f59e0b] mb-1">Call Stack</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm">Ejecuta lo que JavaScript hace ahora mismo.</p>
+                </div>
+              </div>
+
+              {/* Paso 2 */}
+              <div className="flex items-stretch gap-3 sm:gap-5">
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#10b981]/20 rounded-full border-2 border-[#10b981]/50 flex-shrink-0">
+                    <i className="ri-global-line text-[#10b981] text-lg sm:text-xl"></i>
+                  </div>
+                  <div className="w-0.5 flex-1 bg-gradient-to-b from-[#10b981]/50 to-[#3b82f6]/50"></div>
+                </div>
+                <div className="pb-6 sm:pb-8">
+                  <h3 className="text-sm sm:text-base font-bold text-[#10b981] mb-1">Web APIs</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm">Si aparece una tarea lenta, se delega a las Web APIs.</p>
+                </div>
+              </div>
+
+              {/* Paso 3 */}
+              <div className="flex items-stretch gap-3 sm:gap-5">
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#3b82f6]/20 rounded-full border-2 border-[#3b82f6]/50 flex-shrink-0">
+                    <i className="ri-list-check text-[#3b82f6] text-lg sm:text-xl"></i>
+                  </div>
+                  <div className="w-0.5 flex-1 bg-gradient-to-b from-[#3b82f6]/50 to-[#a855f7]/50"></div>
+                </div>
+                <div className="pb-6 sm:pb-8">
+                  <h3 className="text-sm sm:text-base font-bold text-[#3b82f6] mb-1">Callback Queue</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm">Cuando esa tarea termina, su resultado se forma en la Callback Queue.</p>
+                </div>
+              </div>
+
+              {/* Paso 4 */}
+              <div className="flex items-stretch gap-3 sm:gap-5">
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#a855f7]/20 rounded-full border-2 border-[#a855f7]/50 flex-shrink-0">
+                    <i className="ri-loop-left-line text-[#a855f7] text-lg sm:text-xl"></i>
+                  </div>
+                  <div className="w-0.5 flex-1 bg-gradient-to-b from-[#a855f7]/50 to-[#f59e0b]/50"></div>
+                </div>
+                <div className="pb-6 sm:pb-8">
+                  <h3 className="text-sm sm:text-base font-bold text-[#a855f7] mb-1">Event Loop</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm">Vigila cuándo el Stack queda libre.</p>
+                </div>
+              </div>
+
+              {/* Paso 5 */}
+              <div className="flex items-stretch gap-3 sm:gap-5">
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#f59e0b]/20 rounded-full border-2 border-[#f59e0b]/50 flex-shrink-0">
+                    <i className="ri-arrow-up-circle-line text-[#f59e0b] text-lg sm:text-xl"></i>
+                  </div>
+                  <div className="w-0.5 flex-1 bg-gradient-to-b from-[#f59e0b]/50 to-[#10b981]/50"></div>
+                </div>
+                <div className="pb-6 sm:pb-8">
+                  <h3 className="text-sm sm:text-base font-bold text-[#f59e0b] mb-1">De vuelta al Stack</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm">Cuando puede, mueve la siguiente tarea al Stack.</p>
+                </div>
+              </div>
+
+              {/* Conclusión */}
+              <div className="flex items-start gap-3 sm:gap-5">
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#10b981]/20 rounded-full border-2 border-[#10b981]/50 flex-shrink-0">
+                    <i className="ri-checkbox-circle-line text-[#10b981] text-lg sm:text-xl"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base font-bold text-[#10b981] mb-1">Resultado</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm">Así JavaScript logra <span className="text-[#10b981] font-semibold">concurrencia</span> sin dejar de ser <span className="text-[#f59e0b] font-semibold">monohilo</span> en su hilo principal.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
