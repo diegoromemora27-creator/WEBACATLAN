@@ -21,7 +21,7 @@ interface CalendarItem {
 
 const calendarItems: CalendarItem[] = [
   {
-    date: '10 de Marzo, 2026',
+    date: '24 de Marzo, 2026',
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 3,
@@ -37,7 +37,7 @@ const calendarItems: CalendarItem[] = [
     relatedTo: 'Preparación para el examen de parcial.'
   },
     {
-    date: '12 de Marzo, 2026',
+    date: '26 de Marzo, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
     title: 'Examen',
@@ -52,7 +52,7 @@ const calendarItems: CalendarItem[] = [
       relatedTo: 'Examen.'
   },
     {
-    date: '16 de Marzo, 2026',
+    date: '31 de Marzo, 2026',
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 4,
@@ -67,7 +67,7 @@ const calendarItems: CalendarItem[] = [
   
   },
   {
-    date: '5 de Marzo, 2026',
+    date: '2 de Abril, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
     title: 'Vacaciones',
