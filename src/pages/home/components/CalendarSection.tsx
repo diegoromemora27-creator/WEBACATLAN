@@ -25,74 +25,56 @@ const calendarItems: CalendarItem[] = [
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 3,
-    title: 'LAB 04 - HTML & CSS Sandbox',
-    mainLink: '/frontend/html-css-fundamentos',
+    title: 'LAB 06 - Preparacion para el examen de parcial',
+    mainLink: '/',
     resources: [
-      { label: 'LAB en Canva', url: 'https://www.canva.com/design/DAHDH1SfcR4/0WwUC63kNspYVmLTjHeTuw/view?utm_content=DAHDH1SfcR4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h78fd77a262', type: 'canva', icon: 'ri-palette-line' },
-      { label: 'HTML', url: 'https://www.w3schools.com/html/', type: 'external', icon: 'ri-file-text-line' },
-      { label: 'CSS', url: 'https://developer.mozilla.org/es/docs/Web/CSS', type: 'external', icon: 'ri-database-2-line' },
-      { label: 'Entrega en el SEA', url: 'https://sea.acatlan.unam.mx/mod/assign/view.php?id=1196361', type: 'external', icon: 'ri-database-2-line' }
-
     ],
     tips: [
-      'Repasar conceptos de git y github (commits, ramas)',
-      'Usaremos una plataforma como Render.com para desplegar nuestro proyecto',
-      'Revisar conceptos básicos de HTML y CSS'
+        'Revisar los temas vistos en clase y practicar con ejercicios relacionados',
+        'Enfocarse en entender los conceptos clave y su aplicación práctica',
+        'Utilizar los recursos proporcionados en clase para reforzar el aprendizaje'
     ],
-    relatedTo: 'Rompan el codigo y experimenten con HTML y CSS '
+    relatedTo: 'Preparación para el examen de parcial.'
   },
     {
     date: '12 de Marzo, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
-    title: 'Introducción a TS & Asincronía',
-    mainLink: '/code-concepts/typescript',
+    title: 'Examen',
+    mainLink: '/examenes/parcial-1',
     resources: [
-      { label: 'Typescript', url: 'https://www.w3schools.com/typescript/typescript_intro.php', type: 'external', icon: 'ri-palette-line' },
-      { label: 'TypeScript', url: 'https://www.typescriptlang.org/', type: 'external', icon: 'ri-database-2-line' },
-      { label: 'Asincronía ', url: 'https://lenguajejs.com/asincronia/introduccion/que-es/', type: 'external', icon: 'ri-file-text-line' },
+        { label: 'Ver examen', url: '/examenes/parcial-1', type: 'internal', icon: 'ri-file-text-line' },
     ],
     tips: [
-      'Entender los elementos básicos de TypeScript (tipos, interfaces, funciones)',
-      'Estudiar la sintaxis de TypeScript',
-      'Revisar conceptos de asincronía en JavaScript (callbacks, promesas, async/await)'
+        'Revisar los temas vistos en clase y practicar con ejercicios relacionados',
+        'El examen comienza a las 7 am en punto'
     ],
-      relatedTo: 'En esta clase se introducirá el lenguaje TypeScript, que es la base para el desarrollo con Next.js. Es importante entender los conceptos básicos de TS para poder aprovechar al máximo las funcionalidades de Next.js en las siguientes clases.'
+      relatedTo: 'Examen.'
   },
     {
     date: '16 de Marzo, 2026',
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 4,
-    title: 'LAB 05 Usando Typescript y Asincronía (Sandbox de llamadas a APIs)',
-    mainLink: '/code-concepts/typescript',
+    title: 'Vacaciones',
+    mainLink: '/',
     resources: [
       { label: 'LAB en Canva', url:"https://www.canva.com/design/DAHDgoMIC1I/mYriuMxB1hwfw9kuFN172A/view?utm_content=DAHDgoMIC1I&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb58e5a62a9", type: 'canva', icon: 'ri-palette-line' },
     ],
     tips: [
-      'Aplicar los conceptos de TypeScript para definir tipos y estructuras de datos',
-      'Experimentar con llamadas a APIs públicas para entender la asincronía en la práctica',
-      'Revisar ejemplos de código que combinan TypeScript y asincronía para entender su uso conjunto'
     ],
-    relatedTo: 'En este laboratorio se aplicarán los conceptos de TypeScript y asincronía para realizar llamadas a APIs públicas. Es una oportunidad para experimentar con código real y entender cómo TypeScript puede mejorar la experiencia de desarrollo al proporcionar tipado estático y herramientas de desarrollo más robustas.'
+    relatedTo: 'Vacaciones.'
   
   },
   {
     date: '5 de Marzo, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
-    title: 'Introducción a Next JS',
-    mainLink: '/frontend/nextjs-fundamentos',
+    title: 'Vacaciones',
+    mainLink: '/',
     resources: [
-      { label: 'Ver tema', url: '/frontend/nextjs-fundamentos', type: 'internal', icon: 'ri-book-open-line' },
-      { label: 'Next.js Docs', url: 'https://nextjs.org/docs', type: 'external', icon: 'ri-file-text-line' },
-      { label: 'JavaScript Docs', url: 'https://developer.mozilla.org/es/docs/Web/JavaScript', type: 'external', icon: 'ri-file-text-line' },
-      { label: 'Video Tutorial', url: 'https://www.youtube.com/watch?v=jMy4pVZMyLM', type: 'external', icon: 'ri-youtube-fill' }
     ],
     tips: [
-      'Entender la estructura de un proyecto Next.js (pages, components, public)',
-      'Revisar los conceptos de SSR (Server-Side Rendering) y SSG (Static Site Generation)',
-      'Experimentar con la creación de páginas y componentes en Next.js para familiarizarse con su sintaxis y funcionalidades'
       ]
   },
 ];
@@ -344,7 +326,7 @@ export default function CalendarSection() {
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-start gap-2">
                     <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
-                    <span>Laboratorio 03 en el sea</span>
+                    <span>Laboratorio 05 en el sea</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <i className="ri-checkbox-circle-fill text-[#bb8800] mt-0.5"></i>
