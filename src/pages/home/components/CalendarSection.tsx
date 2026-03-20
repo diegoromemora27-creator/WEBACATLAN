@@ -305,7 +305,7 @@ export default function CalendarSection() {
               <div className="text-4xl">📝</div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                  Evaluación de Desempeño - Sprint 2
+                  Evaluación de Desempeño - Sprint 3
                 </h3>
                 <p className="text-purple-100 text-sm sm:text-base mb-4">
                   Comparte tu experiencia y retroalimenta a tu equipo
