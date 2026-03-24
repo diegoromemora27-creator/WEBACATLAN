@@ -27,7 +27,9 @@ const calendarItems: CalendarItem[] = [
     labNumber: 3,
     title: 'LAB 06 - Preparacion para el examen de parcial',
     mainLink: '/',
-    resources: [
+   resources: [
+      { label: 'LAB en Canva', url:"https://www.canva.com/design/DAHEuBc2veE/zPyPTj0b33fAxVlFyxBVcw/view?utm_content=DAHEuBc2veE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he290b2cf82", type: 'canva', icon: 'ri-palette-line' },
+      {label:'Lista para el examen', url:'https://docs.google.com/spreadsheets/d/1fRCNMdgKCW-Ao6PdhIhHz29_bAAgAWwjTURgDY9LELY/edit?usp=sharing', type:'internal', icon:'ri-file-text-line'}
     ],
     tips: [
         'Revisar los temas vistos en clase y practicar con ejercicios relacionados',
