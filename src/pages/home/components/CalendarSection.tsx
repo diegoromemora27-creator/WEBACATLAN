@@ -117,7 +117,7 @@ export default function CalendarSection() {
                     <div className="flex items-center gap-2 mt-1">
                       <i className="ri-calendar-event-line text-white/90"></i>
                       <p className="text-white/90 text-sm sm:text-base font-semibold">
-                        Cierre: Miércoles, 1 de abril de 2026, 00:00
+                        Cierre: Martes, 7 de abril de 2026, 00:00
                       </p>
                     </div>
                   </div>
