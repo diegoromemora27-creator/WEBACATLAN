@@ -117,7 +117,7 @@ export default function CalendarSection() {
                     <div className="flex items-center gap-2 mt-1">
                       <i className="ri-calendar-event-line text-white/90"></i>
                       <p className="text-white/90 text-sm sm:text-base font-semibold">
-                        Cierre: Martes, 17 de marzo de 2026, 00:00
+                        Cierre: Miércoles, 1 de abril de 2026, 00:00
                       </p>
                     </div>
                   </div>
@@ -125,7 +125,7 @@ export default function CalendarSection() {
                 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="https://www.canva.com/design/DAHDOO-GDH8/KH4YF69ZyOZ7oT2vFwFuMw/view?utm_content=DAHDOO-GDH8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3527b32bda"
+                    href="https://www.canva.com/design/DAHFKl52mX8/_40HIDjYNnla8heDnsoTVA/view?utm_content=DAHFKl52mX8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6e2d6f5c67"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-[#bb8800] rounded-full font-bold text-sm hover:bg-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
@@ -135,7 +135,7 @@ export default function CalendarSection() {
                     <i className="ri-external-link-line text-xs"></i>
                   </a>
                   <a
-                    href="https://sea.acatlan.unam.mx/mod/assign/view.php?id=1197973&forceview=1"
+                    href="https://sea.acatlan.unam.mx/mod/assign/view.php?id=1201800&forceview=1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#1b3d70] text-white rounded-full font-bold text-sm hover:bg-[#2a5490] hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
