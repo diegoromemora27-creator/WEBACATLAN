@@ -21,58 +21,58 @@ interface CalendarItem {
 
 const calendarItems: CalendarItem[] = [
   {
-    date: '24 de Marzo, 2026',
+    date: '7 de Abril, 2026',
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 3,
-    title: 'LAB 06 - Preparacion para el examen de parcial',
+    title: 'LAB 06 - Introduccion a Next JS & Revision de Examen',
     mainLink: '/',
    resources: [
-      { label: 'LAB en Canva', url:"https://www.canva.com/design/DAHEuBc2veE/zPyPTj0b33fAxVlFyxBVcw/view?utm_content=DAHEuBc2veE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he290b2cf82", type: 'canva', icon: 'ri-palette-line' },
+      { label: 'LAB en Canva', url:"https://canva.link/qjuqa543kwv0341", type: 'canva', icon: 'ri-palette-line' },
       {label:'Lista para el examen', url:'https://docs.google.com/spreadsheets/d/1fRCNMdgKCW-Ao6PdhIhHz29_bAAgAWwjTURgDY9LELY/edit?usp=sharing', type:'internal', icon:'ri-file-text-line'}
     ],
     tips: [
-        'Revisar los temas vistos en clase y practicar con ejercicios relacionados',
-        'Enfocarse en entender los conceptos clave y su aplicación práctica',
-        'Utilizar los recursos proporcionados en clase para reforzar el aprendizaje'
+      'Revisar el material de Next JS proporcionado en clase',
+      'Practicar con ejemplos básicos de Next JS para entender su estructura y funcionamiento',
     ],
-    relatedTo: 'Preparación para el examen de parcial.'
   },
     {
-    date: '26 de Marzo, 2026',
+    date: '9 de Abril, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
-    title: 'Examen',
-    mainLink: '/examenes/parcial-1',
+    title: 'Next JS Repasando los Conceptos principales es momento de preparar dudas ',
+    mainLink: '/frontend/nextjs-fundamentos',
     resources: [
-        { label: 'Ver examen', url: '/examenes/parcial-1', type: 'internal', icon: 'ri-file-text-line' },
+        { label: 'Ver recurso', url: 'https://nextjs.org/learn?utm_source=next-site&utm_medium=homepage-cta&utm_campaign=home', type: 'internal', icon: 'ri-file-text-line' },
     ],
     tips: [
-        'Revisar los temas vistos en clase y practicar con ejercicios relacionados',
-        'El examen comienza a las 7 am en punto'
+        'Revisar el material de Next JS proporcionado en clase',
+
     ],
-      relatedTo: 'Examen.'
+      relatedTo: 'Next JS.'
   },
     {
-    date: '31 de Marzo, 2026',
+    date: ' 14 de Abril , 2026',
     dayOfWeek: 'Martes',
     type: 'lab',
     labNumber: 4,
-    title: 'Vacaciones',
+    title: 'LAB 07 - Next JS & APIS',
     mainLink: '/',
     resources: [
-      { label: 'LAB en Canva', url:"https://www.canva.com/design/DAHDgoMIC1I/mYriuMxB1hwfw9kuFN172A/view?utm_content=DAHDgoMIC1I&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb58e5a62a9", type: 'canva', icon: 'ri-palette-line' },
+      { label: 'LAB en Canva', url:"Pending", type: 'canva', icon: 'ri-palette-line' },
     ],
     tips: [
+      'Revisar el material de Next JS proporcionado en clase',
+      'Estudiar como podemos consumir APIs en Next JS,',
     ],
-    relatedTo: 'Vacaciones.'
+    relatedTo: 'Next JS & APIs.'
   
   },
   {
-    date: '2 de Abril, 2026',
+    date: '16 de Abril, 2026',
     dayOfWeek: 'Jueves',
     type: 'class',
-    title: 'Vacaciones',
+    title: 'Next JS  para sus proyectos & Vercel',
     mainLink: '/',
     resources: [
     ],
@@ -120,7 +120,7 @@ export default function CalendarSection() {
                         Cierre: Martes, 7 de abril de 2026, 00:00
                       </p>
                     </div>
-                  </div>
+                  </div> 
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-3">
