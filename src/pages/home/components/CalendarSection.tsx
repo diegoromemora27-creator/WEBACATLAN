@@ -117,7 +117,7 @@ export default function CalendarSection() {
                     <div className="flex items-center gap-2 mt-1">
                       <i className="ri-calendar-event-line text-white/90"></i>
                       <p className="text-white/90 text-sm sm:text-base font-semibold">
-                        Cierre: Martes, 7 de abril de 2026, 00:00
+                        Cierre: Sábado, 27 de abril de 2026, 00:00
                       </p>
                     </div>
                   </div> 
@@ -125,7 +125,7 @@ export default function CalendarSection() {
                 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="https://www.canva.com/design/DAHFKl52mX8/_40HIDjYNnla8heDnsoTVA/view?utm_content=DAHFKl52mX8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6e2d6f5c67"
+                    href="https://canva.link/uqphh4bctmvpqxh"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-[#bb8800] rounded-full font-bold text-sm hover:bg-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
