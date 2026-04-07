@@ -29,6 +29,7 @@ const calendarItems: CalendarItem[] = [
     mainLink: '/',
    resources: [
       { label: 'LAB en Canva', url:"https://canva.link/qjuqa543kwv0341", type: 'canva', icon: 'ri-palette-line' },
+      {label:'Evaluacion Anonima del curso', url:'https://forms.gle/Eei1Vau2qTvh6d2X7', type:'internal', icon:'ri-file-text-line'},
       {label:'Lista para el examen', url:'https://docs.google.com/spreadsheets/d/1fRCNMdgKCW-Ao6PdhIhHz29_bAAgAWwjTURgDY9LELY/edit?usp=sharing', type:'internal', icon:'ri-file-text-line'}
     ],
     tips: [
