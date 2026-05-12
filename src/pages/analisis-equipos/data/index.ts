@@ -34,3 +34,12 @@ export {
   getSprint2FelicitacionesForPerson,
   countSprint2Felicitaciones,
 } from './sprint2TeamsData';
+
+// Exportar datos de contribuciones por usuario desde repos de equipo
+export {
+  equiposContribuciones,
+  getContribucionesTotales,
+  getIntegrantesTotales,
+  type TeamContribuciones,
+  type IntegranteContribucion,
+} from './teamsContributionsData';

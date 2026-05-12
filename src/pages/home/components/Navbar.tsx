@@ -206,6 +206,7 @@ export default function Navbar({ activeSection }) {
       submenu: [
         { id: 'analisis-equipos-teams', label: 'Teams', icon: 'ri-team-line', path: '/analisis-equipos/equipos' },
         { id: 'analisis-equipos-sprint1', label: 'Sprint 1 Análisis', icon: 'ri-bar-chart-grouped-line', path: '/analisis-equipos/sprint-1' },
+        { id: 'analisis-equipos-contribuciones', label: 'Dashboard Contribuciones', icon: 'ri-pie-chart-2-line', path: '/analisis-equipos/contribuciones' },
       ]
     },
     { 
