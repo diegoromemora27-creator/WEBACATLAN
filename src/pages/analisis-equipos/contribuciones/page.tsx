@@ -38,6 +38,29 @@ const getEstadoColor = (estado: string): string => {
   return 'text-gray-700 bg-gray-100';
 };
 
+const getContributionScale = (shareEquipo: number, idealShareEquipo: number) => {
+  const tolerance = 0.1;
+
+  if (shareEquipo > idealShareEquipo + tolerance) {
+    return {
+      text: 'text-emerald-700',
+      bar: 'bg-emerald-500',
+    };
+  }
+
+  if (Math.abs(shareEquipo - idealShareEquipo) <= tolerance) {
+    return {
+      text: 'text-blue-700',
+      bar: 'bg-blue-500',
+    };
+  }
+
+  return {
+    text: 'text-amber-700',
+    bar: 'bg-amber-500',
+  };
+};
+
 const buildTeamStats = (team: TeamContribuciones): TeamStats => {
   const values = team.integrantes.map((i) => i.contribuciones);
   const total = values.reduce((sum, value) => sum + value, 0);
@@ -343,6 +366,8 @@ export default function AnalisisContribucionesPage() {
                         </thead>
                         <tbody>
                           {usuarios.map((user) => {
+                            const contributionScale = getContributionScale(user.shareEquipo, user.idealShareEquipo);
+
                             return (
                               <tr key={user.usuario} className="bg-white shadow-sm">
                                 <td className="px-3 py-3 rounded-l-lg">
@@ -351,10 +376,10 @@ export default function AnalisisContribucionesPage() {
                                 </td>
                                 <td className="px-3 py-3 text-center font-semibold text-gray-800">{user.contribuciones}</td>
                                 <td className="px-3 py-3 text-center">
-                                  <div className="font-semibold text-cyan-700">{numberFormatter.format(user.shareEquipo)}%</div>
+                                  <div className={`font-semibold ${contributionScale.text}`}>{numberFormatter.format(user.shareEquipo)}%</div>
                                   <div className="w-full bg-slate-200 rounded-full h-2 mt-1">
                                     <div
-                                      className="bg-cyan-500 h-2 rounded-full"
+                                      className={`${contributionScale.bar} h-2 rounded-full`}
                                       style={{ width: `${Math.min(Math.max(user.shareEquipo, 0), 100)}%` }}
                                     />
                                   </div>
