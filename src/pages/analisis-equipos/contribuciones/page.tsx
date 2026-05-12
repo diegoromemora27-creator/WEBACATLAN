@@ -324,7 +324,7 @@ export default function AnalisisContribucionesPage() {
                       </a>
 
                       <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
-                        <Badge label="Total" value={`${team.totalContribuciones} commits`} tone="cyan" />
+                        <Badge label="Total" value={`${team.totalContribuciones} PRS`} tone="cyan" />
                         <Badge label="Promedio" value={numberFormatter.format(team.promedioPorIntegrante)} tone="blue" />
                         <Badge label="Brecha" value={numberFormatter.format(team.dispersion)} tone="amber" />
                       </div>
