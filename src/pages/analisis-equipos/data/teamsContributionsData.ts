@@ -37,7 +37,7 @@ export const equiposContribuciones: TeamContribuciones[] = [
     integrantes: [
       { usuario: 'Angel0017', rol: 'N/A', estado: 'Approved', contribuciones: 2 },
       { usuario: 'Emiliano15', rol: 'N/A', estado: 'Approved', contribuciones: 3 },
-      { usuario: 'MonserratSa', rol: 'N/A', estado: 'Approved', contribuciones: 2 },
+      { usuario: 'MonserratSa', rol: 'N/A', estado: 'Approved', contribuciones: 1 },
       { usuario: 'EstefaniDL', rol: 'N/A', estado: 'Review required', contribuciones: 1 },
     ],
   },
