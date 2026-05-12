@@ -1,8 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   equiposContribuciones,
-  getContribucionesTotales,
-  getIntegrantesTotales,
   type TeamContribuciones,
 } from '../data/teamsContributionsData';
 
@@ -63,21 +61,41 @@ const buildTeamStats = (team: TeamContribuciones): TeamStats => {
 
 export default function AnalisisContribucionesPage() {
   const [simuladorBase, setSimuladorBase] = useState<number>(8.75);
+  const [selectedTeamId, setSelectedTeamId] = useState<number | 'all'>('all');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const totalContribuciones = getContribucionesTotales();
-  const totalIntegrantes = getIntegrantesTotales();
+  const equiposFiltrados = useMemo(
+    () =>
+      selectedTeamId === 'all'
+        ? equiposContribuciones
+        : equiposContribuciones.filter((team) => team.equipo === selectedTeamId),
+    [selectedTeamId]
+  );
+
+  const totalContribuciones = useMemo(
+    () =>
+      equiposFiltrados.reduce(
+        (total, team) => total + team.integrantes.reduce((sum, member) => sum + member.contribuciones, 0),
+        0
+      ),
+    [equiposFiltrados]
+  );
+
+  const totalIntegrantes = useMemo(
+    () => equiposFiltrados.reduce((total, team) => total + team.integrantes.length, 0),
+    [equiposFiltrados]
+  );
 
   const teamStats = useMemo(
-    () => equiposContribuciones.map((team) => buildTeamStats(team)).sort((a, b) => b.totalContribuciones - a.totalContribuciones),
-    []
+    () => equiposFiltrados.map((team) => buildTeamStats(team)).sort((a, b) => b.totalContribuciones - a.totalContribuciones),
+    [equiposFiltrados]
   );
 
   const rankingUsuarios = useMemo<UsuarioStats[]>(() => {
-    const usuarios = equiposContribuciones.flatMap((team) => {
+    const usuarios = equiposFiltrados.flatMap((team) => {
       const teamTotal = team.integrantes.reduce((sum, member) => sum + member.contribuciones, 0);
       const idealShare = team.integrantes.length > 0 ? 100 / team.integrantes.length : 0;
 
@@ -99,9 +117,11 @@ export default function AnalisisContribucionesPage() {
     });
 
     return usuarios.sort((a, b) => b.contribuciones - a.contribuciones || b.shareEquipo - a.shareEquipo);
-  }, [totalContribuciones]);
+  }, [equiposFiltrados, totalContribuciones]);
 
   const topUsuarios = rankingUsuarios.slice(0, 5);
+  const selectedTeamData =
+    selectedTeamId === 'all' ? null : equiposContribuciones.find((team) => team.equipo === selectedTeamId) ?? null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-cyan-50 to-indigo-50">
@@ -143,8 +163,61 @@ export default function AnalisisContribucionesPage() {
           </div>
         </section>
 
+        <section className="mb-10">
+          <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-lg border border-cyan-100">
+            <h2 className="text-lg sm:text-xl font-bold text-[#1b3d70] mb-4 flex items-center gap-2">
+              <i className="ri-filter-3-line text-cyan-600"></i>
+              Filtrar equipo a analizar
+            </h2>
+            <div className="flex flex-wrap gap-2.5">
+              <button
+                onClick={() => setSelectedTeamId('all')}
+                className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
+                  selectedTeamId === 'all'
+                    ? 'bg-cyan-600 text-white border-cyan-600'
+                    : 'bg-white text-[#1b3d70] border-slate-300 hover:border-cyan-500 hover:text-cyan-700'
+                }`}
+              >
+                Todos los equipos
+              </button>
+              {equiposContribuciones.map((team) => (
+                <button
+                  key={team.equipo}
+                  onClick={() => setSelectedTeamId(team.equipo)}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
+                    selectedTeamId === team.equipo
+                      ? 'bg-indigo-600 text-white border-indigo-600'
+                      : 'bg-white text-[#1b3d70] border-slate-300 hover:border-indigo-500 hover:text-indigo-700'
+                  }`}
+                >
+                  Equipo {team.equipo}
+                </button>
+              ))}
+            </div>
+
+            {selectedTeamData && (
+              <div className="mt-5 rounded-xl border border-indigo-200 bg-indigo-50 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div>
+                  <p className="text-sm text-indigo-700 font-semibold">Mostrando información del Equipo {selectedTeamData.equipo}</p>
+                  <p className="text-xs text-indigo-600">Al seleccionar un team, el dashboard sustituye la información global por ese equipo.</p>
+                </div>
+                <a
+                  href={selectedTeamData.github_repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition-colors"
+                >
+                  <i className="ri-github-fill"></i>
+                  Ver código en GitHub
+                  <i className="ri-external-link-line"></i>
+                </a>
+              </div>
+            )}
+          </div>
+        </section>
+
         <section className="mb-10 grid grid-cols-1 md:grid-cols-4 gap-4">
-          <StatCard label="Equipos" icon="ri-team-line" value={equiposContribuciones.length} tone="cyan" />
+          <StatCard label="Equipos" icon="ri-team-line" value={equiposFiltrados.length} tone="cyan" />
           <StatCard label="Integrantes" icon="ri-user-line" value={totalIntegrantes} tone="blue" />
           <StatCard label="Contribuciones" icon="ri-git-commit-line" value={totalContribuciones} tone="indigo" />
           <StatCard
@@ -159,7 +232,7 @@ export default function AnalisisContribucionesPage() {
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-cyan-100">
             <h2 className="text-xl font-bold text-[#1b3d70] mb-5 flex items-center gap-2">
               <i className="ri-trophy-line text-amber-500"></i>
-              Top 5 contribuyentes
+              {selectedTeamData ? `Top contribuyentes - Equipo ${selectedTeamData.equipo}` : 'Top 5 contribuyentes'}
             </h2>
             <div className="space-y-4">
               {topUsuarios.map((user, index) => (
@@ -182,6 +255,11 @@ export default function AnalisisContribucionesPage() {
                   </div>
                 </div>
               ))}
+              {topUsuarios.length === 0 && (
+                <div className="text-sm text-gray-500 bg-slate-50 rounded-xl border border-slate-200 p-4">
+                  No hay datos de contribuciones para el filtro seleccionado.
+                </div>
+              )}
             </div>
           </div>
 
@@ -248,6 +326,16 @@ export default function AnalisisContribucionesPage() {
                         <h3 className="text-xl font-bold text-[#1b3d70]">Equipo {team.equipo}</h3>
                         <p className="text-sm text-gray-600">{team.integrantes} integrantes</p>
                       </div>
+
+                      <a
+                        href={equiposContribuciones.find((item) => item.equipo === team.equipo)?.github_repo || 'https://github.com'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-slate-800 transition-colors"
+                      >
+                        <i className="ri-github-fill"></i>
+                        Código GitHub
+                      </a>
 
                       <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
                         <Badge label="Total" value={`${team.totalContribuciones} commits`} tone="cyan" />
