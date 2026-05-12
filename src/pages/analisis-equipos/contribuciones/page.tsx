@@ -31,8 +31,6 @@ const numberFormatter = new Intl.NumberFormat('es-MX', {
   maximumFractionDigits: 1,
 });
 
-const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
-
 const getEstadoColor = (estado: string): string => {
   const normalized = estado.toLowerCase();
   if (normalized.includes('review')) return 'text-orange-700 bg-orange-100';
@@ -60,7 +58,6 @@ const buildTeamStats = (team: TeamContribuciones): TeamStats => {
 };
 
 export default function AnalisisContribucionesPage() {
-  const [simuladorBase, setSimuladorBase] = useState<number>(8.75);
   const [selectedTeamId, setSelectedTeamId] = useState<number | 'all'>('all');
 
   useEffect(() => {
@@ -265,44 +262,33 @@ export default function AnalisisContribucionesPage() {
 
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-cyan-100">
             <h2 className="text-xl font-bold text-[#1b3d70] mb-4 flex items-center gap-2">
-              <i className="ri-calculator-line text-indigo-600"></i>
-              Simulador de reparto de nota
+              <i className="ri-information-line text-indigo-600"></i>
+              Criterio de evaluación final
             </h2>
-            <p className="text-sm text-gray-600 mb-4">
-              Ajusta una nota base del equipo y revisa la propuesta por usuario con la fórmula:
-              <span className="font-mono text-[#1b3d70]"> nota_base × (% aporte real / % aporte ideal)</span>
-            </p>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-4">
-              <label htmlFor="nota-base" className="text-sm font-semibold text-[#1b3d70] block mb-2">
-                Nota base del sprint por equipo (0 a 10)
-              </label>
-              <input
-                id="nota-base"
-                type="number"
-                min={0}
-                max={10}
-                step={0.1}
-                value={simuladorBase}
-                onChange={(e) => setSimuladorBase(clamp(Number(e.target.value || 0), 0, 10))}
-                className="w-full rounded-lg border border-slate-300 px-4 py-2 text-[#1b3d70] font-semibold focus:outline-none focus:ring-2 focus:ring-cyan-500"
-              />
-            </div>
-
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-gray-700 mb-4">
               <li className="flex items-start gap-2">
                 <i className="ri-checkbox-circle-line text-emerald-600 mt-0.5"></i>
-                Si el usuario aporta más que el ideal de su equipo, su nota sugerida sube.
+                El delta de equidad muestra qué tan arriba o abajo está cada integrante respecto al aporte ideal del equipo.
               </li>
               <li className="flex items-start gap-2">
                 <i className="ri-checkbox-circle-line text-emerald-600 mt-0.5"></i>
-                Si aporta menos que el ideal, su nota sugerida baja proporcionalmente.
+                Delta positivo: aporta más que el ideal. Delta negativo: aporta menos que el ideal.
               </li>
               <li className="flex items-start gap-2">
                 <i className="ri-alert-line text-amber-600 mt-0.5"></i>
-                Es una referencia cuantitativa. Puedes combinarla con calidad del código y revisión técnica.
+                Esta métrica es referencia cuantitativa de contribución, no una calificación final automática.
               </li>
             </ul>
+
+            <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+              <p className="font-semibold flex items-center gap-2 mb-1">
+                <i className="ri-shield-check-line"></i>
+                Leyenda importante
+              </p>
+              <p>
+                Luego hay una revisión de calidad de PRs por el profesor para determinar la nota final.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -353,17 +339,10 @@ export default function AnalisisContribucionesPage() {
                             <th className="px-3 py-2 text-center">% Equipo</th>
                             <th className="px-3 py-2 text-center">% Ideal</th>
                             <th className="px-3 py-2 text-center">Delta Equidad</th>
-                            <th className="px-3 py-2 text-center">Nota Sugerida</th>
                           </tr>
                         </thead>
                         <tbody>
                           {usuarios.map((user) => {
-                            const proposedScore = clamp(
-                              simuladorBase * (user.shareEquipo / Math.max(user.idealShareEquipo, 0.01)),
-                              0,
-                              10
-                            );
-
                             return (
                               <tr key={user.usuario} className="bg-white shadow-sm">
                                 <td className="px-3 py-3 rounded-l-lg">
@@ -376,7 +355,7 @@ export default function AnalisisContribucionesPage() {
                                   <div className="w-full bg-slate-200 rounded-full h-2 mt-1">
                                     <div
                                       className="bg-cyan-500 h-2 rounded-full"
-                                      style={{ width: `${clamp(user.shareEquipo, 0, 100)}%` }}
+                                      style={{ width: `${Math.min(Math.max(user.shareEquipo, 0), 100)}%` }}
                                     />
                                   </div>
                                 </td>
@@ -392,12 +371,6 @@ export default function AnalisisContribucionesPage() {
                                     {user.deltaEquidad >= 0 ? '+' : ''}
                                     {numberFormatter.format(user.deltaEquidad)}%
                                   </span>
-                                </td>
-                                <td className="px-3 py-3 text-center rounded-r-lg">
-                                  <span className="font-bold text-indigo-700 text-lg">
-                                    {numberFormatter.format(proposedScore)}
-                                  </span>
-                                  <div className="text-xs text-gray-500">sobre 10</div>
                                 </td>
                               </tr>
                             );
