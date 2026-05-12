@@ -73,7 +73,7 @@ export default function EvaluationDashboard() {
 
                   <div>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-700 font-semibold text-xs sm:text-sm">Desempeño Individual/Commits</span>
+                      <span className="text-gray-700 font-semibold text-xs sm:text-sm">Desempeño Individual/PRs</span>
                       <span className="text-[#1b3d70] font-bold text-sm sm:text-base">20%</span>
                     </div>
                     <div className="h-2 sm:h-3 bg-gray-200 rounded-full overflow-hidden">

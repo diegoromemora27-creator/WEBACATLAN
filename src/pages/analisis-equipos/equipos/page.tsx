@@ -117,7 +117,7 @@ export default function AnalisisEquiposTeams() {
                   </tr>
                   <tr className="bg-blue-50 hover:bg-blue-100 transition-colors">
                     <td className="border border-gray-300 px-4 py-3 font-medium text-gray-800">
-                      Desempeño Individual / Commits
+                      Desempeño Individual / PRs
                     </td>
                     <td className="border border-gray-300 px-4 py-3 text-center font-semibold text-blue-700">20%</td>
                   </tr>
@@ -407,7 +407,7 @@ export default function AnalisisEquiposTeams() {
               )}
             </div>
 
-            {/* Desempeño Individual / Commits Section */}
+            {/* Desempeño Individual / PRs Section */}
             <div className="bg-blue-50 rounded-xl border-2 border-blue-200 mb-6">
               {/* Dropdown Header */}
               <button
@@ -433,7 +433,7 @@ export default function AnalisisEquiposTeams() {
 
                   <p className="text-gray-700 mb-6">
                     Esta evaluación mide tu <strong>contribución técnica real</strong> al proyecto a través de dos 
-                    componentes: tu actividad en GitHub (commits, PRs, code reviews) y tu gestión de tareas en el 
+                    componentes: tu actividad en GitHub (PRs, PRs, code reviews) y tu gestión de tareas en el 
                     tablero del equipo (Jira/ClickUp/Trello).
                   </p>
 
@@ -447,7 +447,7 @@ export default function AnalisisEquiposTeams() {
                   </h4>
                   
                   <p className="text-sm text-gray-700 mb-4 italic">
-                    Se revisa el historial completo de commits, PRs y code reviews del alumno a lo largo de 
+                    Se revisa el historial completo de PRs, PRs y code reviews del alumno a lo largo de 
                     los 8 sprints. La calidad y consistencia del trabajo técnico son fundamentales.
                   </p>
 
@@ -462,7 +462,7 @@ export default function AnalisisEquiposTeams() {
                       <tbody>
                         <tr className="bg-green-50 hover:bg-green-100">
                           <td className="border border-blue-300 px-4 py-2 text-gray-700">
-                            <strong>Commits consistentes</strong> en todos los sprints, mensajes descriptivos, 
+                            <strong>PRs consistentes</strong> en todos los sprints, mensajes descriptivos, 
                             participó en PRs y/o code reviews
                           </td>
                           <td className="border border-blue-300 px-4 py-2 text-center font-bold text-green-700">
@@ -471,7 +471,7 @@ export default function AnalisisEquiposTeams() {
                         </tr>
                         <tr className="bg-blue-50 hover:bg-blue-100">
                           <td className="border border-blue-300 px-4 py-2 text-gray-700">
-                            <strong>Commits en la mayoría</strong> de los sprints, mensajes aceptables, 
+                            <strong>PRs en la mayoría</strong> de los sprints, mensajes aceptables, 
                             al menos algunos PRs
                           </td>
                           <td className="border border-blue-300 px-4 py-2 text-center font-bold text-blue-700">
@@ -480,7 +480,7 @@ export default function AnalisisEquiposTeams() {
                         </tr>
                         <tr className="bg-yellow-50 hover:bg-yellow-100">
                           <td className="border border-blue-300 px-4 py-2 text-gray-700">
-                            <strong>Commits irregulares</strong>, mensajes genéricos (fix, update), 
+                            <strong>PRs irregulares</strong>, mensajes genéricos (fix, update), 
                             pocos o ningún PR
                           </td>
                           <td className="border border-blue-300 px-4 py-2 text-center font-bold text-yellow-700">
@@ -489,7 +489,7 @@ export default function AnalisisEquiposTeams() {
                         </tr>
                         <tr className="bg-orange-50 hover:bg-orange-100">
                           <td className="border border-blue-300 px-4 py-2 text-gray-700">
-                            <strong>Commits solo al final</strong> de varios sprints o concentrados en 1–2 sprints
+                            <strong>PRs solo al final</strong> de varios sprints o concentrados en 1–2 sprints
                           </td>
                           <td className="border border-blue-300 px-4 py-2 text-center font-bold text-orange-700">
                             3 pts
@@ -514,10 +514,10 @@ export default function AnalisisEquiposTeams() {
                       Buenas prácticas para maximizar puntos:
                     </p>
                     <ul className="text-xs text-gray-700 space-y-1 ml-4">
-                      <li>✓ Commits pequeños y frecuentes en lugar de commits gigantes</li>
+                      <li>✓ PRs pequeños y frecuentes en lugar de PRs gigantes</li>
                       <li>✓ Mensajes descriptivos: "Implementa validación de formulario de login" en lugar de "fix"</li>
                       <li>✓ Participar en Pull Requests: crear, revisar código de compañeros, comentar</li>
-                      <li>✓ Distribuir commits a lo largo de todos los sprints (no solo al final)</li>
+                      <li>✓ Distribuir PRs a lo largo de todos los sprints (no solo al final)</li>
                     </ul>
                   </div>
                 </div>
@@ -620,7 +620,7 @@ export default function AnalisisEquiposTeams() {
                   <div className="border-l-4 border-green-500 pl-3 bg-green-50 p-3 rounded">
                     <p className="font-semibold text-green-800 mb-2">✅ Caso ideal - Desarrollador activo:</p>
                     <ul className="space-y-1 text-gray-700">
-                      <li>• <strong>GitHub:</strong> 40+ commits distribuidos en los 8 sprints, mensajes claros 
+                      <li>• <strong>GitHub:</strong> 40+ PRs distribuidos en los 8 sprints, mensajes claros 
                       ("Implementa API de usuarios", "Refactoriza servicio de autenticación"), creó 5 PRs, 
                       revisó código de 3 compañeros → <strong>12 pts</strong></li>
                       <li>• <strong>Tablero:</strong> 24 tickets completados (3 por sprint en promedio), todos 
@@ -635,7 +635,7 @@ export default function AnalisisEquiposTeams() {
                   <div className="border-l-4 border-yellow-500 pl-3 bg-yellow-50 p-3 rounded">
                     <p className="font-semibold text-yellow-800 mb-2">⚠️ Caso intermedio - Trabajo irregular:</p>
                     <ul className="space-y-1 text-gray-700">
-                      <li>• <strong>GitHub:</strong> 20 commits concentrados en 5 sprints (3 sprints sin actividad), 
+                      <li>• <strong>GitHub:</strong> 20 PRs concentrados en 5 sprints (3 sprints sin actividad), 
                       mensajes genéricos ("update", "fix bug"), sin PRs ni code reviews → <strong>6 pts</strong></li>
                       <li>• <strong>Tablero:</strong> 12 tickets cerrados pero sin comentarios, la mayoría movidos 
                       solo al final de cada sprint → <strong>4 pts</strong></li>
@@ -648,7 +648,7 @@ export default function AnalisisEquiposTeams() {
                   <div className="border-l-4 border-red-500 pl-3 bg-red-50 p-3 rounded">
                     <p className="font-semibold text-red-800 mb-2">❌ Caso crítico - Sin evidencia técnica:</p>
                     <ul className="space-y-1 text-gray-700">
-                      <li>• <strong>GitHub:</strong> 5 commits totales concentrados en los últimos 2 sprints, 
+                      <li>• <strong>GitHub:</strong> 5 PRs totales concentrados en los últimos 2 sprints, 
                       todos con mensaje "update" → <strong>3 pts</strong></li>
                       <li>• <strong>Tablero:</strong> Solo 2 tickets asignados en todo el semestre, sin movimientos 
                       visibles ni comentarios → <strong>2 pts</strong></li>
@@ -661,7 +661,7 @@ export default function AnalisisEquiposTeams() {
                   <div className="border-l-4 border-purple-500 pl-3 bg-purple-50 p-3 rounded">
                     <p className="font-semibold text-purple-800 mb-2">🎯 Caso avanzado - Líder técnico:</p>
                     <ul className="space-y-1 text-gray-700">
-                      <li>• <strong>GitHub:</strong> 60+ commits bien distribuidos, mensajes con contexto completo, 
+                      <li>• <strong>GitHub:</strong> 60+ PRs bien distribuidos, mensajes con contexto completo, 
                       creó 8 PRs con descripciones detalladas, hizo 10+ code reviews con sugerencias constructivas 
                       → <strong>12 pts</strong></li>
                       <li>• <strong>Tablero:</strong> 30 tickets completados, todos con comentarios técnicos, 
@@ -685,14 +685,14 @@ export default function AnalisisEquiposTeams() {
                   <li className="flex items-start">
                     <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
                     <span>
-                      <strong>Consistencia {'>'} Cantidad:</strong> Es mejor tener commits pequeños distribuidos en 
-                      todos los sprints que muchos commits concentrados al final del semestre.
+                      <strong>Consistencia {'>'} Cantidad:</strong> Es mejor tener PRs pequeños distribuidos en 
+                      todos los sprints que muchos PRs concentrados al final del semestre.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <i className="ri-arrow-right-circle-fill text-amber-600 mr-2 mt-1"></i>
                     <span>
-                      <strong>Calidad de mensajes:</strong> Los commits con mensajes descriptivos demuestran 
+                      <strong>Calidad de mensajes:</strong> Los PRs con mensajes descriptivos demuestran 
                       profesionalismo y facilitan el trabajo en equipo.
                     </span>
                   </li>

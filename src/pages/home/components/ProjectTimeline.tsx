@@ -26,7 +26,7 @@ export default function ProjectTimeline() {
     {
       number: 4,
       title: 'Commits Quincenales',
-      description: 'Mínimo 3 commits significativos',
+      description: 'Mínimo 3 PRs significativos',
       icon: 'ri-git-commit-line'
     },
     {
