@@ -15,3 +15,27 @@
     font-family: 'Montserrat', sans-serif;
   }
 }
+
+@layer utilities {
+  .subtle-x-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
+  }
+
+  .subtle-x-scroll::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .subtle-x-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .subtle-x-scroll::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.35);
+    border-radius: 999px;
+  }
+
+  .subtle-x-scroll:hover::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.45);
+  }
+}

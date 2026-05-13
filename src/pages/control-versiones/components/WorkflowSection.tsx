@@ -13,8 +13,8 @@ export default function WorkflowSection() {
     {
       number: '2',
       title: 'Trabajo Local y Sincronización',
-      subtitle: 'Commits frecuentes',
-      description: 'Haces tus cambios, realizas commits frecuentes y subes tu rama a la nube.',
+      subtitle: 'PRs frecuentes',
+      description: 'Haces tus cambios, realizas PRs frecuentes y subes tu rama a la nube.',
       command: 'git add . → git commit -m "feat: add toggle switch" → git push origin feature/dark-mode',
       reason: 'Mantén un historial claro y sincroniza tu trabajo constantemente.',
       icon: 'ri-upload-cloud-line',

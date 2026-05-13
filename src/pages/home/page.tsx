@@ -7,6 +7,7 @@ import ProfessorProfile from './components/ProfessorProfile';
 import EvaluationDashboard from './components/EvaluationDashboard';
 import ProjectTimeline from './components/ProjectTimeline';
 import Gamification from './components/Gamification';
+import ReviewsRecapSection from './components/ReviewsRecapSection';
 import Footer from './components/Footer';
 
 export default function HomePage() {
@@ -14,7 +15,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'curso', 'profesor', 'evaluacion', 'proyecto', 'gamificacion'];
+      const sections = ['inicio', 'curso', 'profesor', 'evaluacion', 'proyecto', 'gamificacion', 'recap'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -43,6 +44,7 @@ export default function HomePage() {
       <EvaluationDashboard />
       <ProjectTimeline />
       <Gamification />
+      <ReviewsRecapSection />
       <Footer />
     </div>
   );

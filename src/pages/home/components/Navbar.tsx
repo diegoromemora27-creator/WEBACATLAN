@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
-export default function Navbar({ activeSection }) {
+export default function Navbar({ activeSection = '' }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTopicsOpen, setIsTopicsOpen] = useState(false);
@@ -123,6 +123,7 @@ export default function Navbar({ activeSection }) {
     { id: 'evaluacion', label: 'Evaluación' },
     { id: 'proyecto', label: 'Proyecto' },
     { id: 'gamificacion', label: 'Recompensas' },
+    { id: 'recap', label: 'Recap' },
   ];
 
   const topicItems = [
