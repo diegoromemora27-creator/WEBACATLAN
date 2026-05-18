@@ -26,6 +26,7 @@ import BasesDatosPage from '../pages/backend/bases-datos/page';
 import AnalisisEquiposTeams from "../pages/analisis-equipos/equipos/page";
 import AnalisisSprint1 from "../pages/analisis-equipos/sprint-1/page";
 import AnalisisContribuciones from "../pages/analisis-equipos/contribuciones/page";
+import AnalisisCalificaciones from "../pages/analisis-equipos/calificaciones/page";
 import ExamenesPrincipal from "../pages/examenes/page";
 import Examenes2 from "../pages/examenes2/page";
 
@@ -142,6 +143,10 @@ const routes: RouteObject[] = [
   {
     path: '/analisis-equipos/contribuciones',
     element: <AnalisisContribuciones />,
+  },
+  {
+    path: '/analisis-equipos/calificaciones',
+    element: <AnalisisCalificaciones />,
   },
   {
     path: '/examenes/examen-1',

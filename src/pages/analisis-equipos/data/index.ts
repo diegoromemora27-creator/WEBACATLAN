@@ -43,3 +43,18 @@ export {
   type TeamContribuciones,
   type IntegranteContribucion,
 } from './teamsContributionsData';
+
+// Exportar datos de calificaciones
+export {
+  estudiantesCalificaciones,
+  getNombreEquipo,
+  getVercelUrl,
+  getEquiposConEstudiantes,
+  getEstudiantesPrimeraVuelta,
+  getPromedioEquipo,
+  proyectoEvaluaciones,
+  getProyectoEvaluacion,
+  type EstudianteCalificacion,
+  type CalificacionFinal,
+  type ProyectoEvaluacion,
+} from './calificacionesData';
