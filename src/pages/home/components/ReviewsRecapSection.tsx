@@ -427,7 +427,7 @@ export default function ReviewsRecapSection() {
 
                   <div>
                     <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="events-attended">
-                      Eventos a los que asististe (opcional)
+                      Eventos / Cursos a los que asististe (opcional)
                     </label>
                     <textarea
                       id="events-attended"
