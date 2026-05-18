@@ -106,6 +106,32 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
       'Reemplazar las imágenes no relacionadas del banner (Fedelobo y Goku SSSJ7) por contenido acorde al proyecto',
     ],
   },
+  {
+    equipoId: 2,
+    calificacion: 20,
+    comentarios: [
+      'Proyecto destacado del curso por su nivel de desarrollo y funcionalidad',
+      'Para obtener el puntaje máximo únicamente resta verificar la integración de Supabase en el proyecto',
+    ],
+  },
+  {
+    equipoId: 6,
+    calificacion: 15,
+    comentarios: [
+      'Algunas fuentes pierden legibilidad al confundirse con los colores de fondo utilizados',
+      'No existe una página 404 para rutas inexistentes',
+      'La navegación del header no funciona correctamente',
+    ],
+  },
+  {
+    equipoId: 9,
+    calificacion: 5,
+    comentarios: [
+      'Las páginas o funcionalidades no implementadas deben mostrar una página 404 en lugar de quedar sin contenido',
+      'Se requiere agregar más vistas con contenido estático para demostrar mayor cobertura funcional del proyecto',
+      'Es necesario implementar al menos una integración funcional con Supabase',
+    ],
+  },
 ];
 
 /**
@@ -188,8 +214,10 @@ export function getNombreEquipo(equipoId: number): string {
 export function getVercelUrl(equipoId: number): string {
   const urls: Record<number, string> = {
     1: 'https://devstudy-eight.vercel.app/',
+    2: 'https://frontend-project-two-mu.vercel.app/',
     3: 'https://front-end-project-beta-three.vercel.app/',
     4: 'https://lynx-beige.vercel.app/',
+    6: 'https://front-end-proyecto-two.vercel.app/',
     7: 'https://frontend-next-js-ochre.vercel.app/',
     8: 'https://front-end-proyecto-lake.vercel.app/',
     9: 'https://front-end-proyecto-vert.vercel.app/',

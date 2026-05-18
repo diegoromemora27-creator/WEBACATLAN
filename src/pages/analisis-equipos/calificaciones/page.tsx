@@ -118,7 +118,6 @@ export default function CalificacionesPage() {
   const [selectedTeamId, setSelectedTeamId] = useState<number | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [vista, setVista] = useState<'general' | 'individual'>('general');
-  const [showPrimeraVuelta, setShowPrimeraVuelta] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -334,11 +333,10 @@ export default function CalificacionesPage() {
         </section>
 
         {/* Stats */}
-        <section className="mb-10 grid grid-cols-1 md:grid-cols-4 gap-4">
+        <section className="mb-10 grid grid-cols-1 md:grid-cols-3 gap-4">
           <StatCard label="Estudiantes" icon="ri-user-line" value={stats.total} tone="amber" />
           <StatCard label="Promedio Exámenes" icon="ri-bar-chart-2-line" value={stats.promExamenes.toFixed(1)} tone="indigo" />
           <StatCard label="Aprobados" icon="ri-checkbox-circle-line" value={stats.aprobados} tone="emerald" />
-          <StatCard label="Primera Vuelta" icon="ri-alert-line" value={stats.enPV} tone="rose" />
         </section>
 
         {/* Nota sobre PRs */}
@@ -357,43 +355,21 @@ export default function CalificacionesPage() {
           </div>
         </section>
 
-        {/* Primera Vuelta Warning - Collapsible */}
+        {/* Primera Vuelta Warning */}
         {estudiantesPV.length > 0 && vista === 'general' && (
           <section className="mb-10">
-            <div className="bg-rose-50 rounded-2xl shadow-lg border border-rose-200 overflow-hidden">
-              <button
-                onClick={() => setShowPrimeraVuelta(!showPrimeraVuelta)}
-                className="w-full px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-rose-100 transition-colors"
-              >
-                <h2 className="text-xl font-bold text-rose-700 flex items-center gap-2">
-                  <i className="ri-error-warning-line"></i>
-                  Estudiantes en Primera Vuelta (F1)
-                  <span className="ml-2 inline-flex px-2.5 py-0.5 rounded-full text-sm bg-rose-200 text-rose-800">{estudiantesPV.length}</span>
+            <div className="bg-rose-50 rounded-2xl shadow-lg border border-rose-200 px-6 py-5 flex items-center gap-4">
+              <div className="h-12 w-12 rounded-xl bg-rose-500 text-white flex items-center justify-center shrink-0">
+                <i className="ri-alert-line text-2xl"></i>
+              </div>
+              <div>
+                <h2 className="text-lg font-bold text-rose-700 flex items-center gap-2">
+                  <span>Estudiantes en situación de alerta (F1)</span>
                 </h2>
-                <i className={`ri-arrow-down-s-line text-xl text-rose-600 transition-transform duration-200 ${showPrimeraVuelta ? 'rotate-180' : ''}`}></i>
-              </button>
-              {showPrimeraVuelta && (
-                <div className="px-6 pb-6">
-                  <p className="text-sm text-rose-600 mb-4">
-                    Estos estudiantes tienen tareas no entregadas o calificación 0 en algún examen.
-                  </p>
-                  <div className="space-y-3">
-                    {estudiantesPV.map((est) => (
-                      <div key={est.nombre} className="bg-white rounded-xl p-4 border border-rose-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                        <div>
-                          <p className="font-semibold text-rose-800">{est.nombre}</p>
-                          <p className="text-sm text-rose-600">Equipo {est.equipoId} - {getNombreEquipo(est.equipoId)}</p>
-                        </div>
-                        <div className="text-right">
-                          <span className="inline-flex px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700">
-                            {est.motivoPrimeraVuelta}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+                <p className="text-sm text-rose-600 mt-1">
+                  Revisar situación directamente con el profesor para más detalles.
+                </p>
+              </div>
             </div>
           </section>
         )}
