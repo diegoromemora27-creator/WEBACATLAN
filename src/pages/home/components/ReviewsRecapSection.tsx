@@ -315,7 +315,7 @@ export default function ReviewsRecapSection() {
               <>
                 <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
                   <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="email-validation">
-                    Correo registrado
+                    Correo registrado en el SEA
                   </label>
                   <div className="flex flex-col gap-3 sm:flex-row">
                     <input
@@ -323,7 +323,7 @@ export default function ReviewsRecapSection() {
                       type="email"
                       value={emailToValidate}
                       onChange={(event) => setEmailToValidate(event.target.value)}
-                      placeholder="tu_correo@pcpuma.acatlan.unam.mx"
+                      placeholder="tu_correo"
                       className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-[#1f4f8b] focus:ring-2 focus:ring-[#1f4f8b]/20"
                     />
                     <button
