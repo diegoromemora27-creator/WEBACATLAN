@@ -144,7 +144,10 @@ const routes: RouteObject[] = [
     path: '/analisis-equipos/contribuciones',
     element: <AnalisisContribuciones />,
   },
-
+  {
+    path: '/analisis-equipos/calificaciones',
+    element: <AnalisisCalificaciones />,
+  },
   {
     path: '/examenes/examen-1',
     element: <ExamenesPrincipal />,

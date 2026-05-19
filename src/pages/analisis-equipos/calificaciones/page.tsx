@@ -17,9 +17,9 @@ const FORM_AUTOEVALUACION = 'https://docs.google.com/forms/d/e/1FAIpQLScs_f0NFge
 
 // Mapa de nombre real -> usuario de GitHub para PRs
 const mapNombreAUsuarioGH: Record<string, string> = {
-  'Hernández Peña Ángel Adrián': 'SinR0stro',
+  'Hernández Peña Ángel Adrián': 'SinR0str0',
   'Gil De Gaona Jazmín': 'JazGil',
-  'Medina Hernández Ramón': 'ZairaP-coder',
+  'Medina Hernández Ramón': 'RamonMedina04',
   'Buenrostro Cruces Saraí': 'SaraiCruces',
   'Velázquez Martínez Antonio': 'Antonio4240',
   'Herrera Franco Samuel': 'SamuelHeFra',
@@ -52,9 +52,9 @@ const mapNombreAUsuarioGH: Record<string, string> = {
   'Sebastián Cervantes Vanesa': 'Vanesa-SC28',
   'González Hernández Leslie Danaé': 'Less-lie',
   'Báez Villanueva Mauricio Omar': 'mauriciobaezv',
-  'Cortés Cortés Bryan Yael': 'Arili22',
-  'Ríos Barrera Arantza Ilian': 'Arili22',
-  'Romero Velázquez Luis Fernando': '',
+  'Cortés Cortés Bryan Yael': '317110375',
+  'Ríos Barrera Arantza Ilian': 'Ariiiiii22',
+  'Romero Velázquez Luis Fernando': '320584622-glitch',
   'Valdovinos Sedano Daniela Ariday': '',
   'Rojas Uriostigue Rodrigo': '',
   'Luna Martínez Escobar Guillermo': '',

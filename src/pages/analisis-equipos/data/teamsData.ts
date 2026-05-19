@@ -176,7 +176,7 @@ export const teams: Team[] = [
       { name: "Cortes Cortes Bryan Yael", email: "317110375@pcpuma.acatlan.unam.mx" },
       { name: "Ríos Barrera Arantza Ilian", email: "321103097@pcpuma.acatlan.unam.mx" },
     ],
-    githubUrl: "https://github.com/317110375/Equipo9-",
+    githubUrl: "https://github.com/EQUIPO9-DESARROLLOWEB/Front-end-proyecto",
     boardUrl: "https://docs.google.com/document/d/1eVdBiVaXQEN7dR-_-o9rjnTMMecKeFFMJqoCcMiTV68/edit",
     boardTool: "Other",
   },

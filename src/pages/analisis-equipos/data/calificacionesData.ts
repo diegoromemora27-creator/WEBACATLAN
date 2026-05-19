@@ -217,6 +217,7 @@ export function getVercelUrl(equipoId: number): string {
     2: 'https://frontend-project-two-mu.vercel.app/',
     3: 'https://front-end-project-beta-three.vercel.app/',
     4: 'https://lynx-beige.vercel.app/',
+    5: 'https://front-end-proyect-one.vercel.app/',
     6: 'https://front-end-proyecto-two.vercel.app/',
     7: 'https://frontend-next-js-ochre.vercel.app/',
     8: 'https://front-end-proyecto-lake.vercel.app/',

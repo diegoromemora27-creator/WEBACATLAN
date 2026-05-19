@@ -106,7 +106,7 @@ export const onlyTeams: SimpleTeam[] = [
         email: "421103605@pcpuma.acatlan.unam.mx",
       },
     ],
-    githubUrl: "https://github.com/RecursosMAC/Recursos",
+    githubUrl: "https://github.com/RecursosMAC/FrontEnd-Project",
     boardUrl:
       "https://www.notion.so/StudyLink-30dc408c7286802691b1d11e3702c9de?source=copy_link",
     boardTool: "Notion",
@@ -135,7 +135,7 @@ export const onlyTeams: SimpleTeam[] = [
         email: "318352378@pcpuma.acatlan.unam.mx",
       },
     ],
-    githubUrl: "https://github.com/Null-Nexus",
+    githubUrl: "https://github.com/Null-Nexus/Frontend-Proyecto",
     boardUrl: "https://app.clickup.com/9017897580/v/s/90174290770",
     boardTool: "ClickUp",
   },
@@ -290,7 +290,7 @@ export const onlyTeams: SimpleTeam[] = [
         email: "424066376@pcpuma.acatlan.unam.mx",
       },
     ],
-    githubUrl: "https://github.com/317110375/Equipo9-",
+    githubUrl: "https://github.com/EQUIPO9-DESARROLLOWEB/Front-end-proyecto",
     boardUrl:
       "https://docs.google.com/document/d/1eVdBiVaXQEN7dR-_-o9rjnTMMecKeFFMJqoCcMiTV68/edit?usp=sharing",
     boardTool: "Google Docs",
