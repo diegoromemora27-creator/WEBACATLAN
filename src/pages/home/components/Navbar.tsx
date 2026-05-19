@@ -208,7 +208,6 @@ export default function Navbar({ activeSection = '' }) {
         { id: 'analisis-equipos-teams', label: 'Teams', icon: 'ri-team-line', path: '/analisis-equipos/equipos' },
         { id: 'analisis-equipos-sprint1', label: 'Sprint 1 Análisis', icon: 'ri-bar-chart-grouped-line', path: '/analisis-equipos/sprint-1' },
         { id: 'analisis-equipos-contribuciones', label: 'Dashboard Contribuciones', icon: 'ri-pie-chart-2-line', path: '/analisis-equipos/contribuciones' },
-        { id: 'analisis-equipos-calificaciones', label: 'Calificaciones', icon: 'ri-file-list-3-line', path: '/analisis-equipos/calificaciones' },
       ]
     },
     { 
