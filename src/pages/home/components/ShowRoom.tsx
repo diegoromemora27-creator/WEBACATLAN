@@ -38,7 +38,7 @@ const projects = [
   },
   {
     id: 2,
-    name: '4 de Asada',
+    name: 'Garra Deal',
     description: 'Aplicación para regularizar y formalizar el comercio en el tianguis de la FES Acatlán, permitiendo a estudiantes verificados gestionar sus productos y ofrecer servicios como clases o cursos, apoyando así el sustento de sus estudios.',
     vercelUrl: 'https://frontend-project-two-mu.vercel.app/',
     githubUrl: 'https://github.com/4-de-Asada',
@@ -56,7 +56,7 @@ const projects = [
   },
   {
     id: 4,
-    name: 'Null Nexus',
+    name: 'UNAM Estudia',
     description: 'Plataforma integral para estudiantes de la UNAM que unifica la vida estudiantil: gestión de tareas, servicio social, asesorías con tutores certificados y trabajo en equipo, centralizando recursos e información académica en un solo lugar.',
     vercelUrl: 'https://lynx-beige.vercel.app/',
     githubUrl: 'https://github.com/Null-Nexus/Frontend-Proyecto',
@@ -74,7 +74,7 @@ const projects = [
   },
   {
     id: 6,
-    name: 'Ángeles de MAC',
+    name: 'Recursos Académicos',
     description: 'Red de material académico compartido por estudiantes, tutores y egresados, ofreciendo apuntes, ejercicios y recursos de apoyo para profundizar el conocimiento en las asignaturas de la comunidad universitaria.',
     vercelUrl: 'https://front-end-proyecto-two.vercel.app/',
     githubUrl: 'https://github.com/Angeles-de-MAC',
@@ -92,7 +92,7 @@ const projects = [
   },
   {
     id: 8,
-    name: 'ExtraWeb0rdinarios',
+    name: 'Enlace MAC',
     description: 'Plataforma de gestión de servicio social, pasantías e internships que permite consultar servicios aprobados, dar seguimiento a cada etapa del trámite y contar con una guía centralizada de tareas pendientes y requisitos.',
     vercelUrl: 'https://front-end-proyecto-lake.vercel.app/',
     githubUrl: 'https://github.com/ExtraWeb0rdinarios',
@@ -231,6 +231,8 @@ function ProjectCard({ project, onPreview }: { project: typeof projects[0]; onPr
             <img
               src={project.image}
               alt={`Preview de ${project.name}`}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
             />
             {/* Hover overlay */}
