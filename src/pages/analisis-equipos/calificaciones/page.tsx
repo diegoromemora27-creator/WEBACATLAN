@@ -103,8 +103,9 @@ function calcularNotaPRs(nombre: string, equipoId: number): number {
   const shareIdeal = 1 / numIntegrantes; // ej: 0.25 para 4 miembros
 
   // Si tu share >= ideal, tienes 100. Si no, proporcional.
-  if (shareReal >= shareIdeal) return 100;
-  return Math.round((shareReal / shareIdeal) * 100);
+  // Calibración: -10 pts a todas las notas de contribución individual
+  const notaBase = shareReal >= shareIdeal ? 100 : Math.round((shareReal / shareIdeal) * 100);
+  return Math.max(0, notaBase - 10);
 }
 
 function getColorByGrade(grade: number): string {
