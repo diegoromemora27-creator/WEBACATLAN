@@ -146,7 +146,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/analisis-equipos/calificaciones',
-    element: <NotFound />,
+    element: <AnalisisCalificaciones />,
   },
   {
     path: '/examenes/examen-1',

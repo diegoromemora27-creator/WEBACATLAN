@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 
 // Import project screenshots
-import imgDevStudy from '../../assets/devstudy-eight.vercel.app_.png';
+import imgDevStudy from '../../assets/devstudy-eight.vercel.app_ (1).png';
 import img4deAsada from '../../assets/4deasada.png';
 import imgStudyLink from '../../assets/studylink.png';
 import imgNullNexus from '../../assets/NullNexus.png';
 import imgAcaShop from '../../assets/acashop.png';
+import imgMundial from '../../assets/mundial.png';
 import imgAngelesMac from '../../assets/Angelesmac.png';
 import imgAcademicosWeb from '../../assets/AcademicosWeb.png';
 import imgExtraWebOrdinarios from '../../assets/WebExtraordinarios.png';
@@ -112,9 +113,9 @@ const projects = [
     id: 10,
     name: 'Monitoreo',
     description: 'Sistema de monitoreo y visualización de datos en tiempo real.',
-    vercelUrl: '',
+    vercelUrl: 'https://front-end-project-yd84.vercel.app/',
     githubUrl: 'https://github.com/Equipo10MAC',
-    image: null,
+    image: imgMundial,
     members: ['Leonardo Velázquez', 'Rodrigo Rojas', 'Guillermo Luna', 'Ricardo Martínez', 'Jesús Álvarez'],
   },
 ];

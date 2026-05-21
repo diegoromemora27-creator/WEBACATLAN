@@ -61,7 +61,7 @@ export interface ProyectoEvaluacion {
 export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   {
     equipoId: 1,
-    calificacion: 10,
+    calificacion: 20,
     comentarios: [
       'El propósito del proyecto no es evidente al navegar la aplicación — falta comunicar claramente el objetivo',
       'No existe una página 404 para rutas inexistentes en el sistema de navegación',
@@ -72,12 +72,8 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 3,
-    calificacion: 10,
-    comentarios: [
-      'La aplicación presenta pocas funcionalidades implementadas en relación con el alcance esperado del proyecto',
-      'Múltiples rutas devuelven error 404 — se recomienda agregar al menos una vista adicional, aunque sea con contenido estático, para demostrar mayor cobertura funcional',
-      'No se ha verificado la integración con Supabase; es necesario confirmar que la conexión y operaciones con la base de datos estén operativas',
-    ],
+    calificacion: 30,
+    comentarios: [],
   },
   {
     equipoId: 4,
@@ -91,27 +87,20 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 7,
-    calificacion: 20,
-    comentarios: [
-      'Proyecto destacado del curso por su calidad y desarrollo',
-      'Para alcanzar el puntaje completo solo resta verificar la conexión y uso funcional de Supabase en el proyecto',
-    ],
+    calificacion: 30,
+    comentarios: [],
   },
   {
     equipoId: 8,
-    calificacion: 20,
-    comentarios: [
-      'Proyecto destacado del curso por su calidad y desarrollo',
-      'Falta verificar la integración funcional con Supabase',
-      'Reemplazar las imágenes no relacionadas del banner (Fedelobo y Goku SSSJ7) por contenido acorde al proyecto',
-    ],
+    calificacion: 30,
+    comentarios: [],
   },
   {
     equipoId: 2,
-    calificacion: 20,
+    calificacion: 30,
     comentarios: [
       'Proyecto destacado del curso por su nivel de desarrollo y funcionalidad',
-      'Para obtener el puntaje máximo únicamente resta verificar la integración de Supabase en el proyecto',
+      'Integración de Supabase verificada',
     ],
   },
   {
@@ -125,12 +114,22 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 9,
-    calificacion: 5,
+    calificacion: 10,
     comentarios: [
       'Las páginas o funcionalidades no implementadas deben mostrar una página 404 en lugar de quedar sin contenido',
       'Se requiere agregar más vistas con contenido estático para demostrar mayor cobertura funcional del proyecto',
       'Es necesario implementar al menos una integración funcional con Supabase',
     ],
+  },
+  {
+    equipoId: 5,
+    calificacion: 15,
+    comentarios: [],
+  },
+  {
+    equipoId: 10,
+    calificacion: 20,
+    comentarios: [],
   },
 ];
 
@@ -176,16 +175,16 @@ export const estudiantesCalificaciones: EstudianteCalificacion[] = [
   { nombre: 'Velázquez Martínez Antonio', equipoId: 2, tareasNoEntregadas: [], examen1: 60, examen2: 99, examen3: 100, calificacionExamenes: 86, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Mendoza Hernández Daniela Itzel', equipoId: 4, tareasNoEntregadas: [], examen1: 80, examen2: 74, examen3: 100, calificacionExamenes: 85, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Luna Martínez Escobar Guillermo', equipoId: 10, tareasNoEntregadas: [], examen1: 76, examen2: 78, examen3: 100, calificacionExamenes: 85, primeraVuelta: false, motivoPrimeraVuelta: '' },
-  { nombre: 'Villeda López Saúl', equipoId: 2, tareasNoEntregadas: [], examen1: 95, examen2: 60, examen3: 100, calificacionExamenes: 85, primeraVuelta: false, motivoPrimeraVuelta: '' },
+  { nombre: 'Villeda López Saúl', equipoId: 2, tareasNoEntregadas: [], examen1: 95, examen2: 0, examen3: 100, calificacionExamenes: 65, primeraVuelta: true, motivoPrimeraVuelta: 'Examen 2 con calificación 0' },
   { nombre: 'Márquez Espinoza Alyn Verónica', equipoId: 7, tareasNoEntregadas: [], examen1: 64, examen2: 87, examen3: 100, calificacionExamenes: 84, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Cortés Cortés Bryan Yael', equipoId: 9, tareasNoEntregadas: [], examen1: 69, examen2: 78, examen3: 100, calificacionExamenes: 82, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Báez Villanueva Mauricio Omar', equipoId: 8, tareasNoEntregadas: [], examen1: 62, examen2: 80, examen3: 100, calificacionExamenes: 81, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Chávez González Itzel', equipoId: 5, tareasNoEntregadas: [], examen1: 63, examen2: 71, examen3: 100, calificacionExamenes: 78, primeraVuelta: false, motivoPrimeraVuelta: '' },
-  { nombre: 'Hernández González Armando', equipoId: 7, tareasNoEntregadas: ['T3'], examen1: 73, examen2: 47, examen3: 100, calificacionExamenes: 73, primeraVuelta: true, motivoPrimeraVuelta: 'Tarea T3 no entregada' },
-  { nombre: 'Velázquez García Leonardo Daniel', equipoId: 10, tareasNoEntregadas: ['T3'], examen1: 67, examen2: 48, examen3: 100, calificacionExamenes: 72, primeraVuelta: true, motivoPrimeraVuelta: 'Tarea T3 no entregada' },
+  { nombre: 'Hernández González Armando', equipoId: 7, tareasNoEntregadas: [], examen1: 73, examen2: 47, examen3: 100, calificacionExamenes: 73, primeraVuelta: true, motivoPrimeraVuelta: 'Examen 2 no aprobado' },
+  { nombre: 'Velázquez García Leonardo Daniel', equipoId: 10, tareasNoEntregadas: [], examen1: 67, examen2: 48, examen3: 100, calificacionExamenes: 72, primeraVuelta: true, motivoPrimeraVuelta: 'Examen 2 no aprobado' },
   { nombre: 'Pérez López Zaira Cecilia', equipoId: 1, tareasNoEntregadas: [], examen1: 72, examen2: 0, examen3: 100, calificacionExamenes: 57, primeraVuelta: true, motivoPrimeraVuelta: 'Examen 2 con calificación 0' },
-  { nombre: 'Martínez Hernández Ricardo Ramón', equipoId: 10, tareasNoEntregadas: ['T3'], examen1: 60, examen2: 0, examen3: 100, calificacionExamenes: 53, primeraVuelta: true, motivoPrimeraVuelta: 'Tarea T3 no entregada y Examen 2 con calificación 0' },
-  { nombre: 'Raygoza Islas José Ángel', equipoId: 3, tareasNoEntregadas: [], examen1: 49, examen2: 0, examen3: 100, calificacionExamenes: 50, primeraVuelta: true, motivoPrimeraVuelta: 'Examen 2 con calificación 0' },
+  { nombre: 'Martínez Hernández Ricardo Ramón', equipoId: 10, tareasNoEntregadas: [], examen1: 72, examen2: 72, examen3: 100, calificacionExamenes: 81, primeraVuelta: false, motivoPrimeraVuelta: '' },
+  { nombre: 'Raygoza Islas José Ángel', equipoId: 3, tareasNoEntregadas: [], examen1: 61, examen2: 61, examen3: 100, calificacionExamenes: 74, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Valdovinos Sedano Daniela Ariday', equipoId: 9, tareasNoEntregadas: ['T3', 'T1', 'T2'], examen1: 0, examen2: 0, examen3: 100, calificacionExamenes: 33, primeraVuelta: true, motivoPrimeraVuelta: 'Tareas T1, T2, T3 no entregadas y ambos exámenes con calificación 0' },
 ];
 
@@ -222,6 +221,7 @@ export function getVercelUrl(equipoId: number): string {
     7: 'https://frontend-next-js-ochre.vercel.app/',
     8: 'https://front-end-proyecto-lake.vercel.app/',
     9: 'https://front-end-proyecto-vert.vercel.app/',
+    10: 'https://front-end-project-yd84.vercel.app/',
   };
   return urls[equipoId] || '';
 }

@@ -56,10 +56,10 @@ const mapNombreAUsuarioGH: Record<string, string> = {
   'Ríos Barrera Arantza Ilian': 'Ariiiiii22',
   'Romero Velázquez Luis Fernando': '320584622-glitch',
   'Valdovinos Sedano Daniela Ariday': '',
-  'Rojas Uriostigue Rodrigo': '',
+  'Rojas Uriostigue Rodrigo': 'RojasUriostigue',
   'Luna Martínez Escobar Guillermo': '',
   'Velázquez García Leonardo Daniel': '',
-  'Martínez Hernández Ricardo Ramón': '',
+  'Martínez Hernández Ricardo Ramón': 'RicardoMH',
   'Pérez López Zaira Cecilia': 'ZairaP-coder',
 };
 
@@ -103,9 +103,46 @@ function calcularNotaPRs(nombre: string, equipoId: number): number {
   const shareIdeal = 1 / numIntegrantes; // ej: 0.25 para 4 miembros
 
   // Si tu share >= ideal, tienes 100. Si no, proporcional.
-  // Calibración: -10 pts a todas las notas de contribución individual
-  const notaBase = shareReal >= shareIdeal ? 100 : Math.round((shareReal / shareIdeal) * 100);
-  return Math.max(0, notaBase - 10);
+  if (shareReal >= shareIdeal) return 100;
+  return Math.round((shareReal / shareIdeal) * 100);
+}
+
+/**
+ * Datos de autoevaluación.
+ * notaNumerica: 1-10, cualitativa: 3=Bueno, 4=Muy Bueno, 5=Sobresaliente
+ */
+const autoevaluaciones: Record<string, { nota: number; cualitativa: number }> = {
+  'Raygoza Islas José Ángel': { nota: 8, cualitativa: 3 },
+  'Domínguez Lira Estefani Michelle': { nota: 10, cualitativa: 5 },
+  'Ruiz García Emiliano': { nota: 9, cualitativa: 5 },
+  'Romero Velázquez Luis Fernando': { nota: 7, cualitativa: 3 },
+  'Gil De Gaona Jazmín': { nota: 8, cualitativa: 4 },
+  'Hernández Peña Ángel Adrián': { nota: 9, cualitativa: 3 },
+  'González Sánchez Raúl Alejandro': { nota: 8, cualitativa: 5 },
+  'Rodríguez Rodríguez Erick Tadeo': { nota: 9, cualitativa: 5 },
+  'Libonatti Valdivia Sadrach Neftali': { nota: 9, cualitativa: 3 },
+  'Moreno Vigueras Arturo Tadeo': { nota: 10, cualitativa: 5 },
+  'Cortés Cortés Bryan Yael': { nota: 9, cualitativa: 5 },
+  'Cruz Chávez Miguel Ángel': { nota: 9, cualitativa: 4 },
+  'Martínez Rodríguez Fernando': { nota: 9, cualitativa: 4 },
+  'Moctezuma Isidro Michelle': { nota: 10, cualitativa: 5 },
+  'Rojas Uriostigue Rodrigo': { nota: 10, cualitativa: 3 },
+  'Márquez Espinoza Alyn Verónica': { nota: 9, cualitativa: 4 },
+  'Hernández González Armando': { nota: 8, cualitativa: 3 },
+  'Moctezuma Ramírez Diego Rafael': { nota: 6, cualitativa: 3 },
+};
+
+/**
+ * Calcula nota de autoevaluación (0-100).
+ * 70% nota numérica (×10) + 30% cualitativa escalada (3=60, 4=80, 5=100)
+ */
+function calcularNotaAutoevaluacion(nombre: string): number | null {
+  const data = autoevaluaciones[nombre];
+  if (!data) return null;
+  const cualitativaEscalada: Record<number, number> = { 3: 60, 4: 80, 5: 100 };
+  const notaNum = data.nota * 10;
+  const notaCual = cualitativaEscalada[data.cualitativa] ?? 60;
+  return Math.round(notaNum * 0.7 + notaCual * 0.3);
 }
 
 function getColorByGrade(grade: number): string {
@@ -113,6 +150,20 @@ function getColorByGrade(grade: number): string {
   if (grade >= 80) return 'text-blue-700 bg-blue-50';
   if (grade >= 70) return 'text-amber-700 bg-amber-50';
   return 'text-rose-700 bg-rose-50';
+}
+
+function calcularCalificacionFinal(nombre: string, equipoId: number): number {
+  const porcentajeExamen = Math.round(
+    (estudiantesCalificaciones.find((e) => e.nombre === nombre)?.calificacionExamenes ?? 0) * 0.3
+  );
+  const prs = getContribucionesPorNombre(nombre);
+  const notaPrs = calcularNotaPRs(nombre, equipoId);
+  const porcentajePRs = Math.round(notaPrs * 0.2);
+  const notaAuto = calcularNotaAutoevaluacion(nombre);
+  const porcentajeAuto = notaAuto !== null ? Math.round(notaAuto * 0.2) : 0;
+  const evProyecto = getProyectoEvaluacion(equipoId);
+  const porcentajeProyecto = prs === 0 ? 0 : (evProyecto ? evProyecto.calificacion : 0);
+  return porcentajeExamen + porcentajePRs + porcentajeAuto + porcentajeProyecto;
 }
 
 export default function CalificacionesPage() {
@@ -138,6 +189,7 @@ export default function CalificacionesPage() {
       const q = searchQuery.toLowerCase();
       lista = lista.filter((e) => e.nombre.toLowerCase().includes(q));
     }
+    lista.sort((a, b) => calcularCalificacionFinal(b.nombre, b.equipoId) - calcularCalificacionFinal(a.nombre, a.equipoId));
     return lista;
   }, [selectedTeamId, searchQuery]);
 
@@ -202,7 +254,7 @@ export default function CalificacionesPage() {
               <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-3">
                 <p className="font-bold text-emerald-700 text-lg">20%</p>
                 <p className="text-sm text-emerald-600">Autoevaluación</p>
-                <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">Pendiente</span>
+                <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium">{Object.keys(autoevaluaciones).length} respuestas</span>
               </div>
               <div className="rounded-xl bg-cyan-50 border border-cyan-200 p-3">
                 <p className="font-bold text-cyan-700 text-lg">20%</p>
@@ -492,8 +544,10 @@ export default function CalificacionesPage() {
                 const team = onlyTeams.find((t) => t.id === est.equipoId);
                 const porcentajeExamen = Math.round(est.calificacionExamenes * 0.3);
                 const porcentajePRs = Math.round(notaPrs * 0.2);
+                const notaAuto = calcularNotaAutoevaluacion(est.nombre);
+                const porcentajeAuto = notaAuto !== null ? Math.round(notaAuto * 0.2) : 0;
                 const evProyecto = getProyectoEvaluacion(est.equipoId);
-                const porcentajeProyecto = evProyecto ? evProyecto.calificacion : 0;
+                const porcentajeProyecto = prs === 0 ? 0 : (evProyecto ? evProyecto.calificacion : 0);
 
                 return (
                   <div
@@ -554,7 +608,11 @@ export default function CalificacionesPage() {
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">20% Autoevaluación:</span>
-                        <span className="font-semibold text-amber-600">0 (Pendiente)</span>
+                        {notaAuto !== null ? (
+                          <span className="font-semibold text-emerald-700">{porcentajeAuto} pts</span>
+                        ) : (
+                          <span className="font-semibold text-amber-600">Pendiente</span>
+                        )}
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">30% Proyecto Vercel:</span>
@@ -566,7 +624,7 @@ export default function CalificacionesPage() {
                       </div>
                       <div className="border-t border-slate-200 pt-2 flex justify-between items-center">
                         <span className="text-gray-700 font-semibold">Calificación actual:</span>
-                        <span className={`font-bold text-lg ${getColorByGrade(porcentajeExamen + porcentajePRs + porcentajeProyecto)}`}>{porcentajeExamen + porcentajePRs + porcentajeProyecto}</span>
+                        <span className={`font-bold text-lg ${getColorByGrade(porcentajeExamen + porcentajePRs + porcentajeAuto + porcentajeProyecto)}`}>{porcentajeExamen + porcentajePRs + porcentajeAuto + porcentajeProyecto}</span>
                       </div>
                     </div>
 
