@@ -373,6 +373,58 @@ export default function ShowRoom() {
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
 
+      {/* Comparte en LinkedIn */}
+      <div className="max-w-7xl mx-auto px-4 mt-14">
+        <div className="bg-gradient-to-r from-[#0077B5]/10 via-[#0077B5]/5 to-[#0077B5]/10 rounded-2xl p-8 border border-[#0077B5]/20 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-[#0077B5]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#0077B5]/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+          
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
+            <div className="h-16 w-16 rounded-2xl bg-[#0077B5] flex items-center justify-center shrink-0 shadow-lg">
+              <i className="ri-linkedin-box-fill text-3xl text-white"></i>
+            </div>
+            
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-xl font-bold text-[#1b3d70] mb-2">
+                ¡Comparte tu proyecto en LinkedIn! 🚀
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed max-w-2xl">
+                Acabas de construir una aplicación web full-stack con tecnologías profesionales. 
+                Eso es un <strong>logro real</strong> que merece ser visible. Publica tu proyecto, 
+                etiqueta a tu equipo y muestra al mundo lo que eres capaz de hacer. 
+                Tu próximo empleo o cliente puede estar viendo tu perfil ahora mismo.
+              </p>
+              <p className="text-[#0077B5] text-xs font-semibold mt-2 italic">
+                "Un portafolio que nadie ve, es un portafolio que no existe."
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <button
+                onClick={() => {
+                  const texto = '🎓 Orgulloso de compartir el proyecto que desarrollamos en el curso de Desarrollo Web en la FES Acatlán (UNAM). Construimos una aplicación full-stack con Next.js, TypeScript, Supabase y desplegada en Vercel. Aprendimos metodologías ágiles, CI/CD y trabajo colaborativo con GitHub.\n\n🔗 https://webacatlan.vercel.app\n\n#DesarrolloWeb #UNAM #FESAcatlán #NextJS #TypeScript #Supabase #FullStack';
+                  navigator.clipboard.writeText(texto);
+                  alert('✅ Texto copiado al portapapeles. Ahora pégalo en tu nuevo post de LinkedIn.');
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0077B5] text-white font-semibold hover:bg-[#005f8d] transition-colors shadow-md shrink-0 cursor-pointer"
+              >
+                <i className="ri-file-copy-line text-lg"></i>
+                Copiar mensaje
+              </button>
+              <a
+                href="https://www.linkedin.com/feed/?shareActive=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0077B5]/20 text-[#0077B5] font-semibold hover:bg-[#0077B5]/30 transition-colors shrink-0"
+              >
+                <i className="ri-linkedin-box-fill text-lg"></i>
+                Abrir LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Marquee + border animation styles */}
       <style>{`
         @keyframes marquee {
