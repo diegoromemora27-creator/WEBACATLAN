@@ -82,7 +82,12 @@ function RecordatorioModal({ onClose }: { onClose: () => void }) {
         </div>
 
         <button
-          onClick={onClose}
+          onClick={() => {
+            onClose();
+            setTimeout(() => {
+              document.getElementById('recap')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          }}
           className="w-full py-3 rounded-xl bg-gradient-to-r from-[#1b3d70] to-[#2a5298] text-white font-semibold hover:opacity-90 transition-opacity cursor-pointer"
         >
           Entendido, ¡vamos!
