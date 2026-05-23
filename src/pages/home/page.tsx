@@ -10,6 +10,88 @@ import ReviewsRecapSection from './components/ReviewsRecapSection';
 import ShowRoom from './components/ShowRoom';
 import Footer from './components/Footer';
 
+function RecordatorioModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 animate-[fadeIn_0.3s_ease-out]">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#bb8800] to-[#d4a017] flex items-center justify-center">
+            <i className="ri-megaphone-line text-2xl text-white"></i>
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-[#1b3d70]">Recordatorio</h2>
+            <p className="text-xs text-gray-500">Antes de continuar...</p>
+          </div>
+        </div>
+
+        <div className="rounded-xl bg-amber-50 border border-amber-200 p-4 mb-5">
+          <div className="flex items-start gap-3">
+            <i className="ri-edit-2-line text-xl text-amber-600 mt-0.5"></i>
+            <div>
+              <p className="text-sm font-semibold text-amber-800 mb-1">
+                📝 Llena la sección de Recap
+              </p>
+              <p className="text-sm text-amber-700">
+                Comparte tus experiencias durante la clase, lo que aprendiste y cómo te sentiste. Tu retroalimentación es valiosa para mejorar el curso.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-xl bg-indigo-50 border border-indigo-200 p-4 mb-5">
+          <p className="text-sm text-indigo-700 italic text-center">
+            "El conocimiento que no se comparte, se pierde. El que se comparte, se multiplica."
+          </p>
+          <p className="text-xs text-indigo-500 text-center mt-2">— Sigue construyendo, sigue creciendo 🚀</p>
+        </div>
+
+        <div className="rounded-xl bg-[#0077B5]/10 border border-[#0077B5]/20 p-4 mb-6">
+          <div className="flex items-start gap-3">
+            <i className="ri-linkedin-box-fill text-xl text-[#0077B5] mt-0.5"></i>
+            <div>
+              <p className="text-sm font-semibold text-[#0077B5] mb-1">
+                🚀 Comparte tu proyecto en LinkedIn
+              </p>
+              <p className="text-xs text-gray-600 mb-3">
+                Muestra al mundo lo que construiste este semestre. ¡Es un logro profesional real!
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => {
+                    const texto = '🎓 Orgulloso de compartir el proyecto que desarrollamos en el curso de Desarrollo Web en la FES Acatlán (UNAM). Construimos una aplicación full-stack con Next.js, TypeScript, Supabase y desplegada en Vercel. Aprendimos metodologías ágiles, CI/CD y trabajo colaborativo con GitHub.\n\n🔗 https://webacatlan.vercel.app\n\n#DesarrolloWeb #UNAM #FESAcatlán #NextJS #TypeScript #Supabase #FullStack';
+                    navigator.clipboard.writeText(texto);
+                    alert('✅ Texto copiado al portapapeles. Ahora pégalo en tu nuevo post de LinkedIn.');
+                  }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0077B5] text-white text-xs font-semibold hover:bg-[#005f8d] transition-colors cursor-pointer"
+                >
+                  <i className="ri-file-copy-line"></i>
+                  Copiar mensaje
+                </button>
+                <a
+                  href="https://www.linkedin.com/feed/?shareActive=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0077B5]/20 text-[#0077B5] text-xs font-semibold hover:bg-[#0077B5]/30 transition-colors"
+                >
+                  <i className="ri-linkedin-box-fill"></i>
+                  Abrir LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          onClick={onClose}
+          className="w-full py-3 rounded-xl bg-gradient-to-r from-[#1b3d70] to-[#2a5298] text-white font-semibold hover:opacity-90 transition-opacity cursor-pointer"
+        >
+          Entendido, ¡vamos!
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function CollapsibleSection({ title, icon, children }: { title: string; icon: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
@@ -31,6 +113,7 @@ function CollapsibleSection({ title, icon, children }: { title: string; icon: st
 
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState('inicio');
+  const [showModal, setShowModal] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +138,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {showModal && <RecordatorioModal onClose={() => setShowModal(false)} />}
       <Navbar activeSection={activeSection} />
       <Hero />
       <ShowRoom />
