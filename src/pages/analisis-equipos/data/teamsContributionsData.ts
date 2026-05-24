@@ -101,7 +101,7 @@ export const equiposContribuciones: TeamContribuciones[] = [
     github_repo: 'https://github.com/EQUIPO9-DESARROLLOWEB/Front-end-proyecto',
     integrantes: [
       { usuario: '317110375', rol: 'Contributor', estado: 'Approved', contribuciones: 3 },
-      { usuario: 'Ariiiiii22', rol: 'Contributor', estado: 'Approved', contribuciones: 2 },
+      { usuario: 'Ariiiiii22', rol: 'Contributor', estado: 'Approved', contribuciones: 4 },
       { usuario: '320584622-glitch', rol: 'Contributor', estado: 'Approved', contribuciones: 1 },
     ],
   },
