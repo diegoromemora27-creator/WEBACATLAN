@@ -12,8 +12,31 @@ import {
 } from '../data/calificacionesData';
 import { equiposContribuciones } from '../data/teamsContributionsData';
 import { onlyTeams } from '../data/OnlyTeams';
+import participantsData from '../data/courseid_21860_participants.json';
 
 const FORM_AUTOEVALUACION = 'https://docs.google.com/forms/d/e/1FAIpQLScs_f0NFgeT30QgCtcFWb9q49Vik534LKRSshwrcV4mmAYQIw/viewform';
+
+// Mapa normalizado de nombre → correo del SEA
+function normalizeName(name: string): string {
+  return name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const emailMap: Record<string, string> = {};
+const participants = (participantsData as any).flat();
+for (const p of participants) {
+  if (p.apellidos && p.direccinemail) {
+    emailMap[normalizeName(p.apellidos)] = p.direccinemail.toLowerCase();
+  }
+}
+
+function getEmailForStudent(nombre: string): string | null {
+  return emailMap[normalizeName(nombre)] || null;
+}
 
 // Mapa de nombre real -> usuario de GitHub para PRs
 const mapNombreAUsuarioGH: Record<string, string> = {
@@ -176,6 +199,25 @@ export default function CalificacionesPage() {
   const [selectedTeamId, setSelectedTeamId] = useState<number | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [vista, setVista] = useState<'general' | 'individual'>('general');
+  const [showModal, setShowModal] = useState(true);
+  const [emailInputs, setEmailInputs] = useState<Record<string, string>>({});
+  const [verifiedStudents, setVerifiedStudents] = useState<Record<string, boolean>>({});
+  const [emailErrors, setEmailErrors] = useState<Record<string, string>>({});
+
+  function handleVerifyEmail(nombre: string) {
+    const inputEmail = (emailInputs[nombre] || '').trim().toLowerCase();
+    const registeredEmail = getEmailForStudent(nombre);
+    if (!registeredEmail) {
+      setEmailErrors((prev) => ({ ...prev, [nombre]: 'No se encontró correo registrado.' }));
+      return;
+    }
+    if (inputEmail === registeredEmail) {
+      setVerifiedStudents((prev) => ({ ...prev, [nombre]: true }));
+      setEmailErrors((prev) => ({ ...prev, [nombre]: '' }));
+    } else {
+      setEmailErrors((prev) => ({ ...prev, [nombre]: 'El correo no coincide con el registrado en el SEA.' }));
+    }
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -216,6 +258,63 @@ export default function CalificacionesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-amber-50 to-indigo-50">
+      {/* Modal de avisos */}
+      {showModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 sm:p-8 border border-amber-200 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center gap-3 mb-4">
+              <i className="ri-alert-line text-2xl text-red-600"></i>
+              <h2 className="text-xl font-bold text-[#1b3d70]">Avisos Importantes</h2>
+            </div>
+
+            <div className="space-y-4">
+              {/* Aviso F1 */}
+              <div className="p-4 rounded-xl bg-red-50 border border-red-200">
+                <h3 className="font-bold text-red-700 mb-2">Estudiantes en situación F1 (Primera Vuelta)</h3>
+                <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+                  <li>Deberán presentarse el próximo <strong>martes 26 de mayo</strong> en el laboratorio de cómputo para aclarar su situación o presentar el examen o tareas faltantes.</li>
+                  <li>En caso de no acreditar la materia por la suma total, la <strong>primera vuelta</strong> será el <strong>jueves 5 de junio</strong> a la hora de clase en el salón 207.</li>
+                  <li>La <strong>segunda vuelta</strong> será el <strong>martes 10 de junio</strong> en el laboratorio de cómputo a la hora de clase.</li>
+                </ul>
+              </div>
+
+              {/* Aviso aclaración */}
+              <div className="p-4 rounded-xl bg-amber-50 border border-amber-200">
+                <h3 className="font-bold text-amber-700 mb-2">Aclaración de calificaciones</h3>
+                <p className="text-sm text-amber-800">
+                  En caso de aclaración de calificación, pueden acudir el próximo <strong>martes 26 de mayo</strong> al laboratorio de cómputo, de preferencia.
+                </p>
+              </div>
+
+              {/* Aviso confirmación por correo */}
+              <div className="p-4 rounded-xl bg-indigo-50 border border-indigo-200">
+                <h3 className="font-bold text-indigo-700 mb-2">Confirmación de calificación por correo</h3>
+                <p className="text-sm text-indigo-800 mb-2">
+                  Todos los estudiantes deben enviar un correo a:
+                </p>
+                <p className="text-sm font-mono bg-white px-3 py-1.5 rounded border border-indigo-200 text-indigo-900 mb-2">
+                  diegoromemora27@gmail.com
+                </p>
+                <div className="text-sm text-indigo-800 space-y-1">
+                  <p><strong>Asunto:</strong> Confirmación de calificación</p>
+                  <p><strong>Cuerpo:</strong> "Yo, [Nombre completo], estoy de acuerdo con la calificación asignada."</p>
+                </div>
+                <p className="text-xs text-red-600 font-semibold mt-3">
+                  ⚠️ Si no se recibe el correo, no se aceptarán reclamaciones posteriores.
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-6 w-full py-3 bg-[#1b3d70] text-white font-semibold rounded-xl hover:bg-[#bb8800] transition-colors cursor-pointer"
+            >
+              Entendido
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-amber-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
@@ -272,10 +371,50 @@ export default function CalificacionesPage() {
                 <span className="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-medium">{proyectoEvaluaciones.length}/10 evaluados</span>
               </div>
             </div>
+
+            {/* Aviso Primera Vuelta */}
+            <div className="mt-6 p-4 rounded-xl bg-red-50 border border-red-200">
+              <h3 className="font-bold text-red-700 flex items-center gap-2 mb-2">
+                <i className="ri-error-warning-line text-lg"></i>
+                Aviso para estudiantes en situación F1 (Primera Vuelta)
+              </h3>
+              <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
+                <li>Deberán presentarse el próximo <strong>martes 26 de mayo</strong> en el laboratorio de cómputo para aclarar su situación o presentar el examen o tareas faltantes.</li>
+                <li>En caso de no acreditar la materia por la suma total, la <strong>primera vuelta</strong> será el <strong>jueves 5 de junio</strong> a la hora de clase en el salón 207.</li>
+                <li>La <strong>segunda vuelta</strong> será el <strong>martes 10 de junio</strong> en el laboratorio de cómputo a la hora de clase.</li>
+              </ul>
+            </div>
+
+            {/* Aviso aclaración de calificaciones */}
+            <div className="mt-4 p-4 rounded-xl bg-amber-50 border border-amber-200">
+              <p className="text-sm text-amber-800">
+                <i className="ri-information-line text-amber-600 mr-1"></i>
+                En caso de aclaración de calificación, pueden acudir el próximo <strong>martes 26 de mayo</strong> al laboratorio de cómputo, de preferencia.
+              </p>
+            </div>
+
+            {/* Aviso confirmación por correo */}
+            <div className="mt-4 p-4 rounded-xl bg-indigo-50 border border-indigo-200">
+              <h3 className="font-bold text-indigo-700 flex items-center gap-2 mb-2">
+                <i className="ri-mail-line text-lg"></i>
+                Confirmación de calificación por correo
+              </h3>
+              <p className="text-sm text-indigo-800 mb-2">
+                Todos los estudiantes deben enviar un correo a:
+              </p>
+              <p className="text-sm font-mono bg-white px-3 py-1.5 rounded border border-indigo-200 text-indigo-900 inline-block mb-2">
+                diegoromemora27@gmail.com
+              </p>
+              <div className="text-sm text-indigo-800 space-y-1">
+                <p><strong>Asunto:</strong> Confirmación de calificación</p>
+                <p><strong>Cuerpo:</strong> "Yo, [Nombre completo], estoy de acuerdo con la calificación asignada."</p>
+              </div>
+              <p className="text-xs text-red-600 font-semibold mt-3">
+                ⚠️ Si no se recibe el correo, no se aceptarán reclamaciones posteriores.
+              </p>
+            </div>
           </div>
         </section>
-
-        {/* Vistas */}
         <section className="mb-6">
           <div className="bg-white rounded-2xl p-4 shadow-lg border border-amber-100 flex flex-wrap gap-2">
             {(['general', 'individual'] as const).map((v) => (
@@ -664,6 +803,43 @@ export default function CalificacionesPage() {
                         ⚠️ {est.motivoPrimeraVuelta}
                       </div>
                     )}
+
+                    {/* Botón confirmar calificación con verificación de correo */}
+                    <div className="mt-4 border-t border-slate-200 pt-4">
+                      {verifiedStudents[est.nombre] ? (
+                        <a
+                          href={`https://mail.google.com/mail/?view=cm&to=diegoromemora27@gmail.com&su=${encodeURIComponent('Confirmación de calificación')}&body=${encodeURIComponent(`Yo, ${est.nombre}, estoy de acuerdo con la calificación asignada.`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-emerald-600 text-white text-sm font-semibold rounded-xl hover:bg-emerald-700 transition-colors cursor-pointer"
+                        >
+                          <i className="ri-mail-send-line"></i>
+                          Confirmar calificación
+                        </a>
+                      ) : (
+                        <div className="space-y-2">
+                          <label className="text-xs text-gray-600 font-medium">Ingresa tu correo del SEA para verificar tu calificación:</label>
+                          <div className="flex gap-2">
+                            <input
+                              type="email"
+                              placeholder="tucorreo@delSea.com"
+                              value={emailInputs[est.nombre] || ''}
+                              onChange={(e) => setEmailInputs((prev) => ({ ...prev, [est.nombre]: e.target.value }))}
+                              className="flex-1 px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-400"
+                            />
+                            <button
+                              onClick={() => handleVerifyEmail(est.nombre)}
+                              className="px-3 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-lg hover:bg-indigo-700 transition-colors cursor-pointer"
+                            >
+                              Verificar
+                            </button>
+                          </div>
+                          {emailErrors[est.nombre] && (
+                            <p className="text-xs text-red-600 font-medium">{emailErrors[est.nombre]}</p>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 );
               })}
