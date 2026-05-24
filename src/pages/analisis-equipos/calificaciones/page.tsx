@@ -273,8 +273,8 @@ export default function CalificacionesPage() {
                 <h3 className="font-bold text-red-700 mb-2">Estudiantes en situación F1 (Primera Vuelta)</h3>
                 <ul className="text-sm text-red-700 space-y-1 list-disc list-inside">
                   <li>Deberán presentarse el próximo <strong>martes 26 de mayo</strong> en el laboratorio de cómputo para aclarar su situación o presentar el examen o tareas faltantes.</li>
-                  <li>En caso de no acreditar la materia por la suma total, la <strong>primera vuelta</strong> será el <strong>jueves 5 de junio</strong> a la hora de clase en el salón 207.</li>
-                  <li>La <strong>segunda vuelta</strong> será el <strong>martes 10 de junio</strong> en el laboratorio de cómputo a la hora de clase.</li>
+                  <li>En caso de no acreditar la materia por la suma total, la <strong>primera vuelta</strong> será el <strong>jueves 4 de junio</strong> a la hora de clase en el salón 207.</li>
+                  <li>La <strong>segunda vuelta</strong> será el <strong>martes 09 de junio</strong> en el laboratorio de cómputo a la hora de clase.</li>
                 </ul>
               </div>
 
