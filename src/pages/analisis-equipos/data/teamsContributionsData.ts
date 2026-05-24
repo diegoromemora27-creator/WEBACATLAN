@@ -60,7 +60,7 @@ export const equiposContribuciones: TeamContribuciones[] = [
     integrantes: [
       { usuario: 'aliiiiscf', rol: 'Collaborator', estado: 'Approved', contribuciones: 8 },
       { usuario: 'Itzcg', rol: 'Collaborator', estado: 'Approved', contribuciones: 6 },
-      { usuario: 'vianethsaiz-wq', rol: 'Collaborator', estado: 'Approved', contribuciones: 4 },
+      { usuario: 'vianethsaiz-wq', rol: 'Collaborator', estado: 'Approved', contribuciones: 8 },
     ],
   },
   {
