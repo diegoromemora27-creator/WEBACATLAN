@@ -133,16 +133,23 @@ const autoevaluaciones: Record<string, { nota: number; cualitativa: number }> = 
 };
 
 /**
- * Calcula nota de autoevaluación (0-100).
- * 70% nota numérica (×10) + 30% cualitativa escalada (3=60, 4=80, 5=100)
+ * Calcula puntos de autoevaluación basado en el porcentaje de contribuciones.
+ * >= 70% de nota PRs → 20 pts
+ * 25%-69% de nota PRs → 16 pts
+ * < 25% → 15 pts
+ * Solo aplica si el estudiante respondió la autoevaluación.
  */
 function calcularNotaAutoevaluacion(nombre: string): number | null {
   const data = autoevaluaciones[nombre];
   if (!data) return null;
-  const cualitativaEscalada: Record<number, number> = { 3: 60, 4: 80, 5: 100 };
-  const notaNum = data.nota * 10;
-  const notaCual = cualitativaEscalada[data.cualitativa] ?? 60;
-  return Math.round(notaNum * 0.7 + notaCual * 0.3);
+  return 100; // placeholder, el cálculo real se hace en porcentajeAuto
+}
+
+function calcularPuntosAutoevaluacion(nombre: string, equipoId: number): number {
+  const notaPrs = calcularNotaPRs(nombre, equipoId);
+  if (notaPrs >= 70) return 20;
+  if (notaPrs >= 25) return 16;
+  return 15;
 }
 
 function getColorByGrade(grade: number): string {
@@ -159,8 +166,7 @@ function calcularCalificacionFinal(nombre: string, equipoId: number): number {
   const prs = getContribucionesPorNombre(nombre);
   const notaPrs = calcularNotaPRs(nombre, equipoId);
   const porcentajePRs = Math.round(notaPrs * 0.2);
-  const notaAuto = calcularNotaAutoevaluacion(nombre);
-  const porcentajeAuto = notaAuto !== null ? Math.round(notaAuto * 0.2) : 0;
+  const porcentajeAuto = calcularPuntosAutoevaluacion(nombre, equipoId);
   const evProyecto = getProyectoEvaluacion(equipoId);
   const porcentajeProyecto = prs === 0 ? 0 : (evProyecto ? evProyecto.calificacion : 0);
   return porcentajeExamen + porcentajePRs + porcentajeAuto + porcentajeProyecto;
@@ -544,8 +550,7 @@ export default function CalificacionesPage() {
                 const team = onlyTeams.find((t) => t.id === est.equipoId);
                 const porcentajeExamen = Math.round(est.calificacionExamenes * 0.3);
                 const porcentajePRs = Math.round(notaPrs * 0.2);
-                const notaAuto = calcularNotaAutoevaluacion(est.nombre);
-                const porcentajeAuto = notaAuto !== null ? Math.round(notaAuto * 0.2) : 0;
+                const porcentajeAuto = calcularPuntosAutoevaluacion(est.nombre, est.equipoId);
                 const evProyecto = getProyectoEvaluacion(est.equipoId);
                 const porcentajeProyecto = prs === 0 ? 0 : (evProyecto ? evProyecto.calificacion : 0);
 
@@ -608,7 +613,7 @@ export default function CalificacionesPage() {
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">20% Autoevaluación:</span>
-                        {notaAuto !== null ? (
+                        {porcentajeAuto > 0 ? (
                           <span className="font-semibold text-emerald-700">{porcentajeAuto} pts</span>
                         ) : (
                           <span className="font-semibold text-amber-600">Pendiente</span>

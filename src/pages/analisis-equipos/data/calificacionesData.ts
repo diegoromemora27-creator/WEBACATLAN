@@ -61,14 +61,8 @@ export interface ProyectoEvaluacion {
 export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   {
     equipoId: 1,
-    calificacion: 20,
-    comentarios: [
-      'El propósito del proyecto no es evidente al navegar la aplicación — falta comunicar claramente el objetivo',
-      'No existe una página 404 para rutas inexistentes en el sistema de navegación',
-      'La navegación de regreso desde la vista de Configuración a Islas está rota',
-      'El componente de Menú rompe la consistencia visual respecto a los demás botones de la interfaz',
-      'Defecto visual en Configuraciones: un bloque oscuro queda expuesto porque el contenido no cubre el fondo completo',
-    ],
+    calificacion: 30,
+    comentarios: [],
   },
   {
     equipoId: 3,
@@ -77,13 +71,8 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 4,
-    calificacion: 15,
-    comentarios: [
-      'Proyecto destacado del curso — corregir los siguientes puntos para alcanzar el puntaje completo',
-      'Problemas de contraste y legibilidad: las fuentes se confunden con colores de fondo similares, especialmente en la sección de Alumno',
-      'Los estilos generales de la página dificultan la lectura del contenido; tomar como referencia la sección de Asesor para homogeneizar el diseño',
-      'Falta verificar la integración funcional con Supabase',
-    ],
+    calificacion: 30,
+    comentarios: [],
   },
   {
     equipoId: 7,
@@ -105,12 +94,8 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 6,
-    calificacion: 15,
-    comentarios: [
-      'Algunas fuentes pierden legibilidad al confundirse con los colores de fondo utilizados',
-      'No existe una página 404 para rutas inexistentes',
-      'La navegación del header no funciona correctamente',
-    ],
+    calificacion: 30,
+    comentarios: [],
   },
   {
     equipoId: 9,
@@ -123,7 +108,7 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 5,
-    calificacion: 15,
+    calificacion: 30,
     comentarios: [],
   },
   {
@@ -216,7 +201,7 @@ export function getVercelUrl(equipoId: number): string {
     2: 'https://frontend-project-two-mu.vercel.app/',
     3: 'https://front-end-project-beta-three.vercel.app/',
     4: 'https://lynx-beige.vercel.app/',
-    5: 'https://front-end-proyect-one.vercel.app/',
+    5: 'https://front-end-proyect-delta.vercel.app/',
     6: 'https://front-end-proyecto-two.vercel.app/',
     7: 'https://frontend-next-js-ochre.vercel.app/',
     8: 'https://front-end-proyecto-lake.vercel.app/',
