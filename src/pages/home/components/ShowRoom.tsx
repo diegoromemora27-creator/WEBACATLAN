@@ -68,7 +68,7 @@ const projects = [
     id: 5,
     name: 'AcaShop',
     description: 'Marketplace estudiantil para la FES Acatlán que busca formalizar la venta de productos y servicios entre alumnos, brindando un espacio digital seguro para que la comunidad apoye su economía mientras estudia.',
-    vercelUrl: 'https://front-end-proyect-one.vercel.app/',
+    vercelUrl: 'https://front-end-proyect-delta.vercel.app/',
     githubUrl: 'https://github.com/AcaShop-Acatlan',
     image: imgAcaShop,
     members: ['Alitzel Camacho', 'Cristina Saiz', 'Itzel Chávez', 'Ximena Toledo'],
