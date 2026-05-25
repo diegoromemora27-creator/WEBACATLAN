@@ -16,10 +16,10 @@ export const equiposContribuciones: TeamContribuciones[] = [
     equipo: 1,
     github_repo: 'https://github.com/DevStudyJS',
     integrantes: [
-      { usuario: 'SinR0str0', rol: 'Collaborator', estado: 'Approved', contribuciones: 7 },
+      { usuario: 'SinR0str0', rol: 'Collaborator', estado: 'Approved', contribuciones: 9 },
       { usuario: 'JazGil', rol: 'Collaborator', estado: 'Approved', contribuciones: 5 },
       { usuario: 'RamonMedina04', rol: 'Collaborator', estado: 'Approved', contribuciones: 5 },
-      { usuario: 'ZairaP-coder', rol: 'Collaborator', estado: 'Approved', contribuciones: 2 },
+      { usuario: 'ZairaP-coder', rol: 'Collaborator', estado: 'Approved', contribuciones: 3 },
       { usuario: 'SaraiCruces', rol: 'Collaborator', estado: 'Approved', contribuciones: 2 },
     ],
   },
@@ -48,10 +48,10 @@ export const equiposContribuciones: TeamContribuciones[] = [
     equipo: 4,
     github_repo: 'https://github.com/Null-Nexus/Frontend-Proyecto',
     integrantes: [
-      { usuario: 'BrunoAG2610', rol: 'Collaborator', estado: 'Approved', contribuciones: 7 },
-      { usuario: 'FernandoMR10', rol: 'Collaborator', estado: 'Approved', contribuciones: 6 },
+      { usuario: 'BrunoAG2610', rol: 'Collaborator', estado: 'Approved', contribuciones: 8 },
+      { usuario: 'FernandoMR10', rol: 'Collaborator', estado: 'Approved', contribuciones: 7 },
       { usuario: 'JosueTP09', rol: 'Collaborator', estado: 'Approved', contribuciones: 6 },
-      { usuario: 'danielamh1302', rol: 'Collaborator', estado: 'Approved', contribuciones: 2 },
+      { usuario: 'danielamh1302', rol: 'Collaborator', estado: 'Approved', contribuciones: 3 },
     ],
   },
   {
@@ -59,7 +59,7 @@ export const equiposContribuciones: TeamContribuciones[] = [
     github_repo: 'https://github.com/AcaShop-Acatlan',
     integrantes: [
       { usuario: 'aliiiiscf', rol: 'Collaborator', estado: 'Approved', contribuciones: 8 },
-      { usuario: 'Itzcg', rol: 'Collaborator', estado: 'Approved', contribuciones: 6 },
+      { usuario: 'Itzcg', rol: 'Collaborator', estado: 'Approved', contribuciones: 7 },
       { usuario: 'vianethsaiz-wq', rol: 'Collaborator', estado: 'Approved', contribuciones: 8 },
     ],
   },
@@ -80,10 +80,10 @@ export const equiposContribuciones: TeamContribuciones[] = [
     integrantes: [
       { usuario: 'TheArtico05', rol: 'Contributor', estado: 'Approved', contribuciones: 6 },
       { usuario: 'EriTeo', rol: 'Contributor', estado: 'Approved', contribuciones: 5 },
-      { usuario: 'miguelacch', rol: 'Contributor', estado: 'Approved', contribuciones: 5 },
-      { usuario: 'Mouns-a', rol: 'Contributor', estado: 'Approved', contribuciones: 3 },
-      { usuario: 'AlynMarquez', rol: 'Contributor', estado: 'Approved', contribuciones: 2 },
-      { usuario: 'ArmandoHG22', rol: 'Contributor', estado: 'Approved', contribuciones: 2 },
+      { usuario: 'miguelacch', rol: 'Contributor', estado: 'Approved', contribuciones: 6 },
+      { usuario: 'Mouns-a', rol: 'Contributor', estado: 'Approved', contribuciones: 5 },
+      { usuario: 'AlynMarquez', rol: 'Contributor', estado: 'Approved', contribuciones: 7 },
+      { usuario: 'ArmandoHG22', rol: 'Contributor', estado: 'Approved', contribuciones: 4 },
     ],
   },
   {
@@ -102,7 +102,7 @@ export const equiposContribuciones: TeamContribuciones[] = [
     integrantes: [
       { usuario: '317110375', rol: 'Contributor', estado: 'Approved', contribuciones: 3 },
       { usuario: 'Ariiiiii22', rol: 'Contributor', estado: 'Approved', contribuciones: 4 },
-      { usuario: '320584622-glitch', rol: 'Contributor', estado: 'Approved', contribuciones: 1 },
+      { usuario: '320584622-glitch', rol: 'Contributor', estado: 'Approved', contribuciones: 2 },
     ],
   },
   {

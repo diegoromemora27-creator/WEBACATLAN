@@ -99,7 +99,7 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 9,
-    calificacion: 10,
+    calificacion: 15,
     comentarios: [
       'Las páginas o funcionalidades no implementadas deben mostrar una página 404 en lugar de quedar sin contenido',
       'Se requiere agregar más vistas con contenido estático para demostrar mayor cobertura funcional del proyecto',
