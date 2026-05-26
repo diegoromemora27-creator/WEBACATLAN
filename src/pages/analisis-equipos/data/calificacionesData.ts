@@ -148,7 +148,7 @@ export const estudiantesCalificaciones: EstudianteCalificacion[] = [
   { nombre: 'Hernández Martínez Monserrat', equipoId: 7, tareasNoEntregadas: [], examen1: 90, examen2: 100, examen3: 100, calificacionExamenes: 97, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Sebastián Cervantes Vanesa', equipoId: 8, tareasNoEntregadas: [], examen1: 91, examen2: 100, examen3: 100, calificacionExamenes: 97, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Trinidad Potrero Josué', equipoId: 4, tareasNoEntregadas: [], examen1: 88, examen2: 100, examen3: 100, calificacionExamenes: 96, primeraVuelta: false, motivoPrimeraVuelta: '' },
-  { nombre: 'Ríos Barrera Arantza Ilian', equipoId: 9, tareasNoEntregadas: [], examen1: 86, examen2: 100, examen3: 100, calificacionExamenes: 95, primeraVuelta: false, motivoPrimeraVuelta: '' },
+  { nombre: 'Ríos Barrera Arantza Ilian', equipoId: 9, tareasNoEntregadas: [], examen1: 96, examen2: 100, examen3: 100, calificacionExamenes: 95, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'Elías García Luis David', equipoId: 6, tareasNoEntregadas: [], examen1: 100, examen2: 93, examen3: 100, calificacionExamenes: 98, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'González Sánchez Raúl Alejandro', equipoId: 6, tareasNoEntregadas: [], examen1: 90, examen2: 91, examen3: 100, calificacionExamenes: 94, primeraVuelta: false, motivoPrimeraVuelta: '' },
   { nombre: 'González Hernández Leslie Danaé', equipoId: 8, tareasNoEntregadas: [], examen1: 80, examen2: 100, examen3: 100, calificacionExamenes: 93, primeraVuelta: false, motivoPrimeraVuelta: '' },

@@ -192,7 +192,9 @@ function calcularCalificacionFinal(nombre: string, equipoId: number): number {
   const porcentajeAuto = calcularPuntosAutoevaluacion(nombre, equipoId);
   const evProyecto = getProyectoEvaluacion(equipoId);
   const porcentajeProyecto = prs === 0 ? 0 : (evProyecto ? evProyecto.calificacion : 0);
-  return porcentajeExamen + porcentajePRs + porcentajeAuto + porcentajeProyecto;
+  const total = porcentajeExamen + porcentajePRs + porcentajeAuto + porcentajeProyecto;
+  const ultimoDigito = total % 10;
+  return ultimoDigito >= 5 ? total + (10 - ultimoDigito) : total;
 }
 
 export default function CalificacionesPage() {
@@ -768,7 +770,7 @@ export default function CalificacionesPage() {
                       </div>
                       <div className="border-t border-slate-200 pt-2 flex justify-between items-center">
                         <span className="text-gray-700 font-semibold">Calificación actual:</span>
-                        <span className={`font-bold text-lg ${getColorByGrade(porcentajeExamen + porcentajePRs + porcentajeAuto + porcentajeProyecto)}`}>{porcentajeExamen + porcentajePRs + porcentajeAuto + porcentajeProyecto}</span>
+                        <span className={`font-bold text-lg ${getColorByGrade(calcularCalificacionFinal(est.nombre, est.equipoId))}`}>{calcularCalificacionFinal(est.nombre, est.equipoId)}</span>
                       </div>
                     </div>
 
