@@ -901,7 +901,7 @@ export const teamRecommendations: TeamRecommendation[] = [
       "Solo se reÃºnen en el laboratorio - sin comunicaciÃ³n fuera de clase",
       "PercepciÃ³n encontrada sobre participaciÃ³n del equipo",
       "Desconocimiento de temas tÃ©cnicos (APIs, BD)",
-      "Profesor no agregado al board (agregar: diegoromemora27@gmail.com)",
+      "Profesor no agregado al board (agregar: estudiante@ejemplo.com)",
       "Solo 2 integrantes agregados en GitHub - faltan 2",
     ],
   },
