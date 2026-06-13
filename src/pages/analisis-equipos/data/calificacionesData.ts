@@ -87,10 +87,7 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   {
     equipoId: 2,
     calificacion: 30,
-    comentarios: [
-      'Proyecto destacado del curso por su nivel de desarrollo y funcionalidad',
-      'Integración de Supabase verificada',
-    ],
+    comentarios: [],
   },
   {
     equipoId: 6,
@@ -99,12 +96,8 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 9,
-    calificacion: 15,
-    comentarios: [
-      'Las páginas o funcionalidades no implementadas deben mostrar una página 404 en lugar de quedar sin contenido',
-      'Se requiere agregar más vistas con contenido estático para demostrar mayor cobertura funcional del proyecto',
-      'Es necesario implementar al menos una integración funcional con Supabase',
-    ],
+    calificacion: 30,
+    comentarios: [],
   },
   {
     equipoId: 5,
@@ -113,7 +106,7 @@ export const proyectoEvaluaciones: ProyectoEvaluacion[] = [
   },
   {
     equipoId: 10,
-    calificacion: 20,
+    calificacion: 30,
     comentarios: [],
   },
 ];
