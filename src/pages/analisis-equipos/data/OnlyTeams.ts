@@ -1,6 +1,6 @@
-/**
+﻿/**
  * LISTA SIMPLIFICADA DE EQUIPOS - Sprint 1
- * Datos extraídos de las autoevaluaciones de desempeño del equipo Scrum
+ * Datos extraÃ­dos de las autoevaluaciones de desempeÃ±o del equipo Scrum
  */
 
 export interface TeamMember {
@@ -20,7 +20,7 @@ export interface SimpleTeam {
 
 /**
  * EQUIPOS SPRINT 1
- * 57 respuestas totales de autoevaluación
+ * 57 respuestas totales de autoevaluaciÃ³n
  */
 export const onlyTeams: SimpleTeam[] = [
   // ========== EQUIPO 1 - DevStudy ==========
@@ -30,24 +30,24 @@ export const onlyTeams: SimpleTeam[] = [
     projectName: "DevStudy",
     members: [
       {
-        name: "Hernández Peña Ángel Adrián",
-        email: "ahangel2005@gmail.com",
+        name: "HernÃ¡ndez PeÃ±a Ãngel AdriÃ¡n",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Gil De Gaona Jazmín",
-        email: "giljazmin2005@gmail.com",
+        name: "Gil De Gaona JazmÃ­n",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Medina Hernández Ramón",
-        email: "321283108@pcpuma.acatlan.unam.mx",
+        name: "Medina HernÃ¡ndez RamÃ³n",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Buenrostro Cruces Saraí",
-        email: "saraicruces158@gmail.com",
+        name: "Buenrostro Cruces SaraÃ­",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Pérez López Zaira Cecilia",
-        email: "318331674@pcpuma.acatlan.unam.mx",
+        name: "PÃ©rez LÃ³pez Zaira Cecilia",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/DevStudyJS",
@@ -62,20 +62,20 @@ export const onlyTeams: SimpleTeam[] = [
     projectName: "4 de Asada",
     members: [
       {
-        name: "Velázquez Martínez Antonio",
-        email: "424038247@pcpuma.acatlan.unam.mx",
+        name: "VelÃ¡zquez MartÃ­nez Antonio",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Herrera Franco Samuel",
-        email: "samuelherrera11fh1@gmail.com",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Segura Loera Carlos Emiliano",
-        email: "carlos4475segura@gmail.com",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Villeda López Saúl",
-        email: "424079246@pcpuma.acatlan.unam.mx",
+        name: "Villeda LÃ³pez SaÃºl",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/4-de-Asada",
@@ -90,20 +90,20 @@ export const onlyTeams: SimpleTeam[] = [
     projectName: "StudyLink",
     members: [
       {
-        name: "Pérez Mendoza Estefaní",
-        email: "321339968@pcpuma.acatlan.unam.mx",
+        name: "PÃ©rez Mendoza EstefanÃ­",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Del Angel Santiago Monserrat Guadalupe",
-        email: "318000787@pcpuma.acatlan.unam.mx",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Ruiz García Emiliano",
-        email: "424126694@pcpuma.acatlan.unam.mx",
+        name: "Ruiz GarcÃ­a Emiliano",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Raygoza Islas José Ángel",
-        email: "421103605@pcpuma.acatlan.unam.mx",
+        name: "Raygoza Islas JosÃ© Ãngel",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/RecursosMAC/FrontEnd-Project",
@@ -119,20 +119,20 @@ export const onlyTeams: SimpleTeam[] = [
     projectName: "Null Nexus",
     members: [
       {
-        name: "Martínez Rodríguez Fernando",
-        email: "424138251@pcpuma.acatlan.unam.mx",
+        name: "MartÃ­nez RodrÃ­guez Fernando",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Trinidad Potrero Josué",
-        email: "423073210@pcpuma.acatlan.unam.mx",
+        name: "Trinidad Potrero JosuÃ©",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Aguilar Buendía Bruno",
-        email: "brunoaguilar.2610@gmail.com",
+        name: "Aguilar BuendÃ­a Bruno",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Mendoza Hernández Daniela Itzel",
-        email: "318352378@pcpuma.acatlan.unam.mx",
+        name: "Mendoza HernÃ¡ndez Daniela Itzel",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/Null-Nexus/Frontend-Proyecto",
@@ -148,19 +148,19 @@ export const onlyTeams: SimpleTeam[] = [
     members: [
       {
         name: "Alitzel Sophia Camacho Flores",
-        email: "321238940@pcpuma.acatlan.unam.mx",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Cristina Vianeth Saiz Pérez",
-        email: "317152522@pcpuma.acatlan.unam.mx",
+        name: "Cristina Vianeth Saiz PÃ©rez",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Chávez González Itzel",
-        email: "321573577@pcpuma.acatlan.unam.mx",
+        name: "ChÃ¡vez GonzÃ¡lez Itzel",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Toledo Méndez Ximena",
-        email: "421114564@pcpuma.acatlan.unam.mx",
+        name: "Toledo MÃ©ndez Ximena",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/AcaShop-Acatlan",
@@ -176,24 +176,24 @@ export const onlyTeams: SimpleTeam[] = [
     projectName: "Angeles de MAC",
     members: [
       {
-        name: "González Sánchez Raúl Alejandro",
-        email: "321265302@pcpuma.acatlan.unam.mx",
+        name: "GonzÃ¡lez SÃ¡nchez RaÃºl Alejandro",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Escutia Pascacio Eduardo Emiliano",
-        email: "319035148@pcpuma.acatlan.unam.mx",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Libonatti Valdivia Sadrach Neftali",
-        email: "320020171@pcpuma.acatlan.unam.mx",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Moctezuma Isidro Michelle",
-        email: "318690597@pcpuma.acatlan.unam.mx",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Elías García Luis David",
-        email: "424018681@pcpuma.acatlan.unam.mx",
+        name: "ElÃ­as GarcÃ­a Luis David",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/Angeles-de-MAC",
@@ -201,35 +201,35 @@ export const onlyTeams: SimpleTeam[] = [
     boardTool: "Other",
   },
 
-  // ========== EQUIPO 7 - Académicos Web ==========
+  // ========== EQUIPO 7 - AcadÃ©micos Web ==========
   {
     id: 7,
     name: "Equipo 7",
-    projectName: "Académicos Web",
+    projectName: "AcadÃ©micos Web",
     members: [
       {
-        name: "Hernández González Armando",
-        email: "317042735@pcpuma.acatlan.unam.mx",
+        name: "HernÃ¡ndez GonzÃ¡lez Armando",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Rodríguez Rodríguez Erick Tadeo",
-        email: "424073141@pcpuma.acatlan.unam.mx",
+        name: "RodrÃ­guez RodrÃ­guez Erick Tadeo",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Márquez Espinoza Alyn Verónica",
-        email: "alynmarquezespinoza63@gmail.com",
+        name: "MÃ¡rquez Espinoza Alyn VerÃ³nica",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Hernández Martínez Monserrat",
-        email: "424119221@pcpuma.acatlan.unam.mx",
+        name: "HernÃ¡ndez MartÃ­nez Monserrat",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Moreno Vigueras Arturo Tadeo",
-        email: "424092250@pcpuma.acatlan.unam.mx",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Cruz Chávez Miguel Ángel",
-        email: "424022596@pcpuma.acatlan.unam.mx",
+        name: "Cruz ChÃ¡vez Miguel Ãngel",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/Academicos-Web",
@@ -245,20 +245,20 @@ export const onlyTeams: SimpleTeam[] = [
     projectName: "ExtraWeb0rdinarios",
     members: [
       {
-        name: "Herrera Hernández Diego",
-        email: "321331546@pcpuma.acatlan.unam.mx",
+        name: "Herrera HernÃ¡ndez Diego",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Cervantes Vanesa Sebastián",
-        email: "423129472@pcpuma.acatlan.unam.mx",
+        name: "Cervantes Vanesa SebastiÃ¡n",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "González Hernández Leslie Danaé",
-        email: "424092281@pcpuma.acatlan.unam.mx",
+        name: "GonzÃ¡lez HernÃ¡ndez Leslie DanaÃ©",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Báez Villanueva Mauricio Omar",
-        email: "318181778@pcpuma.acatlan.unam.mx",
+        name: "BÃ¡ez Villanueva Mauricio Omar",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/ExtraWeb0rdinarios",
@@ -271,23 +271,23 @@ export const onlyTeams: SimpleTeam[] = [
   {
     id: 9,
     name: "Equipo 9",
-    projectName: "Sistema de Gestión",
+    projectName: "Sistema de GestiÃ³n",
     members: [
       {
-        name: "Cortés Cortés Bryan Yael",
-        email: "317110375@pcpuma.acatlan.unam.mx",
+        name: "CortÃ©s CortÃ©s Bryan Yael",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Ríos Barrera Arantza Ilian",
-        email: "321103097@pcpuma.acatlan.unam.mx",
+        name: "RÃ­os Barrera Arantza Ilian",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Romero Velázquez Luis Fernando",
-        email: "320584622@pcpuma.acatlan.unam.mx",
+        name: "Romero VelÃ¡zquez Luis Fernando",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Valdovinos Sedano Daniela Ariday",
-        email: "424066376@pcpuma.acatlan.unam.mx",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/EQUIPO9-DESARROLLOWEB/Front-end-proyecto",
@@ -303,24 +303,24 @@ export const onlyTeams: SimpleTeam[] = [
     projectName: "Monitoreo",
     members: [
       {
-        name: "Velázquez García Leonardo Daniel",
-        email: "leonardoxvelazquezz@gmail.com",
+        name: "VelÃ¡zquez GarcÃ­a Leonardo Daniel",
+        email: "estudiante@ejemplo.com",
       },
       {
         name: "Rojas Uriostigue Rodrigo",
-        email: "uriostiguerodrigo@gmail.com",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Luna Martínez Escobar Guillermo",
-        email: "guilumaesco@gmail.com",
+        name: "Luna MartÃ­nez Escobar Guillermo",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Martínez Hernández Ricardo Ramón",
-        email: "317162783@pcpuma.acatlan.unam.mx",
+        name: "MartÃ­nez HernÃ¡ndez Ricardo RamÃ³n",
+        email: "estudiante@ejemplo.com",
       },
       {
-        name: "Álvarez Casas Jesús",
-        email: "424032496@pcpuma.acatlan.unam.mx",
+        name: "Ãlvarez Casas JesÃºs",
+        email: "estudiante@ejemplo.com",
       },
     ],
     githubUrl: "https://github.com/Equipo10MAC",
@@ -331,21 +331,21 @@ export const onlyTeams: SimpleTeam[] = [
 ];
 
 /**
- * Función auxiliar para obtener un equipo por ID
+ * FunciÃ³n auxiliar para obtener un equipo por ID
  */
 export function getTeamById(teamId: number): SimpleTeam | undefined {
   return onlyTeams.find(team => team.id === teamId);
 }
 
 /**
- * Función auxiliar para obtener todos los equipos
+ * FunciÃ³n auxiliar para obtener todos los equipos
  */
 export function getAllTeams(): SimpleTeam[] {
   return onlyTeams;
 }
 
 /**
- * Función auxiliar para contar miembros totales
+ * FunciÃ³n auxiliar para contar miembros totales
  */
 export function getTotalMembers(): number {
   return onlyTeams.reduce((sum, team) => sum + team.members.length, 0);

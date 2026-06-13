@@ -1,16 +1,16 @@
-/**
+﻿/**
  * DATOS DE EQUIPOS - SPRINT 1
  * 
- * Este archivo contiene toda la información de los equipos para el dashboard de análisis.
+ * Este archivo contiene toda la informaciÃ³n de los equipos para el dashboard de anÃ¡lisis.
  * Para actualizar (cada 2 semanas):
  * 1. Agrega nuevos miembros al array 'members' de cada equipo si es necesario
  * 2. Actualiza los datos de sprint en 'sprintData'
  * 3. Actualiza las felicitaciones en 'felicitaciones'
  * 
  * ESTRUCTURA:
- * - teams: Información base de cada equipo (miembros, links)
+ * - teams: InformaciÃ³n base de cada equipo (miembros, links)
  * - sprintData: Evaluaciones por sprint
- * - felicitaciones: Reconocimientos entre compañeros
+ * - felicitaciones: Reconocimientos entre compaÃ±eros
  */
 
 export interface TeamMember {
@@ -33,14 +33,14 @@ export interface SprintEvaluation {
   memberName: string;
   teamId: number;
   sprint: number;
-  // Evaluación del equipo (Excelente, Bueno, Aceptable, Bajo, Muy Bajo)
+  // EvaluaciÃ³n del equipo (Excelente, Bueno, Aceptable, Bajo, Muy Bajo)
   productivity: string;
   collaboration: string;
   quality: string;
   objectivesCompleted: string;
-  // Autoevaluación (1-5)
+  // AutoevaluaciÃ³n (1-5)
   selfEvaluation: number;
-  // Información adicional
+  // InformaciÃ³n adicional
   tasksCompleted: string;
   blockers: string;
   areasToImprove: string;
@@ -57,7 +57,7 @@ export interface Felicitacion {
 }
 
 // ========================================
-// EQUIPOS - Actualizar miembros y links aquí
+// EQUIPOS - Actualizar miembros y links aquÃ­
 // ========================================
 export const teams: Team[] = [
   {
@@ -65,10 +65,10 @@ export const teams: Team[] = [
     name: "Equipo 1",
     projectName: "DevStudy",
     members: [
-      { name: "Hernández Peña Angel Adrian", email: "ahangel2005@gmail.com" },
-      { name: "Gil De Gaona Jazmín", email: "giljazmin2005@gmail.com" },
-      { name: "Medina Hernández Ramón", email: "321283108@pcpuma.acatlan.unam.mx" },
-      { name: "Buenrostro Cruces Sarai", email: "saraicruces158@gmail.com" },
+      { name: "HernÃ¡ndez PeÃ±a Angel Adrian", email: "estudiante@ejemplo.com" },
+      { name: "Gil De Gaona JazmÃ­n", email: "estudiante@ejemplo.com" },
+      { name: "Medina HernÃ¡ndez RamÃ³n", email: "estudiante@ejemplo.com" },
+      { name: "Buenrostro Cruces Sarai", email: "estudiante@ejemplo.com" },
     ],
     githubUrl: "https://github.com/DevStudyJS",
     boardUrl: "https://www.notion.so/DevStudy-304ab752f7c481e78981d2368a11b709",
@@ -79,10 +79,10 @@ export const teams: Team[] = [
     name: "Equipo 2",
     projectName: "4 de Asada",
     members: [
-      { name: "Velázquez Martínez Antonio", email: "424038247@pcpuma.acatlan.unam.mx" },
-      { name: "Herrera Franco Samuel", email: "samuelherrera11fh1@gmail.com" },
-      { name: "Segura Loera Carlos Emiliano", email: "carlos4475segura@gmail.com" },
-      { name: "Villeda López Saúl", email: "424079246@pcpuma.acatlan.unam.mx" },
+      { name: "VelÃ¡zquez MartÃ­nez Antonio", email: "estudiante@ejemplo.com" },
+      { name: "Herrera Franco Samuel", email: "estudiante@ejemplo.com" },
+      { name: "Segura Loera Carlos Emiliano", email: "estudiante@ejemplo.com" },
+      { name: "Villeda LÃ³pez SaÃºl", email: "estudiante@ejemplo.com" },
     ],
     githubUrl: "https://github.com/4-de-Asada",
     boardUrl: "https://trello.com/b/698b39d5/4-de",
@@ -93,10 +93,10 @@ export const teams: Team[] = [
     name: "Equipo 3",
     projectName: "StudyLink",
     members: [
-      { name: "StudyLink", email: "321339968@pcpuma.acatlan.unam.mx" },
-      { name: "Del Angel Santiago Monserrat Guadalupe", email: "318000787@pcpuma.acatlan.unam.mx" },
+      { name: "StudyLink", email: "estudiante@ejemplo.com" },
+      { name: "Del Angel Santiago Monserrat Guadalupe", email: "estudiante@ejemplo.com" },
       { name: "Dominguez Lira Estefani Michelle (Sin respuesta)" },
-      { name: "Ruiz García Emiliano (Sin respuesta)" },
+      { name: "Ruiz GarcÃ­a Emiliano (Sin respuesta)" },
     ],
     githubUrl: "https://github.com/RecursosMAC",
     boardUrl: "https://www.notion.so/StudyLink-30dc408c7286802691b1d11e3702c9de",
@@ -107,9 +107,9 @@ export const teams: Team[] = [
     name: "Equipo 4",
     projectName: "Null Nexus",
     members: [
-      { name: "Martinez Rodriguez Fernando", email: "424138251@pcpuma.acatlan.unam.mx" },
-      { name: "Trinidad Potrero Josue", email: "423073210@pcpuma.acatlan.unam.mx" },
-      { name: "Aguilar Buendía Bruno", email: "brunoaguilar.2610@gmail.com" },
+      { name: "Martinez Rodriguez Fernando", email: "estudiante@ejemplo.com" },
+      { name: "Trinidad Potrero Josue", email: "estudiante@ejemplo.com" },
+      { name: "Aguilar BuendÃ­a Bruno", email: "estudiante@ejemplo.com" },
     ],
     githubUrl: "https://github.com/Null-Nexus",
     boardUrl: "https://app.clickup.com/9017897580/v/s/90174290770",
@@ -120,8 +120,8 @@ export const teams: Team[] = [
     name: "Equipo 5",
     projectName: "AcaShop",
     members: [
-      { name: "Alitzel Sophia Camacho Flores", email: "321238940@pcpuma.acatlan.unam.mx" },
-      { name: "Cristina Vianeth Saiz Perez", email: "317152522@pcpuma.acatlan.unam.mx" },
+      { name: "Alitzel Sophia Camacho Flores", email: "estudiante@ejemplo.com" },
+      { name: "Cristina Vianeth Saiz Perez", email: "estudiante@ejemplo.com" },
     ],
     githubUrl: "https://github.com/AcaShop-Acatlan",
     boardUrl: "https://cristinavianethsaizperez.atlassian.net/jira/software/projects/SCRUM/boards/1",
@@ -131,8 +131,8 @@ export const teams: Team[] = [
     id: 6,
     name: "Equipo 6",
     members: [
-      { name: "Escutia Pascacio Eduardo Emiliano", email: "319035148@pcpuma.acatlan.unam.mx" },
-      { name: "González Sánchez Raúl Alejandro", email: "321265302@pcpuma.acatlan.unam.mx" },
+      { name: "Escutia Pascacio Eduardo Emiliano", email: "estudiante@ejemplo.com" },
+      { name: "GonzÃ¡lez SÃ¡nchez RaÃºl Alejandro", email: "estudiante@ejemplo.com" },
       { name: "Moctezuma Isidro Michelle (Sin respuesta)" },
     ],
     githubUrl: "https://github.com",
@@ -142,14 +142,14 @@ export const teams: Team[] = [
   {
     id: 7,
     name: "Equipo 7",
-    projectName: "Académicos Web",
+    projectName: "AcadÃ©micos Web",
     members: [
-      { name: "Hernandez Gonzalez Armando", email: "317042735@pcpuma.acatlan.unam.mx" },
-      { name: "Rodríguez Rodríguez Erick Tadeo", email: "424073141@pcpuma.acatlan.unam.mx" },
-      { name: "Marquez Espinoza Alyn Veronica", email: "alynmarquezespinoza63@gmail.com" },
-      { name: "Hernandez Martinez Monserrat", email: "424119221@pcpuma.acatlan.unam.mx" },
-      { name: "Moreno Vigueras Arturo Tadeo", email: "424092250@pcpuma.acatlan.unam.mx" },
-      { name: "Cruz Chávez Miguel Ángel", email: "424022596@pcpuma.acatlan.unam.mx" },
+      { name: "Hernandez Gonzalez Armando", email: "estudiante@ejemplo.com" },
+      { name: "RodrÃ­guez RodrÃ­guez Erick Tadeo", email: "estudiante@ejemplo.com" },
+      { name: "Marquez Espinoza Alyn Veronica", email: "estudiante@ejemplo.com" },
+      { name: "Hernandez Martinez Monserrat", email: "estudiante@ejemplo.com" },
+      { name: "Moreno Vigueras Arturo Tadeo", email: "estudiante@ejemplo.com" },
+      { name: "Cruz ChÃ¡vez Miguel Ãngel", email: "estudiante@ejemplo.com" },
     ],
     githubUrl: "https://github.com/Academicos-Web",
     boardUrl: "https://academicosweb.atlassian.net/jira/software/projects/SCRUM/boards/1",
@@ -160,10 +160,10 @@ export const teams: Team[] = [
     name: "Equipo 8",
     projectName: "ExtraWeb0rdinarios",
     members: [
-      { name: "Herrera Hernández Diego", email: "321331546@pcpuma.acatlan.unam.mx" },
-      { name: "Sebastián Cervantes Vanesa", email: "423129472@pcpuma.acatlan.unam.mx" },
-      { name: "González Hernández Leslie Danaé", email: "424092281@pcpuma.acatlan.unam.mx" },
-      { name: "Baez Villanueva Mauricio Omar", email: "318181778@pcpuma.acatlan.unam.mx" },
+      { name: "Herrera HernÃ¡ndez Diego", email: "estudiante@ejemplo.com" },
+      { name: "SebastiÃ¡n Cervantes Vanesa", email: "estudiante@ejemplo.com" },
+      { name: "GonzÃ¡lez HernÃ¡ndez Leslie DanaÃ©", email: "estudiante@ejemplo.com" },
+      { name: "Baez Villanueva Mauricio Omar", email: "estudiante@ejemplo.com" },
     ],
     githubUrl: "https://github.com/ExtraWeb0rdinarios",
     boardUrl: "https://diego0hh013.atlassian.net/jira/software/projects/SCRUM/boards/1",
@@ -173,8 +173,8 @@ export const teams: Team[] = [
     id: 9,
     name: "Equipo 9",
     members: [
-      { name: "Cortes Cortes Bryan Yael", email: "317110375@pcpuma.acatlan.unam.mx" },
-      { name: "Ríos Barrera Arantza Ilian", email: "321103097@pcpuma.acatlan.unam.mx" },
+      { name: "Cortes Cortes Bryan Yael", email: "estudiante@ejemplo.com" },
+      { name: "RÃ­os Barrera Arantza Ilian", email: "estudiante@ejemplo.com" },
     ],
     githubUrl: "https://github.com/EQUIPO9-DESARROLLOWEB/Front-end-proyecto",
     boardUrl: "https://docs.google.com/document/d/1eVdBiVaXQEN7dR-_-o9rjnTMMecKeFFMJqoCcMiTV68/edit",
@@ -189,7 +189,7 @@ export const sprintData: SprintEvaluation[] = [
   // === EQUIPO 1 ===
   {
     memberId: "e1-1",
-    memberName: "Hernández Peña Angel Adrian",
+    memberName: "HernÃ¡ndez PeÃ±a Angel Adrian",
     teamId: 1,
     sprint: 1,
     productivity: "Excelente",
@@ -197,15 +197,15 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Excelente",
     selfEvaluation: 5,
-    tasksCompleted: "Organización y definición de actividades y roles. Descripción del proyecto. Compartir materiales y documentación. Validación y entrevistas a profesores.",
-    blockers: "Quería hacer y acabar todo sin considerar tiempos del equipo.",
-    areasToImprove: "Comunicación en línea, conocimientos de PostgreSQL y MongoDB.",
-    nextSprintFocus: "Front End del landing page, Diseño de actividades, Sistema de Login/SignUp.",
+    tasksCompleted: "OrganizaciÃ³n y definiciÃ³n de actividades y roles. DescripciÃ³n del proyecto. Compartir materiales y documentaciÃ³n. ValidaciÃ³n y entrevistas a profesores.",
+    blockers: "QuerÃ­a hacer y acabar todo sin considerar tiempos del equipo.",
+    areasToImprove: "ComunicaciÃ³n en lÃ­nea, conocimientos de PostgreSQL y MongoDB.",
+    nextSprintFocus: "Front End del landing page, DiseÃ±o de actividades, Sistema de Login/SignUp.",
     improvementProposals: "RepositorFio de ideas, sistema de recompensas, mejorar manejo de Git/GitHub.",
   },
   {
     memberId: "e1-2",
-    memberName: "Gil De Gaona Jazmín",
+    memberName: "Gil De Gaona JazmÃ­n",
     teamId: 1,
     sprint: 1,
     productivity: "Excelente",
@@ -213,15 +213,15 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 5,
-    tasksCompleted: "Organización y comunicación constante.",
-    blockers: "Manejo del estrés.",
+    tasksCompleted: "OrganizaciÃ³n y comunicaciÃ³n constante.",
+    blockers: "Manejo del estrÃ©s.",
     areasToImprove: "Manejo de tiempos.",
     nextSprintFocus: "Base de datos, estructura de los juegos.",
     improvementProposals: "Por ahora, todo va bien.",
   },
   {
     memberId: "e1-3",
-    memberName: "Medina Hernández Ramón",
+    memberName: "Medina HernÃ¡ndez RamÃ³n",
     teamId: 1,
     sprint: 1,
     productivity: "Excelente",
@@ -229,11 +229,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 4,
-    tasksCompleted: "Creación de diagramas E-R, aporte de ideas, construcción de BD.",
+    tasksCompleted: "CreaciÃ³n de diagramas E-R, aporte de ideas, construcciÃ³n de BD.",
     blockers: "Poco conocimiento en Git y GitHub, bloqueos mentales.",
     areasToImprove: "Git/GitHub, SQL, front-end.",
-    nextSprintFocus: "Creación de la base de datos, alojar BD en repositorio, conectar BD al login.",
-    improvementProposals: "Buen avance, comunicación y apoyo mutuo con herramientas.",
+    nextSprintFocus: "CreaciÃ³n de la base de datos, alojar BD en repositorio, conectar BD al login.",
+    improvementProposals: "Buen avance, comunicaciÃ³n y apoyo mutuo con herramientas.",
   },
   {
     memberId: "e1-4",
@@ -245,9 +245,9 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 5,
-    tasksCompleted: "Aporte en la realización del prototipo de la página web en Readdy.",
-    blockers: "Ninguno, realicé la tarea que me correspondía.",
-    areasToImprove: "SQL, ya que en conjunto con mi compañero Ramón, vamos a trabajar en esa área del proyecto.",
+    tasksCompleted: "Aporte en la realizaciÃ³n del prototipo de la pÃ¡gina web en Readdy.",
+    blockers: "Ninguno, realicÃ© la tarea que me correspondÃ­a.",
+    areasToImprove: "SQL, ya que en conjunto con mi compaÃ±ero RamÃ³n, vamos a trabajar en esa Ã¡rea del proyecto.",
     nextSprintFocus: "Base de datos.",
     improvementProposals: "Hasta ahora considero que vamos bastante bien.",
   },
@@ -255,7 +255,7 @@ export const sprintData: SprintEvaluation[] = [
   // === EQUIPO 2 ===
   {
     memberId: "e2-1",
-    memberName: "Velázquez Martínez Antonio",
+    memberName: "VelÃ¡zquez MartÃ­nez Antonio",
     teamId: 2,
     sprint: 1,
     productivity: "Excelente",
@@ -263,11 +263,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 4,
-    tasksCompleted: "La idea del proyecto, la pensamos mi compañero Samuel y yo, él se las compartió al resto.",
-    blockers: "Falta de comunicación que puede afectar la productividad.",
-    areasToImprove: "Comunicación entre integrantes.",
-    nextSprintFocus: "Ya se verá, dependiendo cómo se desarrolle la semana.",
-    improvementProposals: "Comunicación, ya que solo nos reunimos en lab.",
+    tasksCompleted: "La idea del proyecto, la pensamos mi compaÃ±ero Samuel y yo, Ã©l se las compartiÃ³ al resto.",
+    blockers: "Falta de comunicaciÃ³n que puede afectar la productividad.",
+    areasToImprove: "ComunicaciÃ³n entre integrantes.",
+    nextSprintFocus: "Ya se verÃ¡, dependiendo cÃ³mo se desarrolle la semana.",
+    improvementProposals: "ComunicaciÃ³n, ya que solo nos reunimos en lab.",
   },
   {
     memberId: "e2-2",
@@ -282,7 +282,7 @@ export const sprintData: SprintEvaluation[] = [
     tasksCompleted: "Ideas para el proyecto, propuestas para el front, desarrollo de endpoints.",
     blockers: "Conocimiento cruzado, APIs, endpoints.",
     areasToImprove: "Definiciones, APIs, endpoints.",
-    nextSprintFocus: "Definición de la base de datos, definición del tipo de base de datos a ocupar.",
+    nextSprintFocus: "DefiniciÃ³n de la base de datos, definiciÃ³n del tipo de base de datos a ocupar.",
     improvementProposals: "Nada por ahora.",
   },
   {
@@ -297,13 +297,13 @@ export const sprintData: SprintEvaluation[] = [
     selfEvaluation: 5,
     tasksCompleted: "Todo.",
     blockers: "La creatividad.",
-    areasToImprove: "Falta de comunicación con mi equipo.",
-    nextSprintFocus: "Todo lo que tenga que ver con diseño.",
-    improvementProposals: "Que mi equipo sí quiera aportar al trabajo.",
+    areasToImprove: "Falta de comunicaciÃ³n con mi equipo.",
+    nextSprintFocus: "Todo lo que tenga que ver con diseÃ±o.",
+    improvementProposals: "Que mi equipo sÃ­ quiera aportar al trabajo.",
   },
   {
     memberId: "e2-4",
-    memberName: "Villeda López Saúl",
+    memberName: "Villeda LÃ³pez SaÃºl",
     teamId: 2,
     sprint: 1,
     productivity: "Bueno",
@@ -312,9 +312,9 @@ export const sprintData: SprintEvaluation[] = [
     objectivesCompleted: "Bueno",
     selfEvaluation: 2,
     tasksCompleted: "Aportes para ampliar el mercado de nuestro sitio web.",
-    blockers: "Falta de comunicación y desconocimiento de algunos temas.",
+    blockers: "Falta de comunicaciÃ³n y desconocimiento de algunos temas.",
     areasToImprove: "Falta de conocimientos en bases de datos y mejorar habilidades blandas.",
-    nextSprintFocus: "Aún no las defino.",
+    nextSprintFocus: "AÃºn no las defino.",
     improvementProposals: "Ninguna por el momento.",
   },
 
@@ -329,11 +329,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Bajo",
     selfEvaluation: 5,
-    tasksCompleted: "Organización de GitHub, board en Notion, prompt para UI, backend en ReqRes, GETs y POSTs en Postman, documento con capturas.",
+    tasksCompleted: "OrganizaciÃ³n de GitHub, board en Notion, prompt para UI, backend en ReqRes, GETs y POSTs en Postman, documento con capturas.",
     blockers: "Ninguno.",
     areasToImprove: "Repasar conceptos de Bases de Datos y Estructuras de Datos.",
-    nextSprintFocus: "Creación de entidades y relaciones.",
-    improvementProposals: "Comunicación y que dejen de faltar.",
+    nextSprintFocus: "CreaciÃ³n de entidades y relaciones.",
+    improvementProposals: "ComunicaciÃ³n y que dejen de faltar.",
   },
   {
     memberId: "e3-2",
@@ -345,11 +345,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 4,
-    tasksCompleted: "Requerimientos del proyecto, definición y alcance, solución a problemas en prueba de backend.",
+    tasksCompleted: "Requerimientos del proyecto, definiciÃ³n y alcance, soluciÃ³n a problemas en prueba de backend.",
     blockers: "Problemas con la luz.",
-    areasToImprove: "Implementación técnica.",
+    areasToImprove: "ImplementaciÃ³n tÃ©cnica.",
     nextSprintFocus: "Diagrama ER y esquema inicial en PostgreSQL.",
-    improvementProposals: "Comunicación activa de todos los integrantes.",
+    improvementProposals: "ComunicaciÃ³n activa de todos los integrantes.",
   },
 
   // === EQUIPO 4 ===
@@ -363,11 +363,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Bueno",
     selfEvaluation: 4,
-    tasksCompleted: "Tipos de Usuario y roles, ideas para la problemática.",
-    blockers: "Falta hablar más.",
+    tasksCompleted: "Tipos de Usuario y roles, ideas para la problemÃ¡tica.",
+    blockers: "Falta hablar mÃ¡s.",
     areasToImprove: "Falta de conocimiento en BS.",
     nextSprintFocus: "Diagrama ER y migraciones.",
-    improvementProposals: "Mejorar un poco la comunicación.",
+    improvementProposals: "Mejorar un poco la comunicaciÃ³n.",
   },
   {
     memberId: "e4-2",
@@ -379,15 +379,15 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Bueno",
     selfEvaluation: 5,
-    tasksCompleted: "Completé idea del compañero, tomé iniciativa en documento, propuse ideas y herramientas.",
+    tasksCompleted: "CompletÃ© idea del compaÃ±ero, tomÃ© iniciativa en documento, propuse ideas y herramientas.",
     blockers: "Backend, Git y ClickUp (herramientas nuevas).",
     areasToImprove: "Git, ClickUp.",
-    nextSprintFocus: "Aprender herramientas, aportar ideas, ayudar compañeros.",
+    nextSprintFocus: "Aprender herramientas, aportar ideas, ayudar compaÃ±eros.",
     improvementProposals: "Buen trabajo con herramientas del profesor y Google Docs.",
   },
   {
     memberId: "e4-3",
-    memberName: "Aguilar Buendía Bruno",
+    memberName: "Aguilar BuendÃ­a Bruno",
     teamId: 4,
     sprint: 1,
     productivity: "Bueno",
@@ -396,10 +396,10 @@ export const sprintData: SprintEvaluation[] = [
     objectivesCompleted: "Excelente",
     selfEvaluation: 4,
     tasksCompleted: "Parte del punto 4 y 5 del README y PDF de UI para lab1.",
-    blockers: "Saturación de la escuela.",
+    blockers: "SaturaciÃ³n de la escuela.",
     areasToImprove: "Ninguna.",
     nextSprintFocus: "Backend.",
-    improvementProposals: "Mejor organización y definir líder/Scrum Master.",
+    improvementProposals: "Mejor organizaciÃ³n y definir lÃ­der/Scrum Master.",
   },
 
   // === EQUIPO 5 ===
@@ -413,11 +413,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Bueno",
     selfEvaluation: 5,
-    tasksCompleted: "Pdf del Readdy, organización de github (readme e inicio de frontend), organización del equipo.",
-    blockers: "No entender del todo que era lo que había por entregar.",
-    areasToImprove: "Aprender y enseñar a mis compañeras github.",
-    nextSprintFocus: "Implementación técnica.",
-    improvementProposals: "Comunicación entre todas las integrantes los días que no hay clases sobre el progreso.",
+    tasksCompleted: "Pdf del Readdy, organizaciÃ³n de github (readme e inicio de frontend), organizaciÃ³n del equipo.",
+    blockers: "No entender del todo que era lo que habÃ­a por entregar.",
+    areasToImprove: "Aprender y enseÃ±ar a mis compaÃ±eras github.",
+    nextSprintFocus: "ImplementaciÃ³n tÃ©cnica.",
+    improvementProposals: "ComunicaciÃ³n entre todas las integrantes los dÃ­as que no hay clases sobre el progreso.",
   },
   {
     memberId: "e5-2",
@@ -429,11 +429,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 5,
-    tasksCompleted: "Realice la organización en Jira así como el escrito de documentación de iniciación del proyecto así como la conexión del backend.",
-    blockers: "Se me complican mucho entender todo el proceso de backend y frontend, son muchas terminologías y estoy revuelta.",
+    tasksCompleted: "Realice la organizaciÃ³n en Jira asÃ­ como el escrito de documentaciÃ³n de iniciaciÃ³n del proyecto asÃ­ como la conexiÃ³n del backend.",
+    blockers: "Se me complican mucho entender todo el proceso de backend y frontend, son muchas terminologÃ­as y estoy revuelta.",
     areasToImprove: "Falta de conocimiento de Git.",
-    nextSprintFocus: "Aún no nos hemos organizado entre el equipo en el siguiente Sprint.",
-    improvementProposals: "Comunicación.",
+    nextSprintFocus: "AÃºn no nos hemos organizado entre el equipo en el siguiente Sprint.",
+    improvementProposals: "ComunicaciÃ³n.",
   },
 
   // === EQUIPO 6 ===
@@ -451,11 +451,11 @@ export const sprintData: SprintEvaluation[] = [
     blockers: "Falta de conocimiento de ciertas herramientas.",
     areasToImprove: "Repasar conocimientos generales, desarrollo backend, JavaScript.",
     nextSprintFocus: "Mayor escrutinio a los alcances y definir entidades para BD.",
-    improvementProposals: "Más espacios de trabajo en paralelo.",
+    improvementProposals: "MÃ¡s espacios de trabajo en paralelo.",
   },
   {
     memberId: "e6-2",
-    memberName: "González Sánchez Raúl Alejandro",
+    memberName: "GonzÃ¡lez SÃ¡nchez RaÃºl Alejandro",
     teamId: 6,
     sprint: 1,
     productivity: "Bueno",
@@ -463,11 +463,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Excelente",
     selfEvaluation: 4,
-    tasksCompleted: "Creación del backend y pruebas en Postman.",
-    blockers: "Por razones personales no pudo conectarse a la reunión en línea del equipo.",
-    areasToImprove: "Aprender a usar las distintas páginas/herramientas.",
+    tasksCompleted: "CreaciÃ³n del backend y pruebas en Postman.",
+    blockers: "Por razones personales no pudo conectarse a la reuniÃ³n en lÃ­nea del equipo.",
+    areasToImprove: "Aprender a usar las distintas pÃ¡ginas/herramientas.",
     nextSprintFocus: "Apoyo en las fases avanzadas de lo que se pida.",
-    improvementProposals: "El equipo trabajó muy bien de la forma en que lo hizo.",
+    improvementProposals: "El equipo trabajÃ³ muy bien de la forma en que lo hizo.",
   },
 
   // === EQUIPO 7 ===
@@ -481,15 +481,15 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Bueno",
     selfEvaluation: 4,
-    tasksCompleted: "Organización del tablero JIRA, ideas para prompt final.",
+    tasksCompleted: "OrganizaciÃ³n del tablero JIRA, ideas para prompt final.",
     blockers: "Ninguno.",
     areasToImprove: "Por el momento no.",
-    nextSprintFocus: "Diseño del diagrama ER.",
+    nextSprintFocus: "DiseÃ±o del diagrama ER.",
     improvementProposals: "Ninguna.",
   },
   {
     memberId: "e7-2",
-    memberName: "Rodríguez Rodríguez Erick Tadeo",
+    memberName: "RodrÃ­guez RodrÃ­guez Erick Tadeo",
     teamId: 7,
     sprint: 1,
     productivity: "Excelente",
@@ -498,10 +498,10 @@ export const sprintData: SprintEvaluation[] = [
     objectivesCompleted: "Excelente",
     selfEvaluation: 5,
     tasksCompleted: "Diagrama de arquitectura, ayuda con prompt completo.",
-    blockers: "Número de personas (no supieron dividirse bien).",
-    areasToImprove: "Comunicación hacia compañeros.",
-    nextSprintFocus: "Aprender más sobre backend.",
-    improvementProposals: "Organizarse mejor desde el primer día.",
+    blockers: "NÃºmero de personas (no supieron dividirse bien).",
+    areasToImprove: "ComunicaciÃ³n hacia compaÃ±eros.",
+    nextSprintFocus: "Aprender mÃ¡s sobre backend.",
+    improvementProposals: "Organizarse mejor desde el primer dÃ­a.",
   },
   {
     memberId: "e7-3",
@@ -513,11 +513,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Excelente",
     selfEvaluation: 3,
-    tasksCompleted: "Entendimiento de peticiones y comunicación en equipo.",
-    blockers: "Enfermedad, llegó tarde al equipo.",
-    areasToImprove: "Comunicación y acercamiento con compañeros.",
+    tasksCompleted: "Entendimiento de peticiones y comunicaciÃ³n en equipo.",
+    blockers: "Enfermedad, llegÃ³ tarde al equipo.",
+    areasToImprove: "ComunicaciÃ³n y acercamiento con compaÃ±eros.",
     nextSprintFocus: "Entender mejor el backend.",
-    improvementProposals: "Reunión de al menos 20 minutos tipo junta.",
+    improvementProposals: "ReuniÃ³n de al menos 20 minutos tipo junta.",
   },
   {
     memberId: "e7-4",
@@ -529,11 +529,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Bueno",
     selfEvaluation: 4,
-    tasksCompleted: "Inició documento con objetivo, usuarios, etc.",
-    blockers: "Falta de instrucciones, confusión.",
+    tasksCompleted: "IniciÃ³ documento con objetivo, usuarios, etc.",
+    blockers: "Falta de instrucciones, confusiÃ³n.",
     areasToImprove: "Backend, APIs y funcionamiento.",
-    nextSprintFocus: "Creación de tablas de SQL.",
-    improvementProposals: "El equipo fue muy bueno organizándose.",
+    nextSprintFocus: "CreaciÃ³n de tablas de SQL.",
+    improvementProposals: "El equipo fue muy bueno organizÃ¡ndose.",
   },
   {
     memberId: "e7-5",
@@ -545,15 +545,15 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Excelente",
     selfEvaluation: 5,
-    tasksCompleted: "Organización e idea inicial, creación de repos Git, monitoreo de avances, unificación de prompts.",
+    tasksCompleted: "OrganizaciÃ³n e idea inicial, creaciÃ³n de repos Git, monitoreo de avances, unificaciÃ³n de prompts.",
     blockers: "No conocer al equipo.",
     areasToImprove: "Repasar temas para evitar lagunas.",
     nextSprintFocus: "Modelos ER.",
-    improvementProposals: "Declarar tareas desde el día 1.",
+    improvementProposals: "Declarar tareas desde el dÃ­a 1.",
   },
   {
     memberId: "e7-6",
-    memberName: "Cruz Chávez Miguel Ángel",
+    memberName: "Cruz ChÃ¡vez Miguel Ãngel",
     teamId: 7,
     sprint: 1,
     productivity: "Excelente",
@@ -561,17 +561,17 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 4,
-    tasksCompleted: "Redacción del enfoque, definición de usuarios, README en GitHub.",
-    blockers: "Perdió la organización inicial.",
-    areasToImprove: "Estar atento y en comunicación constante.",
-    nextSprintFocus: "Diseño del modelo de datos.",
+    tasksCompleted: "RedacciÃ³n del enfoque, definiciÃ³n de usuarios, README en GitHub.",
+    blockers: "PerdiÃ³ la organizaciÃ³n inicial.",
+    areasToImprove: "Estar atento y en comunicaciÃ³n constante.",
+    nextSprintFocus: "DiseÃ±o del modelo de datos.",
     improvementProposals: "Definir tareas y apoyar si hay problemas.",
   },
 
   // === EQUIPO 8 ===
   {
     memberId: "e8-1",
-    memberName: "Herrera Hernández Diego",
+    memberName: "Herrera HernÃ¡ndez Diego",
     teamId: 8,
     sprint: 1,
     productivity: "Excelente",
@@ -579,15 +579,15 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 5,
-    tasksCompleted: "Checar lo del Backend, organizar la reunión para finalizar el trabajo.",
-    blockers: "Adaptación a mi horario del servicio social que hago actualmente, y otras actividades.",
+    tasksCompleted: "Checar lo del Backend, organizar la reuniÃ³n para finalizar el trabajo.",
+    blockers: "AdaptaciÃ³n a mi horario del servicio social que hago actualmente, y otras actividades.",
     areasToImprove: "Hacer las cosas un poco antes.",
-    nextSprintFocus: "Desenvolverme en la programación en general.",
-    improvementProposals: "Repartir mejor las tareas y establecer momentos de reunión para realizar el trabajo de manera rutinaria.",
+    nextSprintFocus: "Desenvolverme en la programaciÃ³n en general.",
+    improvementProposals: "Repartir mejor las tareas y establecer momentos de reuniÃ³n para realizar el trabajo de manera rutinaria.",
   },
   {
     memberId: "e8-2",
-    memberName: "Sebastián Cervantes Vanesa",
+    memberName: "SebastiÃ¡n Cervantes Vanesa",
     teamId: 8,
     sprint: 1,
     productivity: "Excelente",
@@ -595,15 +595,15 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Bueno",
     selfEvaluation: 4,
-    tasksCompleted: "Documentación, diseño de la IA.",
-    blockers: "No supo cómo hacer endpoints.",
-    areasToImprove: "Más conocimientos de cómo manejar las diferentes plataformas.",
+    tasksCompleted: "DocumentaciÃ³n, diseÃ±o de la IA.",
+    blockers: "No supo cÃ³mo hacer endpoints.",
+    areasToImprove: "MÃ¡s conocimientos de cÃ³mo manejar las diferentes plataformas.",
     nextSprintFocus: "Manejo de plataformas, aterrizar idea inicial.",
-    improvementProposals: "Más organización y mejorar conocimiento.",
+    improvementProposals: "MÃ¡s organizaciÃ³n y mejorar conocimiento.",
   },
   {
     memberId: "e8-3",
-    memberName: "González Hernández Leslie Danaé",
+    memberName: "GonzÃ¡lez HernÃ¡ndez Leslie DanaÃ©",
     teamId: 8,
     sprint: 1,
     productivity: "Aceptable",
@@ -611,11 +611,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Bueno",
     selfEvaluation: 3,
-    tasksCompleted: "Simulador de UI, documento de requerimientos, objetivos del proyecto, diagrama básico. Intentó ayudar con endpoints.",
+    tasksCompleted: "Simulador de UI, documento de requerimientos, objetivos del proyecto, diagrama bÃ¡sico. IntentÃ³ ayudar con endpoints.",
     blockers: "Dificultad con desarrollo de endpoints.",
     areasToImprove: "Manejo de plataformas para backend.",
     nextSprintFocus: "Identificar relaciones entre secciones.",
-    improvementProposals: "Mejorar comunicación, familiarizarse con temas.",
+    improvementProposals: "Mejorar comunicaciÃ³n, familiarizarse con temas.",
   },
   {
     memberId: "e8-4",
@@ -627,11 +627,11 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Excelente",
     objectivesCompleted: "Excelente",
     selfEvaluation: 4,
-    tasksCompleted: "Apoye en la documentación y en el prompt original para todo el desarrollo.",
+    tasksCompleted: "Apoye en la documentaciÃ³n y en el prompt original para todo el desarrollo.",
     blockers: "Tiempo limitado por otras materias y responsabilidades.",
-    areasToImprove: "Mejor gestión de tiempo y dedicarle más tiempo a entender cada entorno.",
+    areasToImprove: "Mejor gestiÃ³n de tiempo y dedicarle mÃ¡s tiempo a entender cada entorno.",
     nextSprintFocus: "Mejorar experiencia de usuario.",
-    improvementProposals: "Dividir tareas grandes en más pequeñas.",
+    improvementProposals: "Dividir tareas grandes en mÃ¡s pequeÃ±as.",
   },
 
   // === EQUIPO 9 ===
@@ -645,15 +645,15 @@ export const sprintData: SprintEvaluation[] = [
     quality: "Bueno",
     objectivesCompleted: "Bueno",
     selfEvaluation: 4,
-    tasksCompleted: "Realización de gran parte de los requerimientos, formato y desglose del documento.",
+    tasksCompleted: "RealizaciÃ³n de gran parte de los requerimientos, formato y desglose del documento.",
     blockers: "Desconocimiento del desarrollo del sistema, conceptos y herramientas.",
-    areasToImprove: "Conocimientos básicos de desarrollo de sistemas.",
+    areasToImprove: "Conocimientos bÃ¡sicos de desarrollo de sistemas.",
     nextSprintFocus: "APIs.",
-    improvementProposals: "Mejor aportación, solo dos personas están trabajando.",
+    improvementProposals: "Mejor aportaciÃ³n, solo dos personas estÃ¡n trabajando.",
   },
   {
     memberId: "e9-2",
-    memberName: "Ríos Barrera Arantza Ilian",
+    memberName: "RÃ­os Barrera Arantza Ilian",
     teamId: 9,
     sprint: 1,
     productivity: "Aceptable",
@@ -662,10 +662,10 @@ export const sprintData: SprintEvaluation[] = [
     objectivesCompleted: "Bueno",
     selfEvaluation: 4,
     tasksCompleted: "Prompt de UI y pruebas en Postman.",
-    blockers: "Falta de familiaridad con algunos términos.",
+    blockers: "Falta de familiaridad con algunos tÃ©rminos.",
     areasToImprove: "Tener los conceptos claros y mejorar conocimientos.",
     nextSprintFocus: "Backend.",
-    improvementProposals: "Mejorar la comunicación y la forma de repartir el trabajo.",
+    improvementProposals: "Mejorar la comunicaciÃ³n y la forma de repartir el trabajo.",
   },
 ];
 
@@ -676,32 +676,32 @@ export const felicitaciones: Felicitacion[] = [
   // Sprint 1
   { from: "Martinez Rodriguez Fernando", fromTeam: 4, to: "Josue", sprint: 1, reason: "Aporta mucho y organiza" },
   { from: "Martinez Rodriguez Fernando", fromTeam: 4, to: "Bruno", sprint: 1, reason: "Aporta mucho" },
-  { from: "Trinidad Potrero Josue", fromTeam: 4, to: "Bruno", sprint: 1, reason: "Muy buen desempeño" },
-  { from: "Trinidad Potrero Josue", fromTeam: 4, to: "Fernando", sprint: 1, reason: "Muy buen desempeño" },
-  { from: "Aguilar Buendía Bruno", fromTeam: 4, to: "Fernando", sprint: 1 },
+  { from: "Trinidad Potrero Josue", fromTeam: 4, to: "Bruno", sprint: 1, reason: "Muy buen desempeÃ±o" },
+  { from: "Trinidad Potrero Josue", fromTeam: 4, to: "Fernando", sprint: 1, reason: "Muy buen desempeÃ±o" },
+  { from: "Aguilar BuendÃ­a Bruno", fromTeam: 4, to: "Fernando", sprint: 1 },
   { from: "StudyLink", fromTeam: 3, to: "Estefani", sprint: 1 },
   { from: "Del Angel Santiago Monserrat Guadalupe", fromTeam: 3, to: "Dominguez Lira Estefani Michelle", sprint: 1 },
-  { from: "Del Angel Santiago Monserrat Guadalupe", fromTeam: 3, to: "Ruiz García Emiliano", sprint: 1 },
-  { from: "Hernández Peña Angel Adrian", fromTeam: 1, to: "Ramón Medina", sprint: 1 },
-  { from: "Gil De Gaona Jazmín", fromTeam: 1, to: "Ángel", sprint: 1 },
-  { from: "Medina Hernández Ramón", fromTeam: 1, to: "Angel", sprint: 1 },
+  { from: "Del Angel Santiago Monserrat Guadalupe", fromTeam: 3, to: "Ruiz GarcÃ­a Emiliano", sprint: 1 },
+  { from: "HernÃ¡ndez PeÃ±a Angel Adrian", fromTeam: 1, to: "RamÃ³n Medina", sprint: 1 },
+  { from: "Gil De Gaona JazmÃ­n", fromTeam: 1, to: "Ãngel", sprint: 1 },
+  { from: "Medina HernÃ¡ndez RamÃ³n", fromTeam: 1, to: "Angel", sprint: 1 },
   { from: "Buenrostro Cruces Sarai", fromTeam: 1, to: "Angel", sprint: 1 },
-  { from: "Velázquez Martínez Antonio", fromTeam: 2, to: "Carlos", sprint: 1 },
+  { from: "VelÃ¡zquez MartÃ­nez Antonio", fromTeam: 2, to: "Carlos", sprint: 1 },
   { from: "Herrera Franco Samuel", fromTeam: 2, to: "Carlos", sprint: 1 },
-  { from: "Villeda López Saúl", fromTeam: 2, to: "Carlos", sprint: 1 },
-  { from: "Herrera Hernández Diego", fromTeam: 8, to: "Todos colaboraron igual", sprint: 1 },
-  { from: "Sebastián Cervantes Vanesa", fromTeam: 8, to: "Diego Herrera Hernández", sprint: 1 },
-  { from: "González Hernández Leslie Danaé", fromTeam: 8, to: "Diego Herrera Hernández", sprint: 1 },
+  { from: "Villeda LÃ³pez SaÃºl", fromTeam: 2, to: "Carlos", sprint: 1 },
+  { from: "Herrera HernÃ¡ndez Diego", fromTeam: 8, to: "Todos colaboraron igual", sprint: 1 },
+  { from: "SebastiÃ¡n Cervantes Vanesa", fromTeam: 8, to: "Diego Herrera HernÃ¡ndez", sprint: 1 },
+  { from: "GonzÃ¡lez HernÃ¡ndez Leslie DanaÃ©", fromTeam: 8, to: "Diego Herrera HernÃ¡ndez", sprint: 1 },
   { from: "Baez Villanueva Mauricio Omar", fromTeam: 8, to: "Diego", sprint: 1 },
-  { from: "Rodríguez Rodríguez Erick Tadeo", fromTeam: 7, to: "Todo el equipo", sprint: 1, reason: "Se complementaron muy bien" },
+  { from: "RodrÃ­guez RodrÃ­guez Erick Tadeo", fromTeam: 7, to: "Todo el equipo", sprint: 1, reason: "Se complementaron muy bien" },
   { from: "Marquez Espinoza Alyn Veronica", fromTeam: 7, to: "Arturo", sprint: 1 },
-  { from: "Hernandez Martinez Monserrat", fromTeam: 7, to: "Arthur", sprint: 1, reason: "Buen líder y explicando" },
-  { from: "Moreno Vigueras Arturo Tadeo", fromTeam: 7, to: "Miguel Ángel", sprint: 1, reason: "Sacó de dudas" },
-  { from: "Cruz Chávez Miguel Ángel", fromTeam: 7, to: "Todos", sprint: 1, reason: "Muy proactivos" },
+  { from: "Hernandez Martinez Monserrat", fromTeam: 7, to: "Arthur", sprint: 1, reason: "Buen lÃ­der y explicando" },
+  { from: "Moreno Vigueras Arturo Tadeo", fromTeam: 7, to: "Miguel Ãngel", sprint: 1, reason: "SacÃ³ de dudas" },
+  { from: "Cruz ChÃ¡vez Miguel Ãngel", fromTeam: 7, to: "Todos", sprint: 1, reason: "Muy proactivos" },
   { from: "Cortes Cortes Bryan Yael", fromTeam: 9, to: "Cortes Cortes Bryan Yael", sprint: 1 },
-  { from: "Ríos Barrera Arantza Ilian", fromTeam: 9, to: "Yael Cortes", sprint: 1 },
+  { from: "RÃ­os Barrera Arantza Ilian", fromTeam: 9, to: "Yael Cortes", sprint: 1 },
   { from: "Escutia Pascacio Eduardo Emiliano", fromTeam: 6, to: "Michelle", sprint: 1 },
-  { from: "González Sánchez Raúl Alejandro", fromTeam: 6, to: "Moctezuma Isidro Michelle", sprint: 1 },
+  { from: "GonzÃ¡lez SÃ¡nchez RaÃºl Alejandro", fromTeam: 6, to: "Moctezuma Isidro Michelle", sprint: 1 },
   { from: "Alitzel Sophia Camacho Flores", fromTeam: 5, to: "Cristina", sprint: 1, reason: "Por la idea del proyecto y estar al pendiente" },
   { from: "Cristina Vianeth Saiz Perez", fromTeam: 5, to: "Ali", sprint: 1 },
 ];
@@ -733,7 +733,7 @@ export const getFelicitacionesForPerson = (personName: string, sprint?: number):
   );
 };
 
-// Normaliza nombres para agrupar variaciones (Ángel/Angel, Arturo/Arthur, Diego/Diego Herrera, etc)
+// Normaliza nombres para agrupar variaciones (Ãngel/Angel, Arturo/Arthur, Diego/Diego Herrera, etc)
 const normalizeStudentName = (name: string): string => {
   let normalized = name.toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Remover acentos
@@ -741,7 +741,7 @@ const normalizeStudentName = (name: string): string => {
   // Mapeo de nombres equivalentes
   const nameAliases: Record<string, string> = {
     'angel': 'angel',
-    'ángel': 'angel',
+    'Ã¡ngel': 'angel',
     'arturo': 'arturo',
     'arthur': 'arturo',
     'diego': 'diego',
@@ -774,13 +774,13 @@ const normalizeStudentName = (name: string): string => {
 
 export const countFelicitaciones = (sprint?: number): Map<string, number> => {
   const counts = new Map<string, number>();
-  const displayNames = new Map<string, string>(); // Para guardar la versión capitalizada
+  const displayNames = new Map<string, string>(); // Para guardar la versiÃ³n capitalizada
   const filtered = sprint !== undefined 
     ? felicitaciones.filter(f => f.sprint === sprint) 
     : felicitaciones;
   
   filtered.forEach(f => {
-    // Ignorar felicitaciones genéricas como "Todos" o "Todo el equipo"
+    // Ignorar felicitaciones genÃ©ricas como "Todos" o "Todo el equipo"
     if (f.to.toLowerCase().includes('todos') || f.to.toLowerCase().includes('todo el equipo')) {
       return;
     }
@@ -788,7 +788,7 @@ export const countFelicitaciones = (sprint?: number): Map<string, number> => {
     const key = normalizeStudentName(f.to);
     counts.set(key, (counts.get(key) || 0) + 1);
     
-    // Guardar una versión capitalizada del nombre
+    // Guardar una versiÃ³n capitalizada del nombre
     if (!displayNames.has(key)) {
       displayNames.set(key, f.to);
     }
@@ -839,7 +839,7 @@ export const calculateTeamAverages = (teamId: number, sprint?: number) => {
 
 // ========================================
 // RECOMENDACIONES POR EQUIPO
-// Basadas en análisis de las respuestas
+// Basadas en anÃ¡lisis de las respuestas
 // ========================================
 export interface TeamRecommendation {
   teamId: number;
@@ -855,23 +855,23 @@ export const teamRecommendations: TeamRecommendation[] = [
     teamId: 1,
     sprint: 1,
     strengths: [
-      "Excelente comunicación y organización del equipo",
-      "Proactividad en compartir materiales y documentación",
-      "Buena validación con usuarios finales (profesores)",
+      "Excelente comunicaciÃ³n y organizaciÃ³n del equipo",
+      "Proactividad en compartir materiales y documentaciÃ³n",
+      "Buena validaciÃ³n con usuarios finales (profesores)",
     ],
     areasToImprove: [
-      "Conocimientos técnicos en Git/GitHub",
+      "Conocimientos tÃ©cnicos en Git/GitHub",
       "Manejo de bases de datos (PostgreSQL, MongoDB)",
-      "Comunicación en línea (mensajes, documentos)",
+      "ComunicaciÃ³n en lÃ­nea (mensajes, documentos)",
     ],
     recommendations: [
       "Implementar sesiones de pair programming para Git/GitHub",
       "Crear un repositorio de ideas y sistema de recompensas internas",
-      "Establecer canales de comunicación asíncrona más efectivos",
+      "Establecer canales de comunicaciÃ³n asÃ­ncrona mÃ¡s efectivos",
     ],
     blockersSummary: [
       "Bloqueos mentales por proyectos de gran magnitud",
-      "Manejo del estrés y tiempos",
+      "Manejo del estrÃ©s y tiempos",
     ],
   },
   {
@@ -879,28 +879,28 @@ export const teamRecommendations: TeamRecommendation[] = [
     sprint: 1,
     strengths: [
       "Buenas ideas iniciales para el proyecto",
-      "Un integrante reconocido por 3 compañeros - aporte valioso al equipo",
-      "Creatividad en propuestas de diseño",
+      "Un integrante reconocido por 3 compaÃ±eros - aporte valioso al equipo",
+      "Creatividad en propuestas de diseÃ±o",
       "Aportes para ampliar el mercado del sitio web",
     ],
     areasToImprove: [
-      "Comunicación entre integrantes - CRÍTICO (mencionado por todos)",
+      "ComunicaciÃ³n entre integrantes - CRÃTICO (mencionado por todos)",
       "Conocimiento de APIs, endpoints y bases de datos",
       "Habilidades blandas y trabajo en equipo",
-      "Percepción de participación desigual",
+      "PercepciÃ³n de participaciÃ³n desigual",
     ],
     recommendations: [
       "URGENTE: Establecer reuniones obligatorias semanales fuera del laboratorio",
-      "Crear un canal de comunicación activo (WhatsApp/Discord) para coordinación diaria",
-      "Definir roles claros y responsabilidades específicas para cada miembro",
-      "Realizar sesiones de capacitación en APIs REST y bases de datos",
-      "Abordar conflicto de percepciones entre integrantes sobre participación",
-      "Establecer métricas claras de contribución para evitar malentendidos",
+      "Crear un canal de comunicaciÃ³n activo (WhatsApp/Discord) para coordinaciÃ³n diaria",
+      "Definir roles claros y responsabilidades especÃ­ficas para cada miembro",
+      "Realizar sesiones de capacitaciÃ³n en APIs REST y bases de datos",
+      "Abordar conflicto de percepciones entre integrantes sobre participaciÃ³n",
+      "Establecer mÃ©tricas claras de contribuciÃ³n para evitar malentendidos",
     ],
     blockersSummary: [
-      "Solo se reúnen en el laboratorio - sin comunicación fuera de clase",
-      "Percepción encontrada sobre participación del equipo",
-      "Desconocimiento de temas técnicos (APIs, BD)",
+      "Solo se reÃºnen en el laboratorio - sin comunicaciÃ³n fuera de clase",
+      "PercepciÃ³n encontrada sobre participaciÃ³n del equipo",
+      "Desconocimiento de temas tÃ©cnicos (APIs, BD)",
       "Profesor no agregado al board (agregar: diegoromemora27@gmail.com)",
       "Solo 2 integrantes agregados en GitHub - faltan 2",
     ],
@@ -909,19 +909,19 @@ export const teamRecommendations: TeamRecommendation[] = [
     teamId: 3,
     sprint: 1,
     strengths: [
-      "Líder muy proactivo y organizado",
-      "Buena documentación y uso de herramientas (Notion, Postman)",
-      "Claridad en la definición de requerimientos",
+      "LÃ­der muy proactivo y organizado",
+      "Buena documentaciÃ³n y uso de herramientas (Notion, Postman)",
+      "Claridad en la definiciÃ³n de requerimientos",
     ],
     areasToImprove: [
-      "Asistencia y participación del equipo completo",
+      "Asistencia y participaciÃ³n del equipo completo",
       "Conceptos de Bases de Datos y Estructuras de Datos",
-      "Comunicación activa de todos los integrantes",
+      "ComunicaciÃ³n activa de todos los integrantes",
     ],
     recommendations: [
       "Establecer compromisos de asistencia con el equipo",
       "Distribuir tareas de forma que todos participen activamente",
-      "Organizar sesiones de repaso de conceptos técnicos",
+      "Organizar sesiones de repaso de conceptos tÃ©cnicos",
     ],
     blockersSummary: [
       "Inasistencia de integrantes",
@@ -934,21 +934,21 @@ export const teamRecommendations: TeamRecommendation[] = [
     strengths: [
       "Buen trabajo en equipo usando herramientas colaborativas",
       "Iniciativa en proponer ideas y herramientas",
-      "Uso efectivo de Google Docs para trabajo simultáneo",
+      "Uso efectivo de Google Docs para trabajo simultÃ¡neo",
     ],
     areasToImprove: [
       "Definir mejor roles (Scrum Master)",
       "Conocimientos de backend y Git",
-      "Comunicación verbal más activa",
+      "ComunicaciÃ³n verbal mÃ¡s activa",
     ],
     recommendations: [
       "Designar un Scrum Master oficial rotativo",
-      "Mejorar la comunicación y hablar más en las reuniones",
+      "Mejorar la comunicaciÃ³n y hablar mÃ¡s en las reuniones",
       "Continuar usando herramientas colaborativas",
     ],
     blockersSummary: [
       "Herramientas nuevas (Git, ClickUp)",
-      "Saturación escolar",
+      "SaturaciÃ³n escolar",
     ],
   },
   {
@@ -956,27 +956,27 @@ export const teamRecommendations: TeamRecommendation[] = [
     sprint: 1,
     strengths: [
       "Excelente calidad en los entregables",
-      "Buena organización con Jira",
-      "Documentación completa del proyecto (PDF, README)",
-      "Conexión exitosa del backend",
+      "Buena organizaciÃ³n con Jira",
+      "DocumentaciÃ³n completa del proyecto (PDF, README)",
+      "ConexiÃ³n exitosa del backend",
       "Apoyo mutuo y reconocimiento entre integrantes",
     ],
     areasToImprove: [
       "Conocimiento de Git/GitHub para todo el equipo",
-      "Comprensión de terminología técnica (backend/frontend)",
-      "Comunicación en días sin clases presenciales",
-      "Planificación anticipada del próximo sprint",
+      "ComprensiÃ³n de terminologÃ­a tÃ©cnica (backend/frontend)",
+      "ComunicaciÃ³n en dÃ­as sin clases presenciales",
+      "PlanificaciÃ³n anticipada del prÃ³ximo sprint",
     ],
     recommendations: [
-      "Establecer reuniones de seguimiento en días sin clases",
-      "Crear sesiones de capacitación en Git/GitHub (integrante con experiencia puede enseñar)",
-      "Elaborar un glosario de terminología técnica del proyecto",
+      "Establecer reuniones de seguimiento en dÃ­as sin clases",
+      "Crear sesiones de capacitaciÃ³n en Git/GitHub (integrante con experiencia puede enseÃ±ar)",
+      "Elaborar un glosario de terminologÃ­a tÃ©cnica del proyecto",
       "Definir tareas del siguiente sprint antes de terminar el actual",
       "Clarificar entregables con el profesor al inicio del sprint",
     ],
     blockersSummary: [
-      "Confusión sobre qué era lo que había que entregar",
-      "Muchas terminologías técnicas nuevas",
+      "ConfusiÃ³n sobre quÃ© era lo que habÃ­a que entregar",
+      "Muchas terminologÃ­as tÃ©cnicas nuevas",
     ],
   },
   {
@@ -985,49 +985,49 @@ export const teamRecommendations: TeamRecommendation[] = [
     strengths: [
       "Buen desarrollo de frontend y backend (trabajo complementario)",
       "Seguimiento de tiempos y recordatorios efectivos",
-      "Delimitación efectiva de alcances mediante llamadas",
-      "Buena colaboración y reconocimiento mutuo entre integrantes",
-      "Trabajo bien organizado según los integrantes",
+      "DelimitaciÃ³n efectiva de alcances mediante llamadas",
+      "Buena colaboraciÃ³n y reconocimiento mutuo entre integrantes",
+      "Trabajo bien organizado segÃºn los integrantes",
     ],
     areasToImprove: [
-      "Conocimiento de herramientas específicas",
+      "Conocimiento de herramientas especÃ­ficas",
       "Desarrollo backend y JavaScript",
-      "Un integrante no respondió la encuesta",
-      "Disponibilidad para reuniones en línea",
+      "Un integrante no respondiÃ³ la encuesta",
+      "Disponibilidad para reuniones en lÃ­nea",
     ],
     recommendations: [
-      "Crear más espacios de trabajo en paralelo",
+      "Crear mÃ¡s espacios de trabajo en paralelo",
       "Enfocarse en definir entidades para la base de datos",
-      "Capacitación en JavaScript para desarrollo futuro",
+      "CapacitaciÃ³n en JavaScript para desarrollo futuro",
       "Involucrar a todos los integrantes activamente en el siguiente sprint",
       "Flexibilizar horarios de reuniones para todos los integrantes",
     ],
     blockersSummary: [
       "Falta de conocimiento de ciertas herramientas",
       "Razones personales impidieron asistencia a reuniones",
-      "Un integrante no respondió la encuesta",
+      "Un integrante no respondiÃ³ la encuesta",
     ],
   },
   {
     teamId: 7,
     sprint: 1,
     strengths: [
-      "Excelente organización con JIRA",
+      "Excelente organizaciÃ³n con JIRA",
       "Equipo grande pero bien coordinado",
       "Liderazgo efectivo del equipo",
-      "Buena unificación de prompts y visión del proyecto",
+      "Buena unificaciÃ³n de prompts y visiÃ³n del proyecto",
       "Alta proactividad de todos los miembros",
     ],
     areasToImprove: [
-      "División de tareas al inicio del sprint",
+      "DivisiÃ³n de tareas al inicio del sprint",
       "Conocimientos de backend y APIs",
       "Algunos miembros llegaron tarde al equipo",
     ],
     recommendations: [
       "Implementar reuniones diarias de 15 minutos (Daily Standup)",
-      "Declarar tareas desde el día 1 del sprint",
+      "Declarar tareas desde el dÃ­a 1 del sprint",
       "Continuar con el modelo de liderazgo actual",
-      "Capacitación en backend para todo el equipo",
+      "CapacitaciÃ³n en backend para todo el equipo",
     ],
     blockersSummary: [
       "No conocerse previamente",
@@ -1038,53 +1038,53 @@ export const teamRecommendations: TeamRecommendation[] = [
     teamId: 8,
     sprint: 1,
     strengths: [
-      "Un integrante reconocido por 3 compañeros - liderazgo valorado",
-      "Excelente colaboración del equipo (todos respondieron)",
-      "Buena documentación y prompts originales",
-      "Trabajo en diseño de IA y simulador de UI",
-      "El líder busca involucrar a todos sin dejar a nadie atrás",
+      "Un integrante reconocido por 3 compaÃ±eros - liderazgo valorado",
+      "Excelente colaboraciÃ³n del equipo (todos respondieron)",
+      "Buena documentaciÃ³n y prompts originales",
+      "Trabajo en diseÃ±o de IA y simulador de UI",
+      "El lÃ­der busca involucrar a todos sin dejar a nadie atrÃ¡s",
     ],
     areasToImprove: [
       "Manejo de endpoints y backend",
-      "Familiarización con nuevas plataformas",
-      "Gestión del tiempo personal (otras materias y servicio social)",
+      "FamiliarizaciÃ³n con nuevas plataformas",
+      "GestiÃ³n del tiempo personal (otras materias y servicio social)",
     ],
     recommendations: [
       "Establecer reuniones rutinarias de trabajo",
-      "Dividir tareas grandes en más pequeñas",
-      "Capacitación en endpoints y backend para todo el equipo",
-      "Mejorar comunicación y conocimiento técnico",
+      "Dividir tareas grandes en mÃ¡s pequeÃ±as",
+      "CapacitaciÃ³n en endpoints y backend para todo el equipo",
+      "Mejorar comunicaciÃ³n y conocimiento tÃ©cnico",
     ],
     blockersSummary: [
       "Tiempo limitado por otras materias y servicio social",
       "Dificultad con desarrollo de endpoints",
-      "Adaptación a nuevas plataformas",
+      "AdaptaciÃ³n a nuevas plataformas",
     ],
   },
   {
     teamId: 9,
     sprint: 1,
     strengths: [
-      "Buen trabajo en documentación de requerimientos",
+      "Buen trabajo en documentaciÃ³n de requerimientos",
       "Prompt de UI y pruebas en Postman completadas",
       "Reconocimiento mutuo entre los dos integrantes activos",
     ],
     areasToImprove: [
-      "Comunicación y forma de repartir el trabajo",
-      "Conocimientos básicos de desarrollo de sistemas",
-      "Familiarización con términos técnicos",
-      "Participación: solo dos personas respondieron",
+      "ComunicaciÃ³n y forma de repartir el trabajo",
+      "Conocimientos bÃ¡sicos de desarrollo de sistemas",
+      "FamiliarizaciÃ³n con tÃ©rminos tÃ©cnicos",
+      "ParticipaciÃ³n: solo dos personas respondieron",
     ],
     recommendations: [
-      "Mejorar la comunicación entre integrantes",
-      "Definir mejor la distribución de tareas",
-      "Sesiones de capacitación en conceptos básicos de desarrollo",
-      "Verificar si hay más integrantes y hacer seguimiento",
+      "Mejorar la comunicaciÃ³n entre integrantes",
+      "Definir mejor la distribuciÃ³n de tareas",
+      "Sesiones de capacitaciÃ³n en conceptos bÃ¡sicos de desarrollo",
+      "Verificar si hay mÃ¡s integrantes y hacer seguimiento",
       "Enfocarse en backend y APIs para el siguiente sprint",
     ],
     blockersSummary: [
       "Desconocimiento del desarrollo del sistema",
-      "Falta de familiaridad con términos técnicos",
+      "Falta de familiaridad con tÃ©rminos tÃ©cnicos",
       "Solo dos personas trabajando activamente",
     ],
   },
@@ -1096,7 +1096,7 @@ export const getTeamRecommendations = (teamId: number, sprint?: number): TeamRec
   );
 };
 
-// Función para obtener el equipo de un estudiante reconocido
+// FunciÃ³n para obtener el equipo de un estudiante reconocido
 export const findStudentTeam = (studentName: string): Team | undefined => {
   const normalized = studentName.toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
